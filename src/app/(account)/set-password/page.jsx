@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 // Validation Schema
@@ -18,7 +18,7 @@ const schema = yup.object().shape({
     .required("Confirm password is required"),
 });
 
-export default function SetPasswordPage() {
+function SetPasswordForm() {
   const {
     register,
     handleSubmit,
@@ -26,6 +26,7 @@ export default function SetPasswordPage() {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
   const [message, setMessage] = useState("");
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
@@ -67,5 +68,13 @@ export default function SetPasswordPage() {
       </form>
       {message && <p>{message}</p>}
     </div>
+  );
+}
+
+export default function SetPasswordPage() {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <SetPasswordForm />
+    </Suspense>
   );
 }
