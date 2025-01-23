@@ -1,0 +1,93 @@
+@use "@/styles/mixin.scss" as *;
+
+.headerTop {
+  background: #111111;
+  padding: rem(20) 0;
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .col1 {
+      display: flex;
+      gap: rem(18);
+      .soc {
+        display: flex;
+        align-items: center;
+        height: rem(40);
+        gap: rem(10);
+        background: #f1f1f11a;
+        border-radius: rem(12);
+        padding: 0 rem(18);
+      }
+    }
+    .col2 {
+      display: flex;
+      gap: rem(18);
+      .cart {
+        display: flex;
+        align-items: center;
+        height: rem(40);
+        background: #f1f1f11a;
+        border-radius: rem(12);
+        padding: 0 rem(18);
+      }
+    }
+    .headAccount {
+      display: flex;
+      align-items: center;
+      background: #f1f1f11a;
+      border-radius: rem(12);
+      color: #fff;
+      font-size: rem(16);
+      font-weight: 400;
+      line-height: 1.1;
+      @media (max-width: rem(992)) {
+        display: none;
+      }
+      a {
+        color: #fff;
+        font-size: rem(16);
+        font-weight: 400;
+        line-height: 1.1;
+        padding: 0 rem(18);
+        height: rem(40);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  padding: rem(20) 0;
+  transition: all 0.5s;
+  &.active {
+    background: #111111;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      display: flex;
+    }
+    .nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: rem(24);
+      @media (max-width: rem(992)) {
+        display: none;
+      }
+      a {
+        color: #fff;
+        font-size: rem(16);
+        font-weight: 400;
+        line-height: 1.1;
+        text-align: left;
+      }
+    }
+  }
+}
