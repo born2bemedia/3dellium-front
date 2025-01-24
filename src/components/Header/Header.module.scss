@@ -47,7 +47,7 @@
       a {
         color: #fff;
         font-size: rem(16);
-        font-weight: 400;
+        font-weight: 300;
         line-height: 1.1;
         padding: 0 rem(18);
         height: rem(40);
@@ -64,6 +64,8 @@
   top: 0;
   padding: rem(20) 0;
   transition: all 0.5s;
+  z-index: 999;
+  background: transparent;
   &.active {
     background: #111111;
   }
@@ -84,7 +86,7 @@
       a {
         color: #fff;
         font-size: rem(16);
-        font-weight: 400;
+        font-weight: 300;
         line-height: 1.1;
         text-align: left;
       }
