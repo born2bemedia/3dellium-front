@@ -6,17 +6,17 @@ import Footer from "@/components/Footer/Footer";
 const helvetica = localFont({
   src: [
     {
-      path: "./fonts/Helvetica-light.woff",
+      path: "./fonts/Helvetica-Light.woff",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./fonts/Helvetica-light.woff2",
+      path: "./fonts/Helvetica-Light.woff2",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./fonts/Helvetica-light.ttf",
+      path: "./fonts/Helvetica-Light.ttf",
       weight: "300",
       style: "normal",
     },
