@@ -1,0 +1,21 @@
+@use "@/styles/mixin.scss" as *;
+
+.videoRow {
+  display: flex;
+  gap: rem(30);
+  flex-wrap: wrap;
+  > div {
+    width: calc(50% - rem(15));
+    @media (max-width: rem(992)) {
+      width: 100%;
+    }
+    > div {
+      width: 100% !important;
+      height: rem(250) !important;
+      border-radius: rem(20);
+      overflow: hidden;
+      video {
+      }
+    }
+  }
+}

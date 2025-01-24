@@ -11,7 +11,7 @@ const WeAnimate = () => {
     <section className="main-section">
       <div className="_container">
         <SectionTitle
-          label={"We Simplify"}
+          label={"We Animate"}
           title={
             "Bring emotions to life—express, connect, <br/>and make moments memorable."
           }
