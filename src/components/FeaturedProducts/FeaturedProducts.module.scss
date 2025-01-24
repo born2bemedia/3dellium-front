@@ -1,0 +1,12 @@
+@use "@/styles/mixin.scss" as *;
+
+.productRow {
+  display: flex;
+  gap: rem(18);
+  @media (max-width:rem(992)){
+    flex-direction: column;
+    >div{
+        width: 100%;
+    }
+  }
+}

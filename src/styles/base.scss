@@ -7,7 +7,6 @@
   border: 0px;
 }
 
-
 *,
 *:before,
 *:after {
@@ -30,7 +29,7 @@ header,
 section {
   display: block;
 }
-h1{
+h1 {
   //font-family: var(--font-helvetica-neue);
 }
 html,
@@ -38,7 +37,7 @@ body {
   height: 100%;
   min-width: $minWidth;
   scroll-behavior: smooth;
-  font-family: var(--font-helvetica), sans-serif;;
+  font-family: var(--font-helvetica), sans-serif;
   @media (min-width: rem(1400)) {
     zoom: 1;
     ._container {
@@ -147,7 +146,7 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #1D4C29;
+    background-color: #1d4c29;
     border-radius: rem(100);
   }
 }
@@ -568,9 +567,15 @@ body {
   }
 }
 
-
-main{
+main {
   @media (max-width: rem(992)) {
     //overflow-x: hidden;
+  }
+}
+
+.main-section {
+  margin: rem(88) 0;
+  @media (max-width: rem(992)) {
+    margin: rem(60) 0;
   }
 }
