@@ -1,8 +1,14 @@
 import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
 import "@/styles/base.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 const helvetica = localFont({
   src: [
@@ -105,13 +111,13 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${helvetica.variable} ${helveticaNeue.variable}`}
+      className={`${poppins.className} ${helvetica.variable} ${helveticaNeue.variable}`}
     >
       <body>
         <Header />
         <main>{children}</main>
         <Footer />
-        <SmoothScroll />
+        {/**<SmoothScroll /> */}
       </body>
     </html>
   );

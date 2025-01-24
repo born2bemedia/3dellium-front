@@ -5,6 +5,7 @@ const CACHE_TAG_PRODUCTS = "products";
 
 const useProductStore = create((set) => ({
   products: [],
+  product: null,
   categories: [],
   loading: false,
   error: null,
@@ -22,6 +23,31 @@ const useProductStore = create((set) => ({
       set({ products: data.docs || [], loading: false });
     } catch (error) {
       set({ error: "Failed to fetch products", loading: false });
+    }
+  },
+
+  fetchSingleProductBySlug: async (slug) => {
+    set({ loading: true, error: null });
+    try {
+      const response = await fetch(
+        `${API_URL}/api/products?where[slug][equals]=${slug}`,
+        {
+          cache: "no-store",
+          next: {
+            tags: [CACHE_TAG_PRODUCTS],
+          },
+        }
+      );
+      const data = await response.json();
+
+      if (data.docs.length === 0) {
+        set({ error: "Product not found", loading: false });
+        return;
+      }
+
+      set({ product: data.docs[0], loading: false });
+    } catch (error) {
+      set({ error: "Failed to fetch product", loading: false });
     }
   },
 

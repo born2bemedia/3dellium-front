@@ -6,6 +6,7 @@ import styles from "./FeaturedProductCard.module.scss";
 import Link from "next/link";
 import AddToCartButton from "../AddToCartButton";
 import Image from "next/image";
+import AddToCartButtonLoop from "../AddToCartButtonLoop/AddToCartButtonLoop";
 
 const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 
@@ -18,27 +19,27 @@ const FeaturedProductCard = ({ product }) => {
       variants={fadeInUp}
       className={styles.card}
     >
-      <Link href="#">
-        <div className={styles.cardTop}>
-          <div className={styles.cardImage}>
-            <Image
-              width={264}
-              height={197}
-              src={
-                product.image?.url
-                  ? `${API_URL}${product.image.url}`
-                  : "/placeholder.jpg"
-              }
-              alt={product.title}
-            />
-          </div>
-          <h3>{product.title}</h3>
-        </div>
-        <div className={styles.cardBottom}>
-          <span className={styles.price}>€{product.price}</span>
-          <AddToCartButton product={product} />
+      <Link href={`/product/${product.slug}`}>
+        <h3>{product.title}</h3>
+        <div className={styles.cardImage}>
+          <Image
+            fill
+            src={
+              product.image?.url
+                ? `${API_URL}${product.image.url}`
+                : "/placeholder.jpg"
+            }
+            alt={product.title}
+          />
         </div>
       </Link>
+      <div className={styles.cardBottom}>
+        <span className={styles.price}>
+          {product.price}
+          <span>€</span>
+        </span>
+        <AddToCartButtonLoop product={product} />
+      </div>
     </motion.div>
   );
 };
