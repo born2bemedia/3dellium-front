@@ -1,6 +1,7 @@
-import HomeHero from "./components/HomeHero";
+import HomeHero from "./components/HomeHero/HomeHero";
 import WeAnimate from "./components/WeAnimate";
 import WeCapture from "./components/WeCapture";
+import WeDesign from "./components/WeDesign";
 import WeSimplify from "./components/WeSimplify";
 import styles from "./page.module.scss";
 import useAuthStore from "@/stores/authStore";
@@ -12,6 +13,7 @@ export default function Home() {
       <WeSimplify />
       <WeAnimate />
       <WeCapture />
+      <WeDesign />
     </>
   );
 }

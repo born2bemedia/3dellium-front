@@ -1,6 +1,7 @@
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import React from "react";
 import VideoRow from "./VideoRow/VideoRow";
+import LearnMoreButton from "@/components/LearnMoreButton/LearnMoreButton";
 
 const WeCapture = () => {
   return (
@@ -16,6 +17,7 @@ const WeCapture = () => {
           }
         />
         <VideoRow />
+        <LearnMoreButton text={"Learn More"} link={"#"} />
       </div>
     </section>
   );

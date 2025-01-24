@@ -1,0 +1,23 @@
+@use "@/styles/mixin.scss" as *;
+
+.designRow {
+  display: flex;
+  gap: rem(30);
+  flex-wrap: wrap;
+  .imageWrap {
+    position: relative;
+    width: calc(50% - rem(15));
+    height: rem(350);
+    overflow: hidden;
+    border-radius: rem(20);
+    @media (max-width: rem(992)) {
+      width: 100%;
+      img{
+        width: auto!important;
+        max-width: unset;
+        left: 50%!important;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

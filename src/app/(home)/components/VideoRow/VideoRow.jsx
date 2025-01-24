@@ -1,5 +1,7 @@
 "use client";
 import React from "react";
+import { fadeInUp } from "@/utils/animations";
+import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import styles from "./VideoRow.module.scss";
 
@@ -28,7 +30,13 @@ const VideoRow = ({ animation = false }) => {
   return (
     <div className={styles.videoRow}>
       {videoArray.map((video, index) => (
-        <div key={index}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          key={index}
+        >
           <ReactPlayer
             url={video.video}
             light={video.cover}
@@ -38,7 +46,7 @@ const VideoRow = ({ animation = false }) => {
             loop={true}
             className={styles.video}
           />
-        </div>
+        </motion.div>
       ))}
     </div>
   );
