@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "@/styles/base.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const helvetica = localFont({
   src: [
@@ -110,6 +111,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main>{children}</main>
         <Footer />
+        <SmoothScroll />
       </body>
     </html>
   );

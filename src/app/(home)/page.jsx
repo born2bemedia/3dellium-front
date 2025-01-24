@@ -1,3 +1,6 @@
+import NeedAssistance from "@/components/NeedAssistance/NeedAssistance";
+import CtaBlock from "./components/CtaBlock/CtaBlock";
+import HighQualityDesigns from "./components/HighQualityDesigns/HighQualityDesigns";
 import HomeHero from "./components/HomeHero/HomeHero";
 import WeAnimate from "./components/WeAnimate";
 import WeCapture from "./components/WeCapture";
@@ -14,6 +17,9 @@ export default function Home() {
       <WeAnimate />
       <WeCapture />
       <WeDesign />
+      <CtaBlock />
+      <HighQualityDesigns />
+      <NeedAssistance />
     </>
   );
 }
