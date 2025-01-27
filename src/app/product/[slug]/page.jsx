@@ -1,5 +1,7 @@
 "use server";
 
+import ProductHero from "../components/ProductHero/ProductHero";
+
 const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 
 async function getProductBySlug(slug) {
@@ -33,7 +35,8 @@ const ProductPage = async ({ params }) => {
   }
 
   return (
-    <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
+    <>
+      {/**<div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
       <h1>{product.title}</h1>
       <img
         src={`${API_URL}${product.image?.url}`}
@@ -44,7 +47,9 @@ const ProductPage = async ({ params }) => {
       <p>
         <strong>Price:</strong> ${product.price}
       </p>
-    </div>
+    </div> */}
+      <ProductHero product={product} />
+    </>
   );
 };
 

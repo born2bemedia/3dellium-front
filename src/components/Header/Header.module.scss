@@ -66,8 +66,10 @@
   transition: all 0.5s;
   z-index: 999;
   background: transparent;
+  
   &.active {
-    background: #111111;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
   }
   .row {
     display: flex;
@@ -84,7 +86,7 @@
         display: none;
       }
       a {
-        color: #fff;
+        color: #000000;
         font-size: rem(16);
         font-weight: 300;
         line-height: 1.1;

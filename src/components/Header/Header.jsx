@@ -75,7 +75,7 @@ const Header = () => {
         <div className="_container">
           <div className={styles.row}>
             <Link href="/">
-              <img src="/images/logo.svg" />
+              <img src="/images/head_logo.svg" />
             </Link>
             <nav className={styles.nav}>
               <Link href="#">3D Modelling</Link>

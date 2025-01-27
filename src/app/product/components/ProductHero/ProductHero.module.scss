@@ -1,0 +1,104 @@
+@use "@/styles/mixin.scss" as *;
+
+.productHero {
+  margin: rem(50) 0;
+  .body {
+    display: flex;
+    gap: rem(30);
+    @media (max-width: rem(992)) {
+      flex-direction: column;
+    }
+    .col1 {
+      @media (max-width: rem(992)) {
+        width: 100%;
+      }
+      .productGallery {
+        display: flex;
+        gap: rem(30);
+        @media (max-width: rem(992)) {
+          flex-direction: column-reverse;
+        }
+        .gallery {
+          width: rem(160);
+          display: flex;
+          flex-direction: column;
+          gap: rem(24);
+          @media (max-width: rem(992)) {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: rem(16);
+          }
+          img {
+            object-fit: cover;
+            border-radius: rem(16);
+            &.active {
+              border: 1px solid #1d4c29;
+            }
+            @media (max-width: rem(992)) {
+              width: calc(33.33% - rem(11)) !important;
+              height: auto !important;
+            }
+          }
+        }
+        .mainImage {
+          width: rem(445);
+          height: rem(543);
+          position: relative;
+          overflow: hidden;
+          border-radius: rem(20);
+          @media (max-width: rem(992)) {
+            width: 100%;
+            height: rem(420);
+          }
+          img {
+            left: 50% !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto !important;
+            height: auto !important;
+          }
+        }
+      }
+    }
+    .col2 {
+      width: calc(100% - rem(665));
+      @media (max-width: rem(992)) {
+        width: 100%;
+      }
+      h1 {
+        color: #0c0c0c;
+        font-size: rem(40);
+        font-weight: 500;
+        line-height: 1.2;
+        text-align: left;
+        margin-bottom: rem(24);
+      }
+      .notice {
+        background: #eff3f0;
+        padding: rem(16);
+        border-radius: rem(16);
+        h4 {
+          color: #000000;
+          font-size: rem(18);
+          font-weight: 700;
+          line-height: 1.2;
+          text-align: left;
+          margin-bottom: rem(8);
+          display: flex;
+          align-items: center;
+          gap: rem(8);
+        }
+        p {
+          color: #000000;
+          font-size: rem(14);
+          font-weight: 400;
+          line-height: 1.3;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
