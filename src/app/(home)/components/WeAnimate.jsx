@@ -18,7 +18,7 @@ const WeAnimate = () => {
           }
           classValue="left"
           buttonText="See More"
-          buttonLink="#"
+          buttonLink="/animations"
         />
         <FeaturedProducts
           categorySlugs={featuredCategories}

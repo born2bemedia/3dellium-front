@@ -83,7 +83,7 @@ const ShopHero = ({ categorySlugs, title, subtitle, image, imageMob }) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={fadeInLeft}
+          variants={fadeInUp}
           className={styles.body}
           style={{ backgroundImage: `url(${imageMob})` }}
         >

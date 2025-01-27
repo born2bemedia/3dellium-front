@@ -23,7 +23,7 @@ const WeSimplify = () => {
             "Our ready-to-print 3D plans are crafted to bring small conveniences and big smiles to your daily routines. Elevate your home, workspace, and personal projects with practical designs for real-life needs."
           }
           buttonText="Discover More"
-          buttonLink="#"
+          buttonLink="/3d-modelling"
 
         />
         <FeaturedProducts categorySlugs={featuredCategories} />
