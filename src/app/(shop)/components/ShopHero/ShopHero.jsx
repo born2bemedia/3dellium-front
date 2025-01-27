@@ -10,7 +10,9 @@ import Link from "next/link";
 const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const API_TOKEN = process.env.NEXT_PUBLIC_CMS_API_TOKEN;
 
-const ShopHero = ({ categorySlugs }) => {
+const CACHE_TAG_PRODUCTS = "products";
+
+const ShopHero = ({ categorySlugs, title, subtitle, image, imageMob }) => {
   const [heroProduct, setHeroProduct] = useState(null);
 
   useEffect(() => {
@@ -39,6 +41,10 @@ const ShopHero = ({ categorySlugs }) => {
             headers: {
               Authorization: `Bearer ${API_TOKEN}`,
               "Content-Type": "application/json",
+            },
+            cache: "force-cache",
+            next: {
+              tags: [CACHE_TAG_PRODUCTS],
             },
           }
         );
@@ -70,8 +76,8 @@ const ShopHero = ({ categorySlugs }) => {
           variants={fadeInLeft}
           className={styles.title}
         >
-          <h1>3D Modelling</h1>
-          <p>Explore. Print. Simplify Life.</p>
+          <h1>{title}</h1>
+          <p>{subtitle}</p>
         </motion.div>
         <motion.div
           initial="hidden"
@@ -79,6 +85,7 @@ const ShopHero = ({ categorySlugs }) => {
           viewport={{ once: true }}
           variants={fadeInLeft}
           className={styles.body}
+          style={{ backgroundImage: `url(${imageMob})` }}
         >
           {heroProduct && (
             <div className={styles.heroProduct}>
@@ -108,12 +115,7 @@ const ShopHero = ({ categorySlugs }) => {
             </div>
           )}
 
-          <Image
-            src={"/images/modelling/hero.png"}
-            width={1360}
-            height={545}
-            alt="hero"
-          />
+          <Image src={image} width={1360} height={545} alt="hero" />
         </motion.div>
       </div>
     </section>

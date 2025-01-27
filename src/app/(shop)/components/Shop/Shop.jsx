@@ -149,54 +149,62 @@ export default function Shop({ categorySlugs }) {
               </div>
             </div>
 
-            <div className={styles.type}>
-              <button
-                className={styles.selected}
-                onClick={() => setTypeOpened(!typeOpened)}
-              >
-                Type
-              </button>
-              <div
-                className={`${styles.options} ${typeOpened && styles.opened}`}
-              >
-                {categories.map((cat) => (
-                  <label key={cat.id}>
-                    <input
-                      type="radio"
-                      name="type"
-                      value={cat.id}
-                      checked={selectedCategory === cat.id}
-                      onChange={() => setType(cat.id)}
-                    />
-                    <span>{cat.title}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div className={styles.categories}>
-              {categories.map((cat) => (
-                <label key={cat.id}>
-                  <input
-                    type="radio"
-                    name="category"
-                    value={cat.id}
-                    checked={selectedCategory === cat.id}
-                    onChange={() => setSelectedCategory(cat.id)}
-                  />
-                  <div>
-                    {cat.slug == "phone-accessories" && <PhoneAccessories />}
-                    {cat.slug == "desktop-organization" && (
-                      <DesktopOrganization />
-                    )}
-                    {cat.slug == "board-games" && <BoardGames />}
-                    {cat.slug == "pet-accessories" && <PetAccessories />}
-                    {cat.slug == "renovation-tools" && <RenovationTools />}
-                    <span>{cat.title}</span>
+            {categories.length > 1 && (
+              <>
+                <div className={styles.type}>
+                  <button
+                    className={styles.selected}
+                    onClick={() => setTypeOpened(!typeOpened)}
+                  >
+                    Type
+                  </button>
+                  <div
+                    className={`${styles.options} ${
+                      typeOpened && styles.opened
+                    }`}
+                  >
+                    {categories.map((cat) => (
+                      <label key={cat.id}>
+                        <input
+                          type="radio"
+                          name="type"
+                          value={cat.id}
+                          checked={selectedCategory === cat.id}
+                          onChange={() => setType(cat.id)}
+                        />
+                        <span>{cat.title}</span>
+                      </label>
+                    ))}
                   </div>
-                </label>
-              ))}
-            </div>
+                </div>
+
+                <div className={styles.categories}>
+                  {categories.map((cat) => (
+                    <label key={cat.id}>
+                      <input
+                        type="radio"
+                        name="category"
+                        value={cat.id}
+                        checked={selectedCategory === cat.id}
+                        onChange={() => setSelectedCategory(cat.id)}
+                      />
+                      <div>
+                        {cat.slug == "phone-accessories" && (
+                          <PhoneAccessories />
+                        )}
+                        {cat.slug == "desktop-organization" && (
+                          <DesktopOrganization />
+                        )}
+                        {cat.slug == "board-games" && <BoardGames />}
+                        {cat.slug == "pet-accessories" && <PetAccessories />}
+                        {cat.slug == "renovation-tools" && <RenovationTools />}
+                        <span>{cat.title}</span>
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              </>
+            )}
 
             <div className={styles.filtering}>
               <button

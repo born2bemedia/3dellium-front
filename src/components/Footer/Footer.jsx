@@ -36,7 +36,7 @@ const Footer = () => {
                 <Link href="/3d-modelling">3d Modelling</Link>
               </li>
               <li>
-                <Link href="#">Animations</Link>
+                <Link href="/animations">Animations</Link>
               </li>
               <li>
                 <Link href="#">Video Production</Link>

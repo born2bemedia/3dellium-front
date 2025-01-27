@@ -4,22 +4,16 @@ import ShopHero from "../components/ShopHero/ShopHero";
 import ShopAssistance from "../components/ShopAssistance/ShopAssistance";
 
 const page = () => {
-  const categories = [
-    "renovation-tools",
-    "pet-accessories",
-    "board-games",
-    "desktop-organization",
-    "phone-accessories",
-  ];
+  const categories = ["animations"];
 
   return (
     <>
       <ShopHero
         categorySlugs={categories}
-        title={"3D Modelling"}
-        subtitle={"Explore. Print. Simplify Life."}
-        image={"/images/modelling/hero.png"}
-        imageMob={"/images/modelling/heroMob.png"}
+        title={"Animations"}
+        subtitle={"Move. Express. Enrich Life."}
+        image={"/images/animations/hero.png"}
+        imageMob={"/images/animations/heroMob.png"}
       />
       <Shop categorySlugs={categories} />
       <ShopAssistance />

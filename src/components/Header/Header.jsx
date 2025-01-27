@@ -83,7 +83,7 @@ const Header = () => {
             </button>
             <nav className={styles.nav}>
               <Link href="/3d-modelling">3D Modelling</Link>
-              <Link href="#">Animations</Link>
+              <Link href="/animations">Animations</Link>
               <Link href="#">Video Production</Link>
               <Link href="#">UX & UI</Link>
               <Link href="#">Ideas</Link>

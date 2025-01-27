@@ -42,6 +42,7 @@
     }
     .body {
       position: relative;
+      background-size: 0;
       @media (max-width: rem(992)) {
         background: #eae1cd;
         padding: rem(16);
