@@ -25,7 +25,9 @@ const HighQualityDesigns = () => {
             variants={fadeInUp}
             className={styles.col}
           >
-            <img src="/images/home/feature1.svg" />
+            <div className={styles.icon}>
+              <img src="/images/home/feature1.svg" />
+            </div>
             <h3>Expert Craftsmanship</h3>
             <p>
               Every design is meticulously created <br />
@@ -39,7 +41,9 @@ const HighQualityDesigns = () => {
             variants={fadeInUp}
             className={styles.col}
           >
-            <img src="/images/home/feature2.svg" />
+            <div className={styles.icon}>
+              <img src="/images/home/feature2.svg" />
+            </div>
             <h3>Precision and Detail</h3>
             <p>
               Tested, refined, and optimized for <br />
@@ -53,7 +57,9 @@ const HighQualityDesigns = () => {
             variants={fadeInUp}
             className={styles.col}
           >
-            <img src="/images/home/feature3.svg" />
+            <div className={styles.icon}>
+              <img src="/images/home/feature3.svg" />
+            </div>
             <h3>User-Centered Approach</h3>
             <p>
               Practical, intuitive, and tailored to <br />

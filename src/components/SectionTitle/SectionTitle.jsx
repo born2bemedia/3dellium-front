@@ -3,10 +3,24 @@ import React from "react";
 import { fadeInUp } from "@/utils/animations";
 import { motion } from "framer-motion";
 import styles from "./SectionTitle.module.scss";
+import MoreButton from "../MoreButton/MoreButton";
+import LearnMoreButton from "../LearnMoreButton/LearnMoreButton";
 
-const SectionTitle = ({ label, title, text }) => {
+const SectionTitle = ({
+  label,
+  title,
+  text,
+  classValue,
+  buttonText,
+  buttonType,
+  buttonLink,
+}) => {
   return (
-    <div className={styles.sectionTitle}>
+    <div
+      className={`${styles.sectionTitle} ${
+        classValue == "left" && styles.left
+      }`}
+    >
       <motion.span
         initial="hidden"
         whileInView="visible"
@@ -32,6 +46,11 @@ const SectionTitle = ({ label, title, text }) => {
         className={styles.text}
         dangerouslySetInnerHTML={{ __html: text }}
       />
+      {buttonType == "learn" ? (
+        <LearnMoreButton text={buttonText} link={buttonLink} />
+      ) : (
+        <MoreButton text={buttonText} link={buttonLink} />
+      )}
     </div>
   );
 };

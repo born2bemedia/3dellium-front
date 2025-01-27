@@ -2,8 +2,34 @@
 
 .productRow {
   display: flex;
-  >div{
+  flex-wrap: wrap;
+  margin-top: -400px;
+  @media (max-width: rem(992)) {
+    margin: 0;
+  }
+  &.left {
+    > div {
+      &:first-child {
+        margin-left: unset;
+        margin-right: 75%;
+        @media (max-width: rem(992)) {
+          margin: 0;
+        }
+      }
+    }
+  }
+  > div {
     width: 25%;
+    &:first-child {
+      margin-left: 75%;
+
+      @media (max-width: rem(992)) {
+        margin: 0;
+      }
+    }
+    &:nth-child(2) {
+      order: 3;
+    }
   }
   @media (max-width: rem(992)) {
     flex-wrap: wrap;

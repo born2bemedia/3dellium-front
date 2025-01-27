@@ -7,6 +7,7 @@ import FacebookIcon from "@/icons/socials/FacebookIcon";
 import XIcon from "@/icons/socials/XIcon";
 import InstagramIcon from "@/icons/socials/InstagramIcon";
 import CartIcon from "@/icons/CartIcon";
+import MenuIcon from "@/icons/MenuIcon";
 
 const Header = () => {
   const { user, logout } = useAuthStore();
@@ -77,6 +78,9 @@ const Header = () => {
             <Link href="/">
               <img src="/images/head_logo.svg" />
             </Link>
+            <button className={styles.menuBtn}>
+              <MenuIcon />
+            </button>
             <nav className={styles.nav}>
               <Link href="/3d-modelling">3D Modelling</Link>
               <Link href="#">Animations</Link>

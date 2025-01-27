@@ -27,8 +27,8 @@ const NeedAssistance = () => {
               variants={fadeInUp}
               className={styles.text}
             >
-              Have questions or need a custom design? We’re here to help!{" "}
-              <i>Let’s talk and bring your ideas to life.</i>
+              Have questions or need a custom design?
+              <b>We’re here to help!</b>
             </motion.p>
           </div>
           <div className={styles.col2}>

@@ -1,22 +1,49 @@
 @use "@/styles/mixin.scss" as *;
 
-.designRow {
-  display: flex;
-  gap: rem(30);
-  flex-wrap: wrap;
-  .imageWrap {
-    position: relative;
-    width: calc(50% - rem(15));
-    height: rem(350);
+.designRowWrap {
+  height: calc(rem(455) * 4);
+  @media (max-width: rem(992)) {
+    height: calc(rem(300) * 4);
+  }
+  > div {
+    position: sticky;
+    top: rem(80);
     overflow: hidden;
-    border-radius: rem(20);
-    @media (max-width: rem(992)) {
-      width: 100%;
-      img{
-        width: auto!important;
+    .designRow {
+      display: flex;
+      gap: rem(30);
+      overflow: hidden;
+      position: relative;
+      left: calc((100vw - rem(1142)) / 2);
+      width: calc(rem(838) * 4);
+      @media (max-width: rem(992)) {
+        left: rem(16);
+        width: calc(rem(250) * 4);
+      }
+      .imageWrap {
+        position: relative;
+        width: rem(838);
+        height: rem(455);
+        overflow: hidden;
+        border-radius: rem(20);
         max-width: unset;
-        left: 50%!important;
-        transform: translateX(-50%);
+        background-position: center;
+        background-size: cover;
+        img {
+          object-fit: cover;
+          height: 100% !important;
+          width: auto !important;
+        }
+        @media (max-width: rem(992)) {
+          width: 100%;
+          img {
+            width: auto !important;
+            max-width: unset;
+            left: 50% !important;
+            transform: translateX(-50%);
+            object-fit: cover;
+          }
+        }
       }
     }
   }

@@ -11,9 +11,12 @@
     }
     > div {
       width: 100% !important;
-      height: rem(250) !important;
+      height: rem(350) !important;
       border-radius: rem(20);
       overflow: hidden;
+      @media (max-width: rem(992)) {
+        height: rem(250) !important;
+      }
       video {
       }
     }

@@ -66,10 +66,10 @@
   transition: all 0.5s;
   z-index: 999;
   background: transparent;
-  
+
   &.active {
     background: #fff;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
   .row {
     display: flex;
@@ -77,6 +77,12 @@
     justify-content: space-between;
     a {
       display: flex;
+    }
+    .menuBtn {
+      display: none;
+      @media (max-width: rem(992)) {
+        display: flex;
+      }
     }
     .nav {
       display: flex;

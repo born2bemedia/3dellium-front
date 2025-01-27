@@ -29,7 +29,7 @@ async function fetchLatestProductsFromCategories(categorySlugs) {
     const productsRes = await fetch(
       `${API_URL}/api/products?where[category][in]=${categoryIds.join(
         ","
-      )}&sort=-createdAt&limit=4`,
+      )}&sort=-createdAt&limit=3`,
       {
         headers: {
           Authorization: `Bearer ${API_TOKEN}`,
@@ -54,15 +54,23 @@ async function fetchLatestProductsFromCategories(categorySlugs) {
   }
 }
 
-export default async function FeaturedProducts({ categorySlugs }) {
+export default async function FeaturedProducts({ categorySlugs, classValue }) {
   const products = await fetchLatestProductsFromCategories(categorySlugs);
 
   return (
     <div>
-      <div className={styles.productRow}>
+      <div
+        className={`${styles.productRow} ${
+          classValue == "left" && styles.left
+        }`}
+      >
         {products.length > 0 ? (
-          products.map((product) => (
-            <FeaturedProductCard product={product} key={product.id} />
+          products.map((product, index) => (
+            <FeaturedProductCard
+              product={product}
+              key={product.id}
+              classValue={index === products.length - 2 ? "wide" : ""}
+            />
           ))
         ) : (
           <p>No products found.</p>

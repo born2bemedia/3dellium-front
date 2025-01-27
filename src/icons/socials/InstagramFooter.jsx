@@ -9,7 +9,7 @@ const InstagramFooter = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_180_3022)">
+      <g clipPath="url(#clip0_180_3022)">
         <rect width="56" height="56" rx="28" fill="#C5D2C8" />
         <path
           d="M33 19H23C20.7909 19 19 20.7909 19 23V33C19 35.2091 20.7909 37 23 37H33C35.2091 37 37 35.2091 37 33V23C37 20.7909 35.2091 19 33 19Z"

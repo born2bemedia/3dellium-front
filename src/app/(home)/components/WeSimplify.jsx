@@ -17,14 +17,16 @@ const WeSimplify = () => {
         <SectionTitle
           label={"We Simplify"}
           title={
-            "Smart tools, simple solutions—designed for <br/>your everyday life."
+            "Smart tools, simple solutions—designed for your everyday life."
           }
           text={
-            "Our ready-to-print 3D plans are crafted to bring small conveniences and big smiles to your daily routines. <br/>Elevate your home, workspace, and personal projects with practical designs for real-life needs."
+            "Our ready-to-print 3D plans are crafted to bring small conveniences and big smiles to your daily routines. Elevate your home, workspace, and personal projects with practical designs for real-life needs."
           }
+          buttonText="Discover More"
+          buttonLink="#"
+
         />
         <FeaturedProducts categorySlugs={featuredCategories} />
-        <MoreButton text={"Discover More"} link={"#"} />
       </div>
     </section>
   );

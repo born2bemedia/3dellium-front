@@ -1,0 +1,38 @@
+@use "@/styles/mixin.scss" as *;
+
+.main {
+  margin: rem(150) 0;
+  .body {
+    display: flex;
+    gap: rem(40);
+    align-items: center;
+    @media (max-width: rem(992)) {
+      flex-direction: column;
+    }
+    > div {
+      &:first-child {
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        h2,
+        p {
+          max-width: rem(800);
+          @media (max-width: rem(992)) {
+            max-width: 100%;
+          }
+        }
+
+        > div {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          @media (max-width: rem(992)) {
+            position: relative;
+            right: unset;
+            bottom: unset;
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,10 +4,11 @@
   margin-bottom: rem(50);
   .container {
     padding: 0 rem(40);
+    position: relative;
     @media (max-width: rem(992)) {
       padding: 0 rem(16);
     }
-    position: relative;
+
     .title {
       z-index: 1;
       position: absolute;

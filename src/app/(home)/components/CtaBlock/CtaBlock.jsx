@@ -4,6 +4,8 @@ import { fadeInUp } from "@/utils/animations";
 import { motion } from "framer-motion";
 import styles from "./CtaBlock.module.scss";
 import Link from "next/link";
+import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
+import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
 
 const CtaBlock = () => {
   return (
@@ -17,8 +19,17 @@ const CtaBlock = () => {
             variants={fadeInUp}
             className={styles.col1}
           >
-            <h2>It's 3Dellium!</h2>
-            <Link href="#">Explore Our World</Link>
+            <h2>
+              It's <br />
+              3Dellium!
+            </h2>
+            <Link href={"#"}>
+              <div>
+                <AddToCartArrow2 />
+                <span>Explore Our World</span>
+                <AddToCartArrow1 />
+              </div>
+            </Link>
           </motion.div>
           <div className={styles.col2}>
             <motion.div
