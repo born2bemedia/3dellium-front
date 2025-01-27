@@ -1,5 +1,7 @@
 "use server";
 
+import NeedAssistance from "../components/NeedAssistance/NeedAssistance";
+import PrintingRecommendations from "../components/PrintingRecommendations/PrintingRecommendations";
 import ProductHero from "../components/ProductHero/ProductHero";
 import { Metadata } from "next";
 
@@ -35,7 +37,7 @@ export async function generateMetadata({ params }) {
 
 async function getProductBySlug(slug) {
   try {
-   // console.time("API Fetch Timer");
+    // console.time("API Fetch Timer");
     const response = await fetch(
       `${API_URL}/api/products?where[slug][equals]=${slug}`,
       {
@@ -66,7 +68,13 @@ const ProductPage = async ({ params }) => {
     return <p>Product not found.</p>;
   }
 
-  return <ProductHero product={product} />;
+  return (
+    <>
+      <ProductHero product={product} />
+      <PrintingRecommendations />
+      <NeedAssistance />
+    </>
+  );
 };
 
 export default ProductPage;

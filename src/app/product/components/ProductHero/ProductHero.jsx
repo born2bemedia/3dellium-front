@@ -4,6 +4,7 @@ import styles from "./ProductHero.module.scss";
 import { fadeInUp } from "@/utils/animations";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import SingleAddToCartButton from "@/components/SingleAddToCartButton/SingleAddToCartButton";
 
 const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 
@@ -69,8 +70,28 @@ const ProductHero = ({ product }) => {
             className={styles.col2}
           >
             <h1>{product.title}</h1>
+            <div className={styles.productDetails}>
+              <div>
+                <h3>Type of delivery:</h3>
+                <div>
+                  <span>Digital Download</span>
+                </div>
+              </div>
+              <div>
+                <h3>What is included:</h3>
+                <div>
+                  <span>File 1</span>
+                  <span>File 2</span>
+                  <span>File 3</span>
+                </div>
+              </div>
+            </div>
+            <SingleAddToCartButton product={product} />
             <div className={styles.notice}>
-              <h4>Important Notice!</h4>
+              <h4>
+                <img src="/images/product/info.svg" />
+                Important Notice!
+              </h4>
               <p>
                 We sell 3D printing plans—not ready-made items. The final
                 printed result may vary depending on your printer settings,
