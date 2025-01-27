@@ -6,7 +6,7 @@ const cmsUrl = process.env.NEXT_PUBLIC_CMS_URL;
 
 const useAuthStore = create(
   persist(
-    (set) => ({
+    (set, get) => ({
       user: null,
       token: null,
 
@@ -57,6 +57,28 @@ const useAuthStore = create(
         set({ user: null, token: null });
         localStorage.removeItem("token");
         console.log("Logged out locally.");
+      },
+      fetchUserByEmail: async (email) => {
+        try {
+          const { token } = get(); // Get the token from the store if available
+          const response = await axios.get(
+            `${cmsUrl}/api/users?where[email][equals]=${email}`,
+            {
+              headers: {
+                Authorization: token ? `Bearer ${token}` : "",
+              },
+            }
+          );
+
+          if (response.data?.docs?.length > 0) {
+            return response.data.docs[0]; // Return the first user matching the email
+          }
+
+          return null; // Return null if no user is found
+        } catch (error) {
+          console.error("Error fetching user by email:", error);
+          throw new Error("Failed to fetch user by email");
+        }
       },
     }),
     {

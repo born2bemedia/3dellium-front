@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInLeft, fadeInRight, fadeInUp } from "@/utils/animations";
 import { motion } from "framer-motion";
 import styles from "./AnimationProcess.module.scss";
 import Image from "next/image";
@@ -35,7 +35,7 @@ const AnimationProcess = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={fadeInLeft}
           >
             <Image
               src={"/images/animations/process1.png"}
@@ -54,7 +54,7 @@ const AnimationProcess = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={fadeInRight}
           >
             <Image
               src={"/images/animations/process2.png"}
@@ -73,7 +73,7 @@ const AnimationProcess = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={fadeInLeft}
           >
             <Image
               src={"/images/animations/process3.png"}
@@ -92,7 +92,7 @@ const AnimationProcess = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={fadeInRight}
           >
             <Image
               src={"/images/animations/process4.png"}
