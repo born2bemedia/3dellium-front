@@ -44,7 +44,7 @@ async function fetchLatestProductsFromCategories(categorySlugs) {
     }
 
     const productsData = await productsRes.json();
-    console.log(productsData);
+    //console.log(productsData);
 
     // Return the latest 4 products
     return productsData.docs;

@@ -6,9 +6,154 @@
   * {
     color: #fff;
   }
-  .row {
-    .col1 {
-      border-bottom: 1px solid #f2f2f24d;
+  .mainRow {
+    width: 100%;
+    display: flex;
+    gap: rem(24);
+    @media (max-width: rem(992)) {
+      flex-direction: column;
+      position: relative;
+      gap: rem(40);
+    }
+    .soc {
+      display: flex;
+      flex-direction: column;
+      gap: rem(6);
+      @media (max-width: rem(992)) {
+        position: absolute;
+        right: 0;
+        top: rem(125);
+      }
+    }
+    .compamy {
+      width: 40%;
+      @media (max-width: rem(992)) {
+        width: 100%;
+      }
+      h2 {
+        color: #fff;
+        margin-top: rem(16);
+        font-size: rem(18);
+        font-weight: 300;
+        line-height: 1.2;
+        text-align: left;
+        text-transform: uppercase;
+      }
+    }
+    nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+      gap: rem(65);
+      @media (max-width: rem(992)) {
+        flex-direction: column;
+        gap: rem(24);
+      }
+      ul {
+        list-style-type: disc;
+        display: flex;
+        flex-direction: column;
+        gap: rem(8);
+        @media (max-width: rem(992)) {
+          padding-left: rem(18);
+        }
+        li {
+          list-style-type: disc;
+          a {
+            color: #fff;
+            font-size: rem(32);
+            font-weight: 300;
+            line-height: 1.2;
+            text-align: left;
+            @media (max-width: rem(992)) {
+              font-size: rem(18);
+            }
+          }
+        }
+      }
+    }
+  }
+  .contactsRow {
+    display: flex;
+    justify-content: space-between;
+    margin: rem(60) 0;
+    @media (max-width: rem(992)) {
+      flex-direction: column;
+      gap: rem(24);
+      margin: rem(40) 0;
+    }
+    > div {
+      display: flex;
+      gap: rem(24);
+      @media (max-width: rem(992)) {
+        justify-content: space-between;
+        width: 100%;
+      }
+      &.col2 {
+        justify-content: flex-end;
+        @media (max-width: rem(992)) {
+          justify-content: space-between;
+        }
+      }
+      > div {
+        h3 {
+          margin-bottom: rem(16);
+          font-size: rem(14);
+          font-weight: 700;
+          line-height: 1;
+          text-align: left;
+          color: #1d4c29;
+        }
+        p,
+        a {
+          color: #fff;
+          font-size: rem(18);
+          font-weight: 300;
+          line-height: 1.2;
+          text-align: left;
+        }
+      }
+    }
+  }
+  .legalRow {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: rem(992)) {
+      flex-direction: column-reverse;
+      gap: rem(24);
+    }
+    p {
+      color: #757575;
+      font-size: rem(14);
+      font-weight: 300;
+      line-height: 1.2;
+      text-align: left;
+      @media (max-width: rem(992)) {
+        width: 100%;
+      }
+    }
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: rem(24);
+      @media (max-width: rem(992)) {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        column-gap: 0;
+      }
+      a {
+        color: #757575;
+        font-size: rem(14);
+        font-weight: 300;
+        line-height: 1.2;
+        text-align: left;
+        &:hover {
+          color: #fff;
+        }
+        @media (max-width: rem(992)) {
+          width: 50%;
+        }
+      }
     }
   }
 }

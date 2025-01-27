@@ -1,17 +1,103 @@
 import React from "react";
 import styles from "./Footer.module.scss";
 import Link from "next/link";
-import FacebookIcon from "@/icons/socials/FacebookIcon";
-import XIcon from "@/icons/socials/XIcon";
-import InstagramIcon from "@/icons/socials/InstagramIcon";
+import InstagramFooter from "@/icons/socials/InstagramFooter";
+import FacebookFooter from "@/icons/socials/FacebookFooter";
+import { XFooter } from "@/icons/socials/XFooter";
 
 const Footer = () => {
+
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className={styles.footer}>
       <div className="_container">
-        <Link href="/">
-          <img src="/images/logo.svg" alt="Logo" />
-        </Link>
+        <div className={styles.mainRow}>
+          <div className={styles.soc}>
+            <Link href="#" target="_blank">
+              <InstagramFooter />
+            </Link>
+            <Link href="#" target="_blank">
+              <FacebookFooter />
+            </Link>
+            <Link href="#" target="_blank">
+              <XFooter />
+            </Link>
+          </div>
+          <div className={styles.compamy}>
+            <Link href="/">
+              <img src="/images/logo.svg" alt="Logo" />
+            </Link>
+            <h2>Company Name</h2>
+          </div>
+          <nav>
+            <ul>
+              <li>
+                <Link href="/3d-modelling">3d Modelling</Link>
+              </li>
+              <li>
+                <Link href="#">Animations</Link>
+              </li>
+              <li>
+                <Link href="#">Video Production</Link>
+              </li>
+              <li>
+                <Link href="#">UX & UI</Link>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <Link href="#">Factory Tour</Link>
+              </li>
+              <li>
+                <Link href="#">Ideas</Link>
+              </li>
+              <li>
+                <Link href="#">Contact Us</Link>
+              </li>
+              <li>
+                <Link href="#">Your Account</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div className={styles.contactsRow}>
+          <div className={styles.col1}>
+            <div>
+              <h3>Registration Address:</h3>
+              <p>text</p>
+            </div>
+            <div>
+              <h3>Office Address:</h3>
+              <p>text</p>
+            </div>
+          </div>
+          <div className={styles.col2}>
+            <div>
+              <h3>Phone:</h3>
+              <Link href="#">text</Link>
+            </div>
+            <div>
+              <h3>Email:</h3>
+              <Link href="#">text</Link>
+            </div>
+            <div>
+              <h3>Connect:</h3>
+              <Link href="#">text</Link>
+            </div>
+          </div>
+        </div>
+        <div className={styles.legalRow}>
+          <p className={styles.copy}>
+            All Rights Reserved. © {currentYear} Company Name
+          </p>
+          <nav>
+            <Link href="#">Terms of Use</Link>
+            <Link href="#">Privacy Policy</Link>
+            <Link href="#">Cookie Policy</Link>
+            <Link href="#">Refund Policy</Link>
+          </nav>
+        </div>
       </div>
     </footer>
   );
