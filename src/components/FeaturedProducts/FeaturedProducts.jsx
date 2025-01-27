@@ -5,6 +5,8 @@ import FeaturedProductCard from "../FeaturedProductCard/FeaturedProductCard";
 const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const API_TOKEN = process.env.NEXT_PUBLIC_CMS_API_TOKEN;
 
+const CACHE_TAG_PRODUCTS = "products";
+
 async function fetchLatestProductsFromCategories(categorySlugs) {
   try {
     const categoryRes = await fetch(
@@ -14,7 +16,10 @@ async function fetchLatestProductsFromCategories(categorySlugs) {
           Authorization: `Bearer ${API_TOKEN}`,
           "Content-Type": "application/json",
         },
-        cache: "no-store",
+        cache: "force-cache",
+        next: {
+          tags: [CACHE_TAG_PRODUCTS],
+        },
       }
     );
 
