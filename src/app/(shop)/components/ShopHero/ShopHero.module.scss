@@ -54,7 +54,10 @@
         background-repeat: no-repeat;
         background-size: contain;
       }
-      .heroProduct {
+      .heroProduct,
+      > div {
+        max-width: rem(259);
+        max-height: rem(308);
         position: absolute;
         left: rem(50);
         top: 35%;
@@ -80,6 +83,7 @@
           top: unset;
           max-width: rem(310);
           margin: 0 auto;
+          width: 100%;
         }
         a {
           width: rem(235);

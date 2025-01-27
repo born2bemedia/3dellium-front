@@ -105,9 +105,6 @@ export const metadata = {
   description: "",
 };
 
-console.log(helvetica.variable);
-console.log(helveticaNeue.variable);
-
 export default function RootLayout({ children }) {
   return (
     <html
