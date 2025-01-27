@@ -1,71 +1,300 @@
 @use "@/styles/mixin.scss" as *;
 
 .homeHero {
-  position: relative;
-  height: 100dvh;
-  margin-top: -67px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  video {
-    width: 100%;
-    height: auto;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    @media (max-width: rem(992)) {
-      height: 100%;
-      width: auto;
-    }
-  }
-  .overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    background: #00000066;
-    width: 100%;
-    height: 100%;
+  padding-top: rem(40);
+  @media (max-width: rem(992)) {
+    overflow-x: hidden;
   }
   .body {
+    display: flex;
+    justify-content: flex-start;
+    gap: rem(20);
     position: relative;
-    z-index: 2;
-    h1 {
-      font-size: rem(60);
-      font-weight: 300;
-      line-height: 1.3;
-      text-align: center;
-      color: #fff;
-      text-transform: uppercase;
-      margin-bottom: rem(24);
-      span {
-        font-weight: 700;
-        display: block;
-      }
+    .col1 {
+      width: 57%;
+
+      padding-top: rem(40);
       @media (max-width: rem(992)) {
-        font-size: rem(32);
+        position: relative;
+        width: 100%;
+        padding-top: rem(200);
+      }
+      h1 {
+        color: #000000;
+        font-size: rem(70);
+        font-weight: 700;
+        line-height: 1.2;
         text-align: left;
-        margin-bottom: rem(16);
+        margin-bottom: rem(24);
+        text-transform: uppercase;
+        @media (max-width: rem(1110)) {
+          font-size: rem(60);
+        }
+        @media (max-width: rem(992)) {
+          font-size: rem(40);
+          width: 20%;
+        }
+      }
+      p {
+        color: #000000;
+        font-size: rem(26);
+        font-weight: 250;
+        line-height: 1.2;
+        text-align: left;
+        @media (max-width: rem(1110)) {
+          font-size: rem(20);
+        }
       }
     }
-    p {
-      font-family: var(--font-helvetica-neue);
-      color: #ffffff;
-      font-size: rem(26);
-      font-weight: 200;
-      line-height: 1.4;
-      text-align: center;
+    .col2 {
+      width: 58%;
+      position: absolute;
+      right: 0;
+      top: 0;
       @media (max-width: rem(992)) {
-        font-size: rem(18);
+        width: 100%;
+      }
+      > img {
+        &:first-child {
+          width: 100%;
+          //height: auto;
+          clip-path: polygon(
+            0% 7.038%,
+            0% 7.038%,
+            0.048% 5.897%,
+            0.187% 4.814%,
+            0.409% 3.804%,
+            0.707% 2.882%,
+            1.073% 2.061%,
+            1.5% 1.358%,
+            1.98% 0.786%,
+            2.506% 0.359%,
+            3.07% 0.092%,
+            3.664% 0%,
+            96.336% 0%,
+            96.336% 0%,
+            96.93% 0.092%,
+            97.494% 0.359%,
+            98.02% 0.786%,
+            98.5% 1.358%,
+            98.927% 2.061%,
+            99.293% 2.882%,
+            99.591% 3.804%,
+            99.813% 4.814%,
+            99.952% 5.897%,
+            100% 7.038%,
+            100% 92.962%,
+            100% 92.962%,
+            99.952% 94.104%,
+            99.813% 95.186%,
+            99.591% 96.196%,
+            99.293% 97.119%,
+            98.927% 97.939%,
+            98.5% 98.642%,
+            98.02% 99.214%,
+            97.494% 99.641%,
+            96.93% 99.908%,
+            96.336% 100%,
+            40.687% 100%,
+            40.687% 100%,
+            40.093% 99.908%,
+            39.529% 99.641%,
+            39.003% 99.214%,
+            38.523% 98.642%,
+            38.096% 97.939%,
+            37.73% 97.119%,
+            37.432% 96.196%,
+            37.21% 95.186%,
+            37.071% 94.104%,
+            37.023% 92.962%,
+            37.023% 57.771%,
+            37.023% 57.771%,
+            36.975% 56.63%,
+            36.836% 55.547%,
+            36.614% 54.537%,
+            36.316% 53.615%,
+            35.95% 52.795%,
+            35.523% 52.091%,
+            35.043% 51.519%,
+            34.517% 51.092%,
+            33.953% 50.825%,
+            33.359% 50.733%,
+            3.664% 50.733%,
+            3.664% 50.733%,
+            3.07% 50.641%,
+            2.506% 50.374%,
+            1.98% 49.948%,
+            1.5% 49.375%,
+            1.073% 48.672%,
+            0.707% 47.852%,
+            0.409% 46.929%,
+            0.187% 45.92%,
+            0.048% 44.837%,
+            0% 43.695%,
+            0% 7.038%
+          );
+          @media (max-width: rem(992)) {
+          }
+          @media (max-width: rem(992)) {
+            clip-path: polygon(
+              0% 7.038%,
+              0% 7.038%,
+              0.088% 5.897%,
+              0.342% 4.814%,
+              0.748% 3.804%,
+              1.293% 2.882%,
+              1.964% 2.061%,
+              2.745% 1.358%,
+              3.623% 0.786%,
+              4.585% 0.359%,
+              5.617% 0.092%,
+              6.704% 0%,
+              93.296% 0%,
+              93.296% 0%,
+              94.384% 0.092%,
+              95.415% 0.359%,
+              96.377% 0.786%,
+              97.255% 1.358%,
+              98.036% 2.061%,
+              98.707% 2.882%,
+              99.252% 3.804%,
+              99.658% 4.814%,
+              99.912% 5.897%,
+              100% 7.038%,
+              100% 92.962%,
+              100% 92.962%,
+              99.912% 94.104%,
+              99.658% 95.186%,
+              99.252% 96.196%,
+              98.707% 97.119%,
+              98.036% 97.939%,
+              97.255% 98.642%,
+              96.377% 99.214%,
+              95.415% 99.641%,
+              94.384% 99.908%,
+              93.296% 100%,
+              70.391% 100%,
+              70.391% 100%,
+              69.304% 99.908%,
+              68.272% 99.641%,
+              67.31% 99.214%,
+              66.432% 98.642%,
+              65.651% 97.939%,
+              64.981% 97.119%,
+              64.435% 96.196%,
+              64.029% 95.186%,
+              63.775% 94.104%,
+              63.687% 92.962%,
+              63.687% 57.771%,
+              63.687% 57.771%,
+              63.599% 56.63%,
+              63.345% 55.547%,
+              62.939% 54.537%,
+              62.394% 53.615%,
+              61.724% 52.795%,
+              60.943% 52.091%,
+              60.064% 51.519%,
+              59.102% 51.092%,
+              58.071% 50.825%,
+              56.983% 50.733%,
+              6.704% 50.733%,
+              6.704% 50.733%,
+              5.617% 50.641%,
+              4.585% 50.374%,
+              3.623% 49.948%,
+              2.745% 49.375%,
+              1.964% 48.672%,
+              1.293% 47.852%,
+              0.748% 46.929%,
+              0.342% 45.92%,
+              0.088% 44.837%,
+              0% 43.695%,
+              0% 7.038%
+            );
+          }
+        }
+        &:last-child {
+          position: absolute;
+          z-index: 1;
+          top: -60px;
+          right: -55px;
+          @media (max-width: rem(992)) {
+            max-width: 200px;
+            height: auto;
+            top: -40px;
+          }
+        }
+      }
+    }
+  }
+  .bottom {
+    display: flex;
+    gap: rem(30);
+    margin-top: rem(32);
+    @media (max-width: rem(992)) {
+      flex-direction: column;
+      gap: rem(30);
+    }
+    .col1 {
+      width: calc(55% - rem(30));
+      height: rem(166);
+      border-radius: rem(24);
+      background-image: url(/images/home/hero2.png);
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      img {
+        transform: rotate(45deg);
+        position: absolute;
+        left: -60px;
+        bottom: -60px;
+        @media (max-width: rem(992)) {
+          width: rem(67);
+          height: rem(64);
+          left: -16px;
+          bottom: -16px;
+        }
+      }
+      @media (max-width: rem(992)) {
+        width: 100%;
+        background-image: url(/images/home/hero2mob.png);
+      }
+    }
+    .col2 {
+      width: 45%;
+      @media (max-width: rem(992)) {
+        width: 100%;
+      }
+      h3 {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+        color: #000000;
+        font-size: rem(60);
+        font-weight: 300;
+        line-height: 1.2;
         text-align: left;
+        text-transform: uppercase;
+        @media (max-width: rem(992)) {
+          font-size: rem(32);
+          align-items: flex-start;
+        }
+        span {
+          &:first-child {
+            border: 2px solid #000000;
+            padding: 0 rem(16);
+            border-radius: rem(39);
+          }
+          &:last-child {
+            @media (max-width: rem(992)) {
+              margin-left: auto;
+            }
+          }
+        }
       }
     }
   }
 }
-
 
 .test {
   width: 40%;
