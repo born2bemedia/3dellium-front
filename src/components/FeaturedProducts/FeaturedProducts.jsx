@@ -40,7 +40,10 @@ async function fetchLatestProductsFromCategories(categorySlugs) {
           Authorization: `Bearer ${API_TOKEN}`,
           "Content-Type": "application/json",
         },
-        cache: "no-store",
+        cache: "force-cache",
+        next: {
+          tags: [CACHE_TAG_PRODUCTS],
+        },
       }
     );
 
