@@ -15,3 +15,12 @@ export const fadeInDown = {
     transition: { duration: 0.5, delay: customDelay },
   }),
 };
+
+export const fadeInLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: (customDelay = 0) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, delay: customDelay },
+  }),
+};

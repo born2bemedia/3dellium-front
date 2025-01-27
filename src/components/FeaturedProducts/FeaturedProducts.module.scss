@@ -2,6 +2,9 @@
 
 .productRow {
   display: flex;
+  >div{
+    width: 25%;
+  }
   @media (max-width: rem(992)) {
     flex-wrap: wrap;
     > div {

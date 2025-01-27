@@ -1,0 +1,109 @@
+@use "@/styles/mixin.scss" as *;
+
+.assistance {
+  margin-bottom: rem(150);
+  @media (max-width: rem(992)) {
+    margin-bottom: rem(50);
+  }
+  .container {
+    padding: 0 rem(40);
+    position: relative;
+
+    @media (max-width: rem(992)) {
+      padding: 0 rem(16);
+    }
+    .body {
+      display: flex;
+      background-image: url(/images/modelling/assistanceBack.svg);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: right top;
+      border-radius: rem(32);
+      justify-content: space-between;
+      padding: rem(0) rem(70) rem(50) rem(100);
+      gap: 100px;
+      @media (max-width: rem(1024)) {
+        flex-direction: column-reverse;
+        gap: rem(4);
+        padding: 0;
+        background-image: none;
+      }
+      .col1 {
+        max-width: rem(557);
+        padding-top: rem(50);
+        @media (max-width: rem(1110)) {
+          max-width: unset;
+          width: 100%;
+          padding: rem(24) rem(16);
+          background: #1d4c29;
+          border-radius: rem(24);
+        }
+        h3 {
+          color: #c5d2c8;
+          font-size: rem(40);
+          font-weight: 900;
+          line-height: 1.3;
+          text-align: left;
+          margin-bottom: rem(32);
+          @media (max-width: rem(992)) {
+            font-size: rem(32);
+          }
+        }
+      }
+      .col2 {
+        max-width: rem(470);
+        @media (max-width: rem(1110)) {
+          max-width: unset;
+          width: 100%;
+        }
+        h2 {
+          color: #1d4c29;
+          font-size: rem(66);
+          font-weight: 900;
+          line-height: 1.2;
+          text-align: left;
+          margin-bottom: rem(90);
+          @media (max-width: rem(1360)) {
+            font-size: rem(50);
+          }
+          @media (max-width: rem(1110)) {
+            font-size: rem(40);
+            margin-bottom: rem(8);
+          }
+          @media (max-width: rem(992)) {
+            font-size: rem(40);
+            margin-bottom: rem(8);
+          }
+        }
+        h3 {
+          color: #ffffff;
+          font-size: rem(40);
+          font-weight: 300;
+          line-height: 1.2;
+          text-align: left;
+          margin-bottom: rem(16);
+          @media (max-width: rem(992)) {
+            font-size: rem(20);
+          }
+        }
+        h4 {
+          color: #fff;
+          font-size: rem(40);
+          font-weight: 900;
+          line-height: 1.3;
+          text-align: left;
+          @media (max-width: rem(992)) {
+            font-size: rem(24);
+          }
+        }
+        > div {
+          &:last-child {
+            padding: rem(24) rem(16);
+            background: #1d4c29;
+            border-radius: rem(24);
+          }
+        }
+      }
+    }
+  }
+}

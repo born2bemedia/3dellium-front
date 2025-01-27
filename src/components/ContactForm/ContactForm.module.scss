@@ -13,25 +13,57 @@
     column-gap: rem(16);
     row-gap: rem(24);
 
-    button {
-      margin: rem(5) 0 0;
-      display: flex;
-      width: 100%;
-      max-width: 100%;
-      height: rem(54);
-      padding: 0 rem(27);
-      position: relative;
+    .submit {
       overflow: hidden;
-      border-radius: rem(20);
-      align-items: center;
-      color: #fff;
-      font-size: rem(22);
-      font-weight: 400;
-      line-height: 1.2;
-      background: #2b2b2b;
-      justify-content: center;
+      border-radius: rem(16) rem(27) rem(27) rem(16);
+      width: rem(235);
+      position: relative;
+      transition: all 0.5s;
       &:hover {
-        background: #000;
+        border-radius: rem(8);
+        > div {
+          left: 0;
+          svg {
+            border-radius: rem(8);
+            rect {
+              fill: #2b2b2b;
+            }
+          }
+          span {
+            background: #c5d2c8;
+            border-radius: rem(8);
+            color: #000;
+          }
+        }
+      }
+      > div {
+        position: relative;
+        left: -59px;
+        display: flex;
+        width: rem(294);
+        gap: rem(4);
+        transition: all 0.5s;
+        svg {
+          transition: all 0.5s;
+          border-radius: rem(27);
+        }
+        > span {
+          display: flex;
+          align-items: center;
+          height: rem(54);
+          gap: rem(8);
+          padding: 0 rem(16);
+          background: #2b2b2b;
+          color: #fff;
+          font-size: rem(20);
+          font-weight: 700;
+          line-height: 1.2;
+          text-align: left;
+          border-radius: rem(16);
+          transition: all 0.5s;
+          width: rem(176);
+          justify-content: center;
+        }
       }
     }
     > div {
@@ -47,13 +79,12 @@
         width: 100%;
         color: #050505;
         font-size: rem(16);
-        font-style: italic;
         font-weight: 300;
         line-height: 1;
         text-align: left;
         padding: 0 rem(27);
-        border-radius: rem(20);
-        height: rem(54);
+        border-radius: rem(16);
+        height: rem(50);
         border: 1px solid #fff;
         &.invalid {
           border-color: #f00;
@@ -70,13 +101,12 @@
         width: 100%;
         color: #050505;
         font-size: rem(16);
-        font-style: italic;
         font-weight: 300;
         line-height: 1;
         text-align: left;
         padding: rem(18) rem(27);
-        border-radius: rem(20);
-        height: rem(102);
+        border-radius: rem(16);
+        height: rem(100);
       }
       .phoneWrap {
         width: 100%;
@@ -89,13 +119,12 @@
           width: 100%;
           color: #050505;
           font-size: rem(16);
-          font-style: italic;
           font-weight: 300;
           line-height: 1;
           text-align: left;
           padding: 0 rem(27) 0 rem(40);
-          border-radius: rem(20);
-          height: rem(54);
+          border-radius: rem(16);
+          height: rem(50);
           border: 1px solid #fff;
         }
         > div {

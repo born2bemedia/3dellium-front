@@ -1,11 +1,46 @@
 @use "@/styles/mixin.scss" as *;
 
 .card {
-  flex-grow: 1;
+  //flex-grow: 1;
   border: 1px solid #f2f2f2;
   padding: rem(24) rem(16);
   position: relative;
-
+  width: 25%;
+  @media (max-width: rem(992)) {
+    width: 50%;
+  }
+  &.wide {
+    width: 75%;
+    @media (max-width: rem(992)) {
+      width: 100%;
+    }
+    a {
+      .cardImage {
+        height: rem(352);
+        img {
+          object-fit: cover;
+        }
+      }
+    }
+    .cardBottom {
+      left: rem(32);
+      transform: unset;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      h3 {
+        width: 100%;
+      }
+      span {
+        display: flex;
+      }
+      button {
+        width: rem(56);
+      }
+    }
+  }
   a {
     width: 100%;
     display: flex;
@@ -39,8 +74,9 @@
         transform: scale(1);
         transition: all 0.5s;
         @media (max-width: rem(992)) {
-          width: 100%;
-          height: auto!important;
+          width: auto;
+          height: auto !important;
+          min-height: 100%;
         }
       }
     }
@@ -61,8 +97,6 @@
       font-weight: 700;
       line-height: 27px;
       text-align: left;
-      text-underline-position: from-font;
-      text-decoration-skip-ink: none;
       span {
         font-weight: 300;
         font-size: rem(14);

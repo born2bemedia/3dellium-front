@@ -10,30 +10,44 @@ import AddToCartButtonLoop from "../AddToCartButtonLoop/AddToCartButtonLoop";
 
 const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 
-const FeaturedProductCard = ({ product }) => {
+const FeaturedProductCard = ({ product, classValue }) => {
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
       variants={fadeInUp}
-      className={styles.card}
+      className={`${styles.card} ${classValue == "wide" && styles.wide}`}
     >
       <Link href={`/product/${product.slug}`}>
-        <h3>{product.title}</h3>
+        {classValue !== "wide" && <h3>{product.title}</h3>}
+
         <div className={styles.cardImage}>
-          <Image
-            fill
-            src={
-              product.image?.url
-                ? `${API_URL}${product.image.url}`
-                : "/placeholder.jpg"
-            }
-            alt={product.title}
-          />
+          {classValue == "wide" ? (
+            <Image
+              fill
+              src={
+                product.big_image?.url
+                  ? `${API_URL}${product.big_image.url}`
+                  : "/placeholder.jpg"
+              }
+              alt={product.title}
+            />
+          ) : (
+            <Image
+              fill
+              src={
+                product.image?.url
+                  ? `${API_URL}${product.image.url}`
+                  : "/placeholder.jpg"
+              }
+              alt={product.title}
+            />
+          )}
         </div>
       </Link>
       <div className={styles.cardBottom}>
+        {classValue == "wide" && <h3>{product.title}</h3>}
         <span className={styles.price}>
           {product.price}
           <span>€</span>

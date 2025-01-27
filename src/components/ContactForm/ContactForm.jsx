@@ -7,6 +7,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import styles from "./ContactForm.module.scss";
+import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
+import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -100,7 +102,13 @@ const ContactForm = () => {
           <textarea {...register("message")} placeholder="Message"></textarea>
         </div>
 
-        <button type="submit">Send</button>
+        <button className={styles.submit} type="submit">
+          <div>
+            <AddToCartArrow2 />
+            <span>Send</span>
+            <AddToCartArrow1 />
+          </div>
+        </button>
       </form>
 
       {successMessage && (

@@ -1,0 +1,213 @@
+@use "@/styles/mixin.scss" as *;
+
+.shopHero {
+  margin-bottom: rem(50);
+  .container {
+    padding: 0 rem(40);
+    @media (max-width: rem(992)) {
+      padding: 0 rem(16);
+    }
+    position: relative;
+    .title {
+      z-index: 1;
+      position: absolute;
+      left: rem(40);
+      top: 0;
+      padding: rem(12) rem(16);
+      background: #fff;
+      border-radius: rem(32);
+      @media (max-width: rem(992)) {
+        position: relative;
+        left: unset;
+      }
+      h1 {
+        color: #1d4c29;
+        font-size: rem(66);
+        font-weight: 900;
+        line-height: 1.2;
+        text-align: left;
+        @media (max-width: rem(1360)) {
+          font-size: rem(50);
+        }
+        @media (max-width: rem(1110)) {
+          font-size: rem(40);
+        }
+        @media (max-width: rem(992)) {
+          font-size: rem(36);
+        }
+      }
+      p {
+      }
+    }
+    .body {
+      position: relative;
+      @media (max-width: rem(992)) {
+        background: #eae1cd;
+        padding: rem(16);
+        border-radius: rem(20);
+        overflow: hidden;
+        height: rem(574);
+        background-image: url(/images/modelling/heroMob.png);
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .heroProduct {
+        position: absolute;
+        left: rem(50);
+        top: 35%;
+        z-index: 1;
+        background: #ffffff;
+        padding: rem(12);
+        border-radius: rem(16);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        @media (min-width: rem(1600)) {
+          zoom: 1.2;
+        }
+        @media (max-width: rem(1300)) {
+          zoom: 0.8;
+        }
+        @media (max-width: rem(1300)) {
+          zoom: 0.8;
+          top: 30%;
+        }
+        @media (max-width: rem(992)) {
+          zoom: 1;
+          position: relative;
+          left: unset;
+          top: unset;
+          max-width: rem(310);
+          margin: 0 auto;
+        }
+        a {
+          width: rem(235);
+          height: rem(200);
+          background-position: center;
+          background-size: cover;
+          border-radius: rem(16);
+
+          img {
+            object-fit: cover;
+            border-radius: rem(16);
+            @media (max-width: rem(992)) {
+              width: 100%;
+            }
+          }
+        }
+        .cardBottom {
+          transform: unset;
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: rem(16);
+          h3 {
+            width: 100%;
+            font-size: rem(16);
+            font-weight: 400;
+            line-height: 1.2;
+            color: #0c0c0c;
+            margin-bottom: rem(8);
+          }
+          .price {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 27px;
+            text-align: left;
+            span {
+              font-weight: 300;
+              font-size: rem(14);
+            }
+          }
+          button {
+            width: rem(56);
+          }
+        }
+      }
+      > img {
+        width: 100%;
+        height: auto;
+        clip-path: polygon(
+          0% 31.468%,
+          0% 31.468%,
+          0.031% 30.515%,
+          0.12% 29.612%,
+          0.263% 28.77%,
+          0.454% 28%,
+          0.689% 27.316%,
+          0.963% 26.729%,
+          1.272% 26.252%,
+          1.609% 25.896%,
+          1.971% 25.673%,
+          2.353% 25.596%,
+          34.632% 25.596%,
+          34.632% 25.596%,
+          35.014% 25.519%,
+          35.376% 25.297%,
+          35.714% 24.941%,
+          36.022% 24.463%,
+          36.296% 23.877%,
+          36.531% 23.192%,
+          36.723% 22.423%,
+          36.865% 21.581%,
+          36.954% 20.677%,
+          36.985% 19.725%,
+          36.985% 5.872%,
+          36.985% 5.872%,
+          37.016% 4.919%,
+          37.105% 4.016%,
+          37.248% 3.173%,
+          37.439% 2.404%,
+          37.674% 1.72%,
+          37.949% 1.133%,
+          38.257% 0.655%,
+          38.595% 0.299%,
+          38.957% 0.077%,
+          39.338% 0%,
+          97.647% 0%,
+          97.647% 0%,
+          98.029% 0.077%,
+          98.391% 0.299%,
+          98.728% 0.655%,
+          99.037% 1.133%,
+          99.311% 1.72%,
+          99.546% 2.404%,
+          99.737% 3.173%,
+          99.88% 4.016%,
+          99.969% 4.919%,
+          100% 5.872%,
+          100% 94.128%,
+          100% 94.128%,
+          99.969% 95.081%,
+          99.88% 95.984%,
+          99.737% 96.827%,
+          99.546% 97.596%,
+          99.311% 98.28%,
+          99.037% 98.867%,
+          98.728% 99.345%,
+          98.391% 99.701%,
+          98.029% 99.923%,
+          97.647% 100%,
+          2.353% 100%,
+          2.353% 100%,
+          1.971% 99.923%,
+          1.609% 99.701%,
+          1.272% 99.345%,
+          0.963% 98.867%,
+          0.689% 98.28%,
+          0.454% 97.596%,
+          0.263% 96.827%,
+          0.12% 95.984%,
+          0.031% 95.081%,
+          0% 94.128%,
+          0% 31.468%
+        );
+        @media (max-width: rem(992)) {
+          clip-path: unset;
+          display: none;
+        }
+      }
+    }
+  }
+}
