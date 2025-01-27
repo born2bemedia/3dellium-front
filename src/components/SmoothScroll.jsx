@@ -1,14 +1,16 @@
-"use client";  // Вказуємо, що це клієнтський компонент
+"use client"; // Вказуємо, що це клієнтський компонент
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { usePathname } from "next/navigation";
 
 const SmoothScroll = () => {
+  const pathname = usePathname();
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: "vertical", 
+      direction: "vertical",
       smooth: true,
     });
 
@@ -20,9 +22,9 @@ const SmoothScroll = () => {
     requestAnimationFrame(raf);
 
     return () => {
-      lenis.destroy(); 
+      lenis.destroy();
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 };

@@ -4,6 +4,7 @@ import "@/styles/base.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import { ToastContainer } from "react-toastify";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -117,7 +118,8 @@ export default function RootLayout({ children }) {
         <Header />
         <main>{children}</main>
         <Footer />
-        {/**<SmoothScroll /> */}
+        <ToastContainer />
+        {/**<SmoothScroll />  */}
       </body>
     </html>
   );
