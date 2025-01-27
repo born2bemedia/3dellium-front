@@ -1,15 +1,48 @@
 "use server";
 
 import ProductHero from "../components/ProductHero/ProductHero";
+import { Metadata } from "next";
 
 const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
+const CACHE_TAG_PRODUCTS = "products";
+
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+  const product = await getProductBySlug(slug);
+
+  if (!product) {
+    return {
+      title: "Product Not Found",
+    };
+  }
+
+  return {
+    title: `${product.title} | 3Dellium`,
+    description: "",
+    openGraph: {
+      title: `${product.title} | 3Dellium`,
+      description: "",
+      images: [
+        {
+          url: product.image.url,
+          width: 800,
+          height: 600,
+        },
+      ],
+    },
+  };
+}
 
 async function getProductBySlug(slug) {
   try {
+   // console.time("API Fetch Timer");
     const response = await fetch(
       `${API_URL}/api/products?where[slug][equals]=${slug}`,
       {
-        cache: "no-store",
+        cache: "force-cache",
+        next: {
+          tags: [CACHE_TAG_PRODUCTS],
+        },
       }
     );
     const data = await response.json();
@@ -26,31 +59,14 @@ async function getProductBySlug(slug) {
 }
 
 const ProductPage = async ({ params }) => {
-  const awaitedParams = await params; // Await the params
-  const { slug } = awaitedParams;
+  const { slug } = params;
   const product = await getProductBySlug(slug);
 
   if (!product) {
     return <p>Product not found.</p>;
   }
 
-  return (
-    <>
-      {/**<div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
-      <h1>{product.title}</h1>
-      <img
-        src={`${API_URL}${product.image?.url}`}
-        alt={product.title}
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-      <p>{product.description}</p>
-      <p>
-        <strong>Price:</strong> ${product.price}
-      </p>
-    </div> */}
-      <ProductHero product={product} />
-    </>
-  );
+  return <ProductHero product={product} />;
 };
 
 export default ProductPage;

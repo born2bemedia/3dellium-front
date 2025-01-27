@@ -38,6 +38,7 @@ const ProductHero = ({ product }) => {
                       objectFit={"cover"}
                       className={`${currentImage == index && styles.active}`}
                       onClick={() => imageClick(index)}
+                      alt={product.title}
                     />
                   ))}
                 </div>
@@ -46,13 +47,13 @@ const ProductHero = ({ product }) => {
               <div className={styles.mainImage}>
                 {product.gallery.length > 0 ? (
                   <Image
-                    alt="{product.title}"
+                    alt={product.title}
                     src={`${API_URL}${product.gallery[currentImage].image.url}`}
                     fill
                   />
                 ) : (
                   <Image
-                    alt="{product.title}"
+                    alt={product.title}
                     src={`${API_URL}${product.image?.url}`}
                     fill
                   />
