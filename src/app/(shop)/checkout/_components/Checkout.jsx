@@ -81,8 +81,7 @@ const Checkout = () => {
       if (existingUser) {
         userId = existingUser.id;
       } else {
-        // Register new user if no user exists
-        const password = Math.random().toString(36).slice(-8); // Generate random password
+        const password = Math.random().toString(36).slice(-8);
         const newUser = await registerUser({
           firstName: data.firstName,
           lastName: data.lastName,
@@ -93,10 +92,9 @@ const Checkout = () => {
         userId = newUser.id;
       }
 
-      // Create order data
       const orderData = {
         orderNumber: `ORD-${Date.now()}`,
-        user: userId,
+        user: { id: userId },
         items: cart.map((item) => ({
           product: item.id,
           quantity: item.quantity,
@@ -128,7 +126,7 @@ const Checkout = () => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${user?.token}`,
           },
-          body: JSON.stringify({ data: orderData }),
+          body: JSON.stringify(orderData),
         }
       );
 
