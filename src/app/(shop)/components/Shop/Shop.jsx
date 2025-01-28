@@ -252,42 +252,44 @@ export default function Shop({ categorySlugs }) {
             )}
           </div>
 
-          <div className={styles.shopBottom}>
-            <div className={styles.itemsPerPage}>
-              {[10, 25, 50].map((num) => (
-                <label key={num}>
-                  <input
-                    type="radio"
-                    name="itemsPerPage"
-                    value={num}
-                    checked={itemsPerPage === num}
-                    onChange={() => setItemsPerPage(num)}
-                  />
-                  <span>
-                    {num} <span>items</span>
-                  </span>
-                </label>
-              ))}
-            </div>
+          {totalPages > 1 && (
+            <div className={styles.shopBottom}>
+              <div className={styles.itemsPerPage}>
+                {[10, 25, 50].map((num) => (
+                  <label key={num}>
+                    <input
+                      type="radio"
+                      name="itemsPerPage"
+                      value={num}
+                      checked={itemsPerPage === num}
+                      onChange={() => setItemsPerPage(num)}
+                    />
+                    <span>
+                      {num} <span>items</span>
+                    </span>
+                  </label>
+                ))}
+              </div>
 
-            <div className={styles.pagination}>
-              <button
-                disabled={currentPage === 1}
-                onClick={() => setCurrentPage(currentPage - 1)}
-              >
-                <ArrowLeft />
-              </button>
-              <span>
-                {currentPage} of {totalPages}
-              </span>
-              <button
-                disabled={currentPage === totalPages}
-                onClick={() => setCurrentPage(currentPage + 1)}
-              >
-                <ArrowRight />
-              </button>
+              <div className={styles.pagination}>
+                <button
+                  disabled={currentPage === 1}
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                >
+                  <ArrowLeft />
+                </button>
+                <span>
+                  {currentPage} of {totalPages}
+                </span>
+                <button
+                  disabled={currentPage === totalPages}
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                >
+                  <ArrowRight />
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
