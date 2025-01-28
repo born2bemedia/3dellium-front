@@ -12,7 +12,7 @@
     .designRow {
       display: flex;
       gap: rem(30);
-      overflow: hidden;
+      //overflow: hidden;
       position: relative;
       left: calc((100vw - rem(1142)) / 2);
       width: calc(rem(838) * 4);
