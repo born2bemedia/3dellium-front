@@ -7,8 +7,11 @@
   }
   > div {
     position: sticky;
-    top: rem(80);
+    top: rem(100);
     overflow: hidden;
+    @media (max-width: rem(992)) {
+      top: rem(150);
+    }
     .designRow {
       display: flex;
       gap: rem(30);

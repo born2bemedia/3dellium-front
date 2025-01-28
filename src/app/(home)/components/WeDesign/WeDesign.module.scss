@@ -2,6 +2,9 @@
 
 .main {
   margin: rem(150) 0;
+  @media (max-width: rem(992)) {
+    margin: rem(80) 0;
+  }
   .body {
     display: flex;
     gap: rem(40);

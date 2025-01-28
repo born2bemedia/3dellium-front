@@ -4,7 +4,7 @@
   padding-top: rem(40);
   margin-bottom: rem(150);
   @media (max-width: rem(992)) {
-    overflow-x: hidden;
+    overflow: hidden;
     margin-bottom: rem(40);
   }
   .body {

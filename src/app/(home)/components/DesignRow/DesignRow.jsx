@@ -23,7 +23,7 @@ const DesignRow = () => {
 
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start 50vh", "end end"],
+    offset: ["start 30vh", "end end"],
   });
 
   const getWidthValues = (index) =>
@@ -37,11 +37,11 @@ const DesignRow = () => {
 
   const getHeightValues = (index) =>
     index === 0
-      ? isMobile ? 400 : 455
+      ? isMobile ? 500 : 455
       : useTransform(
           scrollYProgress,
           [(index - 0.99) / imageArray.length, (index + 1) / imageArray.length],
-          isMobile ? [150, 400] : [250, 455]
+          isMobile ? [200, 500] : [250, 455]
         );
 
   const widthValues = imageArray.map((_, index) => getWidthValues(index));
