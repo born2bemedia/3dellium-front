@@ -10,6 +10,9 @@
     position: relative;
     overflow: hidden;
     border-radius: rem(27);
+    @media (max-width: rem(992)) {
+      margin-top: rem(24);
+    }
     &:before {
       content: "";
       width: 100%;

@@ -9,6 +9,9 @@
     width: rem(235);
     position: relative;
     transition: all 0.5s;
+    @media (max-width: rem(992)) {
+      
+    }
     &:hover {
       border-radius: rem(8);
       > div {
