@@ -38,29 +38,10 @@ body {
   min-width: $minWidth;
   scroll-behavior: smooth;
   //font-family: var(--font-helvetica), sans-serif;
-  @media (min-width: rem(1400)) {
-    zoom: 1;
-    ._container {
-      //max-width: calc(100% - rem(100));
-    }
-  }
-  @media (min-width: rem(1500)) {
-    //zoom: 1;
-  }
   @media (min-width: rem(1600)) {
-    //zoom: 1.12;
     ._container {
-      //max-width: calc(100% - rem(300));
+      zoom: 1.2;
     }
-  }
-  @media (min-width: rem(1700)) {
-    //zoom: 1.15;
-  }
-  @media (min-width: rem(1800)) {
-    //zoom: 1.2;
-  }
-  @media (min-width: rem(2000)) {
-    //zoom: 1.25;
   }
 }
 body {
@@ -579,5 +560,3 @@ main {
     margin: rem(60) 0;
   }
 }
-
-
