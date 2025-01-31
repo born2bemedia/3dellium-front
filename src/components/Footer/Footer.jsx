@@ -6,7 +6,6 @@ import FacebookFooter from "@/icons/socials/FacebookFooter";
 import { XFooter } from "@/icons/socials/XFooter";
 
 const Footer = () => {
-
   const currentYear = new Date().getFullYear();
 
   return (
@@ -50,7 +49,7 @@ const Footer = () => {
                 <Link href="#">Factory Tour</Link>
               </li>
               <li>
-                <Link href="#">Ideas</Link>
+                <Link href="/ideas">Ideas</Link>
               </li>
               <li>
                 <Link href="#">Contact Us</Link>

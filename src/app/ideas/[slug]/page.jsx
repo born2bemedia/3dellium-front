@@ -1,0 +1,119 @@
+import React from "react";
+
+const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
+const CACHE_TAG_IDEAS = "ideas";
+
+export async function generateMetadata({ params }) {
+  const awaitedParams = await params; // Await the params
+  const { slug, locale } = awaitedParams;
+  const idea = await getIdeaBySlug(slug);
+
+  if (!idea) {
+    return {
+      title: "Idea Not Found",
+    };
+  }
+
+  return {
+    title: `${idea.title} | 3Dellium`,
+    description: idea.description || "", // Ensure description is present
+    openGraph: {
+      title: `${idea.title} | 3Dellium`,
+      description: idea.description || "",
+      images: idea.image?.url
+        ? [{ url: idea.image.url, width: 800, height: 600 }]
+        : [],
+    },
+  };
+}
+
+async function getIdeaBySlug(slug) {
+  try {
+    const response = await fetch(
+      `${API_URL}/api/ideas?where[slug][equals]=${slug}`,
+      {
+        cache: "force-cache",
+        next: { tags: [CACHE_TAG_IDEAS] },
+      }
+    );
+    const data = await response.json();
+
+    return data.docs.length > 0 ? data.docs[0] : null;
+  } catch (error) {
+    console.error("Error fetching idea:", error);
+    return null;
+  }
+}
+
+const ArticlePage = async ({ params }) => {
+  const awaitedParams = await params; // Await the params
+  const { slug, locale } = awaitedParams;
+  const idea = await getIdeaBySlug(slug);
+
+  if (!idea) {
+    return <p>Idea not found.</p>;
+  }
+
+  const renderBlock = (block, index) => {
+    switch (block.type) {
+      case "paragraph":
+        return (
+          <p key={index} style={{ fontSize: "16px", marginBottom: "16px" }}>
+            {block.children.map((child, i) =>
+              child.format === 1 ? (
+                <strong key={i}>{child.text}</strong>
+              ) : (
+                child.text
+              )
+            )}
+          </p>
+        );
+      case "heading":
+        return (
+          <h2
+            key={index}
+            style={{
+              fontSize: "24px",
+              fontWeight: "600",
+              marginBottom: "16px",
+              marginTop: "36px",
+            }}
+          >
+            {block.children.map((child) => child.text).join(" ")}
+          </h2>
+        );
+      case "list":
+        return (
+          <ul key={index} style={{ marginBottom: "16px", paddingLeft: "20px" }}>
+            {block.children.map((item, i) => (
+              <li key={i} style={{ marginBottom: "8px" }}>
+                {item.children.map((child) => child.text).join(" ")}
+              </li>
+            ))}
+          </ul>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="_container" style={{ padding: "20px" }}>
+      <h1
+        style={{
+          fontSize: "40px",
+          fontWeight: "600",
+          marginBottom: "30px",
+          marginTop: "50px",
+        }}
+      >
+        {idea.title}
+      </h1>
+      {idea.content.root.children.map((block, index) =>
+        renderBlock(block, index)
+      )}
+    </div>
+  );
+};
+
+export default ArticlePage;
