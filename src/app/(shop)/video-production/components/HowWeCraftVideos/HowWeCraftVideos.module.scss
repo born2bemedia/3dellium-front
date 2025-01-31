@@ -1,0 +1,159 @@
+@use "@/styles/mixin.scss" as *;
+
+.howWeCraftVideos {
+  margin: rem(40) 0;
+  h2 {
+    color: #1d4c29;
+    font-size: rem(40);
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: left;
+    margin-bottom: rem(30);
+  }
+  .body {
+    display: flex;
+    gap: rem(16);
+    @media (max-width: rem(992)) {
+      flex-direction: column;
+    }
+    .col {
+      height: rem(600);
+      border-radius: rem(20);
+      background: #1d4c29;
+      padding: rem(24) rem(34);
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+      overflow: hidden;
+      position: relative;
+      &:first-child {
+        background: #2b2b2b;
+      }
+      &:nth-child(3) {
+        background: #4f9b62;
+      }
+      &:nth-child(4) {
+        background: #7bb589;
+      }
+      &.active {
+        flex-grow: 1;
+        @media (max-width: rem(992)) {
+          height: rem(400);
+        }
+        .overlay {
+          opacity: 1;
+        }
+        .inner {
+          align-items: flex-start;
+          > img {
+            opacity: 0;
+          }
+          .info {
+            transition: all 0.5s ease-in-out;
+            > div {
+              left: 0;
+              opacity: 1;
+              transition: all 0.5s ease-in-out;
+              transition-delay: 0.5s;
+            }
+          }
+        }
+      }
+
+      @media (max-width: rem(992)) {
+        height: rem(100);
+      }
+
+      .overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+        transition-delay: 0.5s;
+      }
+      .inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        @media (max-width: rem(992)) {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+        h3 {
+          color: #ffffff;
+          font-size: rem(120);
+          font-weight: 800;
+          line-height: 1;
+          text-align: left;
+          transition: all 0.5s ease-in-out;
+          @media (max-width: rem(992)) {
+            font-size: rem(60);
+          }
+        }
+        .info {
+          overflow: hidden;
+          width: 100%;
+          > div {
+            left: 150%;
+            position: absolute;
+            bottom: rem(40);
+            opacity: 0;
+            min-width: 100%;
+            max-width: 100%;
+            z-index: 1;
+            width: 100%;
+            @media (max-width: rem(992)) {
+              min-width: unset;
+            }
+            h4 {
+              color: #ffffff;
+              font-size: rem(40);
+              font-weight: 800;
+              line-height: 1.3;
+              text-align: left;
+              @media (max-width: rem(992)) {
+                font-size: rem(36);
+              }
+            }
+            p {
+              color: #ffffff;
+              font-size: rem(24);
+              font-weight: 800;
+              line-height: 1.3;
+              text-align: left;
+              @media (max-width: rem(992)) {
+                font-size: rem(20);
+              }
+            }
+          }
+        }
+        img {
+          opacity: 1;
+          transition: all 0.5s ease-in-out;
+          //position: absolute;
+          //left: 50%;
+          //transform: translateX(-50%);
+          //bottom: rem(0);
+        }
+      }
+    }
+  }
+}
+
+@keyframes change-width {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
