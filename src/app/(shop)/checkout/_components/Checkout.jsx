@@ -48,6 +48,43 @@ const Checkout = () => {
     ),
   });
 
+  const updateUserProfile = async (userId, data) => {
+    try {
+      const userUpdatePayload = {
+        phone: data.phone,
+        address: data.addressLine1,
+        city: data.city,
+        state: data.state || "N/A",
+        zip: data.zip,
+        country: data.country.label,
+      };
+
+      console.log("Updating user with:", userUpdatePayload);
+
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_CMS_URL}/api/users/${userId}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user?.token}`,
+          },
+          body: JSON.stringify(userUpdatePayload),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Failed to update user:", errorData);
+        throw new Error("User update failed");
+      }
+
+      console.log("User profile updated successfully");
+    } catch (error) {
+      console.error("Error updating user:", error);
+    }
+  };
+
   const {
     handleSubmit,
     register,
@@ -135,6 +172,8 @@ const Checkout = () => {
         console.error("Error response:", errorData);
         throw new Error("Failed to create order");
       }
+
+      await updateUserProfile(userId, data);
 
       clearCart();
       router.push("/thankyou");

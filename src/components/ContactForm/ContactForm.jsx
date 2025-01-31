@@ -22,6 +22,7 @@ const schema = yup.object().shape({
 
 const ContactForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const countryCode = useCountryCode();
   const {
     register,
@@ -36,11 +37,27 @@ const ContactForm = () => {
   const phoneValue = watch("phone");
 
   const onSubmit = async (data) => {
+    setLoading(true);
+    setSuccessMessage("");
     try {
       console.log("Form submitted", data);
-      setSuccessMessage("Your message has been sent successfully!");
+      const response = await fetch("/api/emails/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSuccessMessage("Your message has been sent successfully!");
+      } else {
+        setSuccessMessage("Failed to send message. Please try again.");
+      }
     } catch (error) {
       setSuccessMessage("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -110,7 +127,7 @@ const ContactForm = () => {
           </div>
         </button>
       </form>
-
+      {loading && <span className={styles.success}>Loading...</span>}
       {successMessage && (
         <span className={styles.success}>{successMessage}</span>
       )}
