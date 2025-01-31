@@ -43,7 +43,7 @@ const VideoHero = () => {
               loop
               preload="none"
             >
-              <source src="/videos/videoHero.mov" type="video/mp4" />
+              <source src="/videos/videoHero.mp4" type="video/mp4" />
             </video>
           </div>
         </motion.div>
