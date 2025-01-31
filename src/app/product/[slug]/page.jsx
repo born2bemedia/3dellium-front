@@ -9,7 +9,8 @@ const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const CACHE_TAG_PRODUCTS = "products";
 
 export async function generateMetadata({ params }) {
-  const { slug } = params;
+  const awaitedParams = await params; // Await the params
+  const { slug, locale } = awaitedParams;
   const product = await getProductBySlug(slug);
 
   if (!product) {
@@ -61,9 +62,10 @@ async function getProductBySlug(slug) {
 }
 
 const ProductPage = async ({ params }) => {
-  const { slug } = params;
+  const awaitedParams = await params; // Await the params
+  const { slug, locale } = awaitedParams;
   const product = await getProductBySlug(slug);
-
+  //console.log(product.files);
   if (!product) {
     return <p>Product not found.</p>;
   }

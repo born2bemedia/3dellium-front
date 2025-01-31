@@ -77,14 +77,16 @@ const ProductHero = ({ product }) => {
                   <span>Digital Download</span>
                 </div>
               </div>
-              <div>
-                <h3>What is included:</h3>
+              {product.files.length > 0 && (
                 <div>
-                  <span>File 1</span>
-                  <span>File 2</span>
-                  <span>File 3</span>
+                  <h3>What is included:</h3>
+                  <div>
+                    {product.files?.map((file, index) => (
+                      <span key={index}>{file.file.filename}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
             <SingleAddToCartButton product={product} />
             <div className={styles.notice}>
