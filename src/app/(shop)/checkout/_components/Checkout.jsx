@@ -153,51 +153,183 @@ const Checkout = () => {
 
   return (
     <>
-      <div className="_container">
-        {cart.length > 0 ? (
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <h3>Billing Address</h3>
-              <div>
-                <label>First Name</label>
-                <input {...register("firstName")} />
-                {errors.firstName && <p>{errors.firstName.message}</p>}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "100vh",
+          backgroundColor: "#f4f4f4",
+          padding: "20px",
+        }}
+      >
+        <div
+          style={{
+            width: "100%",
+            maxWidth: "600px",
+            backgroundColor: "#fff",
+            padding: "20px",
+            borderRadius: "8px",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          {cart.length > 0 ? (
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "15px",
+              }}
+            >
+              <h3
+                style={{
+                  fontSize: "20px",
+                  marginBottom: "10px",
+                  color: "#1d4c29",
+                  textAlign: "center",
+                }}
+              >
+                Billing Address
+              </h3>
+
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "10px",
+                }}
+              >
+                <div>
+                  <label>First Name</label>
+                  <input
+                    {...register("firstName")}
+                    style={{
+                      width: "100%",
+                      padding: "10px",
+                      border: "1px solid #ccc",
+                      borderRadius: "5px",
+                      fontSize: "16px",
+                    }}
+                  />
+                  {errors.firstName && (
+                    <p style={{ color: "red", fontSize: "14px" }}>
+                      {errors.firstName.message}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <label>Last Name</label>
+                  <input
+                    {...register("lastName")}
+                    style={{
+                      width: "100%",
+                      padding: "10px",
+                      border: "1px solid #ccc",
+                      borderRadius: "5px",
+                      fontSize: "16px",
+                    }}
+                  />
+                  {errors.lastName && (
+                    <p style={{ color: "red", fontSize: "14px" }}>
+                      {errors.lastName.message}
+                    </p>
+                  )}
+                </div>
               </div>
-              <div>
-                <label>Last Name</label>
-                <input {...register("lastName")} />
-                {errors.lastName && <p>{errors.lastName.message}</p>}
-              </div>
+
               <div>
                 <label>Address Line 1</label>
-                <input {...register("addressLine1")} />
-                {errors.addressLine1 && <p>{errors.addressLine1.message}</p>}
+                <input
+                  {...register("addressLine1")}
+                  style={{
+                    width: "100%",
+                    padding: "10px",
+                    border: "1px solid #ccc",
+                    borderRadius: "5px",
+                    fontSize: "16px",
+                  }}
+                />
+                {errors.addressLine1 && (
+                  <p style={{ color: "red", fontSize: "14px" }}>
+                    {errors.addressLine1.message}
+                  </p>
+                )}
               </div>
+
               <div>
                 <label>City</label>
-                <input {...register("city")} />
-                {errors.city && <p>{errors.city.message}</p>}
-              </div>
-              <div>
-                <label>ZIP Code</label>
-                <input {...register("zip")} />
-                {errors.zip && <p>{errors.zip.message}</p>}
-              </div>
-              <div>
-                <label>Country</label>
-                <Controller
-                  name="country"
-                  control={control}
-                  render={({ field }) => (
-                    <Select
-                      {...field}
-                      options={countryList().getData()}
-                      onChange={(value) => setValue("country", value)}
-                    />
-                  )}
+                <input
+                  {...register("city")}
+                  style={{
+                    width: "100%",
+                    padding: "10px",
+                    border: "1px solid #ccc",
+                    borderRadius: "5px",
+                    fontSize: "16px",
+                  }}
                 />
-                {errors.country && <p>{errors.country.message}</p>}
+                {errors.city && (
+                  <p style={{ color: "red", fontSize: "14px" }}>
+                    {errors.city.message}
+                  </p>
+                )}
               </div>
+
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "10px",
+                }}
+              >
+                <div>
+                  <label>ZIP Code</label>
+                  <input
+                    {...register("zip")}
+                    style={{
+                      width: "100%",
+                      padding: "10px",
+                      border: "1px solid #ccc",
+                      borderRadius: "5px",
+                      fontSize: "16px",
+                    }}
+                  />
+                  {errors.zip && (
+                    <p style={{ color: "red", fontSize: "14px" }}>
+                      {errors.zip.message}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <label>Country</label>
+                  <Controller
+                    name="country"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        {...field}
+                        options={countryList().getData()}
+                        onChange={(value) => setValue("country", value)}
+                        styles={{
+                          control: (provided) => ({
+                            ...provided,
+                            padding: "5px",
+                            fontSize: "16px",
+                          }),
+                        }}
+                      />
+                    )}
+                  />
+                  {errors.country && (
+                    <p style={{ color: "red", fontSize: "14px" }}>
+                      {errors.country.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+
               <div>
                 <label>Phone</label>
                 <Controller
@@ -208,48 +340,135 @@ const Checkout = () => {
                       {...field}
                       country={"us"}
                       onChange={(value) => setValue("phone", value)}
+                      inputStyle={{
+                        width: "100%",
+                        padding: "10px",
+                        border: "1px solid #ccc",
+                        borderRadius: "5px",
+                        fontSize: "16px",
+                      }}
                     />
                   )}
                 />
-                {errors.phone && <p>{errors.phone.message}</p>}
+                {errors.phone && (
+                  <p style={{ color: "red", fontSize: "14px" }}>
+                    {errors.phone.message}
+                  </p>
+                )}
               </div>
+
               <div>
                 <label>Email</label>
-                <input {...register("email")} />
-                {errors.email && <p>{errors.email.message}</p>}
-              </div>
-            </div>
-            <div>
-              <h3>Order Summary</h3>
-              {cart.map((item) => (
-                <div key={item.id}>
-                  <p>
-                    {item.name} x {item.quantity}
+                <input
+                  {...register("email")}
+                  style={{
+                    width: "100%",
+                    padding: "10px",
+                    border: "1px solid #ccc",
+                    borderRadius: "5px",
+                    fontSize: "16px",
+                  }}
+                />
+                {errors.email && (
+                  <p style={{ color: "red", fontSize: "14px" }}>
+                    {errors.email.message}
                   </p>
-                  <p>€{item.quantity * item.attributes.price}</p>
-                </div>
-              ))}
-              <p>Total: €{totalAmount}</p>
-            </div>
-            <div>
-              <label>
-                <input type="checkbox" {...register("terms")} />
-                Accept Terms and Conditions
-              </label>
-              {errors.terms && <p>{errors.terms.message}</p>}
-            </div>
-            <div>
-              <label>
-                <input type="checkbox" {...register("refundPolicy")} />
-                Accept Refund Policy
-              </label>
-              {errors.refundPolicy && <p>{errors.refundPolicy.message}</p>}
-            </div>
-            <button type="submit">Submit</button>
-          </form>
-        ) : (
-          <p>Your cart is empty.</p>
-        )}
+                )}
+              </div>
+
+              <h3
+                style={{
+                  fontSize: "20px",
+                  marginTop: "20px",
+                  color: "#1d4c29",
+                  textAlign: "center",
+                }}
+              >
+                Order Summary
+              </h3>
+              <div
+                style={{
+                  backgroundColor: "#f9f9f9",
+                  padding: "15px",
+                  borderRadius: "5px",
+                  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                }}
+              >
+                {cart.map((item) => (
+                  <div
+                    key={item.id}
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      padding: "5px 0",
+                    }}
+                  >
+                    <p>
+                      {item.name} x {item.quantity}
+                    </p>
+                    <p>€{item.quantity * item.attributes.price}</p>
+                  </div>
+                ))}
+                <p
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "bold",
+                    textAlign: "right",
+                    marginTop: "10px",
+                  }}
+                >
+                  Total: €{totalAmount}
+                </p>
+              </div>
+
+              <div>
+                <label>
+                  <input type="checkbox" {...register("terms")} /> Accept Terms
+                  and Conditions
+                </label>
+                {errors.terms && (
+                  <p style={{ color: "red", fontSize: "14px" }}>
+                    {errors.terms.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label>
+                  <input type="checkbox" {...register("refundPolicy")} /> Accept
+                  Refund Policy
+                </label>
+                {errors.refundPolicy && (
+                  <p style={{ color: "red", fontSize: "14px" }}>
+                    {errors.refundPolicy.message}
+                  </p>
+                )}
+              </div>
+
+              <button
+                type="submit"
+                style={{
+                  padding: "12px",
+                  backgroundColor: "#1d4c29",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "5px",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                  transition: "background 0.3s",
+                }}
+                onMouseOver={(e) => (e.target.style.backgroundColor = "#000")}
+                onMouseOut={(e) => (e.target.style.backgroundColor = "#1d4c29")}
+              >
+                Submit
+              </button>
+            </form>
+          ) : (
+            <p style={{ textAlign: "center", fontSize: "18px", color: "#555" }}>
+              Your cart is empty.
+            </p>
+          )}
+        </div>
       </div>
     </>
   );

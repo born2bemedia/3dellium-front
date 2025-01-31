@@ -47,36 +47,154 @@ export default function RegisterPage() {
   };
 
   return (
-    <div>
-      <Link href="/">Home</Link>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("firstName")} placeholder="First Name" />
-        <p>{errors.firstName?.message}</p>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "100vh",
+        backgroundColor: "#f4f4f4",
+        padding: "20px",
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "400px",
+          backgroundColor: "#fff",
+          padding: "20px",
+          borderRadius: "8px",
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        }}
+      >
+        <h1
+          style={{
+            display: "block",
+            textAlign: "center",
+            marginBottom: "20px",
+            textDecoration: "none",
+            fontSize: "18px",
+            color: "#1d4c29",
+            fontWeight: "600",
+          }}
+        >
+          Sign up
+        </h1>
 
-        <input {...register("lastName")} placeholder="Last Name" />
-        <p>{errors.lastName?.message}</p>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+          }}
+        >
+          <input
+            {...register("firstName")}
+            placeholder="First Name"
+            style={{
+              padding: "10px",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              fontSize: "16px",
+            }}
+          />
+          <p style={{ color: "red", fontSize: "14px" }}>
+            {errors.firstName?.message}
+          </p>
 
-        <input {...register("email")} type="email" placeholder="Email" />
-        <p>{errors.email?.message}</p>
+          <input
+            {...register("lastName")}
+            placeholder="Last Name"
+            style={{
+              padding: "10px",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              fontSize: "16px",
+            }}
+          />
+          <p style={{ color: "red", fontSize: "14px" }}>
+            {errors.lastName?.message}
+          </p>
 
-        <input
-          {...register("password")}
-          type="password"
-          placeholder="Password"
-        />
-        <p>{errors.password?.message}</p>
+          <input
+            {...register("email")}
+            type="email"
+            placeholder="Email"
+            style={{
+              padding: "10px",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              fontSize: "16px",
+            }}
+          />
+          <p style={{ color: "red", fontSize: "14px" }}>
+            {errors.email?.message}
+          </p>
 
-        <input
-          {...register("confirmPassword")}
-          type="password"
-          placeholder="Confirm Password"
-        />
-        <p>{errors.confirmPassword?.message}</p>
+          <input
+            {...register("password")}
+            type="password"
+            placeholder="Password"
+            style={{
+              padding: "10px",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              fontSize: "16px",
+            }}
+          />
+          <p style={{ color: "red", fontSize: "14px" }}>
+            {errors.password?.message}
+          </p>
 
-        <button type="submit">Register</button>
-      </form>
+          <input
+            {...register("confirmPassword")}
+            type="password"
+            placeholder="Confirm Password"
+            style={{
+              padding: "10px",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              fontSize: "16px",
+            }}
+          />
+          <p style={{ color: "red", fontSize: "14px" }}>
+            {errors.confirmPassword?.message}
+          </p>
 
-      {successMessage && <p>{successMessage}</p>}
+          <button
+            type="submit"
+            style={{
+              padding: "10px",
+              backgroundColor: "#1d4c29",
+              color: "#fff",
+              border: "none",
+              borderRadius: "5px",
+              fontSize: "16px",
+              cursor: "pointer",
+              transition: "background 0.3s",
+            }}
+            onMouseOver={(e) => (e.target.style.backgroundColor = "#000")}
+            onMouseOut={(e) => (e.target.style.backgroundColor = "#1d4c29")}
+          >
+            Register
+          </button>
+        </form>
+
+        {successMessage && (
+          <p
+            style={{
+              marginTop: "15px",
+              color: "green",
+              fontSize: "14px",
+              textAlign: "center",
+            }}
+          >
+            {successMessage}
+          </p>
+        )}
+      </div>
     </div>
   );
 }
