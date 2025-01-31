@@ -1,0 +1,71 @@
+@use "@/styles/mixin.scss" as *;
+
+.samplesWrap {
+  margin: rem(50) 0;
+  h2 {
+    color: #1d4c29;
+    font-size: rem(40);
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: left;
+    margin-bottom: rem(30);
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: rem(36);
+    .videoRow {
+      display: flex;
+      gap: rem(30);
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+        @media (max-width: rem(992)) {
+          flex-direction: column;
+        }
+      }
+      @media (max-width: rem(992)) {
+        flex-direction: column;
+        gap: rem(8);
+      }
+      > div {
+        &:first-child {
+          width: calc(75% - rem(15));
+          border-radius: rem(20);
+          overflow: hidden;
+          @media (max-width: rem(992)) {
+            width: 100% !important;
+            height: rem(250) !important;
+            img {
+              width: rem(50) !important;
+              height: rem(50) !important;
+            }
+          }
+        }
+        &:last-child {
+          width: calc(23% - rem(15));
+          background: #eff3f0;
+          padding: rem(16);
+          border-radius: rem(20);
+          @media (max-width: rem(992)) {
+            width: 100%;
+          }
+          h3 {
+            color: #000;
+            font-size: rem(18);
+            font-weight: 700;
+            line-height: 1.3;
+            text-align: left;
+            margin-bottom: rem(6);
+          }
+          p {
+            color: #000000;
+            font-size: rem(14);
+            font-weight: 400;
+            line-height: 1.4;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
