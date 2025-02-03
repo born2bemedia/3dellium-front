@@ -9,15 +9,9 @@ const SingleIdeaHero = ({ image }) => {
   return (
     <section className={styles.ideaHero}>
       <div className={styles.container}>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInLeft}
-          className={styles.imageWrap}
-        >
+        <div className={styles.imageWrap}>
           <Image src={image} alt="hero" fill />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

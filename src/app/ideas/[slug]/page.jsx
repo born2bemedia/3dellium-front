@@ -38,8 +38,7 @@ async function getIdeaBySlug(slug) {
     const response = await fetch(
       `${API_URL}/api/ideas?where[slug][equals]=${slug}`,
       {
-        cache: "force-cache",
-        next: { tags: [CACHE_TAG_IDEAS] },
+        cache: "no-store",
       }
     );
     const data = await response.json();
@@ -54,8 +53,7 @@ async function getIdeaBySlug(slug) {
 async function getIdeas(slug) {
   try {
     const response = await fetch(`${API_URL}/api/ideas`, {
-      cache: "force-cache",
-      next: { tags: [CACHE_TAG_IDEAS] },
+      cache: "no-store",
     });
     const data = await response.json();
     const ideas = data.docs || [];
@@ -73,9 +71,6 @@ const ArticlePage = async ({ params }) => {
   const { slug, locale } = awaitedParams;
   const idea = await getIdeaBySlug(slug);
   const ideas = await getIdeas(slug);
-
-  console.log(idea);
-
 
   if (!idea) {
     return <p>Idea not found.</p>;
@@ -128,7 +123,6 @@ const ArticlePage = async ({ params }) => {
     ? `${API_URL}${idea.image.url}`
     : "/images/ideas/hero.png";
 
-  
   return (
     <>
       <SingleIdeaHero image={imageUrl} />
@@ -142,10 +136,7 @@ const ArticlePage = async ({ params }) => {
               )}
               <div className={styles.buttons}>
                 <Link href={"/ideas"}>Back to Ideas</Link>
-                <MoreButton
-                  text={"Explore 3D Models"}
-                  link={"/3d-modelling"}
-                />
+                <MoreButton text={"Explore 3D Models"} link={"/3d-modelling"} />
               </div>
             </div>
             <div className={styles.sidebar}>
