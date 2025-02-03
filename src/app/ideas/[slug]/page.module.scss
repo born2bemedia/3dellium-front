@@ -47,6 +47,18 @@
           font-size: rem(16);
         }
       }
+      ul {
+        margin-bottom: rem(16);
+        list-style-type: disc;
+        li {
+          list-style: disc;
+          font-size: rem(18);
+          font-weight: 200;
+          line-height: 1.4;
+          text-align: left;
+          color: #362b1a;
+        }
+      }
       .buttons {
         display: flex;
         align-items: center;
