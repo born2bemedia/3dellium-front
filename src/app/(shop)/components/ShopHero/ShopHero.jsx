@@ -87,7 +87,7 @@ const ShopHero = async ({
           {heroProduct && (
             <div className={styles.heroProduct}>
               <Link
-                href={`/heroProduct/${heroProduct.slug}`}
+                href={`/product/${heroProduct.slug}`}
                 className={styles.cardImage}
               >
                 <Image
