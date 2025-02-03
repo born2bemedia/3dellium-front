@@ -60,8 +60,6 @@ async function getIdeas(slug) {
     const data = await response.json();
     const ideas = data.docs || [];
     const filteredIdeas = ideas.filter((idea) => idea.slug !== slug);
-    console.log(slug);
-    console.log(filteredIdeas);
 
     return filteredIdeas;
   } catch (error) {
