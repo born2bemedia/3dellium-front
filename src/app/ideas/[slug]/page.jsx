@@ -54,7 +54,7 @@ async function getIdeaBySlug(slug) {
 async function getIdeas(slug) {
   try {
     const response = await fetch(`${API_URL}/api/ideas`, {
-      cache: "no-store",
+      cache: "force-cache",
       next: { tags: [CACHE_TAG_IDEAS] },
     });
     const data = await response.json();
@@ -142,7 +142,7 @@ const ArticlePage = async ({ params }) => {
             </div>
             <div className={styles.sidebar}>
               {ideas.map((idea, index) => (
-                <Link href={`${API_URL}${idea.slug}`} key={index}>
+                <Link href={`/ideas/${idea.slug}`} key={index}>
                   <Image
                     width={235}
                     height={156}
