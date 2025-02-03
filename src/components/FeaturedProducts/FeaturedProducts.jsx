@@ -30,7 +30,6 @@ async function fetchLatestProductsFromCategories(categorySlugs) {
     const categoryData = await categoryRes.json();
     const categoryIds = categoryData.docs.map((cat) => cat.id);
 
-    // Fetch products sorted by createdAt in descending order to get the latest
     const productsRes = await fetch(
       `${API_URL}/api/products?where[category][in]=${categoryIds.join(
         ","
@@ -54,7 +53,6 @@ async function fetchLatestProductsFromCategories(categorySlugs) {
     const productsData = await productsRes.json();
     //console.log(productsData);
 
-    // Return the latest 4 products
     return productsData.docs;
   } catch (error) {
     console.error("Failed to fetch latest products:", error);
