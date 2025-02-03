@@ -121,9 +121,13 @@ const ArticlePage = async ({ params }) => {
     }
   };
 
+  const imageUrl = idea.image?.url
+    ? `${API_URL}${idea.image.url}`
+    : "/images/ideas/hero.png";
+
   return (
     <>
-      <SingleIdeaHero image={`${API_URL}${idea.image?.url}`} />
+      <SingleIdeaHero image={imageUrl} />
       <section className={styles.articleWrap}>
         <div className="_container" style={{ padding: "20px" }}>
           <div className={styles.body}>

@@ -1,17 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { fadeInUp, fadeInLeft } from "@/utils/animations";
 import { motion } from "framer-motion";
 import styles from "./SingleIdeaHero.module.scss";
 import Image from "next/image";
 
 const SingleIdeaHero = ({ image }) => {
-  const [heroImage, setHeroImage] = useState("/images/ideas/hero.png");
-
-  useEffect(() => {
-    setHeroImage(image);
-  }, [image]);
-
   return (
     <section className={styles.ideaHero}>
       <div className={styles.container}>
@@ -22,7 +16,7 @@ const SingleIdeaHero = ({ image }) => {
           variants={fadeInLeft}
           className={styles.imageWrap}
         >
-          <Image src={heroImage} alt="hero" fill />
+          <Image src={image} alt="hero" fill />
         </motion.div>
       </div>
     </section>
