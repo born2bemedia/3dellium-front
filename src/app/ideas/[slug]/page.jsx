@@ -144,7 +144,7 @@ const ArticlePage = async ({ params }) => {
                 <Link href={"/ideas"}>Back to Ideas</Link>
                 <MoreButton
                   text={"Explore 3D Models"}
-                  link={"Explore 3D Models"}
+                  link={"/3d-modelling"}
                 />
               </div>
             </div>
