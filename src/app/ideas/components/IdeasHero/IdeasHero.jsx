@@ -2,11 +2,12 @@
 import React from "react";
 import { fadeInUp, fadeInLeft } from "@/utils/animations";
 import { motion } from "framer-motion";
-import styles from "./VideoHero.module.scss";
+import styles from "./IdeasHero.module.scss";
+import Image from "next/image";
 
-const VideoHero = () => {
+const IdeasHero = () => {
   return (
-    <section className={styles.shopHero}>
+    <section className={styles.ideasHero}>
       <div className={styles.container}>
         <motion.div
           initial="hidden"
@@ -15,8 +16,8 @@ const VideoHero = () => {
           variants={fadeInLeft}
           className={styles.title}
         >
-          <h1>Video Production</h1>
-          <p>Craft. Engage. Inspire Moments.</p>
+          <h1>Ideas</h1>
+          <p>Inspire. Create. Share Knowledge.</p>
         </motion.div>
         <motion.div
           initial="hidden"
@@ -25,17 +26,8 @@ const VideoHero = () => {
           variants={fadeInUp}
           className={styles.body}
         >
-          <div className={styles.videoWrap}>
-            <video
-              width="1360"
-              height="545"
-              autoPlay={true}
-              muted
-              loop
-              preload="none"
-            >
-              <source src="/videos/videoHero.mp4" type="video/mp4" />
-            </video>
+          <div className={styles.imageWrap}>
+            <Image src={"/images/ideas/hero.png"} alt="hero" fill />
           </div>
         </motion.div>
       </div>
@@ -43,4 +35,4 @@ const VideoHero = () => {
   );
 };
 
-export default VideoHero;
+export default IdeasHero;

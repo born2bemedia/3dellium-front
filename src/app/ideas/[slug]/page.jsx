@@ -1,4 +1,10 @@
+import ShopAssistance from "@/app/(shop)/components/ShopAssistance/ShopAssistance";
 import React from "react";
+import styles from "./page.module.scss";
+import SingleIdeaHero from "../components/SingleIdeaHero/SingleIdeaHero";
+import Link from "next/link";
+import MoreButton from "@/components/MoreButton/MoreButton";
+import Image from "next/image";
 
 const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const CACHE_TAG_IDEAS = "ideas";
@@ -45,10 +51,30 @@ async function getIdeaBySlug(slug) {
   }
 }
 
+async function getIdeas(slug) {
+  try {
+    const response = await fetch(`${API_URL}/api/ideas`, {
+      cache: "no-store",
+      next: { tags: [CACHE_TAG_IDEAS] },
+    });
+    const data = await response.json();
+    const ideas = data.docs || [];
+    const filteredIdeas = ideas.filter((idea) => idea.slug !== slug);
+    console.log(slug);
+    console.log(filteredIdeas);
+
+    return filteredIdeas;
+  } catch (error) {
+    console.error("Error fetching ideas:", error);
+    return [];
+  }
+}
+
 const ArticlePage = async ({ params }) => {
   const awaitedParams = await params; // Await the params
   const { slug, locale } = awaitedParams;
   const idea = await getIdeaBySlug(slug);
+  const ideas = await getIdeas(slug);
 
   if (!idea) {
     return <p>Idea not found.</p>;
@@ -98,21 +124,42 @@ const ArticlePage = async ({ params }) => {
   };
 
   return (
-    <div className="_container" style={{ padding: "20px" }}>
-      <h1
-        style={{
-          fontSize: "40px",
-          fontWeight: "600",
-          marginBottom: "30px",
-          marginTop: "50px",
-        }}
-      >
-        {idea.title}
-      </h1>
-      {idea.content.root.children.map((block, index) =>
-        renderBlock(block, index)
-      )}
-    </div>
+    <>
+      <SingleIdeaHero image={`${API_URL}${idea.image?.url}`} />
+      <section className={styles.articleWrap}>
+        <div className="_container" style={{ padding: "20px" }}>
+          <div className={styles.body}>
+            <div className={styles.content}>
+              <h1>{idea.title}</h1>
+              {idea.content.root.children.map((block, index) =>
+                renderBlock(block, index)
+              )}
+              <div className={styles.buttons}>
+                <Link href={"/ideas"}>Back to Ideas</Link>
+                <MoreButton
+                  text={"Explore 3D Models"}
+                  link={"Explore 3D Models"}
+                />
+              </div>
+            </div>
+            <div className={styles.sidebar}>
+              {ideas.map((idea, index) => (
+                <Link href={`${API_URL}${idea.slug}`} key={index}>
+                  <Image
+                    width={235}
+                    height={156}
+                    src={`${API_URL}${idea.image?.url}`}
+                    alt={idea.title}
+                  />
+                  <span>{idea.title}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <ShopAssistance />
+    </>
   );
 };
 

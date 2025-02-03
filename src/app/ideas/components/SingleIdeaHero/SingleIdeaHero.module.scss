@@ -1,0 +1,32 @@
+@use "@/styles/mixin.scss" as *;
+
+.ideaHero {
+  margin-bottom: rem(50);
+  .container {
+    padding: 0 rem(40);
+    position: relative;
+    @media (max-width: rem(992)) {
+      padding: 0 rem(16);
+    }
+    .imageWrap {
+      background: #1d4c29;
+      width: 100%;
+      height: rem(455);
+      position: relative;
+      border-radius: rem(20);
+      @media (min-width: rem(1600)) {
+        height: calc(100vh - rem(180));
+      }
+      @media (max-width: rem(992)) {
+        clip-path: unset;
+        height: rem(300);
+        border-radius: rem(20);
+        overflow: hidden;
+      }
+      img {
+        object-fit: cover;
+        border-radius: rem(20);
+      }
+    }
+  }
+}

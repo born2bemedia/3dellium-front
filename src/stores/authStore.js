@@ -19,7 +19,6 @@ const useAuthStore = create(
 
           console.log("Registration successful:", response.data);
 
-          // Automatically log in the user after successful registration
           const loginResponse = await axios.post(
             `${cmsUrl}/api/users/login`,
             {
@@ -60,7 +59,7 @@ const useAuthStore = create(
       },
       fetchUserByEmail: async (email) => {
         try {
-          const { token } = get(); // Get the token from the store if available
+          const { token } = get();
           const response = await axios.get(
             `${cmsUrl}/api/users?where[email][equals]=${email}`,
             {
@@ -71,13 +70,42 @@ const useAuthStore = create(
           );
 
           if (response.data?.docs?.length > 0) {
-            return response.data.docs[0]; // Return the first user matching the email
+            return response.data.docs[0];
           }
 
-          return null; // Return null if no user is found
+          return null;
         } catch (error) {
           console.error("Error fetching user by email:", error);
           throw new Error("Failed to fetch user by email");
+        }
+      },
+      updateUser: async (updatedData) => {
+        try {
+          const { token, user } = get();
+          if (!user) throw new Error("User not found");
+
+          console.log("Updating user data:", updatedData);
+
+          const response = await axios.patch(
+            `${cmsUrl}/api/users/${user.id}`,
+            updatedData,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          console.log("User updated successfully:", response.data);
+
+          set({ user: response.data.doc });
+          localStorage.setItem("user", JSON.stringify(response.data.doc));
+
+          return response.data;
+        } catch (error) {
+          console.error("Error updating user:", error);
+          throw new Error("Failed to update user");
         }
       },
     }),

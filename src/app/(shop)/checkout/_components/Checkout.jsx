@@ -88,6 +88,7 @@ const Checkout = () => {
   const {
     handleSubmit,
     register,
+    reset,
     control,
     formState: { errors },
     setValue,
@@ -95,7 +96,7 @@ const Checkout = () => {
     defaultValues: {
       firstName: user?.firstName || "",
       lastName: user?.lastName || "",
-      addressLine1: user?.addressLine1 || "",
+      addressLine1: user?.address || "",
       addressLine2: user?.addressLine2 || "",
       city: user?.city || "",
       zip: user?.zip || "",
@@ -107,6 +108,22 @@ const Checkout = () => {
     },
     resolver: yupResolver(validationSchema),
   });
+
+  useEffect(() => {
+    console.log(user);
+    if (user) {
+      reset({
+        firstName: user.firstName || "",
+        lastName: user.lastName || "",
+        email: user.email || "",
+        addressLine1: user.address || "",
+        city: user.city || "",
+        state: user.state || "",
+        zip: user.zip || "",
+        country: user.country || "",
+      });
+    }
+  }, [user, reset]);
 
   const handleCreateOrder = async (data) => {
     try {

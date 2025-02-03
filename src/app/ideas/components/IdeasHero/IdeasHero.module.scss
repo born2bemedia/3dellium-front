@@ -1,0 +1,154 @@
+@use "@/styles/mixin.scss" as *;
+
+.ideasHero {
+  margin-bottom: rem(50);
+  .container {
+    padding: 0 rem(40);
+    position: relative;
+    @media (max-width: rem(992)) {
+      padding: 0 rem(16);
+    }
+
+    .title {
+      z-index: 1;
+      position: absolute;
+      right: rem(60);
+      bottom: rem(32);
+      padding: rem(12) rem(16);
+      background: #fff;
+      border-radius: rem(32);
+      width: 40%;
+      @media (max-width: rem(992)) {
+        position: relative;
+        left: unset;
+        right: unset;
+        bottom: unset;
+        padding-top: rem(40);
+        width: 100%;
+      }
+      h1 {
+        color: #1d4c29;
+        font-size: rem(66);
+        font-weight: 900;
+        line-height: 1.2;
+        text-align: left;
+        @media (max-width: rem(1360)) {
+          font-size: rem(50);
+        }
+        @media (max-width: rem(1110)) {
+          font-size: rem(40);
+        }
+        @media (max-width: rem(992)) {
+          font-size: rem(36);
+        }
+        @media (min-width: rem(1600)) {
+          zoom: 1.3;
+        }
+      }
+      p {
+        font-size: rem(26);
+      }
+    }
+    .body {
+      position: relative;
+      background-size: 0;
+      width: 100%;
+
+      .imageWrap {
+        background: #1d4c29;
+        width: 100%;
+        height: rem(545);
+        position: relative;
+        clip-path: polygon(
+          100% 61.009%,
+          100% 61.009%,
+          99.969% 61.962%,
+          99.88% 62.865%,
+          99.737% 63.707%,
+          99.546% 64.477%,
+          99.311% 65.161%,
+          99.037% 65.748%,
+          98.728% 66.225%,
+          98.391% 66.581%,
+          98.029% 66.804%,
+          97.647% 66.881%,
+          54.118% 66.881%,
+          54.118% 66.881%,
+          53.736% 66.958%,
+          53.374% 67.18%,
+          53.036% 67.536%,
+          52.728% 68.014%,
+          52.454% 68.6%,
+          52.219% 69.285%,
+          52.027% 70.054%,
+          51.885% 70.896%,
+          51.796% 71.8%,
+          51.765% 72.752%,
+          51.765% 94.128%,
+          51.765% 94.128%,
+          51.734% 95.081%,
+          51.645% 95.984%,
+          51.502% 96.827%,
+          51.311% 97.596%,
+          51.076% 98.28%,
+          50.801% 98.867%,
+          50.493% 99.345%,
+          50.155% 99.701%,
+          49.793% 99.923%,
+          49.412% 100%,
+          2.353% 100%,
+          2.353% 100%,
+          1.971% 99.923%,
+          1.609% 99.701%,
+          1.272% 99.345%,
+          0.963% 98.867%,
+          0.689% 98.28%,
+          0.454% 97.596%,
+          0.263% 96.827%,
+          0.12% 95.984%,
+          0.031% 95.081%,
+          0% 94.128%,
+          0% 5.872%,
+          0% 5.872%,
+          0.031% 4.919%,
+          0.12% 4.016%,
+          0.263% 3.173%,
+          0.454% 2.404%,
+          0.689% 1.72%,
+          0.963% 1.133%,
+          1.272% 0.655%,
+          1.609% 0.299%,
+          1.971% 0.077%,
+          2.353% 0%,
+          97.647% 0%,
+          97.647% 0%,
+          98.029% 0.077%,
+          98.391% 0.299%,
+          98.728% 0.655%,
+          99.037% 1.133%,
+          99.311% 1.72%,
+          99.546% 2.404%,
+          99.737% 3.173%,
+          99.88% 4.016%,
+          99.969% 4.919%,
+          100% 5.872%,
+          100% 61.009%
+        );
+        border-radius: rem(20);
+        @media (min-width: rem(1600)) {
+          height: calc(100vh - rem(180));
+        }
+        @media (max-width: rem(992)) {
+          clip-path: unset;
+          height: rem(300);
+          border-radius: rem(20);
+          overflow: hidden;
+        }
+        img {
+          object-fit: cover;
+          border-radius: rem(20);
+        }
+      }
+    }
+  }
+}
