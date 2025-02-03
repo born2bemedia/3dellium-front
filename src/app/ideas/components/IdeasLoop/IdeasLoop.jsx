@@ -29,7 +29,9 @@ const IdeasLoop = ({ ideas }) => {
                   style={{
                     backgroundImage: `url(${API_URL}${idea.image?.url})`,
                   }}
-                ></div>
+                >
+                  <Link href={`/ideas/${idea.slug}`}></Link>
+                </div>
                 <div className={styles.col}>
                   <div>
                     <h3 dangerouslySetInnerHTML={{ __html: idea.title }} />
