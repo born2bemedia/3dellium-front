@@ -74,6 +74,9 @@ const ArticlePage = async ({ params }) => {
   const idea = await getIdeaBySlug(slug);
   const ideas = await getIdeas(slug);
 
+  console.log(idea);
+
+
   if (!idea) {
     return <p>Idea not found.</p>;
   }
@@ -125,6 +128,7 @@ const ArticlePage = async ({ params }) => {
     ? `${API_URL}${idea.image.url}`
     : "/images/ideas/hero.png";
 
+  
   return (
     <>
       <SingleIdeaHero image={imageUrl} />
