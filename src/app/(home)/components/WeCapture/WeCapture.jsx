@@ -19,7 +19,7 @@ const WeCapture = () => {
             }
             buttonText="Learn More"
             buttonType="learn"
-            buttonLink="#"
+            buttonLink="/video-production"
           />
           <VideoRow />
         </div>
