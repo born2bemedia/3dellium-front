@@ -20,9 +20,12 @@
       display: flex;
       align-items: center;
       gap: rem(12);
+      @media (max-width: rem(992)) {
+        align-items: flex-end;
+      }
       img {
         @media (max-width: rem(992)) {
-          display: none;
+          //display: none;
         }
       }
     }

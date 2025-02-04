@@ -10,7 +10,7 @@ const SingleIdeaHero = ({ image }) => {
     <section className={styles.ideaHero}>
       <div className={styles.container}>
         <div className={styles.imageWrap}>
-          <Image src={image} alt="hero" fill />
+          <Image src={image} alt="hero" fill quality={95} />
         </div>
       </div>
     </section>

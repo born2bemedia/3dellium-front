@@ -14,7 +14,7 @@ async function getIdeas() {
       next: { tags: [CACHE_TAG_IDEAS] },
     });
     const data = await response.json();
-    return data.docs || [];
+    return (data.docs || []).reverse();
   } catch (error) {
     console.error("Error fetching ideas:", error);
     return [];
