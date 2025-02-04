@@ -8,7 +8,8 @@ export async function POST(request) {
     console.log("Payload received for revalidation:", payload);
 
     // Перевірка моделі, яка потребує ревалідації
-    revalidateTag("home_data");
+    revalidateTag("products");
+    revalidateTag("ideas");
     console.log("Cache revalidated for tag: home_data");
 
     return new Response(null, { status: 204 }); // Повертаємо успішну відповідь

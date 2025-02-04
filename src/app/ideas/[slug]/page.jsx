@@ -39,6 +39,9 @@ async function getIdeaBySlug(slug) {
       `${API_URL}/api/ideas?where[slug][equals]=${slug}`,
       {
         cache: "force-cache",
+        next: {
+          tags: [CACHE_TAG_IDEAS],
+        },
       }
     );
     const data = await response.json();
@@ -54,6 +57,9 @@ async function getIdeas(slug) {
   try {
     const response = await fetch(`${API_URL}/api/ideas`, {
       cache: "force-cache",
+      next: {
+        tags: [CACHE_TAG_IDEAS],
+      },
     });
     const data = await response.json();
     const ideas = data.docs || [];
