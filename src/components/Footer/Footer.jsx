@@ -91,10 +91,10 @@ const Footer = () => {
             All Rights Reserved. © {currentYear} Company Name
           </p>
           <nav>
-            <Link href="#">Terms of Use</Link>
-            <Link href="#">Privacy Policy</Link>
-            <Link href="#">Cookie Policy</Link>
-            <Link href="#">Refund Policy</Link>
+            <Link href="/legal/terms-of-use">Terms of Use</Link>
+            <Link href="/legal/privacy-policy">Privacy Policy</Link>
+            <Link href="/legal/cookie-policy">Cookie Policy</Link>
+            <Link href="/legal/refund-policy">Refund Policy</Link>
           </nav>
         </div>
       </div>
