@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import { ToastContainer } from "react-toastify";
+import Preloader from "@/components/Preloader";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -112,6 +113,7 @@ export default function RootLayout({ children }) {
       className={`${poppins.className} ${helvetica.variable} ${helveticaNeue.variable}`}
     >
       <body>
+        <Preloader />
         <Header />
         <main>{children}</main>
         <Footer />
