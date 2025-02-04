@@ -41,7 +41,7 @@ const Footer = () => {
                 <Link href="/video-production">Video Production</Link>
               </li>
               <li>
-                <Link href="#">UX & UI</Link>
+                <Link href="/ux-ui">UX & UI</Link>
               </li>
             </ul>
             <ul>

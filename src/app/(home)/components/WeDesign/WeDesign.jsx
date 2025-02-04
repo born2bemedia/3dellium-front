@@ -19,7 +19,7 @@ const WeDesign = () => {
             }
             buttonText="Learn More"
             buttonType="learn"
-            buttonLink="#"
+            buttonLink="/ux-ui"
           />
         </div>
       </div>

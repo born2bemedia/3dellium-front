@@ -2,6 +2,9 @@
 
 .ideaHero {
   margin-bottom: rem(50);
+  @media (max-width: rem(992)) {
+    margin-bottom: rem(40);
+  }
   .container {
     padding: 0 rem(40);
     position: relative;
@@ -19,7 +22,7 @@
       }
       @media (max-width: rem(992)) {
         clip-path: unset;
-        height: rem(300);
+        height: rem(574);
         border-radius: rem(20);
         overflow: hidden;
       }

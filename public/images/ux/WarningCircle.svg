@@ -1,0 +1,12 @@
+<svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="WarningCircle" clip-path="url(#clip0_337_3018)">
+<path id="Vector" d="M26 45.5C36.7696 45.5 45.5 36.7696 45.5 26C45.5 15.2304 36.7696 6.5 26 6.5C15.2304 6.5 6.5 15.2304 6.5 26C6.5 36.7696 15.2304 45.5 26 45.5Z" stroke="#1D4C29" stroke-width="5" stroke-miterlimit="10"/>
+<path id="Vector_2" d="M26 27.625V16.25" stroke="#1D4C29" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M26 37.375C27.3462 37.375 28.4375 36.2837 28.4375 34.9375C28.4375 33.5913 27.3462 32.5 26 32.5C24.6538 32.5 23.5625 33.5913 23.5625 34.9375C23.5625 36.2837 24.6538 37.375 26 37.375Z" fill="#1D4C29"/>
+</g>
+<defs>
+<clipPath id="clip0_337_3018">
+<rect width="52" height="52" fill="white"/>
+</clipPath>
+</defs>
+</svg>
