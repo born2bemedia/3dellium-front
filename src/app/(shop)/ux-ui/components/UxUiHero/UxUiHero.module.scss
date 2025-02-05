@@ -142,8 +142,20 @@
           overflow: hidden;
         }
         img {
-          object-fit: cover;
           border-radius: rem(20);
+          &:first-child {
+            object-fit: cover;
+            @media (max-width: rem(992)) {
+              display: none;
+            }
+          }
+          &:last-child {
+            display: none;
+            @media (max-width: rem(992)) {
+              display: block;
+              object-fit: cover;
+            }
+          }
         }
       }
     }

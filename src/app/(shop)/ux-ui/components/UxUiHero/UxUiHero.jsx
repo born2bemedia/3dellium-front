@@ -28,6 +28,7 @@ const UxUiHero = () => {
         >
           <div className={styles.videoWrap}>
             <Image src={"/images/ux/hero.png"} alt="hero" fill />
+            <Image src={"/images/ux/heroMob.png"} alt="hero" fill />
           </div>
         </motion.div>
       </div>
