@@ -38,13 +38,13 @@ const HomeHero = () => {
             variants={fadeInUp}
             className={styles.col2}
           >
-            <Image
-              src={"/images/home/hero.png"}
-              width={655}
-              height={341}
+            <img
+              src="/images/home/hero.png"
               alt="hero"
-              priority
+              width="655"
+              height="341"
             />
+
             <Image
               src={"/images/home/heroFloat1.png"}
               width={281}
