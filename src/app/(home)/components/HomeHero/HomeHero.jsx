@@ -43,12 +43,14 @@ const HomeHero = () => {
               width={655}
               height={341}
               alt="hero"
+              priority
             />
             <Image
               src={"/images/home/heroFloat1.png"}
               width={281}
               height={267}
               alt="hero"
+              priority
             />
           </motion.div>
         </div>
