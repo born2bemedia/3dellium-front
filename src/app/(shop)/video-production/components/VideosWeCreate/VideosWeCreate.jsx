@@ -61,7 +61,7 @@ const VideosWeCreate = () => {
             className={styles.buttons}
           >
             <Link href="#">Get Pricing</Link>
-            <Link href="#">Order Video</Link>
+            <Link href="#assistance">Order Video</Link>
           </motion.div>
           <motion.h2
             initial="hidden"

@@ -31,9 +31,8 @@ const Cart = () => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              minHeight: "100vh",
               backgroundColor: "#f4f4f4",
-              padding: "20px",
+              padding: "100px 20px",
             }}
           >
             <div

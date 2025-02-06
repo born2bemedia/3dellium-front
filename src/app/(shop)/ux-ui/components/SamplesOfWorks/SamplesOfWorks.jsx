@@ -79,7 +79,7 @@ const SamplesOfWorks = () => {
           </div>
           <div className={styles.buttons}>
             <Link href="#">Get Pricing</Link>
-            <Link className={styles.order} href={"#"}>
+            <Link className={styles.order} href={"#assistance"}>
               <div>
                 <AddToCartArrow2 />
                 <span>Order UI/UX Design</span>

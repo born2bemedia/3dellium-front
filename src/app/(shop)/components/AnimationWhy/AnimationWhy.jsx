@@ -84,7 +84,7 @@ const AnimationWhy = () => {
         </div>
         <div className={styles.buttons}>
           <Link href="#">Get Pricing</Link>
-          <Link href="#">Order Custom Animation</Link>
+          <Link href="#assistance">Order Custom Animation</Link>
         </div>
         <div className={styles.ctaTitle}>
           Instant Solutions for Personal Expression

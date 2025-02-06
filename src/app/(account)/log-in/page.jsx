@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -18,6 +19,8 @@ const schema = yup.object().shape({
 export default function LoginPage() {
   const { login, user } = useAuthStore();
   const [successMessage, setSuccessMessage] = useState("");
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -30,6 +33,7 @@ export default function LoginPage() {
     try {
       await login(data.email, data.password);
       setSuccessMessage("Login successful!");
+      router.push("/dashboard");
     } catch (error) {
       setSuccessMessage("Login failed. Please check your credentials.");
     }
@@ -42,9 +46,8 @@ export default function LoginPage() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "100vh",
         backgroundColor: "#f4f4f4",
-        padding: "20px",
+        padding: "100px 20px",
       }}
     >
       <div
@@ -126,6 +129,7 @@ export default function LoginPage() {
           >
             Login
           </button>
+          <Link href="/reset-password" style={{textAlign: "center", fontSize: "14px", color: "#000"}}>Forgot password?</Link>
         </form>
 
         {successMessage && (

@@ -9,6 +9,7 @@ const useAuthStore = create(
     (set, get) => ({
       user: null,
       token: null,
+      isHydrated: false,
 
       registerUser: async (userData) => {
         try {
@@ -108,10 +109,15 @@ const useAuthStore = create(
           throw new Error("Failed to update user");
         }
       },
+      
+      _setHydrated: () => set({ isHydrated: true }),
     }),
     {
       name: "auth-storage",
       getStorage: () => localStorage,
+      onRehydrateStorage: () => (state) => {
+        state._setHydrated();
+      },
     }
   )
 );

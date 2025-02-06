@@ -7,7 +7,7 @@ import ContactForm from "@/components/ContactForm/ContactForm";
 
 const ShopAssistance = () => {
   return (
-    <section className={styles.assistance}>
+    <section className={styles.assistance} id={"assistance"}>
       <div className={styles.container}>
         <div className={styles.body}>
           <motion.div className={styles.col1}>
