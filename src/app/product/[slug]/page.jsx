@@ -5,10 +5,9 @@ import NeedAssistance from "../components/NeedAssistance/NeedAssistance";
 import PrintingRecommendations from "../components/PrintingRecommendations/PrintingRecommendations";
 import ProductHero from "../components/ProductHero/ProductHero";
 import { Metadata } from "next";
-import { API_URL } from "@/helpers/constants";
+import { API_URL, CACHE_TAG_PRODUCTS } from "@/helpers/constants";
 import fetchFromAPI from "@/helpers/fetchFromAPI";
 
-const CACHE_TAG_PRODUCTS = "products";
 
 export async function generateMetadata({ params }) {
   const awaitedParams = await params; // Await the params

@@ -7,10 +7,8 @@ import MoreButton from "@/components/MoreButton/MoreButton";
 import Image from "next/image";
 import createMetadata from "@/helpers/metadata";
 import fetchFromAPI from "@/helpers/fetchFromAPI";
-import { API_URL } from "@/helpers/constants";
+import { API_URL, CACHE_TAG_IDEAS } from "@/helpers/constants";
 import { renderBlock } from "@/helpers/renderBlock";
-
-const CACHE_TAG_IDEAS = "ideas";
 
 export async function generateMetadata({ params }) {
   const awaitedParams = await params; // Await the params

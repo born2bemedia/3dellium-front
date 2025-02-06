@@ -5,10 +5,9 @@ import Image from "next/image";
 import AddToCartButtonLoop from "@/components/AddToCartButtonLoop/AddToCartButtonLoop";
 import Link from "next/link";
 import Skeleton from "@/components/Skeleton/Skeleton";
-import { API_TOKEN, API_URL } from "@/helpers/constants";
+import { API_TOKEN, API_URL, CACHE_TAG_PRODUCTS } from "@/helpers/constants";
 import fetchFromAPI from "@/helpers/fetchFromAPI";
 
-const CACHE_TAG_PRODUCTS = "products";
 
 async function fetchLatestProductsFromCategories(categorySlugs) {
   const categoryData = await fetchFromAPI("/api/categories", {

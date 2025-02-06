@@ -2,8 +2,8 @@ import Image from "next/image";
 import styles from "./FeaturedProducts.module.scss";
 import FeaturedProductCard from "../FeaturedProductCard/FeaturedProductCard";
 import fetchFromAPI from "@/helpers/fetchFromAPI";
+import { CACHE_TAG_PRODUCTS } from "@/helpers/constants";
 
-const CACHE_TAG_PRODUCTS = "products";
 
 async function fetchLatestProductsFromCategories(categorySlugs) {
   const categoryData = await fetchFromAPI("/api/categories", {

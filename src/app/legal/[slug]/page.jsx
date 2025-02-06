@@ -6,8 +6,6 @@ import createMetadata from "@/helpers/metadata";
 import fetchFromAPI from "@/helpers/fetchFromAPI";
 import { renderBlock } from "@/helpers/renderBlock";
 
-const CACHE_TAG_IDEAS = "policies";
-
 export async function generateMetadata({ params }) {
   const awaitedParams = await params; // Await the params
   const { slug, locale } = awaitedParams;

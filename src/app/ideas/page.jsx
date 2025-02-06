@@ -4,8 +4,7 @@ import IdeasHero from "./components/IdeasHero/IdeasHero";
 import IdeasLoop from "./components/IdeasLoop/IdeasLoop";
 import ShopAssistance from "../(shop)/components/ShopAssistance/ShopAssistance";
 import fetchFromAPI from "@/helpers/fetchFromAPI";
-
-const CACHE_TAG_IDEAS = "ideas";
+import { CACHE_TAG_IDEAS } from "@/helpers/constants";
 
 async function getIdeas() {
   const data = await fetchFromAPI("/api/ideas", {
