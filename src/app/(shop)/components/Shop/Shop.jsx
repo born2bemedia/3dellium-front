@@ -10,9 +10,8 @@ import PetAccessories from "@/icons/Categories/PetAccessories";
 import RenovationTools from "@/icons/Categories/RenovationTools";
 import ArrowLeft from "@/icons/Arrows/ArrowLeft";
 import ArrowRight from "@/icons/Arrows/ArrowRight";
-
-const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
-const API_TOKEN = process.env.NEXT_PUBLIC_CMS_API_TOKEN;
+import { API_TOKEN, API_URL } from "@/helpers/constants";
+import shopFetchProducts from "@/helpers/shopFetchProducts";
 
 const sortOptions = [
   { value: "-popularity", label: "Popular First" },
@@ -60,56 +59,18 @@ export default function Shop({ categorySlugs }) {
   };
 
   useEffect(() => {
-    async function fetchProducts() {
-      setLoading(true);
-      try {
-        const categoryRes = await fetch(
-          `${API_URL}/api/categories?where[slug][in]=${categorySlugs.join(
-            ","
-          )}`,
-          {
-            headers: {
-              Authorization: `Bearer ${API_TOKEN}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        const categoryData = await categoryRes.json();
-        setCategories(categoryData.docs);
-        const categoryIds = selectedCategory
-          ? [selectedCategory]
-          : categoryData.docs.map((cat) => cat.id);
-
-        let priceFilter = "";
-        if (selectedPrice) {
-          const [min, max] = selectedPrice.split("-").map(Number);
-          priceFilter = `&where[price][greater_than]=${min}&where[price][less_than]=${max}`;
-        }
-
-        const productsRes = await fetch(
-          `${API_URL}/api/products?where[category][in]=${categoryIds.join(
-            ","
-          )}&sort=${selectedSort}${priceFilter}&limit=${itemsPerPage}&page=${currentPage}`,
-          {
-            headers: {
-              Authorization: `Bearer ${API_TOKEN}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        const productsData = await productsRes.json();
-        setProducts(productsData.docs);
-        setTotalPages(productsData.totalPages);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchProducts();
+    shopFetchProducts({
+      categorySlugs,
+      setLoading,
+      setCategories,
+      selectedCategory,
+      selectedPrice,
+      selectedSort,
+      itemsPerPage,
+      currentPage,
+      setProducts,
+      setTotalPages,
+    });
   }, [
     categorySlugs,
     selectedCategory,

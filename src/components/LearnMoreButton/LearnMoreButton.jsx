@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import styles from "./LearnMoreButton.module.scss";
 import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";

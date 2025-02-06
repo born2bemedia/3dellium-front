@@ -5,63 +5,27 @@ import Image from "next/image";
 import AddToCartButtonLoop from "@/components/AddToCartButtonLoop/AddToCartButtonLoop";
 import Link from "next/link";
 import Skeleton from "@/components/Skeleton/Skeleton";
-
-const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
-const API_TOKEN = process.env.NEXT_PUBLIC_CMS_API_TOKEN;
+import { API_TOKEN, API_URL } from "@/helpers/constants";
+import fetchFromAPI from "@/helpers/fetchFromAPI";
 
 const CACHE_TAG_PRODUCTS = "products";
 
 async function fetchLatestProductsFromCategories(categorySlugs) {
-  try {
-    const categoryRes = await fetch(
-      `${API_URL}/api/categories?where[slug][in]=${categorySlugs.join(",")}`,
-      {
-        headers: {
-          Authorization: `Bearer ${API_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-        cache: "force-cache",
-        next: {
-          tags: [CACHE_TAG_PRODUCTS],
-        },
-      }
-    );
+  const categoryData = await fetchFromAPI("/api/categories", {
+    query: `where[slug][in]=${categorySlugs.join(",")}`,
+    tag: CACHE_TAG_PRODUCTS,
+  });
 
-    if (!categoryRes.ok) {
-      throw new Error(`Error ${categoryRes.status}: ${categoryRes.statusText}`);
-    }
+  const categoryIds = categoryData.docs.map((cat) => cat.id);
 
-    const categoryData = await categoryRes.json();
-    const categoryIds = categoryData.docs.map((cat) => cat.id);
+  const productsData = await fetchFromAPI("/api/products", {
+    query: `where[category][in]=${categoryIds.join(
+      ","
+    )}&sort=-createdAt&limit=1`,
+    tag: CACHE_TAG_PRODUCTS,
+  });
 
-    const productsRes = await fetch(
-      `${API_URL}/api/products?where[category][in]=${categoryIds.join(
-        ","
-      )}&sort=-createdAt&limit=1`,
-      {
-        headers: {
-          Authorization: `Bearer ${API_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-        cache: "force-cache",
-        next: {
-          tags: [CACHE_TAG_PRODUCTS],
-        },
-      }
-    );
-
-    if (!productsRes.ok) {
-      throw new Error(`Error ${productsRes.status}: ${productsRes.statusText}`);
-    }
-
-    const productsData = await productsRes.json();
-    //console.log(productsData);
-
-    return productsData.docs[0];
-  } catch (error) {
-    console.error("Failed to fetch latest products:", error);
-    return [];
-  }
+  return productsData.docs[0];
 }
 
 const ShopHero = async ({

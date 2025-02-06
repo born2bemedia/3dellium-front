@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import styles from "./VideoRow.module.scss";

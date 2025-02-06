@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { fadeInUp, fadeInLeft } from "@/utils/animations";
+import { fadeInUp, fadeInLeft } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import styles from "./SingleIdeaHero.module.scss";
 import Image from "next/image";

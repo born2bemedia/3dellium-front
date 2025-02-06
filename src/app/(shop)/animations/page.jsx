@@ -2,8 +2,8 @@ import React from "react";
 import Shop from "../components/Shop/Shop";
 import ShopHero from "../components/ShopHero/ShopHero";
 import ShopAssistance from "../components/ShopAssistance/ShopAssistance";
-import AnimationProcess from "../components/AnimationProcess/AnimationProcess";
-import AnimationWhy from "../components/AnimationWhy/AnimationWhy";
+import AnimationProcess from "./components/AnimationProcess/AnimationProcess";
+import AnimationWhy from "./components/AnimationWhy/AnimationWhy";
 
 const page = () => {
   const categories = ["animations"];

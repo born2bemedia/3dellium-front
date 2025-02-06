@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./ProductHero.module.scss";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SingleAddToCartButton from "@/components/SingleAddToCartButton/SingleAddToCartButton";

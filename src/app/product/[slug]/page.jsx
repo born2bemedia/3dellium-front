@@ -1,11 +1,13 @@
 "use server";
 
+import createMetadata from "@/helpers/metadata";
 import NeedAssistance from "../components/NeedAssistance/NeedAssistance";
 import PrintingRecommendations from "../components/PrintingRecommendations/PrintingRecommendations";
 import ProductHero from "../components/ProductHero/ProductHero";
 import { Metadata } from "next";
+import { API_URL } from "@/helpers/constants";
+import fetchFromAPI from "@/helpers/fetchFromAPI";
 
-const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const CACHE_TAG_PRODUCTS = "products";
 
 export async function generateMetadata({ params }) {
@@ -19,53 +21,29 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  return {
-    title: `${product.title} | 3Dellium`,
-    description: "",
-    openGraph: {
-      title: `${product.title} | 3Dellium`,
-      description: "",
-      images: [
-        {
-          url: product.image.url,
-          width: 800,
-          height: 600,
-        },
-      ],
-    },
-  };
+  return createMetadata({
+    title: product.title,
+    description: product.description,
+    imageUrl: product.image?.url,
+  });
 }
 
 async function getProductBySlug(slug) {
-  try {
-    // console.time("API Fetch Timer");
-    const response = await fetch(
-      `${API_URL}/api/products?where[slug][equals]=${slug}`,
-      {
-        cache: "force-cache",
-        next: {
-          tags: [CACHE_TAG_PRODUCTS],
-        },
-      }
-    );
-    const data = await response.json();
-
-    if (data.docs.length === 0) {
-      return null;
-    }
-
-    return data.docs[0];
-  } catch (error) {
-    console.error("Error fetching product:", error);
+  const data = await fetchFromAPI("/api/products", {
+    query: `where[slug][equals]=${slug}`,
+    tag: CACHE_TAG_PRODUCTS,
+  });
+  if (data.docs.length === 0) {
     return null;
   }
+
+  return data.docs[0];
 }
 
 const ProductPage = async ({ params }) => {
-  const awaitedParams = await params; // Await the params
+  const awaitedParams = await params;
   const { slug, locale } = awaitedParams;
   const product = await getProductBySlug(slug);
-  //console.log(product.files);
   if (!product) {
     return <p>Product not found.</p>;
   }

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { fadeInLeft, fadeInRight, fadeInUp } from "@/utils/animations";
+import { fadeInLeft, fadeInRight, fadeInUp } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import styles from "./HomeHero.module.scss";
 import Image from "next/image";

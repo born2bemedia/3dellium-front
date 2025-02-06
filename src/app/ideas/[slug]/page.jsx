@@ -5,8 +5,11 @@ import SingleIdeaHero from "../components/SingleIdeaHero/SingleIdeaHero";
 import Link from "next/link";
 import MoreButton from "@/components/MoreButton/MoreButton";
 import Image from "next/image";
+import createMetadata from "@/helpers/metadata";
+import fetchFromAPI from "@/helpers/fetchFromAPI";
+import { API_URL } from "@/helpers/constants";
+import { renderBlock } from "@/helpers/renderBlock";
 
-const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const CACHE_TAG_IDEAS = "ideas";
 
 export async function generateMetadata({ params }) {
@@ -20,56 +23,29 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  return {
-    title: `${idea.title} | 3Dellium`,
-    description: idea.description || "", // Ensure description is present
-    openGraph: {
-      title: `${idea.title} | 3Dellium`,
-      description: idea.description || "",
-      images: idea.image?.url
-        ? [{ url: idea.image.url, width: 800, height: 600 }]
-        : [],
-    },
-  };
+  return createMetadata({
+    title: idea.title,
+    description: idea.description,
+    imageUrl: idea.image?.url,
+  });
 }
 
-async function getIdeaBySlug(slug) {
-  try {
-    const response = await fetch(
-      `${API_URL}/api/ideas?where[slug][equals]=${slug}`,
-      {
-        cache: "force-cache",
-        next: {
-          tags: [CACHE_TAG_IDEAS],
-        },
-      }
-    );
-    const data = await response.json();
-
-    return data.docs.length > 0 ? data.docs[0] : null;
-  } catch (error) {
-    console.error("Error fetching idea:", error);
-    return null;
-  }
+export async function getIdeaBySlug(slug) {
+  const data = await fetchFromAPI("/api/ideas", {
+    query: `where[slug][equals]=${slug}`,
+    tag: CACHE_TAG_IDEAS,
+  });
+  return data?.docs?.length > 0 ? data.docs[0] : null;
 }
 
 async function getIdeas(slug) {
-  try {
-    const response = await fetch(`${API_URL}/api/ideas`, {
-      cache: "force-cache",
-      next: {
-        tags: [CACHE_TAG_IDEAS],
-      },
-    });
-    const data = await response.json();
-    const ideas = data.docs || [];
-    const filteredIdeas = ideas.filter((idea) => idea.slug !== slug);
+  const data = await fetchFromAPI("/api/ideas", {
+    tag: CACHE_TAG_IDEAS,
+  });
+  const ideas = data.docs || [];
+  const filteredIdeas = ideas.filter((idea) => idea.slug !== slug);
 
-    return filteredIdeas;
-  } catch (error) {
-    console.error("Error fetching ideas:", error);
-    return [];
-  }
+  return filteredIdeas;
 }
 
 const ArticlePage = async ({ params }) => {
@@ -81,49 +57,6 @@ const ArticlePage = async ({ params }) => {
   if (!idea) {
     return <p>Idea not found.</p>;
   }
-
-  const renderBlock = (block, index) => {
-    switch (block.type) {
-      case "paragraph":
-        return (
-          <p key={index} style={{ fontSize: "16px", marginBottom: "16px" }}>
-            {block.children.map((child, i) =>
-              child.format === 1 ? (
-                <strong key={i}>{child.text}</strong>
-              ) : (
-                child.text
-              )
-            )}
-          </p>
-        );
-      case "heading":
-        return (
-          <h2
-            key={index}
-            style={{
-              fontSize: "24px",
-              fontWeight: "600",
-              marginBottom: "16px",
-              marginTop: "36px",
-            }}
-          >
-            {block.children.map((child) => child.text).join(" ")}
-          </h2>
-        );
-      case "list":
-        return (
-          <ul key={index} style={{ marginBottom: "16px", paddingLeft: "20px" }}>
-            {block.children.map((item, i) => (
-              <li key={i} style={{ marginBottom: "8px" }}>
-                {item.children.map((child) => child.text).join(" ")}
-              </li>
-            ))}
-          </ul>
-        );
-      default:
-        return null;
-    }
-  };
 
   const imageUrl = idea.image?.url
     ? `${API_URL}${idea.image.url}`
