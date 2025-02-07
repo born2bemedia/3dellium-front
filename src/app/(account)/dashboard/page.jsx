@@ -138,278 +138,66 @@ export default function DashboardPage() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight: "100vh",
-        backgroundColor: "#f4f4f4",
-        padding: "20px",
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "1110px",
-          backgroundColor: "#fff",
-          padding: "25px",
-          borderRadius: "8px",
-          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-          textAlign: "center",
-        }}
-      >
-        <h2
-          style={{ fontSize: "22px", marginBottom: "15px", color: "#1d4c29" }}
-        >
-          Welcome, {user?.firstName}!
-        </h2>
-
-        <button
-          onClick={logout}
-          style={{
-            padding: "10px 15px",
-            backgroundColor: "#b22222",
-            color: "#fff",
-            border: "none",
-            borderRadius: "5px",
-            fontSize: "14px",
-            cursor: "pointer",
-            marginBottom: "20px",
-            transition: "background 0.3s",
-          }}
-          onMouseOver={(e) => (e.target.style.backgroundColor = "#8b0000")}
-          onMouseOut={(e) => (e.target.style.backgroundColor = "#b22222")}
-        >
-          Logout
-        </button>
-
-        <h3
-          style={{ fontSize: "18px", marginBottom: "10px", color: "#1d4c29" }}
-        >
-          Your Orders
-        </h3>
-        {loadingOrders ? (
-          <p>Loading orders...</p>
-        ) : ordersError ? (
-          <p style={{ color: "red" }}>{ordersError}</p>
-        ) : orders.length === 0 ? (
-          <p>No orders found.</p>
-        ) : (
-          <div style={{ overflowX: "auto", marginBottom: "20px" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse" }}>
-              <thead>
-                <tr>
-                  <th style={thStyle}>Order Number</th>
-                  <th style={thStyle}>Total</th>
-                  <th style={thStyle}>Status</th>
-                  <th style={thStyle}>Date</th>
-                  <th style={thStyle}>Download</th>
+    <div>
+      <h3 style={{ fontSize: "18px", marginBottom: "10px", color: "#1d4c29" }}>
+        Your Orders
+      </h3>
+      {loadingOrders ? (
+        <p>Loading orders...</p>
+      ) : ordersError ? (
+        <p style={{ color: "red" }}>{ordersError}</p>
+      ) : orders.length === 0 ? (
+        <p>No orders found.</p>
+      ) : (
+        <div style={{ overflowX: "auto", marginBottom: "20px" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <thead>
+              <tr>
+                <th style={thStyle}>Order Number</th>
+                <th style={thStyle}>Total</th>
+                <th style={thStyle}>Status</th>
+                <th style={thStyle}>Date</th>
+                <th style={thStyle}>Download</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map((order) => (
+                <tr key={order.id || order.orderNumber}>
+                  <td style={tdStyle}>{order.orderNumber}</td>
+                  <td style={tdStyle}>${order.total.toFixed(2)}</td>
+                  <td style={tdStyle}>{order.status}</td>
+                  <td style={tdStyle}>
+                    {new Date(order.createdAt).toLocaleDateString()}
+                  </td>
+                  <td style={tdStyle}>
+                    {order.items.map((item) =>
+                      item.product.files?.length > 0 ? (
+                        item.product.files.map((file, index) => (
+                          <div key={index}>
+                            <a
+                              href={`${API_URL}${file.file.url}`}
+                              download
+                              style={{
+                                color: "#1d4c29",
+                                textDecoration: "none",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              {file.file.filename}
+                            </a>
+                          </div>
+                        ))
+                      ) : (
+                        <></>
+                      )
+                    )}
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {orders.map((order) => (
-                  <tr key={order.id || order.orderNumber}>
-                    <td style={tdStyle}>{order.orderNumber}</td>
-                    <td style={tdStyle}>${order.total.toFixed(2)}</td>
-                    <td style={tdStyle}>{order.status}</td>
-                    <td style={tdStyle}>
-                      {new Date(order.createdAt).toLocaleDateString()}
-                    </td>
-                    <td style={tdStyle}>
-                      {order.items.map((item) =>
-                        item.product.files?.length > 0 ? (
-                          item.product.files.map((file, index) => (
-                            <div key={index}>
-                              <a
-                                href={`${API_URL}${file.file.url}`}
-                                download
-                                style={{
-                                  color: "#1d4c29",
-                                  textDecoration: "none",
-                                  fontWeight: "bold",
-                                }}
-                              >
-                                {file.file.filename}
-                              </a>
-                            </div>
-                          ))
-                        ) : (
-                          <></>
-                        )
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-
-        {/* Profile Update Form */}
-        <h3
-          style={{ fontSize: "18px", marginBottom: "10px", color: "#1d4c29" }}
-        >
-          Update Profile
-        </h3>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-        >
-          <input
-            {...register("firstName")}
-            placeholder="First Name"
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              fontSize: "16px",
-            }}
-          />
-          <p style={{ color: "red", fontSize: "14px" }}>
-            {errors.firstName?.message}
-          </p>
-
-          <input
-            {...register("lastName")}
-            placeholder="Last Name"
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              fontSize: "16px",
-            }}
-          />
-          <p style={{ color: "red", fontSize: "14px" }}>
-            {errors.lastName?.message}
-          </p>
-
-          <input
-            {...register("email")}
-            type="email"
-            placeholder="Email"
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              fontSize: "16px",
-            }}
-          />
-          <p style={{ color: "red", fontSize: "14px" }}>
-            {errors.email?.message}
-          </p>
-
-          <input
-            {...register("addressLine1")}
-            placeholder="Address"
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              fontSize: "16px",
-            }}
-          />
-          <p style={{ color: "red", fontSize: "14px" }}>
-            {errors.addressLine1?.message}
-          </p>
-
-          <input
-            {...register("city")}
-            placeholder="City"
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              fontSize: "16px",
-            }}
-          />
-          <p style={{ color: "red", fontSize: "14px" }}>
-            {errors.city?.message}
-          </p>
-
-          <input
-            {...register("state")}
-            placeholder="State"
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              fontSize: "16px",
-            }}
-          />
-          <p style={{ color: "red", fontSize: "14px" }}>
-            {errors.state?.message}
-          </p>
-
-          <input
-            {...register("zip")}
-            placeholder="ZIP Code"
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              fontSize: "16px",
-            }}
-          />
-          <p style={{ color: "red", fontSize: "14px" }}>
-            {errors.zip?.message}
-          </p>
-
-          <Controller
-            name="country"
-            control={control}
-            render={({ field }) => (
-              <Select
-                {...field}
-                options={countryList().getData()}
-                onChange={(value) => field.onChange(value)}
-                styles={{
-                  control: (provided) => ({
-                    ...provided,
-                    padding: "5px",
-                    fontSize: "16px",
-                  }),
-                }}
-              />
-            )}
-          />
-          <p style={{ color: "red", fontSize: "14px" }}>
-            {errors.country?.message}
-          </p>
-
-          <button
-            type="submit"
-            style={{
-              padding: "12px",
-              backgroundColor: "#1d4c29",
-              color: "#fff",
-              border: "none",
-              borderRadius: "5px",
-              fontSize: "16px",
-              cursor: "pointer",
-              transition: "background 0.3s",
-            }}
-            onMouseOver={(e) => (e.target.style.backgroundColor = "#000")}
-            onMouseOut={(e) => (e.target.style.backgroundColor = "#1d4c29")}
-          >
-            Update Profile
-          </button>
-        </form>
-
-        {successMessage && (
-          <p style={{ marginTop: "15px", color: "green", fontSize: "14px" }}>
-            {successMessage}
-          </p>
-        )}
-      </div>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }

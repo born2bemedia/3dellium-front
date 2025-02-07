@@ -1,0 +1,185 @@
+@use "@/styles/mixin.scss" as *;
+
+.assistanceForm {
+  max-width: rem(655);
+  margin: 0 auto;
+  .success {
+    text-align: center;
+    color: #fff;
+    margin-top: rem(24);
+    display: block;
+  }
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: rem(16);
+    row-gap: rem(24);
+
+    .submit {
+      overflow: hidden;
+      border-radius: rem(16) rem(27) rem(27) rem(16);
+      width: rem(235);
+      position: relative;
+      transition: all 0.5s;
+      margin: 0 auto;
+      &:hover {
+        border-radius: rem(8);
+        > div {
+          left: 0;
+          svg {
+            border-radius: rem(8);
+            rect {
+              fill: #2b2b2b;
+            }
+          }
+          span {
+            background: #c5d2c8;
+            border-radius: rem(8);
+            color: #000;
+          }
+        }
+      }
+      > div {
+        position: relative;
+        left: -59px;
+        display: flex;
+        width: rem(294);
+        gap: rem(4);
+        transition: all 0.5s;
+        svg {
+          transition: all 0.5s;
+          border-radius: rem(27);
+          width: rem(54);
+          height: rem(54);
+        }
+        > span {
+          display: flex;
+          align-items: center;
+          height: rem(54);
+          gap: rem(8);
+          padding: 0 rem(16);
+          background: #2b2b2b;
+          color: #fff;
+          font-size: rem(20);
+          font-weight: 700;
+          line-height: 1.2;
+          text-align: left;
+          border-radius: rem(16);
+          transition: all 0.5s;
+          width: rem(176);
+          justify-content: center;
+        }
+      }
+    }
+    > div {
+      width: calc(50% - rem(8));
+      position: relative;
+      @media (max-width: rem(992)) {
+        width: 100%;
+      }
+      &.full {
+        width: 100%;
+      }
+      input {
+        width: 100%;
+        color: #050505;
+        font-size: rem(16);
+        font-weight: 300;
+        line-height: 1;
+        text-align: left;
+        padding: 0 rem(27);
+        border-radius: rem(16);
+        height: rem(50);
+        border: 1px solid #fff;
+        &.invalid {
+          border-color: #f00;
+        }
+      }
+      .error {
+        color: #f00;
+        font-size: rem(12);
+        position: absolute;
+        left: 0;
+        top: calc(100% + 2px);
+      }
+      textarea {
+        width: 100%;
+        color: #050505;
+        font-size: rem(16);
+        font-weight: 300;
+        line-height: 1;
+        text-align: left;
+        padding: rem(18) rem(27);
+        border-radius: rem(16);
+        height: rem(100);
+      }
+      .phoneWrap {
+        width: 100%;
+        &.invalid {
+          input {
+            border-color: #f00;
+          }
+        }
+        input {
+          width: 100%;
+          color: #050505;
+          font-size: rem(16);
+          font-weight: 300;
+          line-height: 1;
+          text-align: left;
+          padding: 0 rem(27) 0 rem(40);
+          border-radius: rem(16);
+          height: rem(50);
+          border: 1px solid #fff;
+        }
+        > div {
+          border: none !important;
+          background: transparent !important;
+          > div {
+            border: none !important;
+            background: transparent !important;
+          }
+          ul {
+            width: rem(269);
+            border-radius: rem(20);
+            background: #f2f2f2;
+            li {
+              color: #1e1e1e;
+              &.highlight,
+              &:hover {
+                background: #1d4c29 !important;
+                color: #fff;
+              }
+            }
+            &::-webkit-scrollbar {
+              background: transparent;
+              width: rem(5);
+            }
+
+            &::-webkit-scrollbar-track {
+              background: #ffffff0d;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background-color: #121321;
+              border-radius: 100px;
+            }
+          }
+        }
+      }
+      .react-tel-input {
+        &.invalid {
+          input {
+            border-bottom: 1px solid #ee342a;
+          }
+          & + span {
+            color: #ee342a;
+            position: absolute;
+            font-size: 11px;
+            line-height: 1;
+          }
+        }
+      }
+    }
+  }
+}

@@ -192,6 +192,35 @@ const Checkout = () => {
 
       await updateUserProfile(userId, data);
 
+      // Update the user's profile with additional information
+      await updateUserProfile(userId, data);
+
+      // Prepare payload for order email
+      const emailPayload = {
+        orderNumber: orderData.orderNumber,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phone,
+        items: orderData.items,
+        total: orderData.total,
+        paymentMethod: orderData.paymentMethod,
+        billingAddress: orderData.billingAddress,
+        notes: orderData.notes,
+      };
+
+      const emailResponse = await fetch("/api/emails/order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(emailPayload),
+      });
+
+      if (!emailResponse.ok) {
+        console.error("Failed to send order email.");
+      }
+
       clearCart();
       router.push("/thankyou");
     } catch (error) {

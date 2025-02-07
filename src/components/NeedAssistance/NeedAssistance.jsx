@@ -4,6 +4,7 @@ import { fadeInUp } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import styles from "./NeedAssistance.module.scss";
 import ContactForm from "../ContactForm/ContactForm";
+import AssistanceForm from "../AssistanceForm/AssistanceForm";
 
 const NeedAssistance = () => {
   return (
@@ -32,7 +33,7 @@ const NeedAssistance = () => {
             </motion.p>
           </div>
           <div className={styles.col2}>
-            <ContactForm />
+            <AssistanceForm />
           </div>
         </div>
       </div>

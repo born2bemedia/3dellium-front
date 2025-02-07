@@ -1,0 +1,19 @@
+@use "@/styles/mixin.scss" as *;
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: rem(14);
+  a {
+    font-size: rem(24);
+    color: #000;
+    font-weight: 600;
+    padding: rem(16) rem(24);
+    background: transparent;
+    border-radius: rem(16);
+    &.current {
+      background: #eff3f0;
+      border-radius: rem(16);
+    }
+  }
+}

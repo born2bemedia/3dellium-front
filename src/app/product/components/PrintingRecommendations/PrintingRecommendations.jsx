@@ -27,8 +27,8 @@ const PrintingRecommendations = () => {
       icon: "/images/product/rec4.svg",
     },
     {
-      title: "Optimize Layer Height",
-      text: "Use a lower layer height (e.g., 0.1mm) for finer details. For quicker prints, 0.2mm works well.",
+      title: "Optimize Layer <br/>Height",
+      text: "Use a lower layer height (e.g., 0.1mm) for finer details. For quicker prints, 0.2mm works <br/>well.",
       icon: "/images/product/rec5.svg",
     },
   ];
@@ -54,9 +54,9 @@ const PrintingRecommendations = () => {
               className={styles.item}
               key={index}
             >
-              <p>{rec.text}</p>
+              <p dangerouslySetInnerHTML={{ __html: rec.text }} />
               <div>
-                <h3>{rec.title}</h3>
+                <h3 dangerouslySetInnerHTML={{ __html: rec.title }} />
                 <img src={rec.icon} />
               </div>
             </motion.div>
