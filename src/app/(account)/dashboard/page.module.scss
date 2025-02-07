@@ -1,1 +1,32 @@
 @use "@/styles/mixin.scss" as *;
+
+.orderWrap {
+  @media (max-width: rem(992)) {
+    overflow-x: auto;
+  }
+  table {
+    border-collapse: collapse;
+    border: none;
+    min-width: 100%;
+    @media (max-width: rem(992)) {
+      width: rem(850);
+    }
+    th {
+      text-align: left;
+      padding-bottom: rem(16);
+      padding-right: rem(16);
+      font-size: rem(16);
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+    td {
+      padding: rem(8) rem(16) rem(8) 0;
+      font-size: rem(16);
+      a {
+        font-weight: 400;
+        color: #1d4c29;
+      }
+    }
+  }
+}

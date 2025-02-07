@@ -1,0 +1,121 @@
+@use "@/styles/mixin.scss" as *;
+
+.factoryHero {
+  margin: rem(34) 0 rem(80) 0;
+  overflow: hidden;
+  .container {
+    padding: 0 rem(40);
+    position: relative;
+    @media (max-width: rem(992)) {
+      padding: 0 rem(16);
+    }
+    .body {
+      display: flex;
+      flex-wrap: wrap;
+      gap: rem(12);
+      .item {
+        position: relative;
+        width: calc(33.33% - rem(8));
+        min-height: rem(336);
+        overflow: hidden;
+        @media (max-width: rem(992)) {
+          min-height: rem(250);
+          width: calc(50% - rem(8));
+        }
+        &:first-child {
+          padding: rem(12);
+          @media (max-width: rem(992)) {
+            order: 3;
+            width: 100%;
+            min-height: unset;
+          }
+          h1 {
+            color: #1d4c29;
+            font-size: rem(80);
+            font-style: normal;
+            font-weight: 900;
+            line-height: 120%;
+            @media (max-width: rem(992)) {
+              font-size: rem(40);
+              br {
+                display: none;
+              }
+            }
+          }
+          p {
+            color: #000;
+            font-size: rem(26);
+            font-style: normal;
+            font-weight: 300;
+            line-height: 130%; /* 33.8px */
+            text-transform: lowercase;
+            @media (max-width: rem(992)) {
+              font-size: rem(18);
+            }
+          }
+        }
+        &:nth-child(2) {
+          border-radius: 0 rem(36) rem(36) rem(36);
+          @media (max-width: rem(992)) {
+            order: 1;
+          }
+        }
+        &:nth-child(3) {
+          border-radius: rem(36) 0 rem(36) rem(36);
+          @media (max-width: rem(992)) {
+            order: 2;
+          }
+        }
+        &:nth-child(4) {
+          border-radius: rem(36) rem(36) rem(36) 0;
+          @media (max-width: rem(992)) {
+            order: 4;
+          }
+        }
+        &:nth-child(5) {
+          border-radius: rem(36) rem(36) 0 rem(36);
+          @media (max-width: rem(992)) {
+            order: 5;
+          }
+        }
+        &:nth-child(6) {
+          border-radius: rem(16);
+          padding: rem(36);
+          background: #eff3f0;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          @media (max-width: rem(992)) {
+            padding: rem(20);
+            order: 6;
+            width: 100%;
+            min-height: unset;
+          }
+          p {
+            color: #000;
+            font-size: rem(20);
+            font-style: normal;
+            font-weight: 300;
+            line-height: 130%;
+            @media (max-width: rem(992)) {
+              font-size: rem(16);
+            }
+          }
+          h2 {
+            color: #000;
+            font-size: rem(36);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 130%;
+            @media (max-width: rem(992)) {
+              font-size: rem(24);
+            }
+          }
+        }
+      }
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+}

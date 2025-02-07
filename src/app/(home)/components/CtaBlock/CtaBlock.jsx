@@ -23,7 +23,7 @@ const CtaBlock = () => {
               It's <br />
               3Dellium!
             </h2>
-            <Link href={"#"}>
+            <Link href={"/factory-tour"}>
               <div>
                 <AddToCartArrow2 />
                 <span>Explore Our World</span>
