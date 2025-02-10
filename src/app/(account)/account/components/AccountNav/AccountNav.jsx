@@ -14,10 +14,10 @@ const AccountNav = () => {
         Your orders
       </Link>
       <Link
-        href="/account/your-data"
-        className={pathname === "/account/your-data" ? styles.current : ""}
+        href="/account/account-access"
+        className={pathname === "/account/account-access" ? styles.current : ""}
       >
-        Your Data
+        Account Access
       </Link>
     </nav>
   );

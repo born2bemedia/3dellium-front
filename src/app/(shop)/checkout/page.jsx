@@ -2,14 +2,14 @@ import React from "react";
 import Checkout from "./_components/Checkout";
 
 export const metadata = {
-  title: "Checkout | Holax Group",
+  title: "Checkout | 3Dellium",
   description:
     "",
   openGraph: {
-    title: "Checkout | Holax Group",
+    title: "Checkout | 3Dellium",
     description:
       "",
-    //images: "https://holaxgroup.com/images/meta.png",
+    //images: "",
   },
 };
 
