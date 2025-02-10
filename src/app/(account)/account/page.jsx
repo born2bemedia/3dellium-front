@@ -3,18 +3,14 @@ import useAuthStore from "@/stores/authStore";
 import { useEffect, useState } from "react";
 import { API_URL } from "@/helpers/constants";
 import styles from "./page.module.scss";
+import fetchFromAPI from "@/helpers/fetchFromAPI";
 
-async function getOrders(userId, token, userEmail) {
+async function getOrders(userId) {
   try {
-    const url = `${API_URL}/api/orders?where[user][equals]=${userId}`;
-    console.log(url);
-    const response = await fetch(url, {
+    const data = await fetchFromAPI("/api/orders", {
+      query: `where[user][equals]=${userId}`,
       cache: "no-store",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
     });
-    const data = await response.json();
     console.log(data);
     return data.docs || [];
   } catch (error) {
@@ -26,18 +22,16 @@ async function getOrders(userId, token, userEmail) {
 export default function DashboardPage() {
   const { user, token } = useAuthStore();
 
-  // Orders state
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(false);
   const [ordersError, setOrdersError] = useState("");
 
-  // Fetch orders using the external API once the user is available.
   useEffect(() => {
     if (user) {
       setLoadingOrders(true);
       const userId = user._id || user.id;
       const userEmail = user.email;
-      getOrders(userId, token, userEmail)
+      getOrders(userId)
         .then((ordersData) => {
           setOrders(ordersData);
           setLoadingOrders(false);
@@ -107,7 +101,6 @@ export default function DashboardPage() {
                           </div>
                         );
                       }
-                      // Return null if there are no files to show for this item.
                       return null;
                     })}
                   </td>

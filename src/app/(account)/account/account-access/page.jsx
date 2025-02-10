@@ -42,7 +42,6 @@ function SetPasswordForm() {
           }
         );
         console.log("User details:", response.data);
-        // Process user details as needed.
       } catch (error) {
         console.error("Error fetching user details:", error);
       }
