@@ -11,6 +11,11 @@ import "react-phone-input-2/lib/style.css";
 import useCartStore from "@/stores/cartStore"; // Zustand cart store
 import useAuthStore from "@/stores/authStore"; // Zustand auth store
 
+const getCountryOptionByCode = (code) => {
+  const countries = countryList().getData();
+  return countries.find((country) => country.value === code);
+};
+
 const Checkout = () => {
   const { cart, clearCart, totalAmount } = useCartStore();
   const { user, fetchUserByEmail, registerUser } = useAuthStore();
@@ -56,7 +61,7 @@ const Checkout = () => {
         city: data.city,
         state: data.state || "N/A",
         zip: data.zip,
-        country: data.country.label,
+        country: data.country.value,
       };
 
       console.log("Updating user with:", userUpdatePayload);
@@ -119,8 +124,9 @@ const Checkout = () => {
         addressLine1: user.address || "",
         city: user.city || "",
         state: user.state || "",
+        phone: user?.phone || "",
         zip: user.zip || "",
-        country: user.country || "",
+        country: user.country ? getCountryOptionByCode(user.country) : null,
       });
     }
   }, [user, reset]);
@@ -162,7 +168,7 @@ const Checkout = () => {
           city: data.city,
           state: data.state || "N/A",
           zip: data.zip,
-          country: data.country.label,
+          country: data.country.value,
         },
         notes: data.specialNotes || "",
       };

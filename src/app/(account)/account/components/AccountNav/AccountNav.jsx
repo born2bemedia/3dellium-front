@@ -8,14 +8,14 @@ const AccountNav = () => {
   return (
     <nav className={styles.nav}>
       <Link
-        href="/dashboard"
-        className={pathname === "/dashboard" ? styles.current : ""}
+        href="/account"
+        className={pathname === "/account" ? styles.current : ""}
       >
         Your orders
       </Link>
       <Link
-        href="/dashboard/your-data"
-        className={pathname === "/dashboard/your-data" ? styles.current : ""}
+        href="/account/your-data"
+        className={pathname === "/account/your-data" ? styles.current : ""}
       >
         Your Data
       </Link>

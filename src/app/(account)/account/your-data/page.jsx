@@ -8,40 +8,28 @@ import Select from "react-select";
 import countryList from "react-select-country-list";
 import { useRouter } from "next/navigation";
 
-const API_URL = process.env.NEXT_PUBLIC_CMS_URL; // e.g., "https://your-cms.com"
-
 const schema = yup.object().shape({
   firstName: yup.string().required("First name is required"),
   lastName: yup.string().required("Last name is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
 });
 
-// This async function fetches orders for a given user by calling the external API.
-// Helper function to fetch orders
-async function getOrders(userId, token, userEmail) {
-  try {
-    const url = `${API_URL}/api/orders?where[user][equals]=${userId}`;
-    console.log(url);
-    const response = await fetch(url, {
-      cache: "no-store",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    const data = await response.json();
-    return data.docs || [];
-  } catch (error) {
-    console.error("Error fetching orders:", error);
-    return [];
-  }
-}
+const getCountryOptionByCode = (code) => {
+  const countries = countryList().getData();
+  return countries.find((country) => country.value === code);
+};
 
 export default function DashboardPage() {
   const { user, updateUser, isHydrated } = useAuthStore();
+  const [userCountry, setUserCountry] = useState("");
   const router = useRouter();
 
-  // Profile update success/error message state
   const [successMessage, setSuccessMessage] = useState("");
+
+  useEffect(() => {
+    setUserCountry(user?.country);
+    console.log(user?.country);
+  }, [user]);
 
   const {
     register,
@@ -59,7 +47,7 @@ export default function DashboardPage() {
       city: user?.city || "",
       state: user?.state || "",
       zip: user?.zip || "",
-      country: user?.country || "",
+      country: null,
     },
   });
 
@@ -93,7 +81,7 @@ export default function DashboardPage() {
         city: user.city || "",
         state: user.state || "",
         zip: user.zip || "",
-        country: user.country || "",
+        country: user.country ? getCountryOptionByCode(user.country) : null,
       });
     } else {
       router.push("/log-in");

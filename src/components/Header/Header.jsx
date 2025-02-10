@@ -60,7 +60,7 @@ const Header = () => {
               </Link>
               {user ? (
                 <div className={styles.headAccount}>
-                  <Link href="/dashboard">Account</Link>
+                  <Link href="/account">Account</Link>
                 </div>
               ) : (
                 <div className={styles.headAccount}>
