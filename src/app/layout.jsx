@@ -104,6 +104,11 @@ const helveticaNeue = localFont({
 export const metadata = {
   title: "3Dellium",
   description: "",
+  openGraph: {
+    title: "3Dellium",
+    description: "",
+    //images: "",
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -1,0 +1,105 @@
+@use "@/styles/mixin.scss" as *;
+
+.contactHero {
+  margin: rem(34) 0;
+  .container {
+    padding: 0 rem(40);
+    position: relative;
+    @media (max-width: rem(992)) {
+      padding: 0 rem(16);
+    }
+    .body {
+      display: flex;
+      gap: rem(40);
+      @media (max-width: rem(992)) {
+        flex-direction: column;
+        gap: rem(24);
+      }
+      .col1 {
+        display: flex;
+        flex-direction: column;
+        gap: rem(12);
+        width: calc(42% - rem(20));
+        @media (max-width: rem(992)) {
+          width: 100%;
+          flex-direction: row;
+        }
+        > div {
+          height: rem(290);
+          position: relative;
+          @media (max-width: rem(992)) {
+            height: rem(250);
+            width: calc(50% - rem(6));
+          }
+          &:first-child {
+            border-radius: rem(36) rem(36) 0 rem(36);
+            overflow: hidden;
+          }
+          &:last-child {
+            border-radius: 0 rem(36) rem(36) rem(36);
+            overflow: hidden;
+          }
+          img {
+            object-fit: cover;
+          }
+        }
+      }
+      .col2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: calc(58% - rem(20));
+        @media (max-width: rem(992)) {
+          gap: rem(45);
+          width: 100%;
+        }
+        > div {
+          &:last-child {
+            background: #1d4c29;
+            border-radius: rem(36);
+            padding: rem(36);
+            @media (max-width: rem(992)) {
+              padding: rem(24) rem(16);
+              border-radius: rem(24);
+            }
+            h2 {
+              font-size: rem(40);
+              font-weight: 900;
+              color: #c5d2c8;
+              margin-bottom: rem(32);
+              @media (max-width: rem(992)) {
+                font-size: rem(32);
+              }
+            }
+            > div {
+              margin: 0;
+              width: 100%;
+              max-width: 100%;
+              > form {
+                > button {
+                  margin: 0;
+                }
+              }
+            }
+          }
+          h1 {
+            color: #1d4c29;
+            font-size: rem(100);
+            font-weight: 900;
+            line-height: 1.2;
+            text-align: left;
+            @media (max-width: rem(992)) {
+              font-size: rem(40);
+            }
+          }
+          p {
+            font-size: rem(26);
+            @media (max-width: rem(992)) {
+              font-size: rem(18);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -5,6 +5,16 @@ import ShopAssistance from "../components/ShopAssistance/ShopAssistance";
 import AnimationProcess from "./components/AnimationProcess/AnimationProcess";
 import AnimationWhy from "./components/AnimationWhy/AnimationWhy";
 
+export const metadata = {
+  title: "Animations | 3Dellium",
+  description: "",
+  openGraph: {
+    title: "Animations | 3Dellium",
+    description: "",
+    //images: "",
+  },
+};
+
 const page = () => {
   const categories = ["animations"];
 

@@ -5,6 +5,16 @@ import UxUiHero from "./components/UxUiHero/UxUiHero";
 import HowWeCraftExperiences from "./components/HowWeCraftExperiences/HowWeCraftExperiences";
 import WhenWrong from "./components/WhenWrong/WhenWrong";
 
+export const metadata = {
+  title: "UI/UX Design | 3Dellium",
+  description: "",
+  openGraph: {
+    title: "UI/UX Design | 3Dellium",
+    description: "",
+    //images: "",
+  },
+};
+
 const page = () => {
   return (
     <>

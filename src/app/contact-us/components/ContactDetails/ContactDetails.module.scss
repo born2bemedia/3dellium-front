@@ -1,0 +1,88 @@
+@use "@/styles/mixin.scss" as *;
+
+.contactDetails {
+  margin-bottom: rem(100);
+  @media (max-width: rem(992)) {
+    margin-bottom: rem(54);
+  }
+  .container {
+    padding: 0 rem(40);
+    position: relative;
+    @media (max-width: rem(992)) {
+      padding: 0 rem(16);
+    }
+    .body {
+      background: #eff3f0;
+      border-radius: rem(16);
+      padding: rem(36);
+      display: flex;
+      gap: rem(60);
+      @media (max-width: rem(992)) {
+        flex-direction: column;
+        padding: rem(36) rem(16);
+      }
+      > div {
+        &.col2 {
+          flex-grow: 1;
+        }
+        @media (max-width: rem(992)) {
+          width: 100%;
+        }
+        h2 {
+          color: #1d4c29;
+          font-size: rem(40);
+          font-weight: 900;
+          line-height: 1.2;
+          text-align: left;
+          margin-bottom: rem(16);
+          @media (max-width: rem(992)) {
+            font-size: rem(24);
+          }
+        }
+        .row {
+          display: flex;
+          gap: rem(40);
+          width: 100%;
+          @media (max-width: rem(992)) {
+            flex-direction: column;
+          }
+          > div {
+            width: calc(50% - rem(20));
+            margin: 0;
+            @media (max-width: rem(992)) {
+              width: 100%;
+            }
+          }
+        }
+        .details {
+          margin-bottom: rem(8);
+          &:last-child {
+            margin-bottom: 0;
+          }
+          p {
+            font-size: rem(20);
+            margin-bottom: rem(8);
+          }
+          a,
+          h5 {
+            color: #000;
+            font-size: rem(24);
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: left;
+            @media (max-width: rem(992)) {
+              font-size: rem(18);
+            }
+          }
+          iframe {
+            margin-top: rem(8);
+            width: 100%;
+            border-radius: rem(16);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+    }
+  }
+}

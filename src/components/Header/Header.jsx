@@ -88,7 +88,7 @@ const Header = () => {
               <Link href="/ux-ui">UX & UI</Link>
               <Link href="/ideas">Ideas</Link>
               <Link href="/factory-tour">Factory Tour</Link>
-              <Link href="#">Contact Us</Link>
+              <Link href="/contact-us">Contact Us</Link>
             </nav>
           </div>
         </div>

@@ -3,6 +3,16 @@ import Shop from "../components/Shop/Shop";
 import ShopHero from "../components/ShopHero/ShopHero";
 import ShopAssistance from "../components/ShopAssistance/ShopAssistance";
 
+export const metadata = {
+  title: "3D Modelling | 3Dellium",
+  description: "",
+  openGraph: {
+    title: "3D Modelling | 3Dellium",
+    description: "",
+    //images: "",
+  },
+};
+
 const page = () => {
   const categories = [
     "renovation-tools",

@@ -5,6 +5,8 @@ import { API_URL } from "@/helpers/constants";
 import styles from "./page.module.scss";
 import fetchFromAPI from "@/helpers/fetchFromAPI";
 
+
+
 async function getOrders(userId) {
   try {
     const data = await fetchFromAPI("/api/orders", {

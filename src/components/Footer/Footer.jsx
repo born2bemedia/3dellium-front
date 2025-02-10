@@ -52,7 +52,7 @@ const Footer = () => {
                 <Link href="/ideas">Ideas</Link>
               </li>
               <li>
-                <Link href="#">Contact Us</Link>
+                <Link href="/contact-us">Contact Us</Link>
               </li>
               <li>
                 <Link href="/account">Your Account</Link>
