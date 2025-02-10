@@ -1,105 +1,104 @@
 "use client";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
+import { useState, Suspense, useEffect } from "react";
 import useAuthStore from "@/stores/authStore";
-import { useEffect, useState } from "react";
-import Select from "react-select";
-import countryList from "react-select-country-list";
-import { useRouter } from "next/navigation";
 
+// Validation Schema
 const schema = yup.object().shape({
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
-  email: yup.string().email("Invalid email").required("Email is required"),
+  currentPassword: yup.string().required("Current password is required"),
+  password: yup
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .required("Password is required"),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Passwords must match")
+    .required("Confirm password is required"),
 });
 
-const getCountryOptionByCode = (code) => {
-  const countries = countryList().getData();
-  return countries.find((country) => country.value === code);
-};
-
-export default function DashboardPage() {
-  const { user, updateUser, isHydrated } = useAuthStore();
-  const [userCountry, setUserCountry] = useState("");
-  const router = useRouter();
-
-  const [successMessage, setSuccessMessage] = useState("");
-
-  useEffect(() => {
-    setUserCountry(user?.country);
-    console.log(user?.country);
-  }, [user]);
+function SetPasswordForm() {
+  const { user, token, isHydrated } = useAuthStore();
 
   const {
     register,
-    reset,
     handleSubmit,
-    control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: {
-      firstName: user?.firstName || "",
-      lastName: user?.lastName || "",
-      email: user?.email || "",
-      addressLine1: user?.address || "",
-      city: user?.city || "",
-      state: user?.state || "",
-      zip: user?.zip || "",
-      country: null,
-    },
   });
+
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    async function fetchUserDetails() {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_CMS_URL}/api/users/me`,
+          {
+            withCredentials: true,
+          }
+        );
+        console.log("User details:", response.data);
+        // Process user details as needed.
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+    }
+    fetchUserDetails();
+  }, [user]);
 
   const onSubmit = async (data) => {
     try {
-      const userUpdatePayload = {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        address: data.addressLine1,
-        city: data.city,
-        state: data.state || "N/A",
-        zip: data.zip,
-        country: data.country.value,
-      };
-      await updateUser(userUpdatePayload);
-      setSuccessMessage("Profile updated successfully!");
+      const response = await axios.patch(
+        `${process.env.NEXT_PUBLIC_CMS_URL}/api/users/${user.id}`,
+        {
+          currentPassword: data.currentPassword,
+          password: data.password,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setMessage("Your password has been updated!");
     } catch (error) {
-      setSuccessMessage("Failed to update profile. Please try again.");
+      console.error("Error updating password:", error);
+      setMessage(
+        "Failed to update password. Please check your current password."
+      );
     }
   };
 
-  useEffect(() => {
-    if (!isHydrated) return;
-    if (user) {
-      reset({
-        firstName: user.firstName || "",
-        lastName: user.lastName || "",
-        email: user.email || "",
-        addressLine1: user.address || "",
-        city: user.city || "",
-        state: user.state || "",
-        zip: user.zip || "",
-        country: user.country ? getCountryOptionByCode(user.country) : null,
-      });
-    } else {
-      router.push("/log-in");
-    }
-  }, [user, reset, router]);
-
   return (
     <div>
-      <h3 style={{ fontSize: "18px", marginBottom: "10px", color: "#1d4c29" }}>
-        Update Profile
-      </h3>
+      <h2
+        style={{
+          fontSize: "22px",
+          marginBottom: "15px",
+          color: "#1d4c29",
+        }}
+      >
+        Set New Password
+      </h2>
+
       <form
         onSubmit={handleSubmit(onSubmit)}
-        style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+        }}
       >
+        {/* Current Password Field */}
         <input
-          {...register("firstName")}
-          placeholder="First Name"
+          {...register("currentPassword")}
+          type="password"
+          placeholder="Current Password"
           style={{
             width: "100%",
             padding: "10px",
@@ -109,12 +108,14 @@ export default function DashboardPage() {
           }}
         />
         <p style={{ color: "red", fontSize: "14px" }}>
-          {errors.firstName?.message}
+          {errors.currentPassword?.message}
         </p>
 
+        {/* New Password Field */}
         <input
-          {...register("lastName")}
-          placeholder="Last Name"
+          {...register("password")}
+          type="password"
+          placeholder="New Password"
           style={{
             width: "100%",
             padding: "10px",
@@ -124,13 +125,14 @@ export default function DashboardPage() {
           }}
         />
         <p style={{ color: "red", fontSize: "14px" }}>
-          {errors.lastName?.message}
+          {errors.password?.message}
         </p>
 
+        {/* Confirm New Password Field */}
         <input
-          {...register("email")}
-          type="email"
-          placeholder="Email"
+          {...register("confirmPassword")}
+          type="password"
+          placeholder="Confirm Password"
           style={{
             width: "100%",
             padding: "10px",
@@ -140,85 +142,7 @@ export default function DashboardPage() {
           }}
         />
         <p style={{ color: "red", fontSize: "14px" }}>
-          {errors.email?.message}
-        </p>
-
-        <input
-          {...register("addressLine1")}
-          placeholder="Address"
-          style={{
-            width: "100%",
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            fontSize: "16px",
-          }}
-        />
-        <p style={{ color: "red", fontSize: "14px" }}>
-          {errors.addressLine1?.message}
-        </p>
-
-        <input
-          {...register("city")}
-          placeholder="City"
-          style={{
-            width: "100%",
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            fontSize: "16px",
-          }}
-        />
-        <p style={{ color: "red", fontSize: "14px" }}>{errors.city?.message}</p>
-
-        <input
-          {...register("state")}
-          placeholder="State"
-          style={{
-            width: "100%",
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            fontSize: "16px",
-          }}
-        />
-        <p style={{ color: "red", fontSize: "14px" }}>
-          {errors.state?.message}
-        </p>
-
-        <input
-          {...register("zip")}
-          placeholder="ZIP Code"
-          style={{
-            width: "100%",
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            fontSize: "16px",
-          }}
-        />
-        <p style={{ color: "red", fontSize: "14px" }}>{errors.zip?.message}</p>
-
-        <Controller
-          name="country"
-          control={control}
-          render={({ field }) => (
-            <Select
-              {...field}
-              options={countryList().getData()}
-              onChange={(value) => field.onChange(value)}
-              styles={{
-                control: (provided) => ({
-                  ...provided,
-                  padding: "5px",
-                  fontSize: "16px",
-                }),
-              }}
-            />
-          )}
-        />
-        <p style={{ color: "red", fontSize: "14px" }}>
-          {errors.country?.message}
+          {errors.confirmPassword?.message}
         </p>
 
         <button
@@ -236,15 +160,29 @@ export default function DashboardPage() {
           onMouseOver={(e) => (e.target.style.backgroundColor = "#000")}
           onMouseOut={(e) => (e.target.style.backgroundColor = "#1d4c29")}
         >
-          Update Profile
+          Set Password
         </button>
       </form>
 
-      {successMessage && (
-        <p style={{ marginTop: "15px", color: "green", fontSize: "14px" }}>
-          {successMessage}
+      {message && (
+        <p
+          style={{
+            marginTop: "15px",
+            color: message.includes("success") ? "green" : "red",
+            fontSize: "14px",
+          }}
+        >
+          {message}
         </p>
       )}
     </div>
+  );
+}
+
+export default function SetPasswordPage() {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <SetPasswordForm />
+    </Suspense>
   );
 }
