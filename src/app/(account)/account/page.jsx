@@ -5,8 +5,6 @@ import { API_URL } from "@/helpers/constants";
 import styles from "./page.module.scss";
 import fetchFromAPI from "@/helpers/fetchFromAPI";
 
-
-
 async function getOrders(userId) {
   try {
     const data = await fetchFromAPI("/api/orders", {
@@ -45,10 +43,55 @@ export default function DashboardPage() {
     }
   }, [user]);
 
+  const SkeletonRow = () => (
+    <tr className={styles.skeletonRow}>
+      <td>
+        <div className={styles.skeletonCell}></div>
+      </td>
+      <td>
+        <div className={styles.skeletonCell}></div>
+      </td>
+      <td>
+        <div className={styles.skeletonCell}></div>
+      </td>
+      <td>
+        <div className={styles.skeletonCell}></div>
+      </td>
+      <td>
+        <div className={styles.skeletonCell}></div>
+      </td>
+      <td>
+        <div className={styles.skeletonCell}></div>
+      </td>
+      <td>
+        <div className={styles.skeletonCell}></div>
+      </td>
+    </tr>
+  );
+
   return (
     <div>
       {loadingOrders ? (
-        <p>Loading orders...</p>
+        <div className={styles.orderWrap}>
+          <table>
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Items</th>
+                <th>Date</th>
+                <th>Price</th>
+                <th>Order Status</th>
+                <th>Download</th>
+                <th>Invoice</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[...Array(3)].map((_, index) => (
+                <SkeletonRow key={`skeleton-${index}`} />
+              ))}
+            </tbody>
+          </table>
+        </div>
       ) : ordersError ? (
         <p style={{ color: "red" }}>{ordersError}</p>
       ) : orders.length === 0 ? (

@@ -16,11 +16,22 @@ const getCountryOptionByCode = (code) => {
   return countries.find((country) => country.value === code);
 };
 
+// Add these constants at the top
+const inputStyles = {
+  width: "100%",
+  padding: "10px",
+  border: "1px solid #ccc",
+  borderRadius: "5px",
+  fontSize: "16px",
+};
+
 const Checkout = () => {
   const { cart, clearCart, totalAmount } = useCartStore();
   const { user, fetchUserByEmail, registerUser } = useAuthStore();
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
 
   useEffect(() => {
     setIsMounted(true);
@@ -132,6 +143,9 @@ const Checkout = () => {
   }, [user, reset]);
 
   const handleCreateOrder = async (data) => {
+    setIsSubmitting(true);
+    setSubmitError(null);
+
     try {
       let userId = null;
 
@@ -151,6 +165,9 @@ const Checkout = () => {
 
         userId = newUser.id;
       }
+
+      // Update user profile first
+      await updateUserProfile(userId, data);
 
       const orderData = {
         orderNumber: `ORD-${Date.now()}`,
@@ -192,16 +209,10 @@ const Checkout = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error("Error response:", errorData);
-        throw new Error("Failed to create order");
+        throw new Error(errorData.message || "Failed to create order");
       }
 
-      await updateUserProfile(userId, data);
-
-      // Update the user's profile with additional information
-      await updateUserProfile(userId, data);
-
-      // Prepare payload for order email
+      // Send order confirmation email
       const emailPayload = {
         orderNumber: orderData.orderNumber,
         firstName: data.firstName,
@@ -231,6 +242,11 @@ const Checkout = () => {
       router.push("/thankyou");
     } catch (error) {
       console.error("Order creation failed:", error);
+      setSubmitError(
+        error.message || "Failed to process order. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -293,16 +309,7 @@ const Checkout = () => {
               >
                 <div>
                   <label>First Name</label>
-                  <input
-                    {...register("firstName")}
-                    style={{
-                      width: "100%",
-                      padding: "10px",
-                      border: "1px solid #ccc",
-                      borderRadius: "5px",
-                      fontSize: "16px",
-                    }}
-                  />
+                  <input {...register("firstName")} style={inputStyles} />
                   {errors.firstName && (
                     <p style={{ color: "red", fontSize: "14px" }}>
                       {errors.firstName.message}
@@ -311,16 +318,7 @@ const Checkout = () => {
                 </div>
                 <div>
                   <label>Last Name</label>
-                  <input
-                    {...register("lastName")}
-                    style={{
-                      width: "100%",
-                      padding: "10px",
-                      border: "1px solid #ccc",
-                      borderRadius: "5px",
-                      fontSize: "16px",
-                    }}
-                  />
+                  <input {...register("lastName")} style={inputStyles} />
                   {errors.lastName && (
                     <p style={{ color: "red", fontSize: "14px" }}>
                       {errors.lastName.message}
@@ -331,16 +329,7 @@ const Checkout = () => {
 
               <div>
                 <label>Address Line 1</label>
-                <input
-                  {...register("addressLine1")}
-                  style={{
-                    width: "100%",
-                    padding: "10px",
-                    border: "1px solid #ccc",
-                    borderRadius: "5px",
-                    fontSize: "16px",
-                  }}
-                />
+                <input {...register("addressLine1")} style={inputStyles} />
                 {errors.addressLine1 && (
                   <p style={{ color: "red", fontSize: "14px" }}>
                     {errors.addressLine1.message}
@@ -350,16 +339,7 @@ const Checkout = () => {
 
               <div>
                 <label>City</label>
-                <input
-                  {...register("city")}
-                  style={{
-                    width: "100%",
-                    padding: "10px",
-                    border: "1px solid #ccc",
-                    borderRadius: "5px",
-                    fontSize: "16px",
-                  }}
-                />
+                <input {...register("city")} style={inputStyles} />
                 {errors.city && (
                   <p style={{ color: "red", fontSize: "14px" }}>
                     {errors.city.message}
@@ -376,16 +356,7 @@ const Checkout = () => {
               >
                 <div>
                   <label>ZIP Code</label>
-                  <input
-                    {...register("zip")}
-                    style={{
-                      width: "100%",
-                      padding: "10px",
-                      border: "1px solid #ccc",
-                      borderRadius: "5px",
-                      fontSize: "16px",
-                    }}
-                  />
+                  <input {...register("zip")} style={inputStyles} />
                   {errors.zip && (
                     <p style={{ color: "red", fontSize: "14px" }}>
                       {errors.zip.message}
@@ -431,11 +402,7 @@ const Checkout = () => {
                       country={"us"}
                       onChange={(value) => setValue("phone", value)}
                       inputStyle={{
-                        width: "100%",
-                        padding: "10px",
-                        border: "1px solid #ccc",
-                        borderRadius: "5px",
-                        fontSize: "16px",
+                        ...inputStyles,
                       }}
                     />
                   )}
@@ -449,16 +416,7 @@ const Checkout = () => {
 
               <div>
                 <label>Email</label>
-                <input
-                  {...register("email")}
-                  style={{
-                    width: "100%",
-                    padding: "10px",
-                    border: "1px solid #ccc",
-                    borderRadius: "5px",
-                    fontSize: "16px",
-                  }}
-                />
+                <input {...register("email")} style={inputStyles} />
                 {errors.email && (
                   <p style={{ color: "red", fontSize: "14px" }}>
                     {errors.email.message}
@@ -535,22 +493,29 @@ const Checkout = () => {
                 )}
               </div>
 
+              {submitError && (
+                <div
+                  style={{
+                    color: "red",
+                    marginBottom: "15px",
+                    textAlign: "center",
+                  }}
+                >
+                  {submitError}
+                </div>
+              )}
+
               <button
                 type="submit"
+                disabled={isSubmitting}
                 style={{
-                  padding: "12px",
-                  backgroundColor: "#1d4c29",
+                  ...inputStyles,
+                  backgroundColor: isSubmitting ? "#ccc" : "#1d4c29",
+                  cursor: isSubmitting ? "not-allowed" : "pointer",
                   color: "#fff",
-                  border: "none",
-                  borderRadius: "5px",
-                  fontSize: "16px",
-                  cursor: "pointer",
-                  transition: "background 0.3s",
                 }}
-                onMouseOver={(e) => (e.target.style.backgroundColor = "#000")}
-                onMouseOut={(e) => (e.target.style.backgroundColor = "#1d4c29")}
               >
-                Submit
+                {isSubmitting ? "Processing..." : "Submit"}
               </button>
             </form>
           ) : (
