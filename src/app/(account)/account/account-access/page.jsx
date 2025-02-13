@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useState, Suspense, useEffect } from "react";
 import useAuthStore from "@/stores/authStore";
+import styles from "./page.module.scss";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -21,6 +22,12 @@ const schema = yup.object().shape({
 
 function SetPasswordForm() {
   const { user, token, isHydrated } = useAuthStore();
+
+  const [showPasswords, setShowPasswords] = useState({
+    currentPassword: false,
+    password: false,
+    confirmPassword: false,
+  });
 
   const {
     register,
@@ -74,93 +81,85 @@ function SetPasswordForm() {
   };
 
   return (
-    <div>
-      <h2
-        style={{
-          fontSize: "22px",
-          marginBottom: "15px",
-          color: "#1d4c29",
-        }}
-      >
-        Set New Password
-      </h2>
+    <div className={styles.accountAccess}>
+      <h2>Account Access Details</h2>
 
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "10px",
-        }}
-      >
-        {/* Current Password Field */}
-        <input
-          {...register("currentPassword")}
-          type="password"
-          placeholder="Current Password"
-          style={{
-            width: "100%",
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            fontSize: "16px",
-          }}
-        />
-        <p style={{ color: "red", fontSize: "14px" }}>
-          {errors.currentPassword?.message}
-        </p>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.inputWrap}>
+          <label>Your Password:</label>
+          <div>
+            <input
+              {...register("currentPassword")}
+              type={showPasswords.currentPassword ? "text" : "password"}
+              placeholder=""
+            />
+            <button
+              type="button"
+              onClick={() =>
+                setShowPasswords((prev) => ({
+                  ...prev,
+                  currentPassword: !prev.currentPassword,
+                }))
+              }
+              className={styles.eyeIcon}
+            >
+              {showPasswords.currentPassword ? "👁️" : "👁️‍🗨️"}
+            </button>
+            <p>{errors.currentPassword?.message}</p>
+          </div>
+        </div>
 
-        {/* New Password Field */}
-        <input
-          {...register("password")}
-          type="password"
-          placeholder="New Password"
-          style={{
-            width: "100%",
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            fontSize: "16px",
-          }}
-        />
-        <p style={{ color: "red", fontSize: "14px" }}>
-          {errors.password?.message}
-        </p>
+        <div className={styles.inputWrap}>
+          <label>New Password:</label>
+          <div>
+            <input
+              {...register("password")}
+              type={showPasswords.password ? "text" : "password"}
+              placeholder=""
+            />
+            <button
+              type="button"
+              onClick={() =>
+                setShowPasswords((prev) => ({
+                  ...prev,
+                  password: !prev.password,
+                }))
+              }
+              className={styles.eyeIcon}
+            >
+              {showPasswords.password ? "👁️" : "👁️‍🗨️"}
+            </button>
+            <p>{errors.password?.message}</p>
+          </div>
+        </div>
 
-        {/* Confirm New Password Field */}
-        <input
-          {...register("confirmPassword")}
-          type="password"
-          placeholder="Confirm Password"
-          style={{
-            width: "100%",
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            fontSize: "16px",
-          }}
-        />
-        <p style={{ color: "red", fontSize: "14px" }}>
-          {errors.confirmPassword?.message}
-        </p>
+        <div className={styles.inputWrap}>
+          <label>Confirm Password:</label>
+          <div>
+            <input
+              {...register("confirmPassword")}
+              type={showPasswords.confirmPassword ? "text" : "password"}
+              placeholder=""
+            />
+            <button
+              type="button"
+              onClick={() =>
+                setShowPasswords((prev) => ({
+                  ...prev,
+                  confirmPassword: !prev.confirmPassword,
+                }))
+              }
+              className={styles.eyeIcon}
+            >
+              {showPasswords.confirmPassword ? "👁️" : "👁️‍🗨️"}
+            </button>
+            <p>{errors.confirmPassword?.message}</p>
+          </div>
+        </div>
 
-        <button
-          type="submit"
-          style={{
-            padding: "12px",
-            backgroundColor: "#1d4c29",
-            color: "#fff",
-            border: "none",
-            borderRadius: "5px",
-            fontSize: "16px",
-            cursor: "pointer",
-            transition: "background 0.3s",
-          }}
-          onMouseOver={(e) => (e.target.style.backgroundColor = "#000")}
-          onMouseOut={(e) => (e.target.style.backgroundColor = "#1d4c29")}
-        >
-          Set Password
-        </button>
+        <div className={styles.buttonWrap}>
+          <button type="submit">Save</button>
+        </div>
       </form>
 
       {message && (
