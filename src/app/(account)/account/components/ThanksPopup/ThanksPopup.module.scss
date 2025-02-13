@@ -1,0 +1,98 @@
+@use "@/styles/mixin.scss" as *;
+
+.thanksPopup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+  &.popupOpened {
+    opacity: 1;
+    pointer-events: all;
+    .popupWrap {
+      .popupInner {
+        transform: scale(1);
+      }
+    }
+  }
+  .popupWrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+
+    .popupInner {
+      display: flex;
+      background: #fff;
+      border-radius: rem(12);
+      padding: rem(24);
+      position: relative;
+      width: 100%;
+      gap: rem(14);
+      transform: scale(0.8);
+      transition: all 0.3s ease-in-out;
+      @media (max-width: rem(992)) {
+        flex-direction: column;
+      }
+      .col1 {
+        position: relative;
+        flex-grow: 1;
+        @media (max-width: rem(992)) {
+          height: rem(300);
+        }
+        img {
+          object-fit: cover;
+          border-radius: rem(16);
+        }
+      }
+      .col2 {
+        width: rem(350);
+        height: rem(455);
+        padding: rem(36);
+        border-radius: rem(16);
+        background: #eff3f0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: rem(24);
+        @media (max-width: rem(992)) {
+          width: 100%;
+          height: auto;
+          padding: rem(24);
+        }
+        h2 {
+          color: #000;
+          font-size: rem(36);
+          font-style: normal;
+          font-weight: 700;
+          line-height: 120%;
+          span {
+            display: block;
+            color: #1d4c29;
+          }
+        }
+        button {
+          display: flex;
+          width: rem(200);
+          height: rem(54);
+          color: #fff;
+          text-align: center;
+          font-size: rem(22);
+          font-style: normal;
+          font-weight: 400;
+          line-height: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #2b2b2b;
+          border-radius: rem(27);
+        }
+      }
+    }
+  }
+}

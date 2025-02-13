@@ -6,6 +6,7 @@ import axios from "axios";
 import { useState, Suspense, useEffect } from "react";
 import useAuthStore from "@/stores/authStore";
 import styles from "./page.module.scss";
+import usePopupStore from "@/stores/popupStore";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -21,6 +22,7 @@ const schema = yup.object().shape({
 });
 
 function SetPasswordForm() {
+  const { thanksPopupDisplay, setThanksPopupDisplay } = usePopupStore();
   const { user, token, isHydrated } = useAuthStore();
 
   const [showPasswords, setShowPasswords] = useState({
@@ -71,7 +73,7 @@ function SetPasswordForm() {
           },
         }
       );
-      setMessage("Your password has been updated!");
+      setThanksPopupDisplay(true);
     } catch (error) {
       console.error("Error updating password:", error);
       setMessage(
