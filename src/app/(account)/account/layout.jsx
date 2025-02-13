@@ -7,6 +7,7 @@ import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
 import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
 import NeedAssistance from "@/components/NeedAssistance/NeedAssistance";
 import { useRouter } from "next/navigation";
+import LogoutButtn from "@/icons/LogoutButtn";
 
 const DashboardLayout = ({ children }) => {
   const { user, logout, isHydrated } = useAuthStore();
@@ -29,11 +30,7 @@ const DashboardLayout = ({ children }) => {
             </h2>
 
             <button onClick={logout}>
-              <div>
-                <AddToCartArrow2 />
-                <span>Log Out</span>
-                <AddToCartArrow1 />
-              </div>
+              <LogoutButtn />
             </button>
           </div>
           <div className={styles.body}>

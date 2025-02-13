@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { API_URL } from "@/helpers/constants";
 import styles from "./page.module.scss";
 import fetchFromAPI from "@/helpers/fetchFromAPI";
+import InvoiceDownload from "@/icons/InvoiceDownload";
+import FileDownload from "@/icons/FileDownload";
 
 async function getOrders(userId) {
   try {
@@ -122,7 +124,17 @@ export default function DashboardPage() {
                   </td>
                   <td>{new Date(order.createdAt).toLocaleDateString()}</td>
                   <td>${order.total.toFixed(2)}</td>
-                  <td>{order.status}</td>
+                  <td>
+                    <span
+                      className={
+                        order.status === "completed"
+                          ? styles.completed
+                          : styles.pending
+                      }
+                    >
+                      {order.status}
+                    </span>
+                  </td>
 
                   <td>
                     {order.items.map((item, itemIndex) => {
@@ -139,7 +151,7 @@ export default function DashboardPage() {
                                 key={`order-${order.orderNumber}-item-${itemIndex}-file-${fileIndex}`}
                               >
                                 <a href={`${API_URL}${file.file.url}`} download>
-                                  {file.file.filename}
+                                  <FileDownload />
                                 </a>
                               </div>
                             ))}
@@ -153,7 +165,7 @@ export default function DashboardPage() {
                   <td>
                     {order.invoice && (
                       <a href={`${API_URL}${order.invoice.url}`} download>
-                        {order.invoice.filename}
+                        <InvoiceDownload />
                       </a>
                     )}
                   </td>
