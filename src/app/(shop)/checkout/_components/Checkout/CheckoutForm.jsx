@@ -35,7 +35,7 @@ const CheckoutForm = () => {
       city: user?.city || "",
       street: user?.street || "",
       address: user?.address || "",
-      country: null,
+      country: user.country ? getCountryOptionByCode(user.country) : null,
       postalCode: user?.zip || "",
       phone: user?.phone || "",
       email: user?.email || "",

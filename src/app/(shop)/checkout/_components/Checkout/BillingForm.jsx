@@ -115,7 +115,7 @@ const BillingForm = ({ formMethods }) => {
     formState: { errors },
   } = formMethods;
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (!isHydrated) return;
     if (user) {
       reset({
@@ -130,7 +130,7 @@ const BillingForm = ({ formMethods }) => {
         phone: user?.phone || "",
       });
     }
-  }, [user, reset]);
+  }, [user, reset]);*/
 
   return (
     <div className={styles.billingForm}>
