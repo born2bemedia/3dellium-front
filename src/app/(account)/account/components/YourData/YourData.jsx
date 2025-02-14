@@ -38,7 +38,7 @@ const customStyles = {
     lineHeight: "1.2",
     textAlign: "left",
     padding: "0 16px",
-    boxShadow: "unset",
+    boxShadow: "0px 2px 2px 0px rgba(0, 0, 0, 0.1)",
     "&:hover": {
       borderColor: "#ffffff",
     },
