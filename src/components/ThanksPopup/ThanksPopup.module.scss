@@ -49,6 +49,28 @@
           object-fit: cover;
           border-radius: rem(16);
         }
+        .cartItems {
+          display: flex;
+          gap: rem(12);
+          height: 100%;
+          > div {
+            position: relative;
+            flex-grow: 1;
+            height: inherit;
+          }
+        }
+        .cartItemsFour {
+          display: flex;
+          gap: rem(12);
+          height: 100%;
+          flex-wrap: wrap;
+          > div {
+            position: relative;
+            flex-grow: 1;
+            width: calc(50% - 6px);
+            height: calc(50% - 6px);
+          }
+        }
       }
       .col2 {
         width: rem(350);

@@ -25,6 +25,7 @@ const SingleAddToCartButton = ({ product }) => {
         name: product.title,
         quantity: 1,
         attributes: { price: product.price },
+        image: product.image.url,
       });
       toast.success(`${product.title} added to cart!`, {
         position: "bottom-right",

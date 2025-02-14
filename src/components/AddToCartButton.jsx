@@ -14,6 +14,7 @@ const AddToCartButton = ({ product }) => {
   }, [cart]);
 
   const handleAddToCart = () => {
+    console.log(product);
     if (!isInCart) {
       addToCart({
         id: product.id,
@@ -21,6 +22,7 @@ const AddToCartButton = ({ product }) => {
         name: product.title,
         quantity: 1,
         attributes: { price: product.price },
+        image: product.image.url,
       });
       toast.success(`${product.title} added to cart!`, {
         position: "bottom-right",
@@ -30,7 +32,6 @@ const AddToCartButton = ({ product }) => {
         pauseOnHover: true,
         draggable: true,
       });
-      //console.log(`${product.title} added to cart`);
     }
   };
 
@@ -43,7 +44,6 @@ const AddToCartButton = ({ product }) => {
       >
         {isInCart ? "In Cart" : "Add to cart"}
       </button>
-      
     </>
   );
 };

@@ -141,6 +141,7 @@ export default function DashboardPage() {
       firstName: user?.firstName || "",
       lastName: user?.lastName || "",
       email: user?.email || "",
+      street: user?.street || "",
       addressLine1: user?.address || "",
       city: user?.city || "",
       zip: user?.zip || "",
@@ -155,6 +156,7 @@ export default function DashboardPage() {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
+        street: data.street,
         address: data.addressLine1,
         city: data.city,
         zip: data.zip,
@@ -175,6 +177,7 @@ export default function DashboardPage() {
         firstName: user.firstName || "",
         lastName: user.lastName || "",
         email: user.email || "",
+        street: user?.street || "",
         addressLine1: user.address || "",
         city: user.city || "",
         zip: user.zip || "",
@@ -239,6 +242,13 @@ export default function DashboardPage() {
           <h3>Address</h3>
           <div className={styles.inputWrap}>
             <label>Street address:</label>
+            <div>
+              <input disabled={disabledValue} {...register("street")} />
+              <p>{errors.street?.message}</p>
+            </div>
+          </div>
+          <div className={styles.inputWrap}>
+            <label>Apartment/Suite:</label>
             <div>
               <input disabled={disabledValue} {...register("addressLine1")} />
               <p>{errors.addressLine1?.message}</p>

@@ -55,7 +55,7 @@ const Header = () => {
               </div>
             </div>
             <div className={styles.col2}>
-              <Link className={styles.cart} href={"/cart"}>
+              <Link className={styles.cart} href={"/checkout"}>
                 <CartIcon />
               </Link>
               {user ? (

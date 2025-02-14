@@ -8,7 +8,7 @@ import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
 import NeedAssistance from "@/components/NeedAssistance/NeedAssistance";
 import { useRouter } from "next/navigation";
 import LogoutButtn from "@/icons/LogoutButtn";
-import ThanksPopup from "./components/ThanksPopup/ThanksPopup";
+import ThanksPopup from "../../../components/ThanksPopup/ThanksPopup";
 
 const DashboardLayout = ({ children }) => {
   const { user, logout, isHydrated } = useAuthStore();
