@@ -150,7 +150,11 @@ export default function DashboardPage() {
                               <div
                                 key={`order-${order.orderNumber}-item-${itemIndex}-file-${fileIndex}`}
                               >
-                                <a href={`${API_URL}${file.file.url}`} download>
+                                <a
+                                  href={`${API_URL}${file.file.url}`}
+                                  download
+                                  target="_blank"
+                                >
                                   <FileDownload />
                                 </a>
                               </div>
@@ -164,7 +168,11 @@ export default function DashboardPage() {
 
                   <td>
                     {order.invoice && (
-                      <a href={`${API_URL}${order.invoice.url}`} download>
+                      <a
+                        href={`${API_URL}${order.invoice.url}`}
+                        download
+                        target="_blank"
+                      >
                         <InvoiceDownload />
                       </a>
                     )}
