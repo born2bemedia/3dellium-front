@@ -110,7 +110,7 @@ const ProductHero = ({ product }) => {
                   <h3>What is included:</h3>
                   <div>
                     {product.files?.map((file, index) => (
-                      <span key={index}>{file.file.filename}</span>
+                      <span key={index}>{file.file.alt}</span>
                     ))}
                   </div>
                 </div>
