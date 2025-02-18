@@ -18,7 +18,7 @@ const useCountryCode = () => {
       }
     };
 
-    fetchCountryCode();
+    //fetchCountryCode();
   }, []);
 
   return countryCode;

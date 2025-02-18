@@ -8,11 +8,17 @@ import XIcon from "@/icons/socials/XIcon";
 import InstagramIcon from "@/icons/socials/InstagramIcon";
 import CartIcon from "@/icons/CartIcon";
 import MenuIcon from "@/icons/MenuIcon";
+import MenuIconOpened from "@/icons/MenuIconOpened";
+import MenuPopup from "../MenuPopup/MenuPopup";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const { user, logout } = useAuthStore();
   const [scrolling, setScrolling] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isMenuPopupOpen, setIsMenuPopupOpen] = useState(false);
+  const pathname = usePathname();
+
   const handleScroll = () => {
     if (window.scrollY > 80) {
       setScrolling(true);
@@ -20,6 +26,11 @@ const Header = () => {
       setScrolling(false);
     }
   };
+
+  useEffect(() => {
+    setIsMenuPopupOpen(false);
+    //document.body.classList.remove("no-scroll");
+  }, [pathname]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -78,8 +89,11 @@ const Header = () => {
             <Link href="/">
               <img src="/images/head_logo.svg" />
             </Link>
-            <button className={styles.menuBtn}>
-              <MenuIcon />
+            <button
+              className={styles.menuBtn}
+              onClick={() => setIsMenuPopupOpen(!isMenuPopupOpen)}
+            >
+              {isMenuPopupOpen ? <MenuIconOpened /> : <MenuIcon />}
             </button>
             <nav className={styles.nav}>
               <Link href="/3d-modelling">3D Modelling</Link>
@@ -93,6 +107,7 @@ const Header = () => {
           </div>
         </div>
       </header>
+      {isMenuPopupOpen && <MenuPopup />}
     </>
   );
 };
