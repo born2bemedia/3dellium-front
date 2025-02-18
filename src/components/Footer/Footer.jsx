@@ -12,22 +12,24 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className="_container">
         <div className={styles.mainRow}>
-          <div className={styles.soc}>
-            <Link href="#" target="_blank">
-              <InstagramFooter />
-            </Link>
-            <Link href="#" target="_blank">
-              <FacebookFooter />
-            </Link>
-            <Link href="#" target="_blank">
-              <XFooter />
-            </Link>
-          </div>
           <div className={styles.compamy}>
             <Link href="/">
               <img src="/images/logo.svg" alt="Logo" />
             </Link>
-            <h2>Company Name</h2>
+            <h2>
+              <b>Wanwick SL</b> <span>Designs for life.</span>
+            </h2>
+            <div className={styles.soc}>
+              <Link href="#" target="_blank">
+                <InstagramFooter />
+              </Link>
+              <Link href="#" target="_blank">
+                <FacebookFooter />
+              </Link>
+              <Link href="#" target="_blank">
+                <XFooter />
+              </Link>
+            </div>
           </div>
           <nav>
             <ul>
@@ -64,11 +66,19 @@ const Footer = () => {
           <div className={styles.col1}>
             <div>
               <h3>Registration Address:</h3>
-              <p>text</p>
+              <p>
+                Calle Aguamarina, S/N - <br />
+                Local 1-2, Marbella, 29670, <br />
+                Malaga
+              </p>
             </div>
             <div>
               <h3>Office Address:</h3>
-              <p>text</p>
+              <p>
+                Office 32, 3rd floor, Av. del <br />
+                Litoral, 12, Ciutat Vella, <br />
+                08005 Barcelona, Spain
+              </p>
             </div>
           </div>
           <div className={styles.col2}>
@@ -78,17 +88,13 @@ const Footer = () => {
             </div>
             <div>
               <h3>Email:</h3>
-              <Link href="#">text</Link>
-            </div>
-            <div>
-              <h3>Connect:</h3>
-              <Link href="#">text</Link>
+              <Link href="mailto:info@3dellium.com">info@3dellium.com</Link>
             </div>
           </div>
         </div>
         <div className={styles.legalRow}>
           <p className={styles.copy}>
-            All Rights Reserved. © {currentYear} Company Name
+            All Rights Reserved. © {currentYear} Ready-to-use designs for life.
           </p>
           <nav>
             <Link href="/legal/terms-of-use">Terms of Use</Link>
