@@ -89,7 +89,7 @@ const ProductHero = ({ product }) => {
               )}
             </div>
             <SingleAddToCartButton product={product} />
-            {product.category?.id !== 6 && (
+            {product.category?.id !== 6 ? (
               <div className={styles.notice}>
                 <h4>
                   <img src="/images/product/info.svg" />
@@ -100,6 +100,17 @@ const ProductHero = ({ product }) => {
                   printed result may vary depending on your printer settings,
                   materials, and techniques. Enjoy the flexibility of bringing
                   these designs to life your way!
+                </p>
+              </div>
+            ) : (
+              <div className={styles.notice}>
+                <h4>
+                  <img src="/images/product/info.svg" />
+                  Disclaimer of No Exclusivity
+                </h4>
+                <p>
+                  This animation is sold as a non-exclusive product, meaning
+                  other buyers may also purchase and use it.
                 </p>
               </div>
             )}
