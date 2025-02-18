@@ -6,6 +6,7 @@ import Footer from "@/components/Footer/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import { ToastContainer } from "react-toastify";
 import Preloader from "@/components/Preloader";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -118,6 +119,7 @@ export default function RootLayout({ children }) {
       className={`${poppins.className} ${helvetica.variable} ${helveticaNeue.variable}`}
     >
       <body>
+        <GoogleAnalytics gaId="G-TR7Y6XQPN1" />
         <Preloader />
         <Header />
         <main>{children}</main>
