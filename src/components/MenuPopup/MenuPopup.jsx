@@ -5,9 +5,11 @@ import InstagramFooter from "@/icons/socials/InstagramFooter";
 import FacebookFooter from "@/icons/socials/FacebookFooter";
 import { XFooter } from "@/icons/socials/XFooter";
 
-const MenuPopup = () => {
+const MenuPopup = ({ isScrolling }) => {
   return (
-    <div className={styles.menuPopup}>
+    <div
+      className={`${styles.menuPopup} ${isScrolling ? styles.scrolling : ""}`}
+    >
       <nav className={styles.nav}>
         <Link href="/3d-modelling">3D Modelling</Link>
         <Link href="/animations">Animations</Link>

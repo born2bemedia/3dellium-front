@@ -106,8 +106,8 @@ const Header = () => {
             </nav>
           </div>
         </div>
+        {isMenuPopupOpen && <MenuPopup isScrolling={scrolling} />}
       </header>
-      {isMenuPopupOpen && <MenuPopup />}
     </>
   );
 };
