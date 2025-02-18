@@ -27,6 +27,9 @@
         font-weight: 900;
         line-height: 1.2;
         text-align: left;
+        @media (min-width: rem(1600)) {
+          font-size: rem(90);
+        }
         @media (max-width: rem(1360)) {
           font-size: rem(50);
         }

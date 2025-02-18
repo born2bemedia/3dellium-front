@@ -1,7 +1,5 @@
 @use "sass:math";
 
-
-
 @function rem($pixel) {
   @if math.is-unitless($pixel) {
     @return math.div($pixel, 16) + rem;
@@ -37,7 +35,8 @@
     #{$property}: $startSize + px;
     @media (min-width: #{$maxWidthContainer + px}) {
       #{$property}: calc(
-        #{$minSize + px} + #{$addSize} * ((100vw - rem(360)) / #{$maxWidth - 360})
+        #{$minSize + px} + #{$addSize} *
+          ((100vw - rem(360)) / #{$maxWidth - 360})
       );
     }
   } @else {
@@ -60,9 +59,9 @@
 }
 
 $minWidth: rem(360);
-$maxWidth: rem(1110);
-$maxWidthContainer: 1142;
-$md1: 1110;
+$maxWidth: rem(1240);
+$maxWidthContainer: 1272;
+$md1: 1240;
 $md2: 991.98;
 $md3: 767.98;
 $md4: 479.98;

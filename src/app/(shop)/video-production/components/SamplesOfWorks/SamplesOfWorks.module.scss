@@ -32,7 +32,7 @@
       }
       > div {
         &:first-child {
-          width: calc(75% - rem(15));
+          width: calc(75% - rem(15)) !important;
           border-radius: rem(20);
           overflow: hidden;
           @media (max-width: rem(992)) {

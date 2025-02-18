@@ -2,10 +2,22 @@
 
 .homeHero {
   padding-top: rem(40);
-  margin-bottom: rem(150);
+  padding-bottom: rem(150);
+  overflow: hidden;
   @media (max-width: rem(992)) {
     overflow: hidden;
     margin-bottom: rem(40);
+    padding-bottom: 0;
+  }
+  .container {
+    padding: 0 rem(40);
+    position: relative;
+    @media (min-width: rem(1600)) {
+      padding: 0 rem(100);
+    }
+    @media (max-width: rem(992)) {
+      padding: 0 rem(16);
+    }
   }
   .body {
     display: flex;
@@ -13,9 +25,12 @@
     gap: rem(20);
     position: relative;
     .col1 {
-      width: 57%;
+      width: 50%;
 
       padding-top: rem(40);
+      @media (min-width: rem(1600)) {
+        width: 40%;
+      }
       @media (max-width: rem(992)) {
         position: relative;
         width: 100%;
@@ -29,6 +44,9 @@
         text-align: left;
         margin-bottom: rem(24);
         text-transform: uppercase;
+        @media (min-width: rem(1600)) {
+          font-size: rem(80);
+        }
         @media (max-width: rem(1110)) {
           font-size: rem(60);
         }
@@ -135,7 +153,8 @@
             0% 43.695%,
             0% 7.038%
           );
-          @media (max-width: rem(992)) {
+          @media (min-width: rem(1600)) {
+            height: rem(410);
           }
           @media (max-width: rem(992)) {
             clip-path: polygon(
@@ -232,17 +251,22 @@
   .bottom {
     display: flex;
     gap: rem(30);
-    margin-top: rem(32);
+    align-items: flex-end;
+    margin-top: rem(80);
+    @media (min-width: rem(1600)) {
+      margin-top: rem(164);
+    }
     @media (max-width: rem(992)) {
       flex-direction: column;
       gap: rem(30);
+      margin-top: rem(30);
     }
     .col1 {
-      width: calc(55% - rem(30));
-      height: rem(166);
+      width: calc(63.5%);
+      height: rem(170);
       border-radius: rem(24);
       background-image: url(/images/home/hero2.png);
-      background-position: center;
+      background-position: top center;
       background-size: cover;
       position: relative;
       img {
@@ -263,7 +287,7 @@
       }
     }
     .col2 {
-      width: 45%;
+      width: 36.5%;
       @media (max-width: rem(992)) {
         width: 100%;
       }
@@ -277,6 +301,7 @@
         line-height: 1.2;
         text-align: left;
         text-transform: uppercase;
+        align-items: flex-start;
         @media (max-width: rem(992)) {
           font-size: rem(32);
           align-items: flex-start;

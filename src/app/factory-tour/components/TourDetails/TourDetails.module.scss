@@ -32,7 +32,7 @@
       }
       > div {
         &:first-child {
-          width: calc(68% - rem(7));
+          width: calc(68% - rem(7)) !important;
           border-radius: rem(20);
           overflow: hidden;
           @media (max-width: rem(767)) {
@@ -44,8 +44,9 @@
             }
           }
           video {
-            width: auto !important;
+            width: 100% !important;
             min-width: 100%;
+            height: auto !important;
           }
         }
         &:last-child {

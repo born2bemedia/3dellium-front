@@ -8,7 +8,7 @@ import Image from "next/image";
 const HomeHero = () => {
   return (
     <section className={styles.homeHero}>
-      <div className="_container">
+      <div className={styles.container}>
         <div className={styles.body}>
           <div className={styles.col1}>
             <motion.h1

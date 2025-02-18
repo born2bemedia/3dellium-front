@@ -5,12 +5,12 @@
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: rem(24);
-  max-width: rem(712);
+  max-width: rem(842);
   padding-top: rem(12);
   @media (max-width: rem(992)) {
     max-width: 100%;
   }
-  &.left{
+  &.left {
     margin-left: auto;
   }
   .label {

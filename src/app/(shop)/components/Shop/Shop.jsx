@@ -12,6 +12,10 @@ import ArrowLeft from "@/icons/Arrows/ArrowLeft";
 import ArrowRight from "@/icons/Arrows/ArrowRight";
 import { API_TOKEN, API_URL } from "@/helpers/constants";
 import shopFetchProducts from "@/helpers/shopFetchProducts";
+import SmartDevices from "@/icons/Categories/SmartDevices";
+import Garden from "@/icons/Categories/Garden";
+import Fashion from "@/icons/Categories/Fashion";
+import Interior from "@/icons/Categories/Interior";
 
 const sortOptions = [
   { value: "-popularity", label: "Popular First" },
@@ -150,17 +154,11 @@ export default function Shop({ categorySlugs }) {
                         onChange={() => setSelectedCategory(cat.id)}
                       />
                       <div>
-                        {cat.slug == "smart-devices" && <PhoneAccessories />}
-                        {cat.slug == "interior-and-design" && (
-                          <DesktopOrganization />
-                        )}
+                        {cat.slug == "smart-devices" && <SmartDevices />}
+                        {cat.slug == "interior-and-design" && <Interior />}
                         {cat.slug == "games-and-collectibles" && <BoardGames />}
-                        {cat.slug == "garden-and-open-air" && (
-                          <PetAccessories />
-                        )}
-                        {cat.slug == "fashion-and-wearables" && (
-                          <RenovationTools />
-                        )}
+                        {cat.slug == "garden-and-open-air" && <Garden />}
+                        {cat.slug == "fashion-and-wearables" && <Fashion />}
                         <span>{cat.title}</span>
                       </div>
                     </label>
