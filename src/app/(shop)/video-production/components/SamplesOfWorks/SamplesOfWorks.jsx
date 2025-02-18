@@ -68,12 +68,12 @@ const SamplesOfWorks = () => {
                     />
                   }
                   playing
-                  controls
                   loop={true}
                   className={styles.video}
                   width={838}
                   height={455}
-                  
+                  controlsList="nodownload nofullscreen"
+                  disableContextMenu={true}
                 />
                 <div className={styles.col}>
                   <h3 dangerouslySetInnerHTML={{ __html: video.title }} />

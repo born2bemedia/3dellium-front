@@ -5,6 +5,9 @@ import { fadeInUp } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SingleAddToCartButton from "@/components/SingleAddToCartButton/SingleAddToCartButton";
+import dynamic from "next/dynamic";
+
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 
@@ -19,7 +22,11 @@ const ProductHero = ({ product }) => {
   return (
     <section className={styles.productHero}>
       <div className="_container">
-        <div className={styles.body}>
+        <div
+          className={`${styles.body} ${
+            product.category?.id == 6 && styles.animation
+          }`}
+        >
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -27,40 +34,61 @@ const ProductHero = ({ product }) => {
             variants={fadeInUp}
             className={styles.col1}
           >
-            <div className={styles.productGallery}>
-              {product.gallery.length > 0 && (
-                <div className={styles.gallery}>
-                  {product.gallery.map((image, index) => (
-                    <Image
-                      key={index}
-                      src={`${API_URL}${image.image?.url}`}
-                      width={160}
-                      height={165}
-                      objectFit={"cover"}
-                      className={`${currentImage == index && styles.active}`}
-                      onClick={() => imageClick(index)}
-                      alt={product.title}
-                    />
-                  ))}
-                </div>
-              )}
-
-              <div className={styles.mainImage}>
-                {product.gallery.length > 0 ? (
-                  <Image
-                    alt={product.title}
-                    src={`${API_URL}${product.gallery[currentImage].image.url}`}
-                    fill
-                  />
-                ) : (
-                  <Image
-                    alt={product.title}
-                    src={`${API_URL}${product.image?.url}`}
-                    fill
-                  />
+            {product.category?.id !== 6 ? (
+              <div className={styles.productGallery}>
+                {product.gallery.length > 0 && (
+                  <div className={styles.gallery}>
+                    {product.gallery.map((image, index) => (
+                      <Image
+                        key={index}
+                        src={`${API_URL}${image.image?.url}`}
+                        width={160}
+                        height={165}
+                        objectFit={"cover"}
+                        className={`${currentImage == index && styles.active}`}
+                        onClick={() => imageClick(index)}
+                        alt={product.title}
+                      />
+                    ))}
+                  </div>
                 )}
+
+                <div className={styles.mainImage}>
+                  {product.gallery.length > 0 ? (
+                    <Image
+                      alt={product.title}
+                      src={`${API_URL}${product.gallery[currentImage].image.url}`}
+                      fill
+                    />
+                  ) : (
+                    <Image
+                      alt={product.title}
+                      src={`${API_URL}${product.image?.url}`}
+                      fill
+                    />
+                  )}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className={styles.animationWrap}>
+                <ReactPlayer
+                  url={`${API_URL}${product.preview?.url}`}
+                  light={`${API_URL}${product.big_image.url}`}
+                  playIcon={
+                    <img
+                      width={100}
+                      height={100}
+                      src="/images/playIconGreen.svg"
+                    />
+                  }
+                  playing
+                  controlsList="nodownload nofullscreen"
+                  loop={true}
+                  className={styles.video}
+                  disableContextMenu={true}
+                />
+              </div>
+            )}
           </motion.div>
           <motion.div
             initial="hidden"

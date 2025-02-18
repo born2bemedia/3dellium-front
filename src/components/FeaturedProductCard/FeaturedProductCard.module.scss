@@ -73,6 +73,7 @@
       img {
         transform: scale(1);
         transition: all 0.5s;
+        object-fit: cover;
         @media (max-width: rem(992)) {
           width: auto;
           height: auto !important;
