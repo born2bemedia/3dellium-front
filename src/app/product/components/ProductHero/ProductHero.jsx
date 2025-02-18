@@ -115,6 +115,16 @@ const ProductHero = ({ product }) => {
                   </div>
                 </div>
               )}
+              {product.filesurl.length > 0 && (
+                <div>
+                  <h3>What is included:</h3>
+                  <div>
+                    {product.filesurl?.map((file, index) => (
+                      <span key={index}>{file.filename}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
             <SingleAddToCartButton product={product} />
             {product.category?.id !== 6 ? (

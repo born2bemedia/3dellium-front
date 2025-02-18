@@ -16,7 +16,7 @@
     }
     a {
       .cardImage {
-        height: rem(352);
+        height: rem(390);
         img {
           object-fit: cover;
         }
@@ -30,6 +30,9 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      @media (max-width: rem(992)) {
+        width: calc(100% - rem(64));
+      }
       h3 {
         width: 100%;
       }
@@ -61,6 +64,9 @@
       line-height: 1.2;
       color: #0c0c0c;
       min-height: rem(60);
+      @media (max-width: rem(992)) {
+        min-height: rem(80);
+      }
     }
     .cardImage {
       position: relative;

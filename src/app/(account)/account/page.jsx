@@ -161,6 +161,29 @@ export default function DashboardPage() {
                             ))}
                           </div>
                         );
+                      } else if (
+                        item.product.filesurl?.length > 0 &&
+                        order.status === "completed"
+                      ) {
+                        return (
+                          <div
+                            key={`order-${order.orderNumber}-item-${itemIndex}`}
+                          >
+                            {item.product.filesurl.map((file, fileIndex) => (
+                              <div
+                                key={`order-${order.orderNumber}-item-${itemIndex}-file-${fileIndex}`}
+                              >
+                                <a
+                                  href={`${file.fileurl}`}
+                                  download
+                                  target="_blank"
+                                >
+                                  <FileDownload />
+                                </a>
+                              </div>
+                            ))}
+                          </div>
+                        );
                       }
                       return null;
                     })}

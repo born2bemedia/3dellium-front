@@ -202,7 +202,7 @@ export default function Shop({ categorySlugs }) {
                   product={product}
                   key={product.id}
                   classValue={
-                    index === products.length - 2 && products.length >= 5
+                    (index === 4 || index === 10) && products.length >= 5
                       ? "wide"
                       : ""
                   }
