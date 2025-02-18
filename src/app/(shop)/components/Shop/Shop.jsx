@@ -150,15 +150,17 @@ export default function Shop({ categorySlugs }) {
                         onChange={() => setSelectedCategory(cat.id)}
                       />
                       <div>
-                        {cat.slug == "phone-accessories" && (
-                          <PhoneAccessories />
-                        )}
-                        {cat.slug == "desktop-organization" && (
+                        {cat.slug == "smart-devices" && <PhoneAccessories />}
+                        {cat.slug == "interior-and-design" && (
                           <DesktopOrganization />
                         )}
-                        {cat.slug == "board-games" && <BoardGames />}
-                        {cat.slug == "pet-accessories" && <PetAccessories />}
-                        {cat.slug == "renovation-tools" && <RenovationTools />}
+                        {cat.slug == "games-and-collectibles" && <BoardGames />}
+                        {cat.slug == "garden-and-open-air" && (
+                          <PetAccessories />
+                        )}
+                        {cat.slug == "fashion-and-wearables" && (
+                          <RenovationTools />
+                        )}
                         <span>{cat.title}</span>
                       </div>
                     </label>

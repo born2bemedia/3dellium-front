@@ -15,11 +15,11 @@ export const metadata = {
 
 const page = () => {
   const categories = [
-    "renovation-tools",
-    "pet-accessories",
-    "board-games",
-    "desktop-organization",
-    "phone-accessories",
+    "games-and-collectibles",
+    "interior-and-design",
+    "fashion-and-wearables",
+    "garden-and-open-air",
+    "smart-devices",
   ];
 
   return (
