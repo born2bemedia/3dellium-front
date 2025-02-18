@@ -1,17 +1,24 @@
 @use "@/styles/mixin.scss" as *;
 
 .productHero {
-  margin: rem(50) 0;
+  margin: rem(50) 0 rem(80) 0;
+  .container {
+    padding: 0 rem(40);
+    position: relative;
+    @media (max-width: rem(992)) {
+      padding: 0 rem(16);
+    }
+  }
   .body {
     display: flex;
     gap: rem(30);
-    @media (max-width: rem(992)) {
+    @media (max-width: rem(1100)) {
       flex-direction: column;
     }
     &.animation {
       display: flex;
       .col1 {
-        width: 60%;
+        width: 45%;
         @media (max-width: rem(992)) {
           width: 100%;
         }
@@ -24,18 +31,25 @@
             @media (max-width: rem(992)) {
               height: rem(200) !important;
             }
+            video {
+              object-fit: cover;
+            }
           }
         }
       }
       .col2 {
-        width: 40%;
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: rem(30);
         @media (max-width: rem(992)) {
           width: 100%;
         }
       }
     }
     .col1 {
-      @media (max-width: rem(992)) {
+      @media (max-width: rem(1100)) {
         width: 100%;
       }
       .productGallery {
@@ -94,7 +108,7 @@
       flex-direction: column;
       gap: rem(24);
       width: calc(100% - rem(665));
-      @media (max-width: rem(992)) {
+      @media (max-width: rem(1100)) {
         width: 100%;
       }
       h1 {
@@ -103,6 +117,35 @@
         font-weight: 500;
         line-height: 1.2;
         text-align: left;
+        margin-bottom: rem(8);
+      }
+      p {
+        color: #0c0c0c;
+        font-size: rem(16);
+        font-style: normal;
+        font-weight: 300;
+        line-height: 130%; /* 20.8px */
+      }
+      .addToCart {
+        display: flex;
+        align-items: center;
+        gap: rem(40);
+        margin-bottom: rem(24);
+        @media (max-width: rem(992)) {
+          flex-direction: column;
+          gap: rem(16);
+          align-items: flex-start;
+        }
+        .price {
+          font-size: rem(60);
+          font-weight: 700;
+          line-height: 27px;
+          text-align: left;
+          span {
+            font-weight: 300;
+            font-size: rem(60);
+          }
+        }
       }
       .productDetails {
         display: flex;

@@ -35,6 +35,9 @@
           width: calc(68% - rem(7)) !important;
           border-radius: rem(20);
           overflow: hidden;
+          @media (max-width: rem(992)) {
+            width: 100% !important;
+          }
           @media (max-width: rem(767)) {
             width: 100% !important;
             height: rem(250) !important;
@@ -47,6 +50,22 @@
             width: 100% !important;
             min-width: 100%;
             height: auto !important;
+            object-fit: cover;
+            @media (max-width: rem(1400)) and (min-width: rem(992)) {
+              height: 100% !important;
+              width: auto !important;
+              min-width: 100%;
+            }
+            @media (max-width: rem(992)) and (min-width: rem(767)) {
+              height: auto !important;
+              width: 100% !important;
+              min-width: 100%;
+            }
+            @media (max-width: rem(500)) {
+              height: 100% !important;
+              width: auto !important;
+              min-width: 100%;
+            }
           }
         }
         &:last-child {

@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./NeedAssistance.module.scss";
+import styles from "./ProductNeedAssistance.module.scss";
 import MoreButton from "@/components/MoreButton/MoreButton";
 
-const NeedAssistance = () => {
+const ProductNeedAssistance = () => {
   return (
     <section className={styles.assistance}>
       <div className={styles.container}>
@@ -19,4 +19,4 @@ const NeedAssistance = () => {
   );
 };
 
-export default NeedAssistance;
+export default ProductNeedAssistance;

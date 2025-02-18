@@ -1,12 +1,13 @@
 "use server";
 
 import createMetadata from "@/helpers/metadata";
-import NeedAssistance from "../components/NeedAssistance/NeedAssistance";
 import PrintingRecommendations from "../components/PrintingRecommendations/PrintingRecommendations";
 import ProductHero from "../components/ProductHero/ProductHero";
 import { Metadata } from "next";
 import { API_URL, CACHE_TAG_PRODUCTS } from "@/helpers/constants";
 import fetchFromAPI from "@/helpers/fetchFromAPI";
+import ProductNeedAssistance from "../components/ProductNeedAssistance/ProductNeedAssistance";
+import NeedAssistance from "@/components/NeedAssistance/NeedAssistance";
 
 export async function generateMetadata({ params }) {
   const awaitedParams = await params; // Await the params
@@ -52,7 +53,7 @@ const ProductPage = async ({ params }) => {
       <ProductHero product={product} />
       {product.category?.id !== 6 && <PrintingRecommendations />}
 
-      <NeedAssistance />
+      {product.category?.id !== 6 ? <ProductNeedAssistance /> : <NeedAssistance />}
     </>
   );
 };

@@ -106,6 +106,9 @@
       display: flex;
       justify-content: flex-end;
       gap: rem(24);
+      @media (max-width: rem(1200)) {
+        gap: rem(8);
+      }
       @media (max-width: rem(992)) {
         display: none;
       }
@@ -120,6 +123,9 @@
         border-radius: rem(20);
         &:hover {
           background: #c5d2c8;
+        }
+        @media (max-width: rem(1200)) {
+          font-size: rem(14);
         }
       }
     }

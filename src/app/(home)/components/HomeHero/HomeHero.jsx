@@ -41,7 +41,7 @@ const HomeHero = () => {
             <Image
               src={"/images/home/hero.png"}
               width={655}
-              height={341}
+              height={370}
               alt="hero"
               priority
             />

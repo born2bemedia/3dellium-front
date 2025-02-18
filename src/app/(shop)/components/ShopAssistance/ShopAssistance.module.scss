@@ -25,7 +25,7 @@
       justify-content: space-between;
       padding: rem(0) rem(70) rem(50) rem(100);
       gap: 100px;
-      @media (max-width: rem(1024)) {
+      @media (max-width: rem(1110)) {
         flex-direction: column-reverse;
         gap: rem(4);
         padding: 0;

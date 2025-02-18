@@ -51,6 +51,10 @@
           font-size: rem(60);
         }
         @media (max-width: rem(992)) {
+          font-size: rem(50);
+          width: 20%;
+        }
+        @media (max-width: rem(767)) {
           font-size: rem(40);
           width: 20%;
         }
@@ -302,6 +306,15 @@
         text-align: left;
         text-transform: uppercase;
         align-items: flex-start;
+        @media (max-width: rem(1460)) {
+          font-size: rem(50);
+        }
+        @media (max-width: rem(1220)) {
+          font-size: rem(45);
+        }
+        @media (max-width: rem(1110)) {
+          font-size: rem(40);
+        }
         @media (max-width: rem(992)) {
           font-size: rem(32);
           align-items: flex-start;
