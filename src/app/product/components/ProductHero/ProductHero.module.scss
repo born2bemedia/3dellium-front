@@ -21,6 +21,9 @@
           display: flex;
           > div {
             width: 100% !important;
+            @media (max-width: rem(992)) {
+              height: rem(200) !important;
+            }
           }
         }
       }
