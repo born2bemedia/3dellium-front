@@ -8,7 +8,6 @@ import { Metadata } from "next";
 import { API_URL, CACHE_TAG_PRODUCTS } from "@/helpers/constants";
 import fetchFromAPI from "@/helpers/fetchFromAPI";
 
-
 export async function generateMetadata({ params }) {
   const awaitedParams = await params; // Await the params
   const { slug, locale } = awaitedParams;
@@ -46,11 +45,13 @@ const ProductPage = async ({ params }) => {
   if (!product) {
     return <p>Product not found.</p>;
   }
+  console.log(product);
 
   return (
     <>
       <ProductHero product={product} />
-      <PrintingRecommendations />
+      {product.category?.id !== 6 && <PrintingRecommendations />}
+
       <NeedAssistance />
     </>
   );

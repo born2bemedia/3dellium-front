@@ -89,18 +89,20 @@ const ProductHero = ({ product }) => {
               )}
             </div>
             <SingleAddToCartButton product={product} />
-            <div className={styles.notice}>
-              <h4>
-                <img src="/images/product/info.svg" />
-                Important Notice!
-              </h4>
-              <p>
-                We sell 3D printing plans—not ready-made items. The final
-                printed result may vary depending on your printer settings,
-                materials, and techniques. Enjoy the flexibility of bringing
-                these designs to life your way!
-              </p>
-            </div>
+            {product.category?.id !== 6 && (
+              <div className={styles.notice}>
+                <h4>
+                  <img src="/images/product/info.svg" />
+                  Important Notice!
+                </h4>
+                <p>
+                  We sell 3D printing plans—not ready-made items. The final
+                  printed result may vary depending on your printer settings,
+                  materials, and techniques. Enjoy the flexibility of bringing
+                  these designs to life your way!
+                </p>
+              </div>
+            )}
           </motion.div>
         </div>
       </div>
