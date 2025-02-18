@@ -31,6 +31,11 @@ const PrintingRecommendations = () => {
       text: "Use a lower layer height (e.g., 0.1mm) for finer details. For quicker prints, 0.2mm works <br/>well.",
       icon: "/images/product/rec5.svg",
     },
+    {
+      title: "Optimize Print <br/>Speed",
+      text: "Adjust speed to balance quality and efficiency—use slower speeds for intricate details and faster speeds for larger prints.",
+      icon: "/images/product/rec6.svg",
+    },
   ];
 
   return (
