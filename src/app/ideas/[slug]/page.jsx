@@ -64,7 +64,7 @@ const ArticlePage = async ({ params }) => {
     <>
       <SingleIdeaHero image={imageUrl} />
       <section className={styles.articleWrap}>
-        <div className="_container" style={{ padding: "20px" }}>
+        <div className="_container">
           <div className={styles.body}>
             <div className={styles.content}>
               <h1>{idea.title}</h1>

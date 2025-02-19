@@ -1,39 +1,46 @@
 export const renderBlock = (block, index) => {
+  const renderInline = (child, i) => {
+    if (child.type === "autolink") {
+      return (
+        <a key={i} href={child.href} target="_blank" rel="noopener noreferrer">
+          {child.children.map((child, j) => renderInline(child, j))}
+        </a>
+      );
+    }
+    if (child.format === 1) {
+      return <strong key={i}>{child.text}</strong>;
+    }
+    return child.text;
+  };
+
   switch (block.type) {
     case "paragraph":
       return (
-        <p key={index} style={{ fontSize: "16px", marginBottom: "16px" }}>
-          {block.children.map((child, i) =>
-            child.format === 1 ? (
-              <strong key={i}>{child.text}</strong>
-            ) : (
-              child.text
-            )
-          )}
+        <p key={index}>
+          {block.children.map((child, i) => renderInline(child, i))}
         </p>
       );
-    case "heading":
-      return (
-        <h2
-          key={index}
-          style={{
-            fontSize: "24px",
-            fontWeight: "600",
-            marginBottom: "16px",
-            marginTop: "36px",
-          }}
-        >
+    case "heading": {
+      return block.tag === "h2" ? (
+        <h2 key={index}>
           {block.children.map((child) => child.text).join(" ")}
         </h2>
+      ) : (
+        <h3 key={index}>
+          {block.children.map((child) => child.text).join(" ")}
+        </h3>
       );
+    }
     case "list":
       return (
-        <ul key={index} style={{ marginBottom: "16px", paddingLeft: "20px" }}>
-          {block.children.map((item, i) => (
-            <li key={i} style={{ marginBottom: "8px" }}>
-              {item.children.map((child) => child.text).join(" ")}
-            </li>
-          ))}
+        <ul key={index}>
+          {block.children.map((item, i) => {
+            return (
+              <li key={i} style={{ marginBottom: "8px" }}>
+                {item.children.map((child, j) => renderInline(child, j))}
+              </li>
+            );
+          })}
         </ul>
       );
     default:

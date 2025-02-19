@@ -97,7 +97,7 @@ const Footer = () => {
             All Rights Reserved. © {currentYear} Ready-to-use designs for life.
           </p>
           <nav>
-            <Link href="/legal/terms-of-use">Terms of Use</Link>
+            <Link href="/legal/terms-and-conditions">Terms and Conditions</Link>
             <Link href="/legal/privacy-policy">Privacy Policy</Link>
             <Link href="/legal/cookie-policy">Cookie Policy</Link>
             <Link href="/legal/refund-policy">Refund Policy</Link>
