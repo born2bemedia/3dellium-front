@@ -123,7 +123,7 @@ export default function DashboardPage() {
                     ))}
                   </td>
                   <td>{new Date(order.createdAt).toLocaleDateString()}</td>
-                  <td>${order.total.toFixed(2)}</td>
+                  <td>€{order.total.toFixed(2)}</td>
                   <td>
                     <span
                       className={
