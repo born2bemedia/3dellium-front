@@ -74,9 +74,10 @@
             div {
               position: relative;
               p {
-                font-size: rem(10);
+                font-size: rem(7);
                 color: #f00;
                 position: absolute;
+                top: 100%;
               }
               label {
                 color: #000;
@@ -103,6 +104,9 @@
                       content: "";
                       opacity: 1;
                     }
+                  }
+                  &.error {
+                    border: 1px solid #f00;
                   }
                   &::before {
                     content: "";
@@ -256,6 +260,7 @@
                 position: absolute;
                 font-size: rem(10);
                 color: #f00;
+                top: calc(100% + rem(2));
               }
             }
           }

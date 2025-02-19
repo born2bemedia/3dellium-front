@@ -15,20 +15,26 @@ const TermsAndConditions = ({ formMethods, isSubmitting, submitError }) => {
         <div className={styles.terms}>
           <div>
             <label>
-              <input type="checkbox" {...register("terms")} />
+              <input
+                className={errors.terms ? styles.error : ""}
+                type="checkbox"
+                {...register("terms")}
+              />
               <span>
                 I have read and agree to 3Dellium’s Terms and Conditions.
               </span>
             </label>
-            {errors.terms && <p>{errors.terms.message}</p>}
           </div>
 
           <div>
             <label>
-              <input type="checkbox" {...register("refundPolicy")} />{" "}
+              <input
+                className={errors.refundPolicy ? styles.error : ""}
+                type="checkbox"
+                {...register("refundPolicy")}
+              />{" "}
               <span>I have read and agree to the Refund Policy.</span>
             </label>
-            {errors.refundPolicy && <p>{errors.refundPolicy.message}</p>}
           </div>
         </div>
         <button type="submit" disabled={isSubmitting}>
