@@ -13,7 +13,7 @@ const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 
 const ProductHero = ({ product }) => {
   const [currentImage, setCurrentImage] = useState(0);
-  console.log(product);
+  //console.log(product);
 
   const imageClick = (index) => {
     setCurrentImage(index);

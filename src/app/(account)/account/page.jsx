@@ -13,7 +13,6 @@ async function getOrders(userId) {
       query: `where[user][equals]=${userId}`,
       cache: "no-store",
     });
-    console.log(data);
     return data.docs || [];
   } catch (error) {
     console.error("Error fetching orders:", error);

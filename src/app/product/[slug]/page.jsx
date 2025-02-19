@@ -46,7 +46,7 @@ const ProductPage = async ({ params }) => {
   if (!product) {
     return <p>Product not found.</p>;
   }
-  console.log(product);
+  //console.log(product);
 
   return (
     <>

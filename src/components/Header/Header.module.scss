@@ -49,6 +49,7 @@
       font-size: rem(16);
       font-weight: 400;
       line-height: 1.1;
+      overflow: hidden;
       @media (max-width: rem(992)) {
         //display: none;
       }
@@ -69,6 +70,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background: transparent;
         &:hover {
           color: #000000;
         }

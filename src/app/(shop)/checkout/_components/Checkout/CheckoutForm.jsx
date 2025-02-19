@@ -45,7 +45,7 @@ const CheckoutForm = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log("data", data);
+    //console.log("data", data);
     try {
       setIsSubmitting(true);
       setSubmitError(null);

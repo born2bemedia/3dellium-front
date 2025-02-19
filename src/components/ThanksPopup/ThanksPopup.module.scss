@@ -39,6 +39,28 @@
       @media (max-width: rem(992)) {
         flex-direction: column;
       }
+      &.registerThanks {
+        .col1 {
+          width: 40%;
+        }
+        .col2 {
+          width: 60%;
+          h2 {
+            color: #1d4c29;
+            font-size: rem(40);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 120%; /* 48px */
+          }
+          p {
+            color: var(--colors-base-black, #000);
+            font-size: rem(24);
+            font-style: normal;
+            font-weight: 300;
+            line-height: 120%; /* 28.8px */
+          }
+        }
+      }
       .col1 {
         position: relative;
         flex-grow: 1;

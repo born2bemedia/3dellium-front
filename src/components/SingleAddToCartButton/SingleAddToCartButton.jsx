@@ -19,7 +19,7 @@ const SingleAddToCartButton = ({ product }) => {
   }, [cart]);
 
   const handleAddToCart = () => {
-    console.log(product);
+    //console.log(product);
     if (!isInCart) {
       addToCart({
         id: product.id,

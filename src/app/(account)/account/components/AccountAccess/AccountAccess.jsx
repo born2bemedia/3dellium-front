@@ -50,7 +50,6 @@ function SetPasswordForm() {
             withCredentials: true,
           }
         );
-        console.log("User details:", response.data);
       } catch (error) {
         console.error("Error fetching user details:", error);
       }

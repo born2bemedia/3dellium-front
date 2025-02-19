@@ -51,11 +51,6 @@ export const handleCreateOrder = async (
       orderNotes: data.orderNotes || "",
     };
 
-    console.log(
-      "Payload being sent:",
-      JSON.stringify({ data: orderData }, null, 2)
-    );
-
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_CMS_URL}/api/orders`,
       {
@@ -119,7 +114,7 @@ export const updateUserProfile = async (userId, data, user) => {
       postalCode: data.postalCode,
     };
 
-    console.log("Updating user with:", userUpdatePayload);
+    //console.log("Updating user with:", userUpdatePayload);
 
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_CMS_URL}/api/users/${userId}`,
@@ -139,7 +134,7 @@ export const updateUserProfile = async (userId, data, user) => {
       throw new Error("User update failed");
     }
 
-    console.log("User profile updated successfully");
+    //console.log("User profile updated successfully");
     return await response.json();
   } catch (error) {
     console.error("Error updating user:", error);

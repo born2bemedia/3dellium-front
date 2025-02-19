@@ -40,7 +40,7 @@ const ContactForm = () => {
     setLoading(true);
     setSuccessMessage("");
     try {
-      console.log("Form submitted", data);
+      //console.log("Form submitted", data);
       const response = await fetch("/api/emails/contact", {
         method: "POST",
         headers: {

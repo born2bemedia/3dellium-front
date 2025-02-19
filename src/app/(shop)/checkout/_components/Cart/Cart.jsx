@@ -25,7 +25,7 @@ const Cart = () => {
     setIsMounted(true);
   }, []);
 
-  console.log(cart);
+  //console.log(cart);
   return (
     <>
       {isMounted ? (

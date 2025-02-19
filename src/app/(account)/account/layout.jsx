@@ -17,7 +17,7 @@ const DashboardLayout = ({ children }) => {
   useEffect(() => {
     if (!isHydrated) return;
     if (!user) {
-      router.push("/log-in");
+      router.push("/");
     }
   }, [user, router]);
 

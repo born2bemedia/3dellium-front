@@ -11,6 +11,7 @@ import MenuIcon from "@/icons/MenuIcon";
 import MenuIconOpened from "@/icons/MenuIconOpened";
 import MenuPopup from "../MenuPopup/MenuPopup";
 import { usePathname } from "next/navigation";
+import HeadAccount from "../HeadAccount/HeadAccount";
 
 const Header = () => {
   const { user, logout } = useAuthStore();
@@ -69,16 +70,7 @@ const Header = () => {
               <Link className={styles.cart} href={"/checkout"}>
                 <CartIcon />
               </Link>
-              {user ? (
-                <div className={styles.headAccount}>
-                  <Link href="/account">Account</Link>
-                </div>
-              ) : (
-                <div className={styles.headAccount}>
-                  <Link href="/sign-up">Sign up</Link>|
-                  <Link href="/log-in">Log in</Link>
-                </div>
-              )}
+              <HeadAccount />
             </div>
           </div>
         </div>

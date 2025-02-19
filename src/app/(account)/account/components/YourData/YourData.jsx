@@ -126,7 +126,7 @@ export default function YourData() {
 
   useEffect(() => {
     setUserCountry(user?.country);
-    console.log(user?.country);
+    ////console.log(user?.country);
   }, [user]);
 
   const {
@@ -135,6 +135,7 @@ export default function YourData() {
     handleSubmit,
     control,
     formState: { errors },
+    setValue,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -209,7 +210,7 @@ export default function YourData() {
             </div>
           </div>
           <div className={styles.inputWrap}>
-            <label>Email:</label>
+            <label>Phone:</label>
             <div>
               <Controller
                 name="phone"
@@ -222,7 +223,7 @@ export default function YourData() {
                   />
                 )}
               />
-              <p>{errors.email?.phone}</p>
+              <p>{errors.phone?.message}</p>
             </div>
           </div>
           <div className={styles.inputWrap}>

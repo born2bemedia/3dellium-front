@@ -21,6 +21,9 @@ const ThanksPopup = ({ images, type = "default", title, subtitle, link }) => {
         clearCart();
       }, 1000);
     }
+    if (type === "register") {
+      router.push(link);
+    }
   };
   if (type === "default") {
     return (
@@ -103,6 +106,29 @@ const ThanksPopup = ({ images, type = "default", title, subtitle, link }) => {
                 <h2 dangerouslySetInnerHTML={{ __html: title }} />
                 <p dangerouslySetInnerHTML={{ __html: subtitle }} />
                 <button onClick={() => handleClose()}>Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  } else if (type === "register") {
+    return (
+      <div
+        className={`${styles.thanksPopup} ${
+          thanksPopupDisplay && styles.popupOpened
+        }`}
+      >
+        <div className="_container">
+          <div className={styles.popupWrap}>
+            <div className={`${styles.popupInner} ${styles.registerThanks}`}>
+              <div className={styles.col1}>
+                <Image src={"/images/thanksPopup.png"} alt="thanks" fill />
+              </div>
+              <div className={styles.col2}>
+                <h2 dangerouslySetInnerHTML={{ __html: title }} />
+                <p dangerouslySetInnerHTML={{ __html: subtitle }} />
+                <button onClick={() => handleClose()}>Log in</button>
               </div>
             </div>
           </div>
