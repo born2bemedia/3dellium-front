@@ -4,6 +4,7 @@ import styles from "./ExperiencesWeCrafted.module.scss";
 import { fadeInUp } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import DesignRow from "@/app/(home)/components/DesignRow/DesignRow";
+import ProjectsSlider from "../ProjectsSlider/ProjectsSlider";
 
 const ExperiencesWeCrafted = () => {
   return (
@@ -30,6 +31,7 @@ const ExperiencesWeCrafted = () => {
             plans boosts SEO and turns visitors into leads.
           </motion.p>
         </div>
+        <ProjectsSlider />
       </div>
     </section>
   );

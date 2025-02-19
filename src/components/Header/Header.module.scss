@@ -126,6 +126,9 @@
         &:hover {
           background: #c5d2c8;
         }
+        @media (max-width: rem(1280)) {
+          font-size: rem(14);
+        }
         @media (max-width: rem(1200)) {
           font-size: rem(14);
         }

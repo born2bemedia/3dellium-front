@@ -1,0 +1,210 @@
+@use "@/styles/mixin.scss" as *;
+
+.sliderWrapper {
+  position: relative;
+  > div {
+    > div {
+      @media (max-width: rem(1100)) {
+        flex-direction: column;
+        transform: unset !important;
+        gap: 36px;
+      }
+    }
+  }
+  .prevArrow {
+    width: rem(64);
+    height: rem(64);
+    border-radius: rem(42);
+    background: #c5d2c8;
+    filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.2));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: -32px;
+    z-index: 1;
+    transform: translateY(-50%);
+    @media (max-width: rem(1200)) {
+      width: rem(50);
+      height: rem(50);
+      left: -25px;
+    }
+    @media (max-width: rem(1100)) {
+      display: none;
+    }
+  }
+  .nextArrow {
+    width: rem(64);
+    height: rem(64);
+    border-radius: rem(42);
+    background: #c5d2c8;
+    filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.2));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: -32px;
+    z-index: 1;
+    transform: translateY(-50%);
+    @media (max-width: rem(1200)) {
+      width: rem(50);
+      height: rem(50);
+      right: -25px;
+    }
+    @media (max-width: rem(1100)) {
+      display: none;
+    }
+  }
+  .slide {
+    position: relative;
+    border-radius: rem(20);
+    overflow: hidden;
+    @media (max-width: rem(1100)) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .imageWrapper {
+      position: relative;
+      width: 100%;
+      height: rem(650);
+      filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.2));
+      @media (max-width: rem(1345)) {
+        height: rem(550);
+      }
+      @media (max-width: rem(1100)) {
+        height: rem(250);
+      }
+      img {
+        object-fit: cover;
+        clip-path: polygon(
+          0.653% 3.524%,
+          0.653% 3.524%,
+          0.678% 2.953%,
+          0.752% 2.41%,
+          0.871% 1.905%,
+          1.03% 1.443%,
+          1.226% 1.032%,
+          1.454% 0.68%,
+          1.71% 0.393%,
+          1.991% 0.18%,
+          2.293% 0.046%,
+          2.61% 0%,
+          97.39% 0%,
+          97.39% 0%,
+          97.707% 0.046%,
+          98.008% 0.18%,
+          98.289% 0.393%,
+          98.546% 0.68%,
+          98.774% 1.032%,
+          98.97% 1.443%,
+          99.129% 1.905%,
+          99.248% 2.41%,
+          99.322% 2.953%,
+          99.347% 3.524%,
+          99.347% 92.952%,
+          99.347% 92.952%,
+          99.322% 93.523%,
+          99.248% 94.065%,
+          99.129% 94.571%,
+          98.97% 95.033%,
+          98.774% 95.444%,
+          98.546% 95.796%,
+          98.289% 96.082%,
+          98.008% 96.296%,
+          97.707% 96.43%,
+          97.39% 96.476%,
+          56.444% 96.476%,
+          56.444% 96.476%,
+          56.126% 96.43%,
+          55.825% 96.296%,
+          55.544% 96.082%,
+          55.288% 95.796%,
+          55.059% 95.444%,
+          54.864% 95.033%,
+          54.705% 94.571%,
+          54.586% 94.065%,
+          54.512% 93.523%,
+          54.486% 92.952%,
+          54.486% 70.411%,
+          54.486% 70.411%,
+          54.461% 69.84%,
+          54.386% 69.297%,
+          54.268% 68.792%,
+          54.108% 68.33%,
+          53.913% 67.919%,
+          53.685% 67.567%,
+          53.428% 67.28%,
+          53.147% 67.067%,
+          52.846% 66.933%,
+          52.529% 66.887%,
+          2.61% 66.887%,
+          2.61% 66.887%,
+          2.293% 66.841%,
+          1.991% 66.707%,
+          1.71% 66.494%,
+          1.454% 66.207%,
+          1.226% 65.855%,
+          1.03% 65.444%,
+          0.871% 64.982%,
+          0.752% 64.477%,
+          0.678% 63.934%,
+          0.653% 63.363%,
+          0.653% 3.524%
+        );
+        @media (max-width: rem(1100)) {
+          clip-path: unset;
+          border-radius: rem(20);
+        }
+      }
+    }
+    .textWrapper {
+      position: absolute;
+      bottom: rem(20);
+      left: 0;
+      width: 52.5%;
+      background: #fff;
+      padding: rem(0);
+      border-radius: 0 rem(20) 0 rem(20);
+      @media (max-width: rem(1100)) {
+        position: relative;
+        width: 100%;
+        left: unset;
+        bottom: unset;
+        margin-bottom: rem(16);
+      }
+      @media (max-width: rem(992)) {
+        margin-bottom: rem(4);
+      }
+      .text {
+        border-radius: rem(20);
+        background: #1d4c29;
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+        padding: rem(24) rem(24);
+        color: #fff;
+        font-size: rem(18);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+        height: rem(170);
+        @media (max-width: rem(1700)) {
+          font-size: rem(18);
+        }
+        @media (max-width: rem(1345)) {
+          font-size: rem(15);
+          padding: rem(24) rem(24);
+          height: rem(145);
+        }
+        @media (max-width: rem(1285)) {
+          font-size: rem(14);
+          padding: rem(24) rem(24);
+        }
+        @media (max-width: rem(1100)) {
+          height: auto;
+          font-size: rem(14);
+        }
+      }
+    }
+  }
+}
