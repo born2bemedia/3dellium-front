@@ -18,19 +18,19 @@ const HowWeCraftVideos = () => {
       id: 2,
       title: "Concept Development",
       text: "We design a tailored storyboard and plan that brings your story to life.",
-      image: "/images/video-production/back1.png",
+      image: "/images/video-production/back2.png",
     },
     {
       id: 3,
       title: "Video Editing & Assembly",
       text: "Our team expertly combines your materials, adding transitions, effects, and music to create a seamless video.",
-      image: "/images/video-production/back1.png",
+      image: "/images/video-production/back3.png",
     },
     {
       id: 4,
       title: "Final Touches & Delivery",
       text: "After reviewing and refining the video, we will deliver the final version, which is ready to share with the world. ",
-      image: "/images/video-production/back1.png",
+      image: "/images/video-production/back4.png",
     },
   ];
 
