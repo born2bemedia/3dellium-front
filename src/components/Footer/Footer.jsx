@@ -84,7 +84,7 @@ const Footer = () => {
           <div className={styles.col2}>
             <div>
               <h3>Phone:</h3>
-              <Link href="#">text</Link>
+              <Link href="#"></Link>
             </div>
             <div>
               <h3>Email:</h3>

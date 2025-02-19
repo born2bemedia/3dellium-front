@@ -41,7 +41,7 @@ const ContactDetails = () => {
               className={styles.details}
             >
               <p>Phone</p>
-              <Link href="#">+### #### ## ##</Link>
+              <Link href="#"></Link>
             </motion.div>
           </div>
           <div className={styles.col2}>
