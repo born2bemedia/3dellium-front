@@ -2,9 +2,10 @@
 import styles from "./AddToCartButtonLoop.module.scss";
 import React, { useEffect, useState } from "react";
 import useCartStore from "@/stores/cartStore";
-import { toast, ToastContainer } from "react-toastify"; // Import Toast and ToastContainer
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CartIcon from "@/icons/CartIcon";
+import Link from "next/link";
 
 const AddToCartButtonLoop = ({ product }) => {
   const { cart, addToCart } = useCartStore();
@@ -26,15 +27,23 @@ const AddToCartButtonLoop = ({ product }) => {
         attributes: { price: product.price },
         image: product.image.url,
       });
-      toast.success(`${product.title} added to cart!`, {
-        position: "bottom-right",
-        autoClose: 3000, // Automatically close after 3 seconds
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-      //console.log(`${product.title} added to cart`);
+
+      toast.success(
+        <div className={styles.toast}>
+          <p>{product.title} added to cart!</p>
+          <Link className={styles.button} href="/checkout">
+            View Cart
+          </Link>
+        </div>,
+        {
+          position: "bottom-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        }
+      );
     }
   };
 

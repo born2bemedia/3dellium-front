@@ -208,6 +208,10 @@ body {
   }
 }
 
+.Toastify__toast-icon {
+  display: none !important;
+}
+
 .react-tel-input {
   .country-list {
     width: rem(255);

@@ -2,7 +2,7 @@
 import styles from "./SingleAddToCartButton.module.scss";
 import React, { useEffect, useState } from "react";
 import useCartStore from "@/stores/cartStore";
-import { toast, ToastContainer } from "react-toastify"; // Import Toast and ToastContainer
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CartIcon from "@/icons/CartIcon";
 import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
@@ -29,13 +29,12 @@ const SingleAddToCartButton = ({ product }) => {
       });
       toast.success(`${product.title} added to cart!`, {
         position: "bottom-right",
-        autoClose: 3000, // Automatically close after 3 seconds
+        autoClose: 3000, 
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
       });
-      //console.log(`${product.title} added to cart`);
     }
   };
 
