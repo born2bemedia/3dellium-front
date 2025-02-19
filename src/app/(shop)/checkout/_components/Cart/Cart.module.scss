@@ -17,7 +17,7 @@
     }
     .imageWrapper {
       display: block;
-      width: 45%;
+      width: 50%;
       height: rem(190);
       position: relative;
       border-radius: rem(16);
@@ -35,7 +35,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 55%;
+      width: 50%;
       @media (max-width: rem(992)) {
         width: 50%;
       }
