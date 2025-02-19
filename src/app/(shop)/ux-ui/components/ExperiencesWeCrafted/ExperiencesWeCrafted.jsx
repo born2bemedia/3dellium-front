@@ -31,7 +31,6 @@ const ExperiencesWeCrafted = () => {
           </motion.p>
         </div>
       </div>
-      <DesignRow />
     </section>
   );
 };
