@@ -3,7 +3,6 @@ import React from "react";
 import { fadeInUp, fadeInLeft } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import styles from "./UxUiHero.module.scss";
-import Image from "next/image";
 
 const UxUiHero = () => {
   return (
@@ -27,8 +26,16 @@ const UxUiHero = () => {
           className={styles.body}
         >
           <div className={styles.videoWrap}>
-            <Image src={"/images/ux/hero.png"} alt="hero" fill />
-            <Image src={"/images/ux/heroMob.png"} alt="hero" fill />
+            <video
+              width="1360"
+              height="545"
+              autoPlay={true}
+              muted
+              loop
+              preload="none"
+            >
+              <source src="/images/ux/hero.mp4" type="video/mp4" />
+            </video>
           </div>
         </motion.div>
       </div>
