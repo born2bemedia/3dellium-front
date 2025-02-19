@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import useCartStore from "@/stores/cartStore"; // Імпорт Zustend Store
 import Image from "next/image";
 import { API_URL } from "@/helpers/constants";
+import TermsAndConditions from "../Checkout/TermsAndConditions";
 
 const Cart = () => {
   const {
@@ -67,13 +68,15 @@ const Cart = () => {
           </div>
 
           <div className={styles.cartTotal}>
-            <span>Total cost:</span>
+            <span>
+              Total cost:
+              <p className={styles.delievery}>
+                Delivery method: by email <br />
+                (within 3 business days)
+              </p>
+            </span>
             <span>€{totalAmount}</span>
           </div>
-          <p className={styles.delievery}>
-            Delivery method: by email <br />
-            (within 3 business days)
-          </p>
         </>
       ) : (
         <div>Loading...</div>

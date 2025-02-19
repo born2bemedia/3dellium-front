@@ -17,8 +17,8 @@
     }
     .imageWrapper {
       display: block;
-      width: rem(194);
-      height: rem(194);
+      width: 45%;
+      height: rem(190);
       position: relative;
       border-radius: rem(16);
       overflow: hidden;
@@ -35,6 +35,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      width: 55%;
       @media (max-width: rem(992)) {
         width: 50%;
       }
@@ -51,7 +52,7 @@
         }
         h3 {
           color: #0c0c0c;
-          font-size: rem(16);
+          font-size: rem(14);
           font-style: normal;
           font-weight: 500;
           line-height: 130%;
@@ -117,7 +118,7 @@
 
 .delievery {
   color: #222;
-  font-size: rem(12);
+  font-size: rem(8);
   font-style: normal;
   font-weight: 400;
   line-height: normal;

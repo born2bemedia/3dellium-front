@@ -35,7 +35,7 @@ const CheckoutForm = () => {
       city: user?.city || "",
       street: user?.street || "",
       address: user?.address || "",
-      country: user.country ? getCountryOptionByCode(user.country) : null,
+      country: user?.country ? getCountryOptionByCode(user?.country) : null,
       postalCode: user?.zip || "",
       phone: user?.phone || "",
       email: user?.email || "",
@@ -79,21 +79,16 @@ const CheckoutForm = () => {
         <div className={styles.col1}>
           <h2>Your Order</h2>
           <Cart />
-        </div>
-
-        <div className={styles.col2}>
-          <h2>Billing Data</h2>
-          <BillingForm formMethods={formMethods} />
-        </div>
-
-        <div className={styles.col3}>
-          <h2>Order Summary</h2>
-          <OrderSummary cart={cart} totalAmount={totalAmount} />
           <TermsAndConditions
             formMethods={formMethods}
             isSubmitting={isSubmitting}
             submitError={submitError}
           />
+        </div>
+
+        <div className={styles.col2}>
+          <h2>Billing Data</h2>
+          <BillingForm formMethods={formMethods} />
         </div>
       </form>
     </>

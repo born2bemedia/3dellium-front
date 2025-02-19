@@ -1,3 +1,4 @@
+"use client";
 import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
 import styles from "./Checkout.module.scss";
 import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
@@ -19,11 +20,7 @@ const TermsAndConditions = ({ formMethods, isSubmitting, submitError }) => {
                 I have read and agree to 3Dellium’s Terms and Conditions.
               </span>
             </label>
-            {errors.terms && (
-              <p>
-                {errors.terms.message}
-              </p>
-            )}
+            {errors.terms && <p>{errors.terms.message}</p>}
           </div>
 
           <div>
@@ -31,11 +28,7 @@ const TermsAndConditions = ({ formMethods, isSubmitting, submitError }) => {
               <input type="checkbox" {...register("refundPolicy")} />{" "}
               <span>I have read and agree to the Refund Policy.</span>
             </label>
-            {errors.refundPolicy && (
-              <p>
-                {errors.refundPolicy.message}
-              </p>
-            )}
+            {errors.refundPolicy && <p>{errors.refundPolicy.message}</p>}
           </div>
         </div>
         <button type="submit" disabled={isSubmitting}>
