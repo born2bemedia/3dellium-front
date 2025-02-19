@@ -32,3 +32,17 @@
     text-decoration: none;
   }
 }
+
+.toastWrapper {
+  //background-color: #1d4c29;
+  > div {
+    &:last-child {
+      background-color: #fff;
+      > div {
+        &:last-child {
+          background-color: #1d4c29;
+        }
+      }
+    }
+  }
+}

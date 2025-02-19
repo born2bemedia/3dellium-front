@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import CartIcon from "@/icons/CartIcon";
 import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
 import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
+import Link from "next/link";
 
 const SingleAddToCartButton = ({ product }) => {
   const { cart, addToCart } = useCartStore();
@@ -18,6 +19,7 @@ const SingleAddToCartButton = ({ product }) => {
   }, [cart]);
 
   const handleAddToCart = () => {
+    console.log(product);
     if (!isInCart) {
       addToCart({
         id: product.id,
@@ -27,14 +29,24 @@ const SingleAddToCartButton = ({ product }) => {
         attributes: { price: product.price },
         image: product.image.url,
       });
-      toast.success(`${product.title} added to cart!`, {
-        position: "bottom-right",
-        autoClose: 3000, 
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
+
+      toast.success(
+        <div className={styles.toast}>
+          <p>{product.title} added to cart!</p>
+          <Link className={styles.button} href="/checkout">
+            View Cart
+          </Link>
+        </div>,
+        {
+          position: "bottom-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          className: styles.toastWrapper,
+        }
+      );
     }
   };
 

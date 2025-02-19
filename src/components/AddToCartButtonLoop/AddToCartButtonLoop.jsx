@@ -42,6 +42,7 @@ const AddToCartButtonLoop = ({ product }) => {
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
+          className: styles.toastWrapper,
         }
       );
     }
