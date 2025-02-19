@@ -17,13 +17,15 @@ const FeaturedProductCard = ({ product, classValue }) => {
       whileInView="visible"
       viewport={{ once: true }}
       variants={fadeInUp}
-      className={`${styles.card} ${classValue == "wide" && styles.wide}`}
+      className={`${styles.card} ${
+        classValue.includes("wide") && styles.wide
+      } ${classValue.includes("animation") && styles.half}`}
     >
       <Link href={`/product/${product.slug}`}>
-        {classValue !== "wide" && <h3>{product.title}</h3>}
+        {!classValue.includes("wide") && <h3>{product.title}</h3>}
 
         <div className={styles.cardImage}>
-          {classValue == "wide" ? (
+          {classValue.includes("wide") ? (
             <Image
               fill
               src={
@@ -47,7 +49,7 @@ const FeaturedProductCard = ({ product, classValue }) => {
         </div>
       </Link>
       <div className={styles.cardBottom}>
-        {classValue == "wide" && <h3>{product.title}</h3>}
+        {classValue.includes("wide") && <h3>{product.title}</h3>}
         <span className={styles.price}>
           {product.price}
           <span>€</span>

@@ -193,7 +193,11 @@ export default function Shop({ categorySlugs }) {
             </div>
           </div>
 
-          <div className={styles.productRow}>
+          <div
+            className={`${styles.productRow} ${
+              products.length === 1 && styles.animations
+            }`}
+          >
             {loading ? (
               <Skeleton count={itemsPerPage} />
             ) : products.length > 0 ? (
@@ -201,11 +205,11 @@ export default function Shop({ categorySlugs }) {
                 <FeaturedProductCard
                   product={product}
                   key={product.id}
-                  classValue={
-                    (index === 4 || index === 10) && products.length >= 5
+                  classValue={`${
+                    (index === 4 || index === 10 || index === 16) && products.length >= 5
                       ? "wide"
                       : ""
-                  }
+                  } ${categories.length === 1 ? "animation" : ""}`}
                 />
               ))
             ) : (

@@ -1,7 +1,7 @@
 @use "@/styles/mixin.scss" as *;
 
 .assistance {
-  margin-bottom: rem(150);
+  margin-bottom: rem(100);
   @media (min-width: rem(1600)) {
     zoom: 1.2;
   }

@@ -1,9 +1,9 @@
 @use "@/styles/mixin.scss" as *;
 
 .contactDetails {
-  margin-bottom: rem(100);
+  margin-bottom: rem(20);
   @media (max-width: rem(992)) {
-    margin-bottom: rem(54);
+    margin-bottom: rem(20);
   }
   .container {
     padding: 0 rem(40);

@@ -1,9 +1,9 @@
 @use "@/styles/mixin.scss" as *;
 
 .tourDetails {
-  margin: rem(50) 0 rem(150) 0;
+  margin: rem(50) 0 rem(80) 0;
   @media (max-width: rem(992)) {
-    margin-bottom: rem(100);
+    margin-bottom: rem(60);
   }
   h2 {
     color: #1d4c29;
@@ -16,7 +16,7 @@
   .body {
     display: flex;
     flex-direction: column;
-    gap: rem(36);
+    gap: rem(60);
     .videoRow {
       display: flex;
       gap: rem(14);

@@ -14,6 +14,20 @@
     @media (max-width: rem(992)) {
       width: 100%;
     }
+    &.half {
+      width: 50%;
+      @media (max-width: rem(992)) {
+        width: 100%;
+      }
+      a {
+        .cardImage {
+          //height: rem(323);
+          img {
+            object-fit: cover;
+          }
+        }
+      }
+    }
     a {
       .cardImage {
         height: rem(390);
