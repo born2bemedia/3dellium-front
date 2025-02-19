@@ -4,12 +4,14 @@ import ShopHero from "../components/ShopHero/ShopHero";
 import ShopAssistance from "../components/ShopAssistance/ShopAssistance";
 
 export const metadata = {
-  title: "3D Modelling | 3Dellium",
-  description: "",
+  title: "Ready-to-Print 3D Plans | 3Dellium",
+  description:
+    "Get high-quality 3D printing plans for useful everyday items for easy printing and practical use.",
   openGraph: {
-    title: "3D Modelling | 3Dellium",
-    description: "",
-    //images: "",
+    title: "Ready-to-Print 3D Plans | 3Dellium",
+    description:
+      "Get high-quality 3D printing plans for useful everyday items for easy printing and practical use.",
+    images: "https://3dellium.com/images/meta.png",
   },
 };
 

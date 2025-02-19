@@ -7,12 +7,14 @@ import WhenWrong from "./components/WhenWrong/WhenWrong";
 import ExperiencesWeCrafted from "./components/ExperiencesWeCrafted/ExperiencesWeCrafted";
 
 export const metadata = {
-  title: "UI/UX Design | 3Dellium",
-  description: "",
+  title: "Professional UI/UX Design | 3Dellium",
+  description:
+    "Get expert-crafted UI/UX design for personal websites, portfolios, blogs, and apps. Make your digital presence seamless and engaging.",
   openGraph: {
-    title: "UI/UX Design | 3Dellium",
-    description: "",
-    //images: "",
+    title: "Professional UI/UX Design | 3Dellium",
+    description:
+      "Get expert-crafted UI/UX design for personal websites, portfolios, blogs, and apps. Make your digital presence seamless and engaging.",
+    images: "https://3dellium.com/images/meta.png",
   },
 };
 

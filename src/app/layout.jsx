@@ -104,11 +104,13 @@ const helveticaNeue = localFont({
 });
 
 export const metadata = {
-  title: "3Dellium",
-  description: "",
+  title: "3D Plans, Animations, UI/UX & Video Production | 3Dellium",
+  description:
+    "Find ready-to-use 3D printing plans, animations, UI/UX designs, and video production services—crafted with precision and creativity.",
   openGraph: {
-    title: "3Dellium",
-    description: "",
+    title: "3D Plans, Animations, UI/UX & Video Production | 3Dellium",
+    description:
+      "Find ready-to-use 3D printing plans, animations, UI/UX designs, and video production services—crafted with precision and creativity.",
     images: "https://3dellium.com/images/meta.png",
   },
 };

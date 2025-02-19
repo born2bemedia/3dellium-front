@@ -7,12 +7,14 @@ import fetchFromAPI from "@/helpers/fetchFromAPI";
 import { CACHE_TAG_IDEAS } from "@/helpers/constants";
 
 export const metadata = {
-  title: "Ideas | 3Dellium",
-  description: "",
+  title: "Guides & Insights on 3D, Animation, UI/UX & Video | 3Dellium",
+  description:
+    "Explore expert insights, tutorials, and guides on 3D modeling, animation, video production, and UI/UX design. Learn, create, and innovate.",
   openGraph: {
-    title: "Ideas | 3Dellium",
-    description: "",
-    //images: "",
+    title: "Guides & Insights on 3D, Animation, UI/UX & Video | 3Dellium",
+    description:
+      "Explore expert insights, tutorials, and guides on 3D modeling, animation, video production, and UI/UX design. Learn, create, and innovate.",
+    images: "https://3dellium.com/images/meta.png",
   },
 };
 

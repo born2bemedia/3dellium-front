@@ -6,12 +6,14 @@ import AnimationProcess from "./components/AnimationProcess/AnimationProcess";
 import AnimationWhy from "./components/AnimationWhy/AnimationWhy";
 
 export const metadata = {
-  title: "Animations | 3Dellium",
-  description: "",
+  title: "Ready-to-Use Animations | 3Dellium",
+  description:
+    "Get professionally crafted animations for chats, greetings, personal websites, and social media. Make your content stand out!",
   openGraph: {
-    title: "Animations | 3Dellium",
-    description: "",
-    //images: "",
+    title: "Ready-to-Use Animations | 3Dellium",
+    description:
+      "Get professionally crafted animations for chats, greetings, personal websites, and social media. Make your content stand out!",
+    images: "https://3dellium.com/images/meta.png",
   },
 };
 

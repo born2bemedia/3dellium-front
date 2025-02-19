@@ -21,9 +21,14 @@ export async function generateMetadata({ params }) {
   }
 
   return createMetadata({
-    title: product.title,
-    description: product.description,
-    imageUrl: product.image?.url,
+    title: `${product.title} ${
+      product.category?.id !== 6 ? "3D Printing Plan" : ""
+    } | 3Dellium`,
+    description:
+      product.category?.id !== 6
+        ? `Get the ready-to-print 3D model for ${product.title}. Professionally designed for easy printing and everyday use.`
+        : "",
+    imageUrl: "https://3dellium.com/images/meta.png",
   });
 }
 
@@ -53,7 +58,11 @@ const ProductPage = async ({ params }) => {
       <ProductHero product={product} />
       {product.category?.id !== 6 && <PrintingRecommendations />}
 
-      {product.category?.id !== 6 ? <ProductNeedAssistance /> : <NeedAssistance />}
+      {product.category?.id !== 6 ? (
+        <ProductNeedAssistance />
+      ) : (
+        <NeedAssistance />
+      )}
     </>
   );
 };

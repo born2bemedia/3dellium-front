@@ -3,12 +3,14 @@ import ContactHero from "./components/ContactHero/ContactHero";
 import ContactDetails from "./components/ContactDetails/ContactDetails";
 
 export const metadata = {
-  title: "Contact Us | 3Dellium",
-  description: "",
+  title: "Contact 3D Design Team | 3Dellium",
+  description:
+    "Have questions or need assistance? Contact us for expert help with 3D plans, animations, UI/UX design, and video production. We’re here to help!",
   openGraph: {
-    title: "Contact Us | 3Dellium",
-    description: "",
-    //images: "",
+    title: "Contact 3D Design Team | 3Dellium",
+    description:
+      "Have questions or need assistance? Contact us for expert help with 3D plans, animations, UI/UX design, and video production. We’re here to help!",
+    images: "https://3dellium.com/images/meta.png",
   },
 };
 

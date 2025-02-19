@@ -15,6 +15,8 @@ export async function generateMetadata({ params }) {
   const { slug, locale } = awaitedParams;
   const idea = await getIdeaBySlug(slug);
 
+  console.log(idea);
+
   if (!idea) {
     return {
       title: "Idea Not Found",
@@ -22,9 +24,9 @@ export async function generateMetadata({ params }) {
   }
 
   return createMetadata({
-    title: idea.title,
-    description: idea.description,
-    imageUrl: idea.image?.url,
+    title: idea.seo_title,
+    description: idea.seo_description,
+    imageUrl: "https://3dellium.com/images/meta.png",
   });
 }
 
