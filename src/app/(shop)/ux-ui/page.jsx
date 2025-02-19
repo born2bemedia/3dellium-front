@@ -4,6 +4,7 @@ import SamplesOfWorks from "./components/SamplesOfWorks/SamplesOfWorks";
 import UxUiHero from "./components/UxUiHero/UxUiHero";
 import HowWeCraftExperiences from "./components/HowWeCraftExperiences/HowWeCraftExperiences";
 import WhenWrong from "./components/WhenWrong/WhenWrong";
+import ExperiencesWeCrafted from "./components/ExperiencesWeCrafted/ExperiencesWeCrafted";
 
 export const metadata = {
   title: "UI/UX Design | 3Dellium",
@@ -22,6 +23,7 @@ const page = () => {
       <HowWeCraftExperiences />
       <WhenWrong />
       <SamplesOfWorks />
+      <ExperiencesWeCrafted />
       <ShopAssistance />
     </>
   );

@@ -17,7 +17,7 @@
       gap: rem(30);
       //overflow: hidden;
       position: relative;
-      left: calc((100vw - rem(1142)) / 2);
+      left: calc(rem(100));
       width: calc(rem(838) * 4);
       @media (max-width: rem(992)) {
         left: rem(16);

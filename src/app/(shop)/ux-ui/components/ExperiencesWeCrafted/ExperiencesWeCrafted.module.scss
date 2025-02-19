@@ -1,0 +1,23 @@
+@use "@/styles/mixin.scss" as *;
+
+.main {
+  margin-bottom: rem(100);
+  .body {
+    h2 {
+      color: #1d4c29;
+      font-size: rem(40);
+      font-style: normal;
+      font-weight: 800;
+      line-height: 130%;
+      margin-bottom: rem(16);
+    }
+    p {
+      color: #362b1a;
+      font-size: rem(18);
+      font-style: normal;
+      font-weight: 275;
+      line-height: 130%;
+      margin-bottom: rem(36);
+    }
+  }
+}
