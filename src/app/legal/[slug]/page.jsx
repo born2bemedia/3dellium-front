@@ -18,9 +18,9 @@ export async function generateMetadata({ params }) {
   }
 
   return createMetadata({
-    title: idea.title,
-    description: idea.description,
-    imageUrl: idea.image?.url,
+    title: `${idea.title} | 3Dellium`,
+    description: "",
+    imageUrl: "https://3dellium.com/images/meta.png",
   });
 }
 
