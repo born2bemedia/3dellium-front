@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { fadeInUp } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import styles from "./FeaturedProductCard.module.scss";
@@ -7,10 +7,12 @@ import Link from "next/link";
 import AddToCartButton from "../AddToCartButton";
 import Image from "next/image";
 import AddToCartButtonLoop from "../AddToCartButtonLoop/AddToCartButtonLoop";
-
-const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
+import ReactPlayer from "react-player";
+import { API_URL } from "@/helpers/constants";
 
 const FeaturedProductCard = ({ product, classValue }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <motion.div
       initial="hidden"
@@ -26,25 +28,87 @@ const FeaturedProductCard = ({ product, classValue }) => {
 
         <div className={styles.cardImage}>
           {classValue.includes("wide") ? (
-            <Image
-              fill
-              src={
-                product.big_image?.url
-                  ? `${API_URL}${product.big_image.url}`
-                  : "/placeholder.jpg"
-              }
-              alt={product.title}
-            />
+            <>
+              {product.category?.id === 6 ? (
+                <div
+                  className={styles.animationWrap}
+                  onMouseEnter={() => setIsPlaying(true)}
+                  onMouseLeave={() => setIsPlaying(false)}
+                >
+                  <ReactPlayer
+                    url={`${API_URL}${product.preview?.url}`}
+                    playing={true}
+                    controls={false}
+                    loop={true}
+                    className={styles.video}
+                    height={300}
+                  />
+                  <Image
+                    fill
+                    src={
+                      product.big_image?.url
+                        ? `${API_URL}${product.big_image.url}`
+                        : "/placeholder.jpg"
+                    }
+                    alt={product.title}
+                    style={{
+                      opacity: isPlaying ? 0 : 1,
+                    }}
+                  />
+                </div>
+              ) : (
+                <Image
+                  fill
+                  src={
+                    product.big_image?.url
+                      ? `${API_URL}${product.big_image.url}`
+                      : "/placeholder.jpg"
+                  }
+                  alt={product.title}
+                />
+              )}
+            </>
           ) : (
-            <Image
-              fill
-              src={
-                product.image?.url
-                  ? `${API_URL}${product.image.url}`
-                  : "/placeholder.jpg"
-              }
-              alt={product.title}
-            />
+            <>
+              {product.category?.id === 6 ? (
+                <div
+                  className={styles.animationWrap}
+                  onMouseEnter={() => setIsPlaying(true)}
+                  onMouseLeave={() => setIsPlaying(false)}
+                >
+                  <ReactPlayer
+                    url={`${API_URL}${product.preview?.url}`}
+                    playing={true}
+                    controls={false}
+                    loop={true}
+                    className={styles.video}
+                    height={300}
+                  />
+                  <Image
+                    fill
+                    src={
+                      product.image?.url
+                        ? `${API_URL}${product.image.url}`
+                        : "/placeholder.jpg"
+                    }
+                    alt={product.title}
+                    style={{
+                      opacity: isPlaying ? 0 : 1,
+                    }}
+                  />
+                </div>
+              ) : (
+                <Image
+                  fill
+                  src={
+                    product.image?.url
+                      ? `${API_URL}${product.image.url}`
+                      : "/placeholder.jpg"
+                  }
+                  alt={product.title}
+                />
+              )}
+            </>
           )}
         </div>
       </Link>

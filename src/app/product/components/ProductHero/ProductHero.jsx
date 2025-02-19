@@ -85,7 +85,7 @@ const ProductHero = ({ product }) => {
                   controlsList="nodownload nofullscreen"
                   loop={true}
                   className={styles.video}
-                  disableContextMenu={true}
+                  
                   height={543}
                 />
               </div>
