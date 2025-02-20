@@ -38,6 +38,13 @@
         background: #f1f1f11a;
         border-radius: rem(12);
         padding: 0 rem(18);
+        &:hover {
+          color: #000000;
+          background: #fff;
+          path {
+            fill: #000000;
+          }
+        }
       }
     }
     .headAccount {
