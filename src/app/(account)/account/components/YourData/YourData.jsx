@@ -116,7 +116,11 @@ const customStyles = {
 };
 
 export default function YourData() {
-  const { thanksPopupDisplay, setThanksPopupDisplay } = usePopupStore();
+  const {
+    thanksPopupDisplay,
+    setThanksPopupDisplay,
+    setThanksPopupDefaultDisplay,
+  } = usePopupStore();
   const { user, updateUser, isHydrated } = useAuthStore();
   const [userCountry, setUserCountry] = useState("");
   const router = useRouter();
@@ -165,7 +169,7 @@ export default function YourData() {
         phone: data.phone,
       };
       await updateUser(userUpdatePayload);
-      setThanksPopupDisplay(true);
+      setThanksPopupDefaultDisplay(true);
     } catch (error) {
       setSuccessMessage("Failed to update profile. Please try again.");
     }

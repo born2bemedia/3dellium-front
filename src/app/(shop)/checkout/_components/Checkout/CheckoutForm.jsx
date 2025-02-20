@@ -26,7 +26,7 @@ const CheckoutForm = () => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
-  const { thanksPopupDisplay, setThanksPopupDisplay } = usePopupStore();
+  const { thanksPopupDisplay, setThanksPopupOrderDisplay } = usePopupStore();
 
   const formMethods = useForm({
     defaultValues: {
@@ -59,7 +59,7 @@ const CheckoutForm = () => {
         registerUser
       );
       setIsSubmitting(false);
-      setThanksPopupDisplay(true);
+      setThanksPopupOrderDisplay(true);
       //clearCart();
     } catch (error) {
       setSubmitError(

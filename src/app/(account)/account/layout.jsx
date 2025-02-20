@@ -9,6 +9,7 @@ import NeedAssistance from "@/components/NeedAssistance/NeedAssistance";
 import { useRouter } from "next/navigation";
 import LogoutButtn from "@/icons/LogoutButtn";
 import ThanksPopup from "../../../components/ThanksPopup/ThanksPopup";
+import ThanksPopupDefault from "@/components/ThanksPopupDefault/ThanksPopupDefault";
 
 const DashboardLayout = ({ children }) => {
   const { user, logout, isHydrated } = useAuthStore();
@@ -41,7 +42,7 @@ const DashboardLayout = ({ children }) => {
         </div>
       </section>
       <NeedAssistance />
-      <ThanksPopup />
+      <ThanksPopupDefault />
     </>
   );
 };

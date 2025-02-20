@@ -1,6 +1,7 @@
 import React from "react";
 import Checkout from "./_components/Checkout/Checkout";
 import ThanksPopup from "@/components/ThanksPopup/ThanksPopup";
+import ThanksPopupOrder from "@/components/ThanksPopupOrder/ThanksPopupOrder";
 
 export const metadata = {
   title: "Checkout | 3Dellium",
@@ -16,7 +17,7 @@ const CheckoutPage = () => {
   return (
     <>
       <Checkout />
-      <ThanksPopup
+      <ThanksPopupOrder
         type="order"
         title={"<span>Success!</span> Your order has been submitted."}
         subtitle={
