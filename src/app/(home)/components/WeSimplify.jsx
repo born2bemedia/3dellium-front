@@ -11,6 +11,9 @@ const WeSimplify = () => {
     "garden-and-open-air",
     "smart-devices",
   ];
+
+  const productIds = [25, 40, 21];
+
   return (
     <section className="main-section">
       <div className="_container">
@@ -25,7 +28,10 @@ const WeSimplify = () => {
           buttonText="Discover More"
           buttonLink="/3d-modelling"
         />
-        <FeaturedProducts categorySlugs={featuredCategories} />
+        <FeaturedProducts
+          categorySlugs={featuredCategories}
+          productIds={productIds}
+        />
       </div>
     </section>
   );

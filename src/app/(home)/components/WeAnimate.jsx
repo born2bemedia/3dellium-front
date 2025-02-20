@@ -5,6 +5,7 @@ import React from "react";
 
 const WeAnimate = () => {
   const featuredCategories = ["animations"];
+  const productIds = [15, 5, 13];
   return (
     <section className="main-section">
       <div className="_container">
@@ -22,6 +23,7 @@ const WeAnimate = () => {
         />
         <FeaturedProducts
           categorySlugs={featuredCategories}
+          productIds={productIds}
           classValue="left"
         />
       </div>

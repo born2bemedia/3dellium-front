@@ -32,6 +32,7 @@ const page = () => {
         subtitle={"Explore. Print. Simplify Life."}
         image={"/images/modelling/hero.png"}
         imageMob={"/images/modelling/heroMob.png"}
+        productId={37}
       />
       <Shop categorySlugs={categories} />
       <ShopAssistance />

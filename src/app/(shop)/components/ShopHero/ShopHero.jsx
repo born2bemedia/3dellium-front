@@ -8,23 +8,12 @@ import Skeleton from "@/components/Skeleton/Skeleton";
 import { API_TOKEN, API_URL, CACHE_TAG_PRODUCTS } from "@/helpers/constants";
 import fetchFromAPI from "@/helpers/fetchFromAPI";
 
-
-async function fetchLatestProductsFromCategories(categorySlugs) {
-  const categoryData = await fetchFromAPI("/api/categories", {
-    query: `where[slug][in]=${categorySlugs.join(",")}`,
+async function fetchProductById(id) {
+  const productsData = await fetchFromAPI(`/api/products/${id}`, {
     tag: CACHE_TAG_PRODUCTS,
   });
 
-  const categoryIds = categoryData.docs.map((cat) => cat.id);
-
-  const productsData = await fetchFromAPI("/api/products", {
-    query: `where[category][in]=${categoryIds.join(
-      ","
-    )}&sort=-createdAt&limit=1`,
-    tag: CACHE_TAG_PRODUCTS,
-  });
-
-  return productsData.docs[0];
+  return productsData;
 }
 
 const ShopHero = async ({
@@ -33,8 +22,9 @@ const ShopHero = async ({
   subtitle,
   image,
   imageMob,
+  productId,
 }) => {
-  const heroProduct = await fetchLatestProductsFromCategories(categorySlugs);
+  const heroProduct = await fetchProductById(productId);
 
   return (
     <section className={styles.shopHero}>
