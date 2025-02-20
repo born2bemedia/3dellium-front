@@ -4,9 +4,12 @@ import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 
 // Dynamically import the Player component with SSR disabled
-const Player = dynamic(() => import("@lottiefiles/react-lottie-player").then(mod => mod.Player), {
-  ssr: false,
-});
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  {
+    ssr: false,
+  }
+);
 
 const Preloader = () => {
   const pathname = usePathname();
@@ -20,7 +23,7 @@ const Preloader = () => {
     const timer = setTimeout(() => {
       setIsLoading(false);
       setTimeout(() => setIsVisible(false), 200);
-    }, 1000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [pathname]);
@@ -46,11 +49,17 @@ const Preloader = () => {
         visibility: isVisible ? "visible" : "hidden",
       }}
     >
-      <Player
+      {/*<Player
         src="/images/preloader.json"  
         autoplay
         loop
         style={{ width: 300, height: 300 }}
+      />*/}
+      <img
+        src="/images/preloader.gif"
+        alt="preloader"
+        width={100}
+        height={100}
       />
     </div>
   );
