@@ -256,9 +256,9 @@
     display: flex;
     gap: rem(30);
     align-items: flex-end;
-    margin-top: rem(80);
+    margin-top: rem(40);
     @media (min-width: rem(1600)) {
-      margin-top: rem(120);
+      margin-top: rem(80);
     }
     @media (max-width: rem(992)) {
       flex-direction: column;
@@ -267,12 +267,15 @@
     }
     .col1 {
       width: calc(63.5%);
-      height: rem(170);
+      height: rem(214);
       border-radius: rem(24);
       background-image: url(/images/home/hero2.png);
       background-position: top center;
       background-size: cover;
       position: relative;
+      @media (min-width: rem(1600)) {
+        height: rem(270);
+      }
       img {
         transform: rotate(45deg);
         position: absolute;
@@ -318,6 +321,9 @@
         @media (max-width: rem(992)) {
           font-size: rem(32);
           align-items: flex-start;
+        }
+        @media (min-width: rem(1600)) {
+          font-size: rem(70);
         }
         span {
           &:first-child {
