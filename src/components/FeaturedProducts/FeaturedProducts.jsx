@@ -38,7 +38,7 @@ export default async function FeaturedProducts({ categorySlugs, classValue }) {
             <FeaturedProductCard
               product={product}
               key={product.id}
-              classValue={index === products.length - 2 ? "wide" : ""}
+              classValue={index === products.length - 1 ? "wide" : ""}
             />
           ))
         ) : (
