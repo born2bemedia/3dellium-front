@@ -145,6 +145,7 @@
     bottom: rem(36);
     left: 50%;
     transform: translateX(-50%);
+    max-width: rem(260);
     .price {
       font-size: 28px;
       font-weight: 700;
