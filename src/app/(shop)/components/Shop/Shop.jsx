@@ -46,6 +46,16 @@ export default function Shop({ categorySlugs }) {
   const [filterOpened, setFilterOpened] = useState(false);
   const [typeOpened, setTypeOpened] = useState(false);
 
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1200
+  );
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const setSort = (value, label) => {
     setSelectedSort(value);
     setSelectedSortLabel(label);
@@ -83,6 +93,20 @@ export default function Shop({ categorySlugs }) {
     currentPage,
     itemsPerPage,
   ]);
+
+  const classValue = (index, categoriesLength, productsLength) => {
+    if (categoriesLength === 1) {
+      if (windowWidth < 992) {
+        return "wideanimation";
+      } else {
+        return [0, 3, 4, 6].includes(index) && productsLength >= 5
+          ? "wideanimation"
+          : "";
+      }
+    } else {
+      return [4, 10, 16].includes(index) && productsLength >= 5 ? "wide" : "";
+    }
+  };
 
   return (
     <section className={styles.shopWrap}>
@@ -205,11 +229,11 @@ export default function Shop({ categorySlugs }) {
                 <FeaturedProductCard
                   product={product}
                   key={product.id}
-                  classValue={`${
-                    (index === 4 || index === 10 || index === 16) && products.length >= 5
-                      ? "wide"
-                      : ""
-                  } ${categories.length === 1 ? "animation" : ""}`}
+                  classValue={classValue(
+                    index,
+                    categories.length,
+                    products.length
+                  )}
                 />
               ))
             ) : (

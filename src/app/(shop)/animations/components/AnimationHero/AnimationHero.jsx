@@ -2,10 +2,9 @@
 import React from "react";
 import { fadeInUp, fadeInLeft } from "@/helpers/animations";
 import { motion } from "framer-motion";
-import styles from "./UxUiHero.module.scss";
-import Image from "next/image";
+import styles from "./AnimationHero.module.scss";
 
-const UxUiHero = () => {
+const AnimationHero = () => {
   return (
     <section className={styles.shopHero}>
       <div className={styles.container}>
@@ -16,8 +15,8 @@ const UxUiHero = () => {
           variants={fadeInLeft}
           className={styles.title}
         >
-          <h1>UI/UX Design</h1>
-          <p>Design. Optimize. Engage Users.</p>
+          <h1>Animations</h1>
+          <p>Move. Express. Enrich Life.</p>
         </motion.div>
         <motion.div
           initial="hidden"
@@ -27,18 +26,16 @@ const UxUiHero = () => {
           className={styles.body}
         >
           <div className={styles.videoWrap}>
-            <Image
-              src={"/images/ux/hero.png"}
-              width={1447}
-              height={545}
-              alt="hero"
-            />
-            <Image
-              src={"/images/ux/heroMob.png"}
-              width={1447}
-              height={545}
-              alt="hero"
-            />
+            <video
+              width="1360"
+              height="545"
+              autoPlay={true}
+              muted
+              loop
+              preload="none"
+            >
+              <source src="/images/animations/heroAnim.mp4" type="video/mp4" />
+            </video>
           </div>
         </motion.div>
       </div>
@@ -46,4 +43,4 @@ const UxUiHero = () => {
   );
 };
 
-export default UxUiHero;
+export default AnimationHero;

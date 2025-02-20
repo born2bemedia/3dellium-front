@@ -21,7 +21,7 @@ const FeaturedProductCard = ({ product, classValue }) => {
       variants={fadeInUp}
       className={`${styles.card} ${
         classValue.includes("wide") && styles.wide
-      } ${classValue.includes("animation") && styles.half}`}
+      } ${classValue.includes("animation") && styles.full}`}
     >
       <Link href={`/product/${product.slug}`}>
         {!classValue.includes("wide") && <h3>{product.title}</h3>}

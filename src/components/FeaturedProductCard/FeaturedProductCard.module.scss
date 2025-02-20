@@ -1,7 +1,6 @@
 @use "@/styles/mixin.scss" as *;
 
 .card {
-  //flex-grow: 1;
   border: 1px solid #f2f2f2;
   padding: rem(24) rem(16);
   position: relative;
@@ -14,8 +13,9 @@
     @media (max-width: rem(992)) {
       width: 100%;
     }
-    &.half {
-      width: 50%;
+    &.full {
+      width: 75%;
+      flex-grow: 1;
       @media (max-width: rem(992)) {
         width: 100%;
       }

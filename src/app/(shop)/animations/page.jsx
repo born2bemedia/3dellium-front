@@ -4,6 +4,7 @@ import ShopHero from "../components/ShopHero/ShopHero";
 import ShopAssistance from "../components/ShopAssistance/ShopAssistance";
 import AnimationProcess from "./components/AnimationProcess/AnimationProcess";
 import AnimationWhy from "./components/AnimationWhy/AnimationWhy";
+import AnimationHero from "./components/AnimationHero/AnimationHero";
 
 export const metadata = {
   title: "Ready-to-Use Animations | 3Dellium",
@@ -22,13 +23,7 @@ const page = () => {
 
   return (
     <>
-      <ShopHero
-        categorySlugs={categories}
-        title={"Animations"}
-        subtitle={"Move. Express. Enrich Life."}
-        image={"/images/animations/hero.png"}
-        imageMob={"/images/animations/heroMob.png"}
-      />
+      <AnimationHero />
       <AnimationProcess />
       <AnimationWhy />
       <Shop categorySlugs={categories} />
