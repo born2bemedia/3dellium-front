@@ -78,7 +78,7 @@ const FeaturedProductCard = ({ product, classValue }) => {
                 >
                   <ReactPlayer
                     url={`${API_URL}${product.preview?.url}`}
-                    playing={true}
+                    playing={isPlaying}
                     controls={false}
                     loop={true}
                     className={styles.video}
