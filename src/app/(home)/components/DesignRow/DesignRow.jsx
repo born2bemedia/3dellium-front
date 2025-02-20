@@ -7,10 +7,10 @@ import Image from "next/image";
 const DesignRow = () => {
   const container = useRef(null);
   const imageArray = [
-    "/images/home/design1.png",
-    "/images/home/design2.png",
-    "/images/home/design3.png",
-    "/images/home/design4.png",
+    "/images/ux/Project1.png",
+    "/images/ux/Project2.png",
+    "/images/ux/Project3.png",
+    "/images/ux/Project4.png",
   ];
 
   const [isMobile, setIsMobile] = useState(false);
