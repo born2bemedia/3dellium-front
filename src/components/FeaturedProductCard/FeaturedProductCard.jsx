@@ -7,8 +7,10 @@ import Link from "next/link";
 import AddToCartButton from "../AddToCartButton";
 import Image from "next/image";
 import AddToCartButtonLoop from "../AddToCartButtonLoop/AddToCartButtonLoop";
-import ReactPlayer from "react-player";
 import { API_URL } from "@/helpers/constants";
+import dynamic from "next/dynamic";
+
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 const FeaturedProductCard = ({ product, classValue }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -37,11 +39,13 @@ const FeaturedProductCard = ({ product, classValue }) => {
                 >
                   <ReactPlayer
                     url={`${API_URL}${product.preview?.url}`}
-                    playing={true}
+                    playing={isPlaying}
                     controls={false}
                     loop={true}
                     className={styles.video}
                     height={300}
+                    muted={true}
+                    volume={0}
                   />
                   <Image
                     fill
@@ -83,6 +87,8 @@ const FeaturedProductCard = ({ product, classValue }) => {
                     loop={true}
                     className={styles.video}
                     height={300}
+                    muted={true}
+                    volume={0}
                   />
                   <Image
                     fill
