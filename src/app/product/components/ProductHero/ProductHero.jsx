@@ -21,7 +21,7 @@ const ProductHero = ({ product }) => {
 
   return (
     <section className={styles.productHero}>
-      <div className={styles.container}>
+      <div className={"_container"}>
         <div
           className={`${styles.body} ${
             product.category?.id == 6 && styles.animation

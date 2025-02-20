@@ -56,6 +56,7 @@
       .productGallery {
         display: flex;
         gap: rem(30);
+        height: 100%;
         @media (max-width: rem(992)) {
           flex-direction: column-reverse;
         }
@@ -85,7 +86,7 @@
         .mainImage {
           //width: rem(445);
           width: 100%;
-          height: rem(543);
+          height: 100%;
           position: relative;
           overflow: hidden;
           border-radius: rem(20);
