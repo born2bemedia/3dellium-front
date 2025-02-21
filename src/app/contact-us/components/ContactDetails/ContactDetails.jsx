@@ -71,9 +71,9 @@ const ContactDetails = () => {
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.4241238120803!2d2.1924520910634286!3d41.38659483958839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a30f4155565d%3A0xd1c797320ffdb3ec!2sAv.%20del%20Litoral%2C%2012%2C%20Ciutat%20Vella%2C%2008005%20Barcelona%2C%20Spain!5e0!3m2!1sen!2sua!4v1739890071256!5m2!1sen!2sua"
                   width="600"
                   height="250"
-                  allowfullscreen=""
+                  allowFullScreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </motion.div>
               <motion.div
@@ -93,9 +93,9 @@ const ContactDetails = () => {
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3207.2629692290716!2d-4.999814124326759!3d36.49951377233444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd732a73361a3bef%3A0x6f92d55b69bb5b52!2sC.%20Agua%20Marina%2C%2029670%2C%20M%C3%A1laga%2C%20Spain!5e0!3m2!1sen!2sua!4v1739890039641!5m2!1sen!2sua"
                   width="600"
                   height="250"
-                  allowfullscreen=""
+                  allowFullScreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </motion.div>
             </div>
