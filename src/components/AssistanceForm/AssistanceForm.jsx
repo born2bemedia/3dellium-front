@@ -135,12 +135,11 @@ const AssistanceForm = ({ type = "default" }) => {
         <button className={styles.submit} type="submit">
           <div>
             <AddToCartArrow2 />
-            <span>Send</span>
+            <span>{loading ? "Sending..." : "Send"}</span>
             <AddToCartArrow1 />
           </div>
         </button>
       </form>
-      {loading && <span className={styles.success}>Loading...</span>}
       {successMessage && (
         <span className={styles.success}>{successMessage}</span>
       )}

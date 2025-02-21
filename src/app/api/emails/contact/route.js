@@ -9,8 +9,8 @@ function makeBody(to, from, subject, message) {
     `MIME-Version: 1.0`,
     `Content-Type: text/html; charset=UTF-8`,
     "",
-    message,
-  ].join("\n");
+    message.trim(),
+  ].join("\r\n");
 
   return Buffer.from(email)
     .toString("base64")
@@ -56,13 +56,11 @@ export async function POST(request) {
       `
     );
 
-    let clientEmailBody;
+    let emailBody;
+    let emailSubject;
     if (type === "default") {
-      clientEmailBody = makeBody(
-        email, // Client email
-        process.env.EMAIL_USER, // Sender (admin)
-        "Your Request Received", // Subject
-        `
+      emailSubject = "Your Request Received";
+      emailBody = `
       <table width="640" style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;">
         <thead>
             <tr>
@@ -75,7 +73,7 @@ export async function POST(request) {
             <tr>
                 <td style="padding: 50px 40px; color:#0A0A0A;">
                     <h2 style="text-align: left; font-size: 20px;">Dear ${name},</h2>
-                    <p style="font-size: 16px; line-height: 19px;">Thank you for reaching out to 3Dellium! We’ve
+                    <p style="font-size: 16px; line-height: 19px;">Thank you for reaching out to 3Dellium! We've
                         successfully received your request and our team is already on it. Soon, one of our crafters will get
                         in touch with you to gather more details and assist you further.</p>
                     <p style="font-size: 16px; line-height: 19px;">If you have any urgent questions, feel free to reply to
@@ -149,14 +147,10 @@ export async function POST(request) {
             </tr>
         </tfoot>
     </table>
-      `
-      );
+      `;
     } else if (type === "3d-modelling") {
-      clientEmailBody = makeBody(
-        email, // Client email
-        process.env.EMAIL_USER, // Sender (admin)
-        "Your 3D Modelling Request Received", // Subject
-        `
+      emailSubject = "Your 3D Modelling Request Received";
+      emailBody = `
       <table width="640" style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;">
         <thead>
             <tr>
@@ -169,7 +163,7 @@ export async function POST(request) {
             <tr>
                 <td style="padding: 50px 40px; color:#0A0A0A;">
                     <h2 style="text-align: left; font-size: 20px;">Dear ${name},</h2>
-                    <p style="font-size: 16px; line-height: 19px;">Thank you for reaching out to 3Dellium! We’ve
+                    <p style="font-size: 16px; line-height: 19px;">Thank you for reaching out to 3Dellium! We've
                         successfully received your request and our team is already on it. Soon, one of our crafters will get
                         in touch with you to gather more details and assist you further.</p>
                     <p style="font-size: 16px; line-height: 19px;">If you have any urgent questions, feel free to reply to
@@ -243,14 +237,10 @@ export async function POST(request) {
             </tr>
         </tfoot>
     </table>
-      `
-      );
+      `;
     } else if (type === "animation") {
-      clientEmailBody = makeBody(
-        email, // Client email
-        process.env.EMAIL_USER, // Sender (admin)
-        "Your Animation Request Received", // Subject
-        `
+      emailSubject = "Your Animation Request Received";
+      emailBody = `
       <table width="640" style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;">
         <thead>
             <tr>
@@ -264,12 +254,12 @@ export async function POST(request) {
                 <td style="padding: 50px 40px; color:#0A0A0A;">
                     <h2 style="text-align: left; font-size: 20px;">Dear ${name},</h2>
                     <p style="font-size: 16px; line-height: 19px;">Thank you for reaching out to 3Dellium! 
-                    We’ve received your request for a custom animation, and our creative team is already on it. 
-                    We’ll be reviewing your ideas and will contact you soon to discuss the details and next steps.</p>
+                    We've received your request for a custom animation, and our creative team is already on it. 
+                    We'll be reviewing your ideas and will contact you soon to discuss the details and next steps.</p>
 
                     <p style="font-size: 16px; line-height: 19px;">If you have any additional thoughts or updates, feel free to reply to this email.</p>
 
-                    <p style="font-size: 16px; line-height: 19px;">Let’s bring your vision to life!</p>
+                    <p style="font-size: 16px; line-height: 19px;">Let's bring your vision to life!</p>
 
                     <p style="font-size: 16px; line-height: 19px; font-weight: 600;">
                         Best regards,
@@ -336,14 +326,10 @@ export async function POST(request) {
             </tr>
         </tfoot>
     </table>
-      `
-      );
+      `;
     } else if (type === "video-production") {
-      clientEmailBody = makeBody(
-        email, // Client email
-        process.env.EMAIL_USER, // Sender (admin)
-        "Your Video Production Request  Received", // Subject
-        `
+      emailSubject = "Your Video Production Request  Received";
+      emailBody = `
       <table width="640" style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;">
         <thead>
             <tr>
@@ -358,11 +344,11 @@ export async function POST(request) {
                     <h2 style="text-align: left; font-size: 20px;">Dear ${name},</h2>
                     <p style="font-size: 16px; line-height: 19px;">
                     Thank you for reaching out to 3Dellium! 
-                    We’ve received your request for video production, and we’re excited to help bring your ideas to life.</p>
+                    We've received your request for video production, and we're excited to help bring your ideas to life.</p>
 
-                    <p style="font-size: 16px; line-height: 19px;">Our team is reviewing the details, and we’ll be in touch soon to discuss your project further and guide you through the next steps.</p>
+                    <p style="font-size: 16px; line-height: 19px;">Our team is reviewing the details, and we'll be in touch soon to discuss your project further and guide you through the next steps.</p>
 
-                    <p style="font-size: 16px; line-height: 19px;">If you have any questions in the meantime, feel free to reply to this email. We’re here to assist you!</p>
+                    <p style="font-size: 16px; line-height: 19px;">If you have any questions in the meantime, feel free to reply to this email. We're here to assist you!</p>
 
                     <p style="font-size: 16px; line-height: 19px;">Looking forward to working with you!</p>
 
@@ -431,14 +417,10 @@ export async function POST(request) {
             </tr>
         </tfoot>
     </table>
-      `
-      );
+      `;
     } else if (type === "ui-ux-design") {
-      clientEmailBody = makeBody(
-        email, // Client email
-        process.env.EMAIL_USER, // Sender (admin)
-        "Your UI/UX Design Request Received", // Subject
-        `
+      emailSubject = "Your UI/UX Design Request Received";
+      emailBody = `
       <table width="640" style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;">
         <thead>
             <tr>
@@ -528,9 +510,15 @@ export async function POST(request) {
             </tr>
         </tfoot>
     </table>
-      `
-      );
+      `;
     }
+
+    const clientEmailBody = makeBody(
+      email,
+      process.env.EMAIL_USER,
+      emailSubject,
+      emailBody
+    );
 
     await gmail.users.messages.send({
       userId: "me",
