@@ -20,7 +20,7 @@ const schema = yup.object().shape({
     .required("Phone Number is required"),
 });
 
-const AssistanceForm = () => {
+const AssistanceForm = ({ type = "default" }) => {
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const countryCode = useCountryCode();
@@ -32,6 +32,7 @@ const AssistanceForm = () => {
     formState: { errors, touchedFields },
   } = useForm({
     resolver: yupResolver(schema),
+    defaultValues: { type: type },
   });
 
   const phoneValue = watch("phone");
@@ -128,6 +129,8 @@ const AssistanceForm = () => {
             ""
           )}
         </div>
+
+        <input type="hidden" {...register("type")} value={type} />
 
         <button className={styles.submit} type="submit">
           <div>

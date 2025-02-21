@@ -27,7 +27,7 @@ const page = () => {
       <AnimationProcess />
       <AnimationWhy />
       <Shop categorySlugs={categories} />
-      <ShopAssistance />
+      <ShopAssistance type={"animation"} />
     </>
   );
 };

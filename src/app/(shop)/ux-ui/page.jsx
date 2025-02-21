@@ -26,7 +26,7 @@ const page = () => {
       <WhenWrong />
       <SamplesOfWorks />
       <ExperiencesWeCrafted />
-      <ShopAssistance />
+      <ShopAssistance type={"ui-ux-design"} />
     </>
   );
 };

@@ -35,7 +35,7 @@ const page = () => {
         productId={37}
       />
       <Shop categorySlugs={categories} />
-      <ShopAssistance />
+      <ShopAssistance type={"3d-modelling"} />
     </>
   );
 };

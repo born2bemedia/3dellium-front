@@ -6,7 +6,7 @@ import styles from "./NeedAssistance.module.scss";
 import ContactForm from "../ContactForm/ContactForm";
 import AssistanceForm from "../AssistanceForm/AssistanceForm";
 
-const NeedAssistance = () => {
+const NeedAssistance = ({ type = "default" }) => {
   return (
     <section className={styles.needAssistance}>
       <div className="_container">
@@ -33,7 +33,7 @@ const NeedAssistance = () => {
             </motion.p>
           </div>
           <div className={styles.col2}>
-            <AssistanceForm />
+            <AssistanceForm type={type} />
           </div>
         </div>
       </div>

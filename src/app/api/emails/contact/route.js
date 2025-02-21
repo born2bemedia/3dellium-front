@@ -23,7 +23,7 @@ export async function POST(request) {
   try {
     const bodyJSON = await request.json();
 
-    const { name, email, phone, message } = bodyJSON;
+    const { name, email, phone, message, type } = bodyJSON;
 
     const OAuth2 = google.auth.OAuth2;
     const oauth2Client = new OAuth2(
@@ -56,24 +56,491 @@ export async function POST(request) {
       `
     );
 
-    const clientEmailBody = makeBody(
-      email, // Client email
-      process.env.EMAIL_USER, // Sender (admin)
-      "Your Request Received", // Subject
+    let clientEmailBody;
+    if (type === "default") {
+      clientEmailBody = makeBody(
+        email, // Client email
+        process.env.EMAIL_USER, // Sender (admin)
+        "Your Request Received", // Subject
+        `
+      <table width="640" style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;">
+        <thead>
+            <tr>
+                <td>
+                    <img style="width: 100%" src="https://3dellium.com/images/email_header.png" alt="Header" />
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 50px 40px; color:#0A0A0A;">
+                    <h2 style="text-align: left; font-size: 20px;">Dear ${name},</h2>
+                    <p style="font-size: 16px; line-height: 19px;">Thank you for reaching out to 3Dellium! We’ve
+                        successfully received your request and our team is already on it. Soon, one of our crafters will get
+                        in touch with you to gather more details and assist you further.</p>
+                    <p style="font-size: 16px; line-height: 19px;">If you have any urgent questions, feel free to reply to
+                        this email.
+
+                    </p>
+                    <p style="font-size: 16px; line-height: 19px;">We look forward to helping you bring your ideas to life!
+                    </p>
+                    <p style="font-size: 16px; line-height: 19px; font-weight: 600;">
+                        Best regards,
+                        <br>The 3DelliumTeam
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 80px; padding: 0 8px;">
+                                <img width="80" height="80" src="https://3dellium.com/images/email_logo.png" alt="Header" />
+                            </td>
+                            <td style="width: 100px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Email: </p>
+                                <p>
+                                    <a href="mailto:info@3dellium.com" style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;
+                                    text-decoration: none;">info@3dellium.com</a>
+                                </p>
+                            </td>
+                            <td style="width: 150px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Registration Address:</p>
+
+                                <p style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;">Calle Aguamarina, S/N - Local 1-2, Marbella, 29670, Malaga</p>
+
+                            </td>
+                            <td style="width: 180px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Office Address: </p>
+
+                                <p style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;">Office 32, 3rd floor, Av. del Litoral, 12, Ciutat Vella, 08005
+                                    Barcelona, Spain</p>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
       `
-      
+      );
+    } else if (type === "3d-modelling") {
+      clientEmailBody = makeBody(
+        email, // Client email
+        process.env.EMAIL_USER, // Sender (admin)
+        "Your 3D Modelling Request Received", // Subject
+        `
+      <table width="640" style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;">
+        <thead>
+            <tr>
+                <td>
+                    <img style="width: 100%" src="https://3dellium.com/images/email_header.png" alt="Header" />
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 50px 40px; color:#0A0A0A;">
+                    <h2 style="text-align: left; font-size: 20px;">Dear ${name},</h2>
+                    <p style="font-size: 16px; line-height: 19px;">Thank you for reaching out to 3Dellium! We’ve
+                        successfully received your request and our team is already on it. Soon, one of our crafters will get
+                        in touch with you to gather more details and assist you further.</p>
+                    <p style="font-size: 16px; line-height: 19px;">If you have any urgent questions, feel free to reply to
+                        this email.
+
+                    </p>
+                    <p style="font-size: 16px; line-height: 19px;">We look forward to helping you bring your ideas to life!
+                    </p>
+                    <p style="font-size: 16px; line-height: 19px; font-weight: 600;">
+                        Best regards,
+                        <br>The 3DelliumTeam
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 80px; padding: 0 8px;">
+                                <img width="80" height="80" src="https://3dellium.com/images/email_logo.png" alt="Header" />
+                            </td>
+                            <td style="width: 100px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Email: </p>
+                                <p>
+                                    <a href="mailto:info@3dellium.com" style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;
+                                    text-decoration: none;">info@3dellium.com</a>
+                                </p>
+                            </td>
+                            <td style="width: 150px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Registration Address:</p>
+
+                                <p style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;">Calle Aguamarina, S/N - Local 1-2, Marbella, 29670, Malaga</p>
+
+                            </td>
+                            <td style="width: 180px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Office Address: </p>
+
+                                <p style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;">Office 32, 3rd floor, Av. del Litoral, 12, Ciutat Vella, 08005
+                                    Barcelona, Spain</p>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
       `
-    );
+      );
+    } else if (type === "animation") {
+      clientEmailBody = makeBody(
+        email, // Client email
+        process.env.EMAIL_USER, // Sender (admin)
+        "Your Animation Request Received", // Subject
+        `
+      <table width="640" style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;">
+        <thead>
+            <tr>
+                <td>
+                    <img style="width: 100%" src="https://3dellium.com/images/email_header.png" alt="Header" />
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 50px 40px; color:#0A0A0A;">
+                    <h2 style="text-align: left; font-size: 20px;">Dear ${name},</h2>
+                    <p style="font-size: 16px; line-height: 19px;">Thank you for reaching out to 3Dellium! 
+                    We’ve received your request for a custom animation, and our creative team is already on it. 
+                    We’ll be reviewing your ideas and will contact you soon to discuss the details and next steps.</p>
+
+                    <p style="font-size: 16px; line-height: 19px;">If you have any additional thoughts or updates, feel free to reply to this email.</p>
+
+                    <p style="font-size: 16px; line-height: 19px;">Let’s bring your vision to life!</p>
+
+                    <p style="font-size: 16px; line-height: 19px; font-weight: 600;">
+                        Best regards,
+                        <br>The 3DelliumTeam
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 80px; padding: 0 8px;">
+                                <img width="80" height="80" src="https://3dellium.com/images/email_logo.png" alt="Header" />
+                            </td>
+                            <td style="width: 100px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Email: </p>
+                                <p>
+                                    <a href="mailto:info@3dellium.com" style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;
+                                    text-decoration: none;">info@3dellium.com</a>
+                                </p>
+                            </td>
+                            <td style="width: 150px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Registration Address:</p>
+
+                                <p style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;">Calle Aguamarina, S/N - Local 1-2, Marbella, 29670, Malaga</p>
+
+                            </td>
+                            <td style="width: 180px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Office Address: </p>
+
+                                <p style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;">Office 32, 3rd floor, Av. del Litoral, 12, Ciutat Vella, 08005
+                                    Barcelona, Spain</p>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+      `
+      );
+    } else if (type === "video-production") {
+      clientEmailBody = makeBody(
+        email, // Client email
+        process.env.EMAIL_USER, // Sender (admin)
+        "Your Video Production Request  Received", // Subject
+        `
+      <table width="640" style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;">
+        <thead>
+            <tr>
+                <td>
+                    <img style="width: 100%" src="https://3dellium.com/images/email_header.png" alt="Header" />
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 50px 40px; color:#0A0A0A;">
+                    <h2 style="text-align: left; font-size: 20px;">Dear ${name},</h2>
+                    <p style="font-size: 16px; line-height: 19px;">
+                    Thank you for reaching out to 3Dellium! 
+                    We’ve received your request for video production, and we’re excited to help bring your ideas to life.</p>
+
+                    <p style="font-size: 16px; line-height: 19px;">Our team is reviewing the details, and we’ll be in touch soon to discuss your project further and guide you through the next steps.</p>
+
+                    <p style="font-size: 16px; line-height: 19px;">If you have any questions in the meantime, feel free to reply to this email. We’re here to assist you!</p>
+
+                    <p style="font-size: 16px; line-height: 19px;">Looking forward to working with you!</p>
+
+                    <p style="font-size: 16px; line-height: 19px; font-weight: 600;">
+                        Best regards,
+                        <br>The 3DelliumTeam
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 80px; padding: 0 8px;">
+                                <img width="80" height="80" src="https://3dellium.com/images/email_logo.png" alt="Header" />
+                            </td>
+                            <td style="width: 100px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Email: </p>
+                                <p>
+                                    <a href="mailto:info@3dellium.com" style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;
+                                    text-decoration: none;">info@3dellium.com</a>
+                                </p>
+                            </td>
+                            <td style="width: 150px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Registration Address:</p>
+
+                                <p style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;">Calle Aguamarina, S/N - Local 1-2, Marbella, 29670, Malaga</p>
+
+                            </td>
+                            <td style="width: 180px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Office Address: </p>
+
+                                <p style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;">Office 32, 3rd floor, Av. del Litoral, 12, Ciutat Vella, 08005
+                                    Barcelona, Spain</p>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+      `
+      );
+    } else if (type === "ui-ux-design") {
+      clientEmailBody = makeBody(
+        email, // Client email
+        process.env.EMAIL_USER, // Sender (admin)
+        "Your UI/UX Design Request Received", // Subject
+        `
+      <table width="640" style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;">
+        <thead>
+            <tr>
+                <td>
+                    <img style="width: 100%" src="https://3dellium.com/images/email_header.png" alt="Header" />
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 50px 40px; color:#0A0A0A;">
+                    <h2 style="text-align: left; font-size: 20px;">Dear ${name},</h2>
+                    <p style="font-size: 16px; line-height: 19px;">
+                    Thank you for contacting 3Dellium! 
+                    We're excited to hear about your project and explore how we can create a seamless and impactful UI/UX design tailored to your needs.</p>
+
+                    <p style="font-size: 16px; line-height: 19px;">
+                      Our team has received your request and will review it carefully. One of our experts will contact you shortly to discuss the details and next steps.
+                    </p>
+
+                    <p style="font-size: 16px; line-height: 19px;">In the meantime, if you have any additional information or questions, feel free to reply to this email or contact us directly.</p>
+
+                    <p style="font-size: 16px; line-height: 19px;">We look forward to helping you bring your vision to life!</p>
+
+                    <p style="font-size: 16px; line-height: 19px; font-weight: 600;">
+                        Best regards,
+                        <br>The 3DelliumTeam
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 80px; padding: 0 8px;">
+                                <img width="80" height="80" src="https://3dellium.com/images/email_logo.png" alt="Header" />
+                            </td>
+                            <td style="width: 100px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Email: </p>
+                                <p>
+                                    <a href="mailto:info@3dellium.com" style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;
+                                    text-decoration: none;">info@3dellium.com</a>
+                                </p>
+                            </td>
+                            <td style="width: 150px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Registration Address:</p>
+
+                                <p style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;">Calle Aguamarina, S/N - Local 1-2, Marbella, 29670, Malaga</p>
+
+                            </td>
+                            <td style="width: 180px; padding: 0 8px;">
+                                <p style="color: #1D4C29;
+                                font-size: 10px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 120%;">Office Address: </p>
+
+                                <p style="color: #000;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 120%;">Office 32, 3rd floor, Av. del Litoral, 12, Ciutat Vella, 08005
+                                    Barcelona, Spain</p>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+      `
+      );
+    }
 
     await gmail.users.messages.send({
       userId: "me",
       resource: { raw: adminEmailBody },
     });
 
-    /*await gmail.users.messages.send({
+    await gmail.users.messages.send({
       userId: "me",
       resource: { raw: clientEmailBody },
-    });*/
+    });
 
     return NextResponse.json({ message: "Request sent successfully." });
   } catch (error) {

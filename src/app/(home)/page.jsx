@@ -19,7 +19,7 @@ export default function Home() {
       <WeDesign />
       <CtaBlock />
       <HighQualityDesigns />
-      <NeedAssistance />
+      <NeedAssistance type={"default"} />
     </>
   );
 }

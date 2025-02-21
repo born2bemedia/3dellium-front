@@ -20,7 +20,7 @@ const schema = yup.object().shape({
     .required("Phone Number is required"),
 });
 
-const ContactForm = () => {
+const ContactForm = ({ type = "default" }) => {
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const countryCode = useCountryCode();
@@ -32,6 +32,7 @@ const ContactForm = () => {
     formState: { errors, touchedFields },
   } = useForm({
     resolver: yupResolver(schema),
+    defaultValues: { type: type },
   });
 
   const phoneValue = watch("phone");
@@ -118,6 +119,8 @@ const ContactForm = () => {
         <div className={styles.full}>
           <textarea {...register("message")} placeholder="Message"></textarea>
         </div>
+
+        <input type="hidden" {...register("type")} value={type} />
 
         <button className={styles.submit} type="submit">
           <div>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import styles from "./ShopAssistance.module.scss";
 import ContactForm from "@/components/ContactForm/ContactForm";
 
-const ShopAssistance = () => {
+const ShopAssistance = ({ type = "default" }) => {
   return (
     <section className={styles.assistance} id={"assistance"}>
       <div className={styles.container}>
@@ -15,7 +15,7 @@ const ShopAssistance = () => {
               Let’s talk and bring <br />
               your ideas to life.
             </h3>
-            <ContactForm />
+            <ContactForm type={type} />
           </motion.div>
           <motion.div className={styles.col2}>
             <div>

@@ -24,7 +24,7 @@ const page = () => {
       <HowWeCraftVideos />
       <VideosWeCreate />
       <SamplesOfWorks />
-      <ShopAssistance />
+      <ShopAssistance type={"video-production"} />
     </>
   );
 };
