@@ -49,6 +49,7 @@ const FeaturedProductCard = ({ product, classValue }) => {
                   />
                   <Image
                     fill
+                    quality={100}
                     src={
                       product.big_image?.url
                         ? `${API_URL}${product.big_image.url}`
@@ -63,6 +64,7 @@ const FeaturedProductCard = ({ product, classValue }) => {
               ) : (
                 <Image
                   fill
+                  quality={100}
                   src={
                     product.big_image?.url
                       ? `${API_URL}${product.big_image.url}`
@@ -92,6 +94,7 @@ const FeaturedProductCard = ({ product, classValue }) => {
                   />
                   <Image
                     fill
+                    quality={100} 
                     src={
                       product.image?.url
                         ? `${API_URL}${product.image.url}`
@@ -106,6 +109,7 @@ const FeaturedProductCard = ({ product, classValue }) => {
               ) : (
                 <Image
                   fill
+                  quality={100}
                   src={
                     product.image?.url
                       ? `${API_URL}${product.image.url}`

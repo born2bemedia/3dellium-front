@@ -44,7 +44,7 @@ export default function Login() {
   const onSubmit = async (data) => {
     try {
       await login(data.email, data.password);
-      setSuccessMessage("Login successful!");
+      //setSuccessMessage("Login successful!");
       setSignPopupDisplay(false);
       router.push("/account");
     } catch (error) {
@@ -97,6 +97,18 @@ export default function Login() {
             <AddToCartArrow1 />
           </div>
         </button>
+        {successMessage && (
+          <p
+            style={{
+              marginTop: "0",
+              color: "red",
+              fontSize: "14px",
+              textAlign: "left",
+            }}
+          >
+            {successMessage}
+          </p>
+        )}
         <div className={styles.forgotPassword}>
           Forgot your password?{" "}
           <button onClick={() => setSignPopupType("reset")}>Click here</button>

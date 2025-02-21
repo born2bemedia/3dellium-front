@@ -32,7 +32,7 @@ export default function LoginPage() {
   const onSubmit = async (data) => {
     try {
       await login(data.email, data.password);
-      setSuccessMessage("Login successful!");
+      //setSuccessMessage("Login successful!");
       router.push("/account");
     } catch (error) {
       setSuccessMessage("Login failed. Please check your credentials.");

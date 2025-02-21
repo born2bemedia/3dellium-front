@@ -175,6 +175,18 @@ export default function Register() {
             </div>
           </div>
         </div>
+        {successMessage && (
+          <p
+            style={{
+              marginTop: "0",
+              color: "red",
+              fontSize: "14px",
+              textAlign: "left",
+            }}
+          >
+            {successMessage}
+          </p>
+        )}
 
         <div className={styles.submitButtonWrap}>
           <button className={styles.submitButton} type="submit">
