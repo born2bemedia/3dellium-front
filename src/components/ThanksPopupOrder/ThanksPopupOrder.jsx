@@ -7,6 +7,8 @@ import Link from "next/link";
 import useCartStore from "@/stores/cartStore";
 import { useRouter } from "next/navigation";
 import { API_URL } from "@/helpers/constants";
+import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
+import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
 
 const ThanksPopupOrder = ({
   images,
@@ -22,127 +24,57 @@ const ThanksPopupOrder = ({
 
   const handleClose = () => {
     setThanksPopupOrderDisplay(false);
-    if (type === "order") {
-      router.push(link);
-      setTimeout(() => {
-        clearCart();
-      }, 1000);
-    }
-    if (type === "register") {
-      router.push(link);
-    }
+    router.push(link);
+    setTimeout(() => {
+      clearCart();
+    }, 1000);
   };
-  if (type === "default") {
-    return (
-      <div
-        className={`${styles.thanksPopup} ${
-          thanksPopupOrderDisplay && styles.popupOpened
-        }`}
-      >
-        <div className="_container">
-          <div className={styles.popupWrap}>
-            <div className={styles.popupInner}>
-              <div className={styles.col1}>
-                <Image src={"/images/thanksPopup.png"} alt="thanks" fill />
-              </div>
-              <div className={styles.col2}>
-                <h2>
-                  <span>Success! </span>
-                  Your data has been updated!
-                </h2>
-                <button onClick={() => handleClose()}>Close</button>
-              </div>
+  return (
+    <div
+      className={`${styles.thanksPopup} ${
+        thanksPopupOrderDisplay && styles.popupOpened
+      }`}
+    >
+      <div className="_container">
+        <div className={styles.popupWrap}>
+          <div className={styles.popupInner}>
+            <div className={styles.col1}>
+              <Image src={"/images/cart/thanks.png"} alt="thanks" fill />
+            </div>
+            <div className={styles.col2}>
+              <h2>Thank You for Your Order</h2>
+              <p>
+                <b>
+                  Your order is confirmed, and we’re already preparing
+                  everything for you!
+                </b>
+                <br />
+                <br />
+                Check your email for all the details and your invoice—everything
+                you need has been sent to the address you provided.
+                <br />
+                <br />
+                <b>Need assistance?</b>
+                <br />
+                Visit our{" "}
+                <Link href="/contact">
+                  <b>Contact page</b>
+                </Link>{" "}
+                and we’ll be happy to help! assistance?
+              </p>
+              <button onClick={() => handleClose()}>
+                <div>
+                  <AddToCartArrow2 />
+                  <span>Got It!</span>
+                  <AddToCartArrow1 />
+                </div>
+              </button>
             </div>
           </div>
         </div>
       </div>
-    );
-  } else if (type === "order") {
-    return (
-      <div
-        className={`${styles.thanksPopup} ${
-          thanksPopupOrderDisplay && styles.popupOpened
-        }`}
-      >
-        <div className="_container">
-          <div className={styles.popupWrap}>
-            <div className={styles.popupInner}>
-              <div className={styles.col1}>
-                {cart.length > 0 &&
-                  (() => {
-                    if (cart.length > 3) {
-                      return (
-                        <div className={styles.cartItemsFour}>
-                          {cart.slice(0, 4).map((item, index) => (
-                            <div key={index}>
-                              <Image
-                                src={`${API_URL}${item.image}`}
-                                alt="thanks"
-                                fill
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      );
-                    } else if (cart.length > 1) {
-                      return (
-                        <div className={styles.cartItems}>
-                          {cart.map((item, index) => (
-                            <div key={index}>
-                              <Image
-                                src={`${API_URL}${item.image}`}
-                                alt="thanks"
-                                fill
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      );
-                    } else {
-                      return (
-                        <Image
-                          src={`${API_URL}${cart[0].image}`}
-                          alt="thanks"
-                          fill
-                        />
-                      );
-                    }
-                  })()}
-              </div>
-              <div className={styles.col2}>
-                <h2 dangerouslySetInnerHTML={{ __html: title }} />
-                <p dangerouslySetInnerHTML={{ __html: subtitle }} />
-                <button onClick={() => handleClose()}>Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  } else if (type === "register") {
-    return (
-      <div
-        className={`${styles.thanksPopup} ${
-          thanksPopupOrderDisplay && styles.popupOpened
-        }`}
-      >
-        <div className="_container">
-          <div className={styles.popupWrap}>
-            <div className={`${styles.popupInner} ${styles.registerThanks}`}>
-              <div className={styles.col1}>
-                <Image src={"/images/thanksPopup.png"} alt="thanks" fill />
-              </div>
-              <div className={styles.col2}>
-                <h2 dangerouslySetInnerHTML={{ __html: title }} />
-                <p dangerouslySetInnerHTML={{ __html: subtitle }} />
-                <button onClick={() => handleClose()}>Log in</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default ThanksPopupOrder;
