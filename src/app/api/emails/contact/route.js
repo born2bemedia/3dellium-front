@@ -43,7 +43,6 @@ export async function POST(request) {
 
     const gmail = google.gmail({ version: "v1", auth: oauth2Client });
 
-    // Email content for admin
     const adminEmailBody = makeBody(
       process.env.EMAIL_USER,
       process.env.EMAIL_USER,

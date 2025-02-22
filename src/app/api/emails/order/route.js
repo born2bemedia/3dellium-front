@@ -61,22 +61,19 @@ export async function POST(request) {
 
     const gmail = google.gmail({ version: "v1", auth: oauth2Client });
 
-    // Build HTML for the list of order items
     let itemsHtml = "";
     if (items && Array.isArray(items)) {
       itemsHtml = `<ul>`;
       items.forEach((item) => {
-        // Use item.name if available; otherwise, fall back to product ID.
         const itemName = item.name ? item.name : `Product ID: ${item.product}`;
         itemsHtml += `<li>${itemName} — Quantity: ${item.quantity}, Price: €${item.price}</li>`;
       });
       itemsHtml += `</ul>`;
     }
 
-    // Construct the email body for the admin (order notification)
     const adminEmailBody = makeBody(
-      process.env.EMAIL_USER, // Recipient: admin email (set in your .env)
-      process.env.EMAIL_USER, // Sender: same admin email
+      process.env.EMAIL_USER, 
+      process.env.EMAIL_USER, 
       `New Order Received: ${orderNumber}`,
       `
         <h2>New Order Received</h2>
@@ -99,10 +96,9 @@ export async function POST(request) {
       `
     );
 
-    // Construct the email body for the client (order confirmation)
     const clientEmailBody = makeBody(
-      email, // To: customer email
-      process.env.EMAIL_USER, // From: admin email
+      email,
+      process.env.EMAIL_USER, 
       `Order Confirmation: ${orderNumber}`,
       `
         <h2>Thank you for your order, ${customerName}!</h2>

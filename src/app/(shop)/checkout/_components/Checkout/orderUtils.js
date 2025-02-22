@@ -9,7 +9,6 @@ export const handleCreateOrder = async (
 ) => {
   try {
     let userId = null;
-    // Check if user exists by email
     const existingUser = await fetchUserByEmail(data.email);
 
     if (existingUser) {
@@ -26,7 +25,6 @@ export const handleCreateOrder = async (
       userId = newUser.id;
     }
 
-    // Update user profile first
     await updateUserProfile(userId, data, user);
 
     const orderData = {
@@ -68,7 +66,6 @@ export const handleCreateOrder = async (
       throw new Error(errorData.message || "Failed to create order");
     }
 
-    // Send order confirmation email
     const emailPayload = {
       orderNumber: orderData.orderNumber,
       firstName: data.firstName,
