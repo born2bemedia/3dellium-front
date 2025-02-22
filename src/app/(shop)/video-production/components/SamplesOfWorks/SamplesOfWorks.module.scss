@@ -43,6 +43,11 @@
               height: rem(50) !important;
             }
           }
+          video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
         }
         &:last-child {
           width: calc(23% - rem(15));
