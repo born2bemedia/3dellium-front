@@ -17,27 +17,27 @@ const SamplesOfWorks = () => {
     {
       title: "User-Centric Design",
       text: "Every decision we make starts with understanding the end user. We prioritize simplicity, usability, and intuitive navigation.",
-      cover: "/images/ux/cover1.webp",
+      cover: "/images/ux/ui-design2.jpg",
     },
     {
       title: "Seamless Functionality",
       text: "A great design needs more than aesthetics—it must work flawlessly. We ensure every interaction feels smooth, and frustration-free.",
-      cover: "/images/ux/cover2.webp",
+      cover: "/images/ux/ui-design3.jpg",
     },
     {
       title: "Visual Hierarchy",
       text: "We use layout, typography, and color to guide users naturally through your platform, highlighting the most important elements and driving action.",
-      cover: "/images/ux/cover3.webp",
+      cover: "/images/ux/ui-design4.jpg",
     },
     {
       title: "Accessibility for All",
       text: "We craft  inclusive designs with seamless experience for all, including those with visual, auditory, or physical challenges.",
-      cover: "/images/ux/cover4.webp",
+      cover: "/images/ux/ui-design5.jpg",
     },
     {
       title: "Complete Consistency",
       text: "We maintain a unified design language from fonts to button styles to enhance usability and reinforce your brand identity.",
-      cover: "/images/ux/cover5.webp",
+      cover: "/images/ux/ui-design 6.jpg",
     },
   ];
 
