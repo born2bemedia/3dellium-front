@@ -1,8 +1,18 @@
 export const renderBlock = (block, index) => {
+  //console.log(block);
+
   const renderInline = (child, i) => {
     if (child.type === "autolink") {
+      console.log(child.fields);
       return (
-        <a key={i} href={child.href} target="_blank" rel="noopener noreferrer">
+        <a key={i} href={child.fields.url} target="_blank" rel="noopener noreferrer">
+          {child.children.map((child, j) => renderInline(child, j))}
+        </a>
+      );
+    } else if (child.type === "link") {
+      console.log(child.fields);
+      return (
+        <a key={i} href={child.fields.url} target="_blank" rel="noopener noreferrer">
           {child.children.map((child, j) => renderInline(child, j))}
         </a>
       );
@@ -35,6 +45,7 @@ export const renderBlock = (block, index) => {
       return (
         <ul key={index}>
           {block.children.map((item, i) => {
+            console.log(item);
             return (
               <li key={i} style={{ marginBottom: "8px" }}>
                 {item.children.map((child, j) => renderInline(child, j))}
