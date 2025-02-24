@@ -72,9 +72,9 @@
           height: rem(300);
         }
         img {
-          object-fit: contain;
+          object-fit: cover;
           border-radius: rem(16);
-          max-width: 80%;
+          max-width: 100%;
           left: 50%!important;
           top: 50%!important;
           position: absolute;
