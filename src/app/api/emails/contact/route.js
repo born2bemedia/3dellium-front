@@ -68,7 +68,10 @@ export async function POST(request) {
             </td>
         </tr>
     </thead>
-    <tbody>
+    <tbody style="
+    padding: 0 8px;
+    display: block;
+    ">
         <tr>
             <td style="padding: 8px;border-radius: 16px;background: #EFF3F0;">
                 <table style="width: 100%;">
@@ -169,7 +172,10 @@ export async function POST(request) {
             </td>
         </tr>
     </thead>
-    <tbody>
+    <tbody style="
+    padding: 0 8px;
+    display: block;
+    ">
         <tr>
             <td style="padding: 8px;border-radius: 16px;background: #EFF3F0;">
                 <table style="width: 100%;">
@@ -270,7 +276,10 @@ export async function POST(request) {
             </td>
         </tr>
     </thead>
-    <tbody>
+    <tbody style="
+    padding: 0 8px;
+    display: block;
+    ">
         <tr>
             <td style="padding: 8px;border-radius: 16px;background: #EFF3F0;">
                 <table style="width: 100%;">
@@ -369,7 +378,10 @@ export async function POST(request) {
             </td>
         </tr>
     </thead>
-    <tbody>
+    <tbody style="
+    padding: 0 8px;
+    display: block;
+    ">
         <tr>
             <td style="padding: 8px;border-radius: 16px;background: #EFF3F0;">
                 <table style="width: 100%;">
@@ -471,7 +483,10 @@ export async function POST(request) {
             </td>
         </tr>
     </thead>
-    <tbody>
+    <tbody style="
+    padding: 0 8px;
+    display: block;
+    ">
         <tr>
             <td style="padding: 8px;border-radius: 16px;background: #EFF3F0;">
                 <table style="width: 100%;">
