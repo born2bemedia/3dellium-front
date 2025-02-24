@@ -12,6 +12,7 @@ import styles from "../../your-data/page.module.scss";
 import EditIcon from "@/icons/EditIcon";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { filteredCountries } from "@/helpers/excludedCountries";
 
 const schema = yup.object().shape({
   firstName: yup.string().required("First name is required"),
@@ -276,7 +277,7 @@ export default function YourData() {
                 render={({ field }) => (
                   <Select
                     {...field}
-                    options={countryList().getData()}
+                    options={filteredCountries}
                     onChange={(value) => field.onChange(value)}
                     disabled={disabledValue}
                     styles={customStyles}
