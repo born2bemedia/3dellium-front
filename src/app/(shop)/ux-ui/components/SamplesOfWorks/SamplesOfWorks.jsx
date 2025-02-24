@@ -37,7 +37,7 @@ const SamplesOfWorks = () => {
     {
       title: "Complete Consistency",
       text: "We maintain a unified design language from fonts to button styles to enhance usability and reinforce your brand identity.",
-      cover: "/images/ux/ui-design 6.jpg",
+      cover: "/images/ux/ui-design6.jpg",
     },
   ];
 
