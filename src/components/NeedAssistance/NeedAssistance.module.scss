@@ -54,6 +54,11 @@
       @media (max-width: rem(992)) {
         width: 100%;
       }
+      >div{
+        >span{
+          text-align: center;
+        }
+      }
     }
   }
 }
