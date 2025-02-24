@@ -17,7 +17,7 @@ const MenuPopup = ({ isScrolling }) => {
         <Link href="/ux-ui">UX & UI</Link>
         <Link href="/ideas">Ideas</Link>
         <Link href="/factory-tour">Factory Tour</Link>
-        <Link href="/contact-us">Contact Us</Link>
+        <Link href="/contact">Contact Us</Link>
       </nav>
       <div className={styles.bottom}>
         <div className={styles.soc}>

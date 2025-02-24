@@ -3,14 +3,14 @@ export const renderBlock = (block, index) => {
 
   const renderInline = (child, i) => {
     if (child.type === "autolink") {
-      console.log(child.fields);
+     // console.log(child.fields);
       return (
         <a key={i} href={child.fields.url} target="_blank" rel="noopener noreferrer">
           {child.children.map((child, j) => renderInline(child, j))}
         </a>
       );
     } else if (child.type === "link") {
-      console.log(child.fields);
+      //console.log(child.fields);
       return (
         <a key={i} href={child.fields.url} target="_blank" rel="noopener noreferrer">
           {child.children.map((child, j) => renderInline(child, j))}
