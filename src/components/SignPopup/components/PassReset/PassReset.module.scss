@@ -21,7 +21,10 @@
     font-weight: 400;
     line-height: 130%; /* 15.6px */
   }
-
+  .message {
+    margin-top: rem(10);
+    font-size: rem(12);
+  }
   .form {
     display: flex;
     flex-direction: column;

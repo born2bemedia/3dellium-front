@@ -114,7 +114,7 @@ function SetPasswordForm() {
           </button>
         </form>
 
-        {message && <p>{message}</p>}
+        {message && <p className={styles.message}>{message}</p>}
       </div>
     </div>
   );

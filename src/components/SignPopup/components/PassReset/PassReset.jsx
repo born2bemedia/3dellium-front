@@ -57,7 +57,7 @@ export default function PassReset({ setPassReset }) {
         </button>
       </form>
 
-      {message && <p>{message}</p>}
+      {message && <p className={styles.message}>{message}</p>}
     </div>
   );
 }
