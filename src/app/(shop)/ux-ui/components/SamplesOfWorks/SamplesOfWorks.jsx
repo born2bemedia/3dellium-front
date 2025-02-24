@@ -31,7 +31,7 @@ const SamplesOfWorks = () => {
     },
     {
       title: "Accessibility for All",
-      text: "We craft  inclusive designs with seamless experience for all, including those with visual, auditory, or physical challenges.",
+      text: "We craft inclusive designs with seamless experience for all, including those with visual, auditory, or physical challenges.",
       cover: "/images/ux/ui-design5.jpg",
     },
     {
