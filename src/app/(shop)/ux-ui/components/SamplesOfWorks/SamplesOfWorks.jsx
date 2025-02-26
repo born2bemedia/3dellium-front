@@ -78,7 +78,9 @@ const SamplesOfWorks = () => {
             ))}
           </div>
           <div className={styles.buttons}>
-            <Link href="#">Get Pricing</Link>
+            <Link href="/3Dellium_Wanwick_SL_Price_List.pdf" target="_blank">
+              Get Pricing
+            </Link>
             <Link className={styles.order} href={"#assistance"}>
               <div>
                 <AddToCartArrow2 />

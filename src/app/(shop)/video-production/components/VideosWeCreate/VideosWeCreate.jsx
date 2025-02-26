@@ -60,7 +60,9 @@ const VideosWeCreate = () => {
             variants={fadeInUp}
             className={styles.buttons}
           >
-            <Link href="#">Get Pricing</Link>
+            <Link href="/3Dellium_Wanwick_SL_Price_List.pdf" target="_blank">
+              Get Pricing
+            </Link>
             <Link href="#assistance">Order Video</Link>
           </motion.div>
           <motion.h2

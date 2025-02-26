@@ -83,7 +83,9 @@ const AnimationWhy = () => {
           ))}
         </div>
         <div className={styles.buttons}>
-          <Link href="#">Get Pricing</Link>
+          <Link href="/3Dellium_Wanwick_SL_Price_List.pdf" target="_blank">
+            Get Pricing
+          </Link>
           <Link href="#assistance">Order Custom Animation</Link>
         </div>
         <div className={styles.ctaTitle}>
