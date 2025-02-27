@@ -12,7 +12,7 @@ const SamplesOfWorks = () => {
     {
       title: "Dynamic Happy Birthday Greeting Video",
       text: "This lively, animated birthday greeting features colorful confetti, nostalgic photo transitions, and an interactive gift box. It also includes upbeat music, text animations, and a final cake surprise to celebrate the occasion with energy and fun. Perfect for a personalized birthday message.",
-      cover: "/images/video-production/cover1_1.png",
+      cover: "/images/video-production/cover1_1.webp",
       video: "/videos/3Dellium _Vid_1.mp4",
     },
     {
