@@ -10,8 +10,8 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 const VideoRow = ({ animation = false }) => {
   const videoArray = [
     {
-      cover: "/images/home/video1_preview.png",
-      video: "/videos/homeHero.webm",
+      cover: "/images/video-production/cover1_1.png",
+      video: "/videos/3Dellium _Vid_1.mp4",
     },
     {
       cover: "/images/home/video2_preview.png",

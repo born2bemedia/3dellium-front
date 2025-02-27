@@ -12,8 +12,8 @@ const SamplesOfWorks = () => {
     {
       title: "Dynamic Happy Birthday Greeting Video",
       text: "This lively, animated birthday greeting features colorful confetti, nostalgic photo transitions, and an interactive gift box. It also includes upbeat music, text animations, and a final cake surprise to celebrate the occasion with energy and fun. Perfect for a personalized birthday message.",
-      cover: "/images/video-production/cover1.webp",
-      video: "/videos/example1.mp4",
+      cover: "/images/video-production/cover1_1.png",
+      video: "/videos/3Dellium _Vid_1.mp4",
     },
     {
       title: "Personal Coach Promotion Video",
@@ -60,6 +60,7 @@ const SamplesOfWorks = () => {
                 <ReactPlayer
                   url={video.video}
                   light={video.cover}
+                  controls
                   playIcon={
                     <img
                       width={100}
