@@ -31,7 +31,7 @@
         @media (min-width: rem(1600)) {
           font-size: rem(90);
         }
-        @media (max-width: rem(1360)) {
+        @media (max-width: rem(1370)) {
           font-size: rem(50);
         }
         @media (max-width: rem(1110)) {
@@ -73,8 +73,11 @@
         @media (min-width: rem(1600)) {
           zoom: 1.2;
         }
-        @media (max-width: rem(1300)) {
-          zoom: 0.8;
+        @media (max-width: rem(1500)) {
+          zoom: 0.95;
+        }
+        @media (max-width: rem(1370)) {
+          zoom: 0.85;
         }
         @media (max-width: rem(1300)) {
           zoom: 0.8;
@@ -121,6 +124,9 @@
             line-height: 1.2;
             color: #0c0c0c;
             margin-bottom: rem(8);
+            @media (max-width: rem(1370)) {
+              //font-size: rem(14);
+            }
           }
           .price {
             font-size: 28px;
