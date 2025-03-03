@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./LangSwitcher.module.scss";
 
 const LangSwitcher = () => {
-  const [currentLang, setCurrentLang] = useState("EN");
+  const [currentLang, setCurrentLang] = useState("English");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleLanguageChange = (language, languageCode) => {
