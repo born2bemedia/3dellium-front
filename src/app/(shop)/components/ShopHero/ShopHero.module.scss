@@ -17,6 +17,7 @@
       padding: rem(12) rem(16);
       background: #fff;
       border-radius: rem(32);
+      max-width:35%;
       @media (max-width: rem(992)) {
         position: relative;
         left: unset;

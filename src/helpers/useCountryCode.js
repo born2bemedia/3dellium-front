@@ -4,7 +4,7 @@ import axios from "axios";
 
 const useCountryCode = () => {
   const [countryCode, setCountryCode] = useState("us"); // Default to "us"
-
+/*
   useEffect(() => {
     const fetchCountryCode = async () => {
       try {
@@ -19,7 +19,7 @@ const useCountryCode = () => {
     };
 
     fetchCountryCode();
-  }, []);
+  }, []);*/
 
   return countryCode;
 };

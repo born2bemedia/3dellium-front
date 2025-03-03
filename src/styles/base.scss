@@ -32,6 +32,53 @@ section {
 h1 {
   //font-family: var(--font-helvetica-neue);
 }
+
+html {
+  &[lang="en"],
+  &[lang="auto"] {
+    body {
+      top: 0 !important;
+      > .skiptranslate {
+        display: none !important;
+      }
+    }
+  }
+  &[lang="de"],
+  &[lang="es"],
+  &[lang="it"] {
+    body {
+      top: 0 !important;
+      h1 {
+        font-size: rem(56) !important;
+        @media (max-width: rem(992)) {
+          font-size: rem(40) !important;
+        }
+      }
+      header {
+        nav {
+          gap: rem(16) !important;
+          a {
+            font-size: rem(12) !important;
+          }
+        }
+      }
+      .HomeHero_col2__nuWjV {
+        h3 {
+          font-size: rem(48) !important;
+          @media (max-width: rem(992)) {
+            font-size: rem(32) !important;
+            align-items: flex-start;
+          }
+        }
+      }
+    }
+  }
+}
+
+font {
+  pointer-events: none !important;
+}
+
 html,
 body {
   height: 100%;
@@ -41,6 +88,18 @@ body {
   @media (min-width: rem(1600)) {
     ._container {
       zoom: 1.2;
+    }
+  }
+
+  > .skiptranslate {
+    display: none !important;
+    //position: absolute;
+    iframe {
+      //display: none !important;
+      //visibility: hidden !important;
+      //height: 0 !important;
+      //width: 0 !important;
+      //position: absolute !important;
     }
   }
 }

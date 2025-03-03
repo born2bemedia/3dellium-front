@@ -13,6 +13,7 @@ import { usePathname } from "next/navigation";
 import HeadAccount from "../HeadAccount/HeadAccount";
 import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from "@/helpers/constants";
 import LinkedinIcon from "@/icons/socials/LinkedinIcon";
+import LangSwitcher from "../LangSwitcher/LangSwitcher";
 
 const Header = () => {
   const { user, logout } = useAuthStore();
@@ -66,6 +67,7 @@ const Header = () => {
                   <InstagramIcon />
                 </Link>
               </div>
+              <LangSwitcher />
             </div>
             <div className={styles.col2}>
               <Link className={styles.cart} href={"/checkout"}>

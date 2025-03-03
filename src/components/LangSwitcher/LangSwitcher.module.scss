@@ -1,0 +1,46 @@
+@use "@/styles/mixin.scss" as *;
+
+.langSwitcher {
+  position: relative;
+  display: inline-block;
+  button {
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    background: rgba(241, 241, 241, 0.1);
+    padding: 8px 20px 8px 20px;
+    gap: 28px;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%;
+    &:hover {
+      background: #fff;
+      color: #000;
+      path {
+        fill: #000;
+      }
+    }
+  }
+  .langList {
+    position: absolute;
+    z-index: 9999;
+    top: calc(100% + 10px);
+    left: 0;
+    background: rgb(40 40 40);
+    border-radius: 12px;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    li {
+      color: #fff;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 130%;
+      cursor: pointer;
+    }
+  }
+}
