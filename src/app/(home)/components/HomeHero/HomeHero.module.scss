@@ -54,10 +54,12 @@
         @media (max-width: rem(992)) {
           font-size: rem(50);
           width: 50%;
+          margin-bottom: rem(80);
         }
         @media (max-width: rem(767)) {
           font-size: rem(44);
-          width: 50%;
+          width: 30%;
+          margin-bottom: rem(24);
         }
       }
       p {
