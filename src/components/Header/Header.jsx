@@ -4,7 +4,6 @@ import styles from "./Header.module.scss";
 import useAuthStore from "@/stores/authStore";
 import Link from "next/link";
 import FacebookIcon from "@/icons/socials/FacebookIcon";
-import XIcon from "@/icons/socials/XIcon";
 import InstagramIcon from "@/icons/socials/InstagramIcon";
 import CartIcon from "@/icons/CartIcon";
 import MenuIcon from "@/icons/MenuIcon";
@@ -12,6 +11,8 @@ import MenuIconOpened from "@/icons/MenuIconOpened";
 import MenuPopup from "../MenuPopup/MenuPopup";
 import { usePathname } from "next/navigation";
 import HeadAccount from "../HeadAccount/HeadAccount";
+import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from "@/helpers/constants";
+import LinkedinIcon from "@/icons/socials/LinkedinIcon";
 
 const Header = () => {
   const { user, logout } = useAuthStore();
@@ -55,13 +56,13 @@ const Header = () => {
           <div className={styles.row}>
             <div className={styles.col1}>
               <div className={styles.soc}>
-                <Link href="#">
+                <Link href={FACEBOOK_URL} target="_blank">
                   <FacebookIcon />
                 </Link>
-                <Link href="#">
-                  <XIcon />
+                <Link href={LINKEDIN_URL} target="_blank">
+                  <LinkedinIcon />
                 </Link>
-                <Link href="#">
+                <Link href={INSTAGRAM_URL} target="_blank">
                   <InstagramIcon />
                 </Link>
               </div>

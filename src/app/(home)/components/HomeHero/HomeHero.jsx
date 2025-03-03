@@ -39,7 +39,7 @@ const HomeHero = () => {
             className={styles.col2}
           >
             <Image
-              src={"/images/home/hero.png"}
+              src={"/images/home/hero.webp"}
               width={655}
               height={370}
               alt="hero"

@@ -11,19 +11,19 @@ const VideoRow = ({ animation = false }) => {
   const videoArray = [
     {
       cover: "/images/video-production/cover1_1.webp",
-      video: "/videos/3Dellium _Vid_1.mp4",
+      video: "/videos/3Dellium_Vid_1.mp4",
     },
     {
-      cover: "/images/home/video2_preview.png",
-      video: "/videos/homeHero.webm",
+      cover: "/images/video-production/cover2.webp",
+      video: "/videos/3Dellium_Vid_2.mp4",
     },
     {
-      cover: "/images/home/video3_preview.png",
-      video: "/videos/homeHero.webm",
+      cover: "/images/video-production/cover3.webp",
+      video: "/videos/3Dellium_Vid_3.mp4",
     },
     {
-      cover: "/images/home/video4_preview.png",
-      video: "/videos/homeHero.webm",
+      cover: "/images/video-production/cover4.webp",
+      video: "/videos/3Dellium_Vid_4.mp4",
     },
   ];
 

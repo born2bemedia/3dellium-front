@@ -3,7 +3,8 @@ import styles from "./Footer.module.scss";
 import Link from "next/link";
 import InstagramFooter from "@/icons/socials/InstagramFooter";
 import FacebookFooter from "@/icons/socials/FacebookFooter";
-import { XFooter } from "@/icons/socials/XFooter";
+import { LinkedinFooter } from "@/icons/socials/LinkedinFooter";
+import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from "@/helpers/constants";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -20,14 +21,14 @@ const Footer = () => {
               <b>Wanwick SL</b> <span>Designs for life.</span>
             </h2>
             <div className={styles.soc}>
-              <Link href="#" target="_blank">
+              <Link href={INSTAGRAM_URL} target="_blank">
                 <InstagramFooter />
               </Link>
-              <Link href="#" target="_blank">
+              <Link href={FACEBOOK_URL} target="_blank">
                 <FacebookFooter />
               </Link>
-              <Link href="#" target="_blank">
-                <XFooter />
+              <Link href={LINKEDIN_URL} target="_blank">
+                <LinkedinFooter />
               </Link>
             </div>
           </div>

@@ -3,7 +3,7 @@ import styles from "./MenuPopup.module.scss";
 import Link from "next/link";
 import InstagramFooter from "@/icons/socials/InstagramFooter";
 import FacebookFooter from "@/icons/socials/FacebookFooter";
-import { XFooter } from "@/icons/socials/XFooter";
+import { XFooter } from "@/icons/socials/LinkedinFooter";
 
 const MenuPopup = ({ isScrolling }) => {
   return (
