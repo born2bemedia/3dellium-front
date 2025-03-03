@@ -10,21 +10,23 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 const VideoRow = ({ animation = false }) => {
   const videoArray = [
     {
-      cover: "/images/video-production/cover1_1.webp",
+      cover: "/images/video-production/cover1_home.webp",
+      video: "/videos/3Dellium_Vid_4.mp4",
+    },
+    {
+      cover: "/images/video-production/cover4_home.webp",
       video: "/videos/3Dellium_Vid_1.mp4",
     },
     {
-      cover: "/images/video-production/cover2.webp",
-      video: "/videos/3Dellium_Vid_2.mp4",
-    },
-    {
-      cover: "/images/video-production/cover3.webp",
+      cover: "/images/video-production/cover3_home.webp",
       video: "/videos/3Dellium_Vid_3.mp4",
     },
     {
-      cover: "/images/video-production/cover4.webp",
-      video: "/videos/3Dellium_Vid_4.mp4",
+      cover: "/images/video-production/cover2_home.webp",
+      video: "/videos/3Dellium_Vid_2.mp4",
     },
+    
+    
   ];
 
   return (
