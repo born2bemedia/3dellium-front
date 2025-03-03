@@ -31,6 +31,9 @@
         font-weight: 900;
         line-height: 1.2;
         text-align: left;
+        @media (max-width: rem(1500)) {
+          font-size: rem(60);
+        }
         @media (max-width: rem(1360)) {
           font-size: rem(50);
         }
