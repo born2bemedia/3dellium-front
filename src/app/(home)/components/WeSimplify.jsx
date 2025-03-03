@@ -12,7 +12,7 @@ const WeSimplify = () => {
     "smart-devices",
   ];
 
-  const productIds = [25, 40, 21];
+  const productIds = [25, 18, 30];
 
   return (
     <section className="main-section">
