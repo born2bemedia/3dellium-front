@@ -22,7 +22,7 @@ const ContactHero = () => {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <Image src={"/images/contact/hero1.png"} alt="hero1" fill />
+              <Image src={"/images/contact/hero1.png"} alt="hero1" fill quality={100} />
             </motion.div>
             <motion.div
               initial="hidden"
@@ -30,7 +30,7 @@ const ContactHero = () => {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <Image src={"/images/contact/hero2.png"} alt="hero2" fill />
+              <Image src={"/images/contact/hero2.png"} alt="hero2" fill quality={100} />
             </motion.div>
           </div>
           <div className={styles.col2}>

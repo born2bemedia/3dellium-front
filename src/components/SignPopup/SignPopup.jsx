@@ -73,7 +73,7 @@ const SignPopup = ({ images, type = "default", title, subtitle, link }) => {
               </div>
               {signPopupType !== "signup" && (
                 <div className={styles.col2}>
-                  <Image src={"/images/signPopup.png"} alt="thanks" fill />
+                  <Image src={"/images/signPopup.png"} alt="thanks" fill quality={100} />
                 </div>
               )}
             </div>

@@ -52,6 +52,7 @@ const ShopHero = async ({
                       : "/placeholder.jpg"
                   }
                   alt={heroProduct.title}
+                  quality={100}
                 />
               </Link>
               <div className={styles.cardBottom}>

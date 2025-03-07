@@ -86,6 +86,7 @@ const ArticlePage = async ({ params }) => {
                     height={156}
                     src={`${API_URL}${idea.image?.url}`}
                     alt={idea.title}
+                    quality={100}
                   />
                   <span>{idea.title}</span>
                 </Link>

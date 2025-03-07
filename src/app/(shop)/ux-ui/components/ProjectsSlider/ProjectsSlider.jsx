@@ -64,6 +64,7 @@ const ProjectsSlider = () => {
                   alt={`Slide ${index + 1}`}
                   fill
                   className={styles.image}
+                  quality={100}
                 />
               </div>
               <div className={styles.textWrapper}>

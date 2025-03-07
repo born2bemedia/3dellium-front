@@ -48,6 +48,7 @@ const ProductHero = ({ product }) => {
                         className={`${currentImage == index && styles.active}`}
                         onClick={() => imageClick(index)}
                         alt={product.title}
+                        quality={100}
                       />
                     ))}
                   </div>
@@ -59,12 +60,14 @@ const ProductHero = ({ product }) => {
                       alt={product.title}
                       src={`${API_URL}${product.gallery[currentImage].image.url}`}
                       fill
+                      quality={100}
                     />
                   ) : (
                     <Image
                       alt={product.title}
                       src={`${API_URL}${product.image?.url}`}
                       fill
+                      quality={100}
                     />
                   )}
                 </div>

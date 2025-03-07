@@ -36,7 +36,7 @@ const ThanksPopup = ({ images, type = "default", title, subtitle, link }) => {
           <div className={styles.popupWrap}>
             <div className={styles.popupInner}>
               <div className={styles.col1}>
-                <Image src={"/images/thanksPopup.png"} alt="thanks" fill />
+                <Image src={"/images/thanksPopup.png"} alt="thanks" fill quality={100} />
               </div>
               <div className={styles.col2}>
                 <h2>
@@ -72,6 +72,7 @@ const ThanksPopup = ({ images, type = "default", title, subtitle, link }) => {
                                 src={`${API_URL}${item.image}`}
                                 alt="thanks"
                                 fill
+                                quality={100}
                               />
                             </div>
                           ))}
@@ -86,6 +87,7 @@ const ThanksPopup = ({ images, type = "default", title, subtitle, link }) => {
                                 src={`${API_URL}${item.image}`}
                                 alt="thanks"
                                 fill
+                                quality={100}
                               />
                             </div>
                           ))}
@@ -97,6 +99,7 @@ const ThanksPopup = ({ images, type = "default", title, subtitle, link }) => {
                           src={`${API_URL}${cart[0].image}`}
                           alt="thanks"
                           fill
+                          quality={100}
                         />
                       );
                     }
@@ -123,7 +126,7 @@ const ThanksPopup = ({ images, type = "default", title, subtitle, link }) => {
           <div className={styles.popupWrap}>
             <div className={`${styles.popupInner} ${styles.registerThanks}`}>
               <div className={styles.col1}>
-                <Image src={"/images/thanksPopup.png"} alt="thanks" fill />
+                <Image src={"/images/thanksPopup.png"} alt="thanks" fill quality={100} />
               </div>
               <div className={styles.col2}>
                 <h2 dangerouslySetInnerHTML={{ __html: title }} />

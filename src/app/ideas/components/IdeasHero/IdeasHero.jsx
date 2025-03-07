@@ -27,7 +27,7 @@ const IdeasHero = () => {
           className={styles.body}
         >
           <div className={styles.imageWrap}>
-            <Image src={"/images/ideas/hero.png"} alt="hero" fill />
+            <Image src={"/images/ideas/hero.png"} alt="hero" fill quality={100} />
           </div>
         </motion.div>
       </div>

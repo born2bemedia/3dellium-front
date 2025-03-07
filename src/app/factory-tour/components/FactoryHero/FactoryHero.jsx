@@ -37,7 +37,12 @@ const FactoryHero = () => {
             className={styles.item}
             custom={1}
           >
-            <Image src={"/images/factory/hero1.png"} alt="hero1" fill />
+            <Image
+              src={"/images/factory/hero1.png"}
+              alt="hero1"
+              fill
+              quality={100}
+            />
           </motion.div>
           <motion.div
             initial="hidden"
@@ -47,7 +52,12 @@ const FactoryHero = () => {
             className={styles.item}
             custom={1}
           >
-            <Image src={"/images/factory/hero2.png"} alt="hero2" fill />
+            <Image
+              src={"/images/factory/hero2.png"}
+              alt="hero2"
+              fill
+              quality={100}
+            />
           </motion.div>
           <motion.div
             initial="hidden"
@@ -57,7 +67,12 @@ const FactoryHero = () => {
             className={styles.item}
             custom={1.2}
           >
-            <Image src={"/images/factory/hero3.png"} alt="hero3" fill />
+            <Image
+              src={"/images/factory/hero3.png"}
+              alt="hero3"
+              fill
+              quality={100}
+            />
           </motion.div>
           <motion.div
             initial="hidden"
@@ -67,7 +82,12 @@ const FactoryHero = () => {
             className={styles.item}
             custom={1.2}
           >
-            <Image src={"/images/factory/hero4.png"} alt="hero4" fill />
+            <Image
+              src={"/images/factory/hero4.png"}
+              alt="hero4"
+              fill
+              quality={100}
+            />
           </motion.div>
           <motion.div
             initial="hidden"

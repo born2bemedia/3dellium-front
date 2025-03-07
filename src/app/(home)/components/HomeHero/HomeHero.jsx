@@ -44,6 +44,7 @@ const HomeHero = () => {
               height={370}
               alt="hero"
               priority
+              quality={100}
             />
             <Image
               src={"/images/home/heroFloat1.png"}
@@ -51,6 +52,7 @@ const HomeHero = () => {
               height={267}
               alt="hero"
               priority
+              quality={100}
             />
           </motion.div>
         </div>
@@ -67,6 +69,7 @@ const HomeHero = () => {
               width={132}
               height={126}
               alt="hero"
+              quality={100}
             />
           </motion.div>
           <motion.div className={styles.col2}>

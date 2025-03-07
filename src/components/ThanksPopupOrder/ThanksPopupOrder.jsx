@@ -39,7 +39,12 @@ const ThanksPopupOrder = ({
         <div className={styles.popupWrap}>
           <div className={styles.popupInner}>
             <div className={styles.col1}>
-              <Image src={"/images/cart/thanks.png"} alt="thanks" fill />
+              <Image
+                src={"/images/cart/thanks.png"}
+                alt="thanks"
+                fill
+                quality={100}
+              />
             </div>
             <div className={styles.col2}>
               <h2>Thank You for Your Order</h2>

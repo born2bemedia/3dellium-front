@@ -101,7 +101,7 @@ const AnimationProcess = () => {
               src={"/images/animations/animation4.jpg"}
               width={540}
               height={252}
-              alt="Animation & Special Effects" 
+              alt="Animation & Special Effects"
               quality={100}
             />
             <h3>Animation & Special Effects</h3>
@@ -122,6 +122,7 @@ const AnimationProcess = () => {
               width={540}
               height={252}
               alt="Design & Asset Creation"
+              quality={100}
             />
             <h3>Design & Asset Creation</h3>
             <p>
