@@ -38,7 +38,7 @@ const AnimationProcess = () => {
             variants={fadeInLeft}
           >
             <Image
-              src={"/images/animations/process1.png"}
+              src={"/images/animations/animation1.jpg"}
               width={540}
               height={252}
               alt="Creative Concept Development"
@@ -57,7 +57,7 @@ const AnimationProcess = () => {
             variants={fadeInRight}
           >
             <Image
-              src={"/images/animations/process2.png"}
+              src={"/images/animations/animation2.jpg"}
               width={540}
               height={252}
               alt="Storyboarding"
@@ -76,7 +76,7 @@ const AnimationProcess = () => {
             variants={fadeInLeft}
           >
             <Image
-              src={"/images/animations/process3.png"}
+              src={"/images/animations/animation3.jpg"}
               width={540}
               height={252}
               alt="Design & Asset Creation"
@@ -95,7 +95,7 @@ const AnimationProcess = () => {
             variants={fadeInRight}
           >
             <Image
-              src={"/images/animations/process4.png"}
+              src={"/images/animations/animation4.jpg"}
               width={540}
               height={252}
               alt="Animation & Special Effects"
@@ -114,7 +114,7 @@ const AnimationProcess = () => {
             variants={fadeInUp}
           >
             <Image
-              src={"/images/animations/process5.png"}
+              src={"/images/animations/animation5.jpg"}
               width={540}
               height={252}
               alt="Design & Asset Creation"

@@ -1,10 +1,26 @@
 import Script from "next/script";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./LangSwitcher.module.scss";
 
 const LangSwitcher = () => {
-  const [currentLang, setCurrentLang] = useState("English");
+  const [currentLang, setCurrentLang] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      const lang = document.documentElement.lang;
+      console.log("lang", lang);
+      const langName =
+        lang === "en"
+          ? "English"
+          : lang === "de"
+          ? "German"
+          : lang === "it"
+          ? "Italian"
+          : "Spanish";
+      setCurrentLang(langName);
+    }, 1000);
+  }, []);
 
   const handleLanguageChange = (language, languageCode) => {
     const retryDispatchEvent = (attempts = 10) => {
