@@ -66,7 +66,7 @@ const ShopHero = async ({
             </div>
           )}
 
-          <Image src={image} width={1360} height={545} alt="hero" quality={100} />
+          <Image src={image} width={1450} height={545} alt="hero" quality={100} />
         </div>
       </div>
     </section>

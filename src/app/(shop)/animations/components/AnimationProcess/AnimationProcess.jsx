@@ -39,7 +39,7 @@ const AnimationProcess = () => {
           >
             <Image
               src={"/images/animations/animation1.jpg"}
-              width={540}
+              width={1280}
               height={252}
               quality={100}
               alt="Creative Concept Development"
@@ -59,7 +59,7 @@ const AnimationProcess = () => {
           >
             <Image
               src={"/images/animations/animation2.jpg"}
-              width={540}
+              width={1280}
               height={252}
               quality={100}
               alt="Storyboarding"
@@ -79,7 +79,7 @@ const AnimationProcess = () => {
           >
             <Image
               src={"/images/animations/animation3.jpg"}
-              width={540}
+              width={1280}
               height={252}
               alt="Design & Asset Creation"
               quality={100}
@@ -99,7 +99,7 @@ const AnimationProcess = () => {
           >
             <Image
               src={"/images/animations/animation4.jpg"}
-              width={540}
+              width={1280}
               height={252}
               alt="Animation & Special Effects"
               quality={100}
@@ -119,7 +119,7 @@ const AnimationProcess = () => {
           >
             <Image
               src={"/images/animations/animation5.jpg"}
-              width={540}
+              width={1280}
               height={252}
               alt="Design & Asset Creation"
               quality={100}
