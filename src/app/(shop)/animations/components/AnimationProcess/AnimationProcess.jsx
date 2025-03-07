@@ -41,6 +41,7 @@ const AnimationProcess = () => {
               src={"/images/animations/animation1.jpg"}
               width={540}
               height={252}
+              quality={100}
               alt="Creative Concept Development"
             />
             <h3>Creative Concept Development</h3>
@@ -60,6 +61,7 @@ const AnimationProcess = () => {
               src={"/images/animations/animation2.jpg"}
               width={540}
               height={252}
+              quality={100}
               alt="Storyboarding"
             />
             <h3>Storyboarding</h3>
@@ -80,6 +82,7 @@ const AnimationProcess = () => {
               width={540}
               height={252}
               alt="Design & Asset Creation"
+              quality={100}
             />
             <h3>Design & Asset Creation</h3>
             <p>
@@ -98,7 +101,8 @@ const AnimationProcess = () => {
               src={"/images/animations/animation4.jpg"}
               width={540}
               height={252}
-              alt="Animation & Special Effects"
+              alt="Animation & Special Effects" 
+              quality={100}
             />
             <h3>Animation & Special Effects</h3>
             <p>
