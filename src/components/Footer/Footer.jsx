@@ -68,9 +68,9 @@ const Footer = () => {
             <div>
               <h3>Registration Address:</h3>
               <p>
-                Calle Aguamarina, S/N - <br />
-                Local 1-2, Marbella, 29670, <br />
-                Malaga
+                Urb. Cancela De La Quinta, Edificio 1, <br />
+                Street Agua Marina, Marbella 29000, <br />
+                Málaga, Spain
               </p>
             </div>
             <div>
