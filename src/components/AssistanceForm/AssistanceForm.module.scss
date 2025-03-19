@@ -16,58 +16,40 @@
     row-gap: rem(24);
 
     .submit {
-      overflow: hidden;
-      border-radius: rem(16) rem(27) rem(27) rem(16);
-      width: rem(235);
-      position: relative;
-      transition: all 0.5s;
-      margin: 0 auto;
-      &:hover {
-        border-radius: rem(8);
-        > div {
-          left: 0;
+      display: flex;
+      margin-left: auto;
+      span {
+        white-space: nowrap;
+        &:first-child {
+          height: 34px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: var(--border-radius-full, 9999px);
+          background: #fff;
+          padding: 0 24px;
+          color: #000;
+          text-align: center;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 140%; /* 22.4px */
+        }
+        &:last-child {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 34px;
+          height: 34px;
+          border-radius: var(--border-radius-full, 9999px);
+          background: #fff;
           svg {
-            border-radius: rem(8);
-            rect {
-              fill: #2b2b2b;
+            width: 20px;
+            height: 20px;
+            path {
+              fill: #000;
             }
           }
-          span {
-            background: #c5d2c8;
-            border-radius: rem(8);
-            color: #000;
-          }
-        }
-      }
-      > div {
-        position: relative;
-        left: -59px;
-        display: flex;
-        width: rem(294);
-        gap: rem(4);
-        transition: all 0.5s;
-        svg {
-          transition: all 0.5s;
-          border-radius: rem(27);
-          width: rem(54);
-          height: rem(54);
-        }
-        > span {
-          display: flex;
-          align-items: center;
-          height: rem(54);
-          gap: rem(8);
-          padding: 0 rem(16);
-          background: #2b2b2b;
-          color: #fff;
-          font-size: rem(20);
-          font-weight: 700;
-          line-height: 1.2;
-          text-align: left;
-          border-radius: rem(16);
-          transition: all 0.5s;
-          width: rem(176);
-          justify-content: center;
         }
       }
     }

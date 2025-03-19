@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { fadeInUp } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import styles from "./FeaturedProductCard.module.scss";
@@ -12,8 +12,14 @@ import dynamic from "next/dynamic";
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
-const FeaturedProductCard = ({ product, classValue }) => {
+const FeaturedProductCard = ({ product, classValue, playing = false }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    if (playing) {
+      setIsPlaying(true);
+    }
+  }, [playing]);
 
   return (
     <motion.div
@@ -94,7 +100,7 @@ const FeaturedProductCard = ({ product, classValue }) => {
                   />
                   <Image
                     fill
-                    quality={100} 
+                    quality={100}
                     src={
                       product.image?.url
                         ? `${API_URL}${product.image.url}`

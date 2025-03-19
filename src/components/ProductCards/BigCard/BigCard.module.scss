@@ -1,0 +1,101 @@
+@use "@/styles/mixin.scss" as *;
+.card {
+  border: 1px solid #f2f2f2;
+
+  position: relative;
+  width: 100%;
+  min-height: rem(596);
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-end;
+  padding: rem(30);
+  overflow: hidden;
+  @media (max-width: rem(992)) {
+    min-height: rem(352);
+    padding: rem(16);
+  }
+  .cardImage {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    left: 0 !important;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f2;
+    img {
+      object-fit: contain;
+      height: auto !important;
+      margin: 0 !important;
+      width: 80% !important;
+      left: 50% !important;
+      top: 50% !important;
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .cardBottom {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    transform: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: rem(24);
+    background: #fff;
+    border-radius: rem(16);
+    gap: rem(10);
+    @media (max-width: rem(992)) {
+      width: 100%;
+      padding: rem(12) rem(20);
+    }
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: rem(10);
+      @media (max-width: rem(992)) {
+        flex-direction: column;
+        gap: rem(16);
+      }
+
+      h3 {
+        color: #0c0c0c;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 130%;
+        max-width: 70%;
+        @media (max-width: rem(992)) {
+          max-width: 90%;
+          font-size: rem(16);
+        }
+      }
+      .price {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 27px;
+        text-align: left;
+        span {
+          font-weight: 300;
+          font-size: rem(14);
+        }
+      }
+    }
+
+    button {
+      width: rem(93);
+      @media (max-width: rem(992)) {
+        margin-top: -50px;
+      }
+    }
+  }
+}

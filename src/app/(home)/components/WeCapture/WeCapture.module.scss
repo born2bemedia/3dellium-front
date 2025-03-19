@@ -1,7 +1,7 @@
 @use "@/styles/mixin.scss" as *;
 
 .main {
-  margin: rem(150) 0;
+  margin: rem(80) 0;
   @media (max-width: rem(992)) {
     margin: rem(80) 0;
   }
@@ -9,18 +9,19 @@
     display: flex;
     gap: rem(40);
     align-items: center;
+    flex-direction: column;
     @media (max-width: rem(992)) {
       flex-direction: column;
     }
     > div {
       &:first-child {
-        width: calc(50% - rem(40));
+        width: 100%;
         @media (max-width: rem(992)) {
           width: 100%;
         }
       }
       &:nth-child(2) {
-        width: 50%;
+        width: 100%;
         @media (max-width: rem(992)) {
           width: 100%;
         }

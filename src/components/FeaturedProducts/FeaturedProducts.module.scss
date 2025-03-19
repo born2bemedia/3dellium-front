@@ -2,55 +2,37 @@
 
 .productRow {
   display: flex;
-  flex-wrap: wrap;
-  margin-top: -400px;
+  padding-left: calc((100vw - 1280px) / 2);
+  width: 110%;
+  transition: opacity 0.2s ease;
+  opacity: 1;
+  //flex-wrap: wrap;
+  //margin-top: -400px;
   @media (max-width: rem(992)) {
     margin: 0;
+    width:100%;
   }
-  &.left {
-    > div {
-      @media (max-width: rem(992)) {
-        &:first-child {
-          order: 1;
-        }
-        &:nth-child(2) {
-          order: 2;
-        }
-        &:nth-child(3) {
-          order: 3;
-        }
-      }
-      &:first-child {
-        margin-left: unset;
-        margin-right: 75%;
-        order: 1;
-        @media (max-width: rem(992)) {
-          margin: 0;
-        }
-      }
-      &:nth-child(2) {
-        order: 2;
-      }
-      &:nth-child(3) {
-        order: 3;
-      }
-    }
+  &.fade {
+    opacity: 0;
   }
   > div {
-    width: 25%;
-
-    &:first-child {
-      margin-left: 75%;
-      order: 1;
-      @media (max-width: rem(992)) {
-        margin: 0;
-      }
-    }
-    &:nth-child(2) {
-      order: 3;
-    }
+    border: none;
+    //width: 25%;
+    //padding: rem(16);
+    &:nth-child(2),
     &:nth-child(3) {
-      order: 2;
+      a {
+        height: 100%;
+        > div {
+          height: 100%;
+        }
+        h3 {
+          display: none;
+        }
+      }
+      > div {
+        display: none;
+      }
     }
     @media (max-width: rem(992)) {
       &:first-child {
@@ -65,9 +47,6 @@
     }
   }
   @media (max-width: rem(992)) {
-    flex-wrap: wrap;
-    > div {
-      width: 50%;
-    }
+    
   }
 }

@@ -6,10 +6,11 @@
   button {
     display: flex;
     align-items: center;
-    border-radius: 12px;
+    justify-content: center;
+    height: rem(30);
+    width: rem(30);
     background: rgba(241, 241, 241, 0.1);
-    padding: 8px 20px 8px 20px;
-    gap: 28px;
+    border-radius: rem(15);
     color: #fff;
     font-size: 16px;
     font-style: normal;
@@ -34,7 +35,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    width: 100%;
+    width: 110px;
     li {
       color: #fff;
       font-size: 16px;

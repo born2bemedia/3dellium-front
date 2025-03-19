@@ -2,55 +2,74 @@
 
 .sectionTitle {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
+  justify-content: space-between;
   margin-bottom: rem(24);
-  max-width: rem(842);
-  padding-top: rem(12);
-  @media (max-width: rem(1360)) {
-    max-width: 75%;
-  }
+  gap: rem(40);
   @media (max-width: rem(992)) {
     max-width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(30);
+    margin-bottom: rem(48);
   }
   &.left {
     margin-left: auto;
   }
+  &.white {
+    .label {
+      color: #757575;
+      background: #fff;
+    }
+    .title {
+      color: #fff;
+    }
+    .text {
+      color: #fff;
+    }
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(8);
+  }
   .label {
-    color: #362b1a;
-    font-size: rem(14);
-    font-weight: 300;
-    line-height: 1;
-    text-align: center;
-    display: block;
-    padding: rem(12) rem(20);
-    background-color: #1d4c2912;
-    border-radius: rem(14);
+    font-family: var(--font-helvetica-neue);
+    color: #fff;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    display: flex;
+    padding: 8px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 99px;
+    background: rgba(0, 0, 0, 0.2);
   }
   .title {
-    margin: rem(16) 0 rem(16);
-    font-size: rem(40);
-    font-weight: 800;
-    line-height: 1.3;
-    text-align: left;
-    color: #1d4c29;
+    color: #111;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 33.6px */
     @media (max-width: rem(992)) {
-      font-size: rem(24);
-      margin: rem(24) 0 rem(8);
+      font-size: 20px;
       br {
         display: none;
       }
     }
   }
   .text {
-    font-family: var(--font-helvetica-neue);
-    font-size: rem(18);
-    font-weight: 200;
-    line-height: 1.4;
-    text-align: left;
-    color: #362b1a;
+    color: #111;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%; /* 18.2px */
     @media (max-width: rem(992)) {
-      font-size: rem(14);
+      font-size: rem(12);
       br {
         display: none;
       }

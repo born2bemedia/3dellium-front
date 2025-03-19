@@ -5,6 +5,7 @@ import ShopAssistance from "../components/ShopAssistance/ShopAssistance";
 import AnimationProcess from "./components/AnimationProcess/AnimationProcess";
 import AnimationWhy from "./components/AnimationWhy/AnimationWhy";
 import AnimationHero from "./components/AnimationHero/AnimationHero";
+import NeedAssistanceNew from "@/components/NeedAssistanceNew/NeedAssistanceNew";
 
 export const metadata = {
   title: "Ready-to-Use Animations | 3Dellium",
@@ -23,11 +24,22 @@ const page = () => {
 
   return (
     <>
-      <AnimationHero />
+      <ShopHero
+        title={"Animations"}
+        subtitle={"Move. Express. Enrich Life."}
+        image={"/images/animations/hero.webp"}
+        imageMob={"/images/animations/heroMob.webp"}
+        backgroundColor={"#211C32"}
+      />
       <AnimationProcess />
       <AnimationWhy />
       <Shop categorySlugs={categories} />
-      <ShopAssistance type={"animation"} />
+      <NeedAssistanceNew
+        type={"default"}
+        background={"/images/home/assist.webp"}
+        backgroundMob={"/images/home/assistMob.webp"}
+        color={"#fff"}
+      />
     </>
   );
 };

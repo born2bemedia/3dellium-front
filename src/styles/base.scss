@@ -688,7 +688,7 @@ main {
 }
 
 .main-section {
-  margin: 0 0 0 0;
+  margin: rem(80) 0;
   @media (max-width: rem(992)) {
     margin: rem(60) 0;
   }

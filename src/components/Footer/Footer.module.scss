@@ -17,12 +17,24 @@
     }
     .soc {
       display: flex;
-      gap: rem(16);
+      align-items: center;
+      height: rem(30);
+      gap: rem(8);
+      background: #f1f1f11a;
+      border-radius: rem(12);
+      padding: 0 rem(12);
+      width: fit-content;
       @media (max-width: rem(992)) {
-        position: absolute;
-        right: 0;
-        top: rem(125);
-        flex-direction: column;
+        //display: none;
+      }
+
+      a {
+        svg {
+          height: rem(12);
+          width: auto;
+        }
+        &:nth-child(2) {
+        }
       }
     }
     .compamy {
@@ -52,18 +64,33 @@
         gap: rem(24);
       }
       ul {
-        list-style-type: disc;
+        //list-style-type: disc;
         display: flex;
         flex-direction: column;
         gap: rem(8);
         @media (max-width: rem(992)) {
-          padding-left: rem(18);
+          //padding-left: rem(18);
         }
         li {
-          list-style-type: disc;
+          list-style-type: none;
+          position: relative;
+          &.active {
+            padding-left: rem(18);
+            &::before {
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              content: "";
+              width: rem(8);
+              height: rem(8);
+              background: #fff;
+              border-radius: 50%;
+            }
+          }
           a {
             color: #fff;
-            font-size: rem(32);
+            font-size: rem(24);
             font-weight: 300;
             line-height: 1.2;
             text-align: left;
@@ -99,12 +126,11 @@
       }
       > div {
         h3 {
-          margin-bottom: rem(16);
-          font-size: rem(14);
+          color: #fff;
+          font-size: 14px;
+          font-style: normal;
           font-weight: 700;
-          line-height: 1;
-          text-align: left;
-          color: #1d4c29;
+          line-height: normal;
           @media (max-width: rem(992)) {
             font-size: rem(12);
           }

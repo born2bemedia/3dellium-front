@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styles from "./Footer.module.scss";
 import Link from "next/link";
@@ -5,9 +6,13 @@ import InstagramFooter from "@/icons/socials/InstagramFooter";
 import FacebookFooter from "@/icons/socials/FacebookFooter";
 import { LinkedinFooter } from "@/icons/socials/LinkedinFooter";
 import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from "@/helpers/constants";
-
+import FacebookIcon from "@/icons/socials/FacebookIcon";
+import LinkedinIcon from "@/icons/socials/LinkedinIcon";
+import InstagramIcon from "@/icons/socials/InstagramIcon";
+import { usePathname } from "next/navigation";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
 
   return (
     <footer className={styles.footer}>
@@ -21,43 +26,47 @@ const Footer = () => {
               <b>Wanwick SL</b> <span>Designs for life.</span>
             </h2>
             <div className={styles.soc}>
-              <Link href={INSTAGRAM_URL} target="_blank">
-                <InstagramFooter />
-              </Link>
               <Link href={FACEBOOK_URL} target="_blank">
-                <FacebookFooter />
+                <FacebookIcon />
               </Link>
               <Link href={LINKEDIN_URL} target="_blank">
-                <LinkedinFooter />
+                <LinkedinIcon />
+              </Link>
+              <Link href={INSTAGRAM_URL} target="_blank">
+                <InstagramIcon />
               </Link>
             </div>
           </div>
           <nav>
             <ul>
-              <li>
+              <li className={pathname === "/3d-modelling" ? styles.active : ""}>
                 <Link href="/3d-modelling">3d Modelling</Link>
               </li>
-              <li>
+              <li className={pathname === "/animations" ? styles.active : ""}>
                 <Link href="/animations">Animations</Link>
               </li>
-              <li>
+              <li
+                className={
+                  pathname === "/video-production" ? styles.active : ""
+                }
+              >
                 <Link href="/video-production">Video Production</Link>
               </li>
-              <li>
+              <li className={pathname === "/ux-ui" ? styles.active : ""}>
                 <Link href="/ux-ui">UX & UI</Link>
               </li>
             </ul>
             <ul>
-              <li>
+              <li className={pathname === "/factory-tour" ? styles.active : ""}>
                 <Link href="/factory-tour">Factory Tour</Link>
               </li>
-              <li>
+              <li className={pathname === "/ideas" ? styles.active : ""}>
                 <Link href="/ideas">Ideas</Link>
               </li>
-              <li>
+              <li className={pathname === "/contact" ? styles.active : ""}>
                 <Link href="/contact">Contact Us</Link>
               </li>
-              <li>
+              <li className={pathname === "/account" ? styles.active : ""}>
                 <Link href="/account">Your Account</Link>
               </li>
             </ul>

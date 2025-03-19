@@ -2,6 +2,7 @@ import React from "react";
 import Shop from "../components/Shop/Shop";
 import ShopHero from "../components/ShopHero/ShopHero";
 import ShopAssistance from "../components/ShopAssistance/ShopAssistance";
+import NeedAssistanceNew from "@/components/NeedAssistanceNew/NeedAssistanceNew";
 
 export const metadata = {
   title: "Ready-to-Print 3D Plans | 3Dellium",
@@ -27,15 +28,19 @@ const page = () => {
   return (
     <>
       <ShopHero
-        categorySlugs={categories}
         title={"3D Modelling"}
         subtitle={"Explore. Print. Simplify Life."}
-        image={"/images/modelling/hero.png"}
-        imageMob={"/images/modelling/heroMob.png"}
-        productId={37}
+        image={"/images/modelling/hero.webp"}
+        imageMob={"/images/modelling/heroMob.webp"}
+        backgroundColor={"#362B1A"}
       />
       <Shop categorySlugs={categories} />
-      <ShopAssistance type={"3d-modelling"} />
+      <NeedAssistanceNew
+        type={"default"}
+        background={"/images/home/assist.webp"}
+        backgroundMob={"/images/home/assistMob.webp"}
+        color={"#fff"}
+      />
     </>
   );
 };

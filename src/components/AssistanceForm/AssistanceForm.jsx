@@ -9,6 +9,7 @@ import { useState } from "react";
 import styles from "./AssistanceForm.module.scss";
 import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
 import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
+import ArrowRight from "@/icons/Arrows/ArrowRight";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -65,7 +66,7 @@ const AssistanceForm = ({ type = "default" }) => {
   return (
     <div className={styles.assistanceForm}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div className={styles.full}>
           <input
             type="text"
             {...register("name")}
@@ -94,20 +95,6 @@ const AssistanceForm = ({ type = "default" }) => {
         </div>
 
         <div>
-          <input
-            type="text"
-            {...register("message")}
-            placeholder="Message"
-            className={errors.message && styles.invalid}
-          />
-          {touchedFields.message || errors.message ? (
-            <span className={styles.error}>{errors.message?.message}</span>
-          ) : (
-            ""
-          )}
-        </div>
-
-        <div>
           <PhoneInput
             country={countryCode}
             className={`${styles.phoneWrap} ${errors.email && styles.invalid}`}
@@ -130,14 +117,26 @@ const AssistanceForm = ({ type = "default" }) => {
           )}
         </div>
 
+        <div className={styles.full}>
+          <textarea
+            {...register("message")}
+            placeholder="Message"
+            className={errors.message && styles.invalid}
+          />
+          {touchedFields.message || errors.message ? (
+            <span className={styles.error}>{errors.message?.message}</span>
+          ) : (
+            ""
+          )}
+        </div>
+
         <input type="hidden" {...register("type")} value={type} />
 
         <button className={styles.submit} type="submit">
-          <div>
-            <AddToCartArrow2 />
-            <span>{loading ? "Sending..." : "Send"}</span>
-            <AddToCartArrow1 />
-          </div>
+          <span>Send</span>
+          <span>
+            <ArrowRight />
+          </span>
         </button>
       </form>
       {successMessage && (

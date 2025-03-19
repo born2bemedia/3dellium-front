@@ -59,7 +59,7 @@
         background: #1d4c29;
         width: 100%;
         height: rem(545);
-        clip-path: polygon(
+        clipPath: polygon(
           100% 61.009%,
           100% 61.009%,
           99.969% 61.962%,
@@ -138,7 +138,7 @@
           height: calc(100vh - rem(180));
         }
         @media (max-width: rem(992)) {
-          clip-path: unset;
+          clipPath: unset;
           height: rem(574);
           border-radius: rem(20);
           overflow: hidden;

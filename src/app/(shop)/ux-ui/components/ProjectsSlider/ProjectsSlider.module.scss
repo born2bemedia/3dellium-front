@@ -78,7 +78,7 @@
       }
       img {
         object-fit: cover;
-        clip-path: polygon(
+        clipPath: polygon(
           0.653% 3.524%,
           0.653% 3.524%,
           0.678% 2.953%,
@@ -154,7 +154,7 @@
           0.653% 3.524%
         );
         @media (max-width: rem(1100)) {
-          clip-path: unset;
+          clipPath: unset;
           border-radius: rem(20);
         }
       }

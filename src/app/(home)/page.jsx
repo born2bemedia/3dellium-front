@@ -4,10 +4,11 @@ import HighQualityDesigns from "./components/HighQualityDesigns/HighQualityDesig
 import HomeHero from "./components/HomeHero/HomeHero";
 import WeAnimate from "./components/WeAnimate";
 import WeCapture from "./components/WeCapture/WeCapture";
-import WeSimplify from "./components/WeSimplify";
 import styles from "./page.module.scss";
 import useAuthStore from "@/stores/authStore";
 import WeDesign from "./components/WeDesign/WeDesign";
+import WeSimplify from "./components/WeSimplify/WeSimplify";
+import NeedAssistanceNew from "@/components/NeedAssistanceNew/NeedAssistanceNew";
 
 export default function Home() {
   return (
@@ -18,8 +19,12 @@ export default function Home() {
       <WeCapture />
       <WeDesign />
       <CtaBlock />
-      <HighQualityDesigns />
-      <NeedAssistance type={"default"} />
+      <NeedAssistanceNew
+        type={"default"}
+        background={"/images/home/assist.webp"}
+        backgroundMob={"/images/home/assistMob.webp"}
+        color={"#fff"}
+      />
     </>
   );
 }

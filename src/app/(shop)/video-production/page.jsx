@@ -4,6 +4,8 @@ import SamplesOfWorks from "./components/SamplesOfWorks/SamplesOfWorks";
 import VideosWeCreate from "./components/VideosWeCreate/VideosWeCreate";
 import HowWeCraftVideos from "./components/HowWeCraftVideos/HowWeCraftVideos";
 import VideoHero from "./components/VideoHero/VideoHero";
+import NeedAssistanceNew from "@/components/NeedAssistanceNew/NeedAssistanceNew";
+import ShopHero from "../components/ShopHero/ShopHero";
 
 export const metadata = {
   title: "Custom Video Production | 3Dellium",
@@ -20,11 +22,22 @@ export const metadata = {
 const page = () => {
   return (
     <>
-      <VideoHero />
+      <ShopHero
+        title={"Video Production"}
+        subtitle={"Craft. Engage. Inspire Moments."}
+        image={"/images/video-production/hero.webp"}
+        imageMob={"/images/video-production/heroMob.webp"}
+        backgroundColor={"#181818"}
+      />
       <HowWeCraftVideos />
       <VideosWeCreate />
       <SamplesOfWorks />
-      <ShopAssistance type={"video-production"} />
+      <NeedAssistanceNew
+        type={"default"}
+        background={"/images/home/assist.webp"}
+        backgroundMob={"/images/home/assistMob.webp"}
+        color={"#fff"}
+      />
     </>
   );
 };

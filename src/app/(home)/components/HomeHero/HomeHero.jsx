@@ -8,7 +8,7 @@ import Image from "next/image";
 const HomeHero = () => {
   return (
     <section className={styles.homeHero}>
-      <div className={styles.container}>
+      <div className={"_container"}>
         <div className={styles.body}>
           <div className={styles.col1}>
             <motion.h1
@@ -18,8 +18,24 @@ const HomeHero = () => {
               variants={fadeInLeft}
             >
               Shape your <br />
-              stories
+              stories—
             </motion.h1>
+            <motion.h2
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInLeft}
+            >
+              ready-to-use designs for life.
+            </motion.h2>
+          </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className={styles.col2}
+          >
             <motion.p
               initial="hidden"
               whileInView="visible"
@@ -30,72 +46,19 @@ const HomeHero = () => {
               Happiness lives in everyday moments—3Dellium brings your ideas to
               life with ready-to-use designs, animations, and more.
             </motion.p>
-          </div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className={styles.col2}
-          >
-            <Image
-              src={"/images/home/hero.webp"}
-              width={655}
-              height={370}
-              alt="hero"
-              priority
-              quality={100}
-            />
-            <Image
-              src={"/images/home/heroFloat1.png"}
-              width={281}
-              height={267}
-              alt="hero"
-              priority
-              quality={100}
-            />
-          </motion.div>
-        </div>
-        <div className={styles.bottom}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className={styles.col1}
-          >
-            <Image
-              src={"/images/home/heroFloat2.png"}
-              width={132}
-              height={126}
-              alt="hero"
-              quality={100}
-            />
-          </motion.div>
-          <motion.div className={styles.col2}>
-            <h3>
-              <motion.span
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInRight}
-                custom={0.5}
-              >
-                ready-to-use
-              </motion.span>
-              <motion.span
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInRight}
-                custom={0.8}
-              >
-                designs for life
-              </motion.span>
-            </h3>
           </motion.div>
         </div>
       </div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+        className={styles.bottom}
+      >
+        <img className={styles.heroNew} src={"/images/home/heroNew.webp"} alt="hero" />
+        <img className={styles.heroNewMob} src={"/images/home/heroNewMob.webp"} alt="hero" />
+      </motion.div>
     </section>
   );
 };

@@ -12,7 +12,7 @@ const WeAnimate = () => {
         <SectionTitle
           label={"We Animate"}
           title={
-            "Bring emotions to life—express, connect, and make moments memorable."
+            "Bring emotions to life—express, connect, <br/>and make moments memorable."
           }
           text={
             "Our ready-to-use animations are perfect for personal messages, greetings, and creative projects. Share joy, motivation, and personality with dynamic visuals that speak for you."
@@ -21,10 +21,11 @@ const WeAnimate = () => {
           buttonText="See More"
           buttonLink="/animations"
         />
+      </div>
+      <div style={{ overflow: "hidden" }}>
         <FeaturedProducts
           categorySlugs={featuredCategories}
           productIds={productIds}
-          classValue="left"
         />
       </div>
     </section>

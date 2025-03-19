@@ -1,0 +1,27 @@
+@use "@/styles/mixin.scss" as *;
+
+.body {
+  display: flex;
+  gap: rem(24);
+  @media (max-width: rem(992)) {
+    flex-direction: column;
+  }
+  .col1 {
+    width: 50%;
+    @media (max-width: rem(992)) {
+      width: 100%;
+    }
+  }
+  .col2 {
+    width: 50%;
+    display: flex;
+    gap: rem(24);
+    flex-wrap: wrap;
+    @media (max-width: rem(992)) {
+      width: 100%;
+    }
+    > div {
+      width: calc(50% - 12px);
+    }
+  }
+}

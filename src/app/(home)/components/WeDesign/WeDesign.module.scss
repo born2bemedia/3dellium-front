@@ -1,14 +1,60 @@
 @use "@/styles/mixin.scss" as *;
 
 .main {
-  margin: rem(150) 0;
+  margin: rem(80) 0;
+  padding: rem(80) 0;
+  background: #757575;
+  transition: all 0.3s ease;
   @media (max-width: rem(992)) {
-    margin: rem(80) 0;
+    margin: rem(60) 0;
   }
+  &.first {
+    background: linear-gradient(
+        0deg,
+        rgba(55, 120, 80, 0.3) 0%,
+        rgba(55, 120, 80, 0.3) 100%
+      ),
+      #fff;
+    h2,
+    p {
+      color: #000 !important;
+    }
+    .active {
+      h3 {
+        color: #000 !important;
+      }
+    }
+  }
+  &.second {
+    background: linear-gradient(
+        0deg,
+        rgba(82, 69, 138, 0.3) 0%,
+        rgba(82, 69, 138, 0.3) 100%
+      ),
+      #fff;
+  }
+  &.third {
+    background: linear-gradient(
+        0deg,
+        rgba(216, 58, 60, 0.3) 0%,
+        rgba(216, 58, 60, 0.3) 100%
+      ),
+      #fff;
+  }
+  &.fourth {
+    background: linear-gradient(
+        0deg,
+        rgba(253, 139, 24, 0.5) 0%,
+        rgba(253, 139, 24, 0.5) 100%
+      ),
+      #fff;
+  }
+
   .body {
     display: flex;
-    gap: rem(40);
-    align-items: center;
+    //gap: rem(36);
+    align-items: flex-start;
+    flex-direction: column;
     @media (max-width: rem(992)) {
       flex-direction: column;
     }
@@ -24,15 +70,73 @@
             max-width: 100%;
           }
         }
-
-        > div {
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          @media (max-width: rem(992)) {
-            position: relative;
-            right: unset;
-            bottom: unset;
+      }
+    }
+    .designTabs {
+      width: 100%;
+      margin-bottom: rem(36);
+      .tabs {
+        display: flex;
+        flex-direction: column;
+        //gap: rem(16);
+        .tab {
+          width: 100%;
+          height: 100%;
+          border-bottom: 0.5px solid #fff;
+          padding-bottom: rem(16);
+          padding-top: rem(16);
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          &:hover {
+            .button {
+              opacity: 1;
+            }
+          }
+          &.active {
+            gap: rem(24);
+          }
+          .button {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0;
+            color: #000;
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 140%;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: rem(80);
+            height: rem(80);
+            @media (max-width: rem(992)) {
+              display: none;
+            }
+          }
+          .tabTitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 52px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 120%; /* 62.4px */
+            text-transform: capitalize;
+            transition: all 0.3s ease;
+            @media (max-width: rem(992)) {
+              font-size: rem(32);
+            }
+          }
+          .tabImg {
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: all 0.3s ease;
+            overflow: hidden;
           }
         }
       }

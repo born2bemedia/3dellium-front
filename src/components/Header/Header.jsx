@@ -14,6 +14,7 @@ import HeadAccount from "../HeadAccount/HeadAccount";
 import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from "@/helpers/constants";
 import LinkedinIcon from "@/icons/socials/LinkedinIcon";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
+import Logo from "@/icons/Logo";
 
 const Header = () => {
   const { user, logout } = useAuthStore();
@@ -21,6 +22,26 @@ const Header = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isMenuPopupOpen, setIsMenuPopupOpen] = useState(false);
   const pathname = usePathname();
+
+  const headerDetails = {
+    "/": {
+      class: styles.home,
+    },
+    "/animations": {
+      class: styles.animations,
+    },
+    "/video-production": {
+      class: styles.videoProduction,
+    },
+    "/ux-ui": {
+      class: styles.uxUi,
+    },
+    "/3d-modelling": {
+      class: styles.threeD,
+    },
+  };
+
+  const headerClass = headerDetails[pathname]?.class || "";
 
   const handleScroll = () => {
     if (window.scrollY > 80) {
@@ -52,7 +73,7 @@ const Header = () => {
 
   return (
     <>
-      <div className={styles.headerTop}>
+      <div className={styles.headerTop + " " + headerClass}>
         <div className="_container">
           <div className={styles.row}>
             <div className={styles.col1}>
@@ -78,11 +99,15 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <header className={`${styles.header} ${scrolling ? styles.active : ""}`}>
+      <header
+        className={`${headerClass} ${styles.header} ${
+          scrolling ? styles.active : ""
+        }`}
+      >
         <div className="_container">
           <div className={styles.row}>
             <Link href="/">
-              <img src="/images/head_logo.svg" />
+              <Logo />
             </Link>
             <button
               className={styles.menuBtn}

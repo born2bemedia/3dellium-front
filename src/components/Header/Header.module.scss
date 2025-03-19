@@ -3,6 +3,19 @@
 .headerTop {
   background: #111111;
   padding: rem(20) 0;
+  &.threeD {
+    background: #362b1a;
+  }
+  &.animations {
+    background: #211c32;
+  }
+  &.videoProduction {
+    background: #181818;
+  }
+  &.uxUi {
+    background: #1d4c29;
+  }
+
   .row {
     display: flex;
     justify-content: space-between;
@@ -13,13 +26,22 @@
       .soc {
         display: flex;
         align-items: center;
-        height: rem(40);
-        gap: rem(10);
+        height: rem(30);
+        gap: rem(8);
         background: #f1f1f11a;
         border-radius: rem(12);
-        padding: 0 rem(18);
+        padding: 0 rem(12);
         @media (max-width: rem(992)) {
           display: none;
+        }
+
+        a {
+          svg {
+            height: rem(12);
+            width: auto;
+          }
+          &:nth-child(2) {
+          }
         }
       }
       @media (max-width: rem(992)) {
@@ -100,6 +122,166 @@
   transition: all 0.5s;
   z-index: 999;
   background: #fff;
+
+  &.home {
+    background: #111;
+    .row {
+      > a {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+      nav {
+        a {
+          color: #fff;
+          &:hover {
+            background: #fff;
+            color: #000;
+          }
+        }
+      }
+      button {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+    }
+    &.active {
+      background: #111;
+    }
+  }
+
+  &.threeD {
+    background: #362b1a;
+    .row {
+      > a {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+      nav {
+        a {
+          color: #fff;
+          &:hover {
+            background: #fff;
+            color: #000;
+          }
+        }
+      }
+      button {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+    }
+    &.active {
+      background: #362b1a;
+    }
+  }
+
+  &.animations {
+    background: #211c32;
+    .row {
+      > a {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+      nav {
+        a {
+          color: #fff;
+          &:hover {
+            background: #fff;
+            color: #000;
+          }
+        }
+      }
+      button {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+    }
+    &.active {
+      background: #211c32;
+    }
+  }
+
+  &.videoProduction {
+    background: #181818;
+    .row {
+      > a {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+      nav {
+        a {
+          color: #fff;
+          &:hover {
+            background: #fff;
+            color: #000;
+          }
+        }
+      }
+      button {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+    }
+    &.active {
+      background: #181818;
+    }
+  }
+
+  &.uxUi {
+    background: #1d4c29;
+    .row {
+      > a {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+      nav {
+        a {
+          color: #fff;
+          &:hover {
+            background: #fff;
+            color: #000;
+          }
+        }
+      }
+      button {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+    }
+    &.active {
+      background: #1d4c29;
+    }
+  }
 
   &.active {
     background: #fff;

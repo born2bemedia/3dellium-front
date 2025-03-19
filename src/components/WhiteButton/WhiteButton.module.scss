@@ -1,0 +1,37 @@
+.whiteButton {
+  display: flex;
+  span {
+    white-space: nowrap;
+    &:first-child {
+      height: 34px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: var(--border-radius-full, 9999px);
+      background: #FFF;
+      padding: 0 16px;
+      color: #757575;
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%; /* 22.4px */
+    }
+    &:last-child {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: var(--border-radius-full, 9999px);
+      background: #FFF;
+      svg {
+        width: 20px;
+        height: 20px;
+        path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+}

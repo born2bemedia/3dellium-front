@@ -6,6 +6,7 @@ import styles from "./CtaBlock.module.scss";
 import Link from "next/link";
 import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
 import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
+import GreyButton from "@/components/GreyButton/GreyButton";
 
 const CtaBlock = () => {
   return (
@@ -17,50 +18,104 @@ const CtaBlock = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className={styles.col1}
+            className={styles.top}
           >
-            <h2>
-              It's <br />
-              3Dellium!
-            </h2>
-            <Link href={"/factory-tour"}>
-              <div>
-                <AddToCartArrow2 />
-                <span>Explore Our World</span>
-                <AddToCartArrow1 />
-              </div>
-            </Link>
+            <h2>It's 3Dellium!</h2>
+            <GreyButton link="/factory-tour" text="Explore Our World" />
           </motion.div>
-          <div className={styles.col2}>
+          <div className={styles.bottom}>
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className={styles.text}
+              className={styles.item}
             >
-              <span>Ready-to-Use Solutions</span>
-              Professional designs, instantly available.
+              <div>
+                <h3>Ready-to-Use Solutions</h3>
+                <p>Professional designs, instantly available.</p>
+              </div>
+              <img src="/images/home/cta1.svg" alt="icon1" />
             </motion.div>
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className={styles.text}
+              className={styles.item}
             >
-              <span>Everyday Convenience</span>
-              Practical tools and content for real life.
+              <div>
+                <h3>Everyday Convenience</h3>
+                <p>Practical tools and content for real life.</p>
+              </div>
+              <img src="/images/home/cta2.svg" alt="icon1" />
             </motion.div>
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className={styles.text}
+              className={styles.item}
             >
-              <span>Expressive Designs</span>
-              Tell your story with engaging visuals.
+              <div>
+                <h3>Expressive Designs</h3>
+                <p>Tell your story with engaging visuals.</p>
+              </div>
+              <img src="/images/home/cta3.svg" alt="icon1" />
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className={styles.top}
+          >
+            <h2 className={styles.right}>High-Quality Designs Every Time</h2>
+          </motion.div>
+
+          <div className={styles.bottom}>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className={styles.item}
+            >
+              <div>
+                <h3>Expert Craftsmanship</h3>
+                <p>
+                  Every design is meticulously created by skilled professionals.
+                </p>
+              </div>
+              <img src="/images/home/cta4.svg" alt="icon1" />
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className={styles.item}
+            >
+              <div>
+                <h3>Precision and Detail</h3>
+                <p>Tested, refined, and optimized for flawless performance.</p>
+              </div>
+              <img src="/images/home/cta5.svg" alt="icon1" />
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className={styles.item}
+            >
+              <div>
+                <h3>User-Centered Approach</h3>
+                <p>Practical, intuitive, and tailored to real-life needs.</p>
+              </div>
+              <img src="/images/home/cta6.svg" alt="icon1" />
             </motion.div>
           </div>
         </div>
