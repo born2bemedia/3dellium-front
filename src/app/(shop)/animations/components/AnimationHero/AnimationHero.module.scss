@@ -7,6 +7,7 @@
   background: #362b1a;
   @media (max-width: rem(992)) {
     overflow: hidden;
+    //margin-bottom: rem(40);
   }
   .container {
     padding: 0 rem(40);
@@ -75,21 +76,32 @@
     }
   }
   .bottom {
-    position: relative;
+    overflow: hidden;
     width: 100%;
     margin-top: rem(40);
-    img {
-      width: 100%;
-      &.heroNew {
-        display: block;
-        @media (max-width: rem(992)) {
-          display: none;
-        }
+    .videos {
+      display: flex;
+      gap: 4px;
+      width: calc(100vw + 48px);
+      left: 50%;
+      transform: translateX(-50%);
+      position: relative;
+      @media (max-width: rem(992)) {
+        width: calc(100vw + 200px);
       }
-      &.heroNewMob {
-        display: none;
+      >div {
+        width: 33.33%!important;
+        height: 600px!important;
+        //border-radius: 16px;
+        overflow: hidden;
         @media (max-width: rem(992)) {
-          display: block;
+          height: 300px!important;
+        }
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 16px;
         }
       }
     }

@@ -25,7 +25,7 @@ const page = () => {
 
   return (
     <>
-      <ShopHero
+      <AnimationHero
         title={"Animations"}
         subtitle={"Move. Express. Enrich Life."}
         image={"/images/animations/hero.webp"}
