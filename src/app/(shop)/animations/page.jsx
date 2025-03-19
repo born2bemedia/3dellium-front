@@ -6,6 +6,7 @@ import AnimationProcess from "./components/AnimationProcess/AnimationProcess";
 import AnimationWhy from "./components/AnimationWhy/AnimationWhy";
 import AnimationHero from "./components/AnimationHero/AnimationHero";
 import NeedAssistanceNew from "@/components/NeedAssistanceNew/NeedAssistanceNew";
+import ShopAnimation from "../components/ShopAnimation/ShopAnimation";
 
 export const metadata = {
   title: "Ready-to-Use Animations | 3Dellium",
@@ -32,8 +33,9 @@ const page = () => {
         backgroundColor={"#211C32"}
       />
       <AnimationProcess />
+      
+      <ShopAnimation categorySlugs={categories} />
       <AnimationWhy />
-      <Shop categorySlugs={categories} />
       <NeedAssistanceNew
         type={"default"}
         background={"/images/home/assist.webp"}
