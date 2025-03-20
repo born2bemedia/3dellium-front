@@ -1,79 +1,202 @@
 @use "@/styles/mixin.scss" as *;
 
 .whenWrong {
-  margin: rem(80) 0;
+  margin: rem(90) 0;
+  @media (max-width: rem(992)) {
+    margin: rem(60) 0;
+  }
+  .sectionTitle {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: rem(24);
+    gap: rem(40);
+    @media (max-width: rem(992)) {
+      max-width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(30);
+      margin-bottom: rem(48);
+    }
+    &.left {
+      margin-left: auto;
+    }
+    &.white {
+      .label {
+        color: #757575;
+        background: #fff;
+      }
+      .title {
+        color: #fff;
+      }
+      .text {
+        color: #fff;
+      }
+    }
+    .col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(8);
+    }
+    .buttons {
+      display: flex;
+      gap: rem(8);
+      @media (max-width: rem(992)) {
+        flex-direction: column;
+        display: none;
+      }
+      a {
+        &:first-child {
+          border: 1px solid rgba(0, 0, 0, 0.6);
+          display: flex;
+          height: 34px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: var(--border-radius-full, 9999px);
+          background: #fff;
+          padding: 0 16px;
+          color: #666;
+          text-align: center;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 140%;
+          &:hover {
+            background: #666;
+            color: #fff;
+          }
+        }
+      }
+    }
+    .label {
+      font-family: var(--font-helvetica-neue);
+      color: #fff;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+      display: flex;
+      padding: 8px 10px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 99px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .title {
+      color: #111;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%; /* 33.6px */
+      @media (max-width: rem(992)) {
+        font-size: 20px;
+        br {
+          display: none;
+        }
+      }
+    }
+    .text {
+      color: #111;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 130%; /* 18.2px */
+      @media (max-width: rem(992)) {
+        font-size: rem(12);
+        br {
+          display: none;
+        }
+      }
+    }
+  }
   .body {
     display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: rem(36);
+    //flex-wrap: wrap;
+    gap: rem(16);
     @media (max-width: rem(992)) {
-      justify-content: flex-start;
+      flex-direction: column;
     }
-    h2 {
-      color: #1d4c29;
-      font-size: rem(40);
-      font-weight: 800;
-      line-height: 1.2;
-      text-align: left;
+    .item {
+      width: 25%;
+      padding: rem(24);
+      border-radius: 16px;
+      background: #f3f3f3;
       display: flex;
       align-items: center;
-      gap: rem(12);
+      flex-direction: column;
+      justify-content: space-between;
+      gap: rem(24);
       @media (max-width: rem(992)) {
-        align-items: flex-end;
+        width: 100%;
+        padding: rem(24);
+        flex-direction: row;
+        gap: rem(16);
+        img {
+          width: 60px;
+          height: 60px;
+        }
       }
-      img {
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: rem(8);
         @media (max-width: rem(992)) {
-          //display: none;
+          width: calc(100% - 76px);
+        }
+        p {
+          color: #000;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%;
+        }
+        h3 {
+          color: #000;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%; /* 24px */
+          @media (max-width: rem(992)) {
+            font-size: 20px;
+          }
         }
       }
     }
-    .row {
+  }
+  .buttonsMobile {
+    gap: rem(8);
+    display: none;
+    margin-top: rem(40);
+    @media (max-width: rem(992)) {
+      flex-direction: column;
       display: flex;
-      flex-wrap: wrap;
-      gap: rem(30);
-      .item {
-        width: calc(50% - rem(15));
-        border: 4px solid #eff3f0;
-        border-radius: rem(16);
-        padding: rem(24);
+      align-items: flex-start;
+      gap: 8px;
+    }
+    a {
+      &:first-child {
+        border: 1px solid rgba(0, 0, 0, 0.6);
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        gap: rem(24);
-        min-height: rem(352);
-        @media (max-width: rem(992)) {
-          width: 100%;
-          gap: rem(16);
-          height: auto;
-          min-height: auto;
-        }
-        p {
-          color: #000000;
-          font-size: rem(22);
-          font-weight: 400;
-          line-height: 1.3;
-          text-align: left;
-          @media (max-width: rem(992)) {
-            font-size: rem(18);
-          }
-        }
-        > div {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: rem(24);
-          h3 {
-            color: #000000;
-            font-size: rem(40);
-            font-weight: 700;
-            line-height: 1.2;
-            text-align: left;
-            @media (max-width: rem(992)) {
-              font-size: rem(32);
-            }
-          }
+        height: 34px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: var(--border-radius-full, 9999px);
+        background: #fff;
+        padding: 0 16px;
+        color: #666;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%;
+        &:hover {
+          background: #666;
+          color: #fff;
         }
       }
     }

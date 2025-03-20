@@ -1,20 +1,116 @@
 @use "@/styles/mixin.scss" as *;
 
 .samplesWrap {
-  margin: rem(50) 0 rem(150) 0;
+  margin: rem(50) 0 rem(140) 0;
   @media (max-width: rem(992)) {
-    margin-bottom: rem(100);
+    margin-bottom: rem(80);
   }
-  h2 {
-    color: #1d4c29;
-    font-size: rem(40);
-    font-weight: 800;
-    line-height: 1.2;
-    text-align: left;
-    margin-bottom: rem(30);
+  .sectionTitle {
     display: flex;
-    align-items: center;
-    gap: rem(12);
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: rem(24);
+    gap: rem(40);
+    @media (max-width: rem(992)) {
+      max-width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(30);
+      margin-bottom: rem(48);
+    }
+    &.left {
+      margin-left: auto;
+    }
+    &.white {
+      .label {
+        color: #757575;
+        background: #fff;
+      }
+      .title {
+        color: #fff;
+      }
+      .text {
+        color: #fff;
+      }
+    }
+    .col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(8);
+    }
+    .buttons {
+      display: flex;
+      gap: rem(8);
+      @media (max-width: rem(992)) {
+        flex-direction: column;
+        display: none;
+      }
+      a {
+        &:first-child {
+          border: 1px solid rgba(0, 0, 0, 0.6);
+          display: flex;
+          height: 34px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: var(--border-radius-full, 9999px);
+          background: #fff;
+          padding: 0 16px;
+          color: #666;
+          text-align: center;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 140%;
+          &:hover {
+            background: #666;
+            color: #fff;
+          }
+        }
+      }
+    }
+    .label {
+      font-family: var(--font-helvetica-neue);
+      color: #fff;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+      display: flex;
+      padding: 8px 10px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 99px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .title {
+      color: #111;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%; /* 33.6px */
+      @media (max-width: rem(992)) {
+        font-size: 20px;
+        br {
+          display: none;
+        }
+      }
+    }
+    .text {
+      color: #111;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 130%; /* 18.2px */
+      @media (max-width: rem(992)) {
+        font-size: rem(12);
+        br {
+          display: none;
+        }
+      }
+    }
   }
   .body {
     display: flex;
@@ -23,19 +119,13 @@
     .videoRow {
       display: flex;
       gap: rem(30);
-      &:nth-child(even) {
-        flex-direction: row-reverse;
-        @media (max-width: rem(992)) {
-          flex-direction: column;
-        }
-      }
       @media (max-width: rem(992)) {
         flex-direction: column;
-        gap: rem(8);
+        gap: rem(24);
       }
       > div {
-        &:first-child {
-          width: calc(100% - rem(272));
+        &:last-child {
+          width: calc(100% - rem(402));
           border-radius: rem(20);
           overflow: hidden;
           background-position: center;
@@ -47,28 +137,27 @@
             height: rem(250) !important;
           }
         }
-        &:last-child {
-          width: rem(242);
-          background: #eff3f0;
-          padding: rem(16);
-          border-radius: rem(20);
+        &:first-child {
+          width: rem(372);
+          padding: rem(40);
           @media (max-width: rem(992)) {
             width: 100%;
+            padding: rem(0);
           }
           h3 {
             color: #000;
-            font-size: rem(18);
-            font-weight: 700;
-            line-height: 1.3;
-            text-align: left;
-            margin-bottom: rem(6);
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin-bottom: rem(8);
           }
           p {
             color: #000000;
-            font-size: rem(14);
+            font-size: 14px;
+            font-style: normal;
             font-weight: 400;
-            line-height: 1.4;
-            text-align: left;
+            line-height: 140%; /* 19.6px */
           }
         }
       }
@@ -121,8 +210,8 @@
             left: 0;
             svg {
               border-radius: rem(8);
-              &:first-child{
-                rect{
+              &:first-child {
+                rect {
                   fill: #2d2d2d;
                 }
               }

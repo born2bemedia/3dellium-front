@@ -66,8 +66,6 @@ const HowWeCraftExperiences = () => {
                     <p>{detail.text}</p>
                   </div>
                 </div>
-
-                <img src="/images/video-production/plus.svg" />
               </div>
             </div>
           ))}

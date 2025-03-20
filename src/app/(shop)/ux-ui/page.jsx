@@ -7,7 +7,7 @@ import WhenWrong from "./components/WhenWrong/WhenWrong";
 import ExperiencesWeCrafted from "./components/ExperiencesWeCrafted/ExperiencesWeCrafted";
 import NeedAssistanceNew from "@/components/NeedAssistanceNew/NeedAssistanceNew";
 import ShopHero from "../components/ShopHero/ShopHero";
-import WeDesign from "@/app/(home)/components/WeDesign/WeDesign";
+import WeDesign from "./components/WeDesign/WeDesign";
 
 export const metadata = {
   title: "Professional UI/UX Design | 3Dellium",
