@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { fadeInLeft, fadeInRight, fadeInUp } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import styles from "./AnimationHero.module.scss";
@@ -15,6 +15,8 @@ const AnimationHero = ({
   imageMob,
   backgroundColor,
 }) => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
   return (
     <section className={styles.homeHero} style={{ backgroundColor }}>
       <div className={"_container"}>
@@ -56,39 +58,75 @@ const AnimationHero = ({
         className={styles.bottom}
       >
         <div className={styles.videos}>
-          <ReactPlayer
-            url={"/images/animations/video1.mp4"}
-            playing={true}
-            controls={false}
-            loop={true}
-            className={styles.video}
-            height={300}
-            muted={true}
-            volume={0}
-            cover={"/images/animations/video1.png"}
-          />
-          <ReactPlayer
-            url={"/images/animations/video2.mp4"}
-            playing={true}
-            controls={false}
-            loop={true}
-            className={styles.video}
-            height={300}
-            muted={true}
-            volume={0}
-            cover={"/images/animations/video2.png"}
-          />
-          <ReactPlayer
-            url={"/images/animations/video3.mp4"}
-            playing={true}
-            controls={false}
-            loop={true}
-            className={styles.video}
-            height={300}
-            muted={true}
-            volume={0}
-            cover={"/images/animations/video3.png"}
-          />
+          <div className={styles.videoWrapper}>
+            <Image
+              fill
+              quality={100}
+              src={"/images/animations/video1.png"}
+              alt={"video1"}
+              style={{
+                opacity: isVideoPlaying ? 0 : 1,
+              }}
+            />
+            <ReactPlayer
+              url={"/images/animations/video1.mp4"}
+              playing={isVideoPlaying}
+              controls={false}
+              loop={true}
+              className={styles.video}
+              height={300}
+              muted={true}
+              volume={0}
+              //light={"/images/animations/video1.png"}
+              onReady={() => setIsVideoPlaying(true)}
+            />
+          </div>
+          <div className={styles.videoWrapper}>
+            <Image
+              fill
+              quality={100}
+              src={"/images/animations/video2.png"}
+              alt={"video1"}
+              style={{
+                opacity: isVideoPlaying ? 0 : 1,
+              }}
+            />
+            <ReactPlayer
+              url={"/images/animations/video2.mp4"}
+              playing={isVideoPlaying}
+              controls={false}
+              loop={true}
+              className={styles.video}
+              height={300}
+              muted={true}
+              volume={0}
+              //light={"/images/animations/video2.png"}
+              onReady={() => setIsVideoPlaying(true)}
+            />
+          </div>
+          <div className={styles.videoWrapper}>
+            <Image
+              fill
+              quality={100}
+              src={"/images/animations/video3.png"}
+              alt={"video1"}
+              style={{
+                opacity: isVideoPlaying ? 0 : 1,
+              }}
+            />
+            <ReactPlayer
+              url={"/images/animations/video3.mp4"}
+              playing={isVideoPlaying}
+              controls={false}
+              loop={true}
+              className={styles.video}
+              height={300}
+              muted={true}
+              volume={0}
+              //light={"/images/animations/video3.png"}
+              onReady={() => setIsVideoPlaying(true)}
+            />
+          </div>
         </div>
       </motion.div>
     </section>
