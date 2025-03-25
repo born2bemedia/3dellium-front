@@ -13,6 +13,7 @@ export const handleCreateOrder = async (
 
     if (existingUser) {
       userId = existingUser.id;
+      await updateUserProfile(userId, data, user);
     } else {
       const password = Math.random().toString(36).slice(-8);
       const newUser = await registerUser({
@@ -25,11 +26,9 @@ export const handleCreateOrder = async (
       userId = newUser.id;
     }
 
-    await updateUserProfile(userId, data, user);
-
     const orderData = {
       orderNumber: `ORD_${Math.floor(Math.random() * 900000) + 100000}`,
-      user: { id: userId },
+      user: userId,
       items: cart.map((item) => ({
         product: item.id,
         quantity: item.quantity,
@@ -61,9 +60,14 @@ export const handleCreateOrder = async (
       }
     );
 
+    const responseData = await response.json();
+
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.message || "Failed to create order");
+      console.error("Failed to create order. Status:", response.status);
+      console.error("Error details:", responseData);
+      throw new Error(
+        `Failed to create order: ${JSON.stringify(responseData)}`
+      );
     }
 
     const emailPayload = {
@@ -91,7 +95,7 @@ export const handleCreateOrder = async (
       console.error("Failed to send order email.");
     }
 
-    return await response.json();
+    return responseData;
   } catch (error) {
     console.error("Order creation failed:", error);
     throw error;
@@ -111,8 +115,6 @@ export const updateUserProfile = async (userId, data, user) => {
       postalCode: data.postalCode,
     };
 
-    //console.log("Updating user with:", userUpdatePayload);
-
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_CMS_URL}/api/users/${userId}`,
       {
@@ -125,15 +127,17 @@ export const updateUserProfile = async (userId, data, user) => {
       }
     );
 
+    const responseData = await response.json();
+
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error("Failed to update user:", errorData);
-      throw new Error("User update failed");
+      console.error("Failed to update user. Status:", response.status);
+      console.error("Error details:", responseData);
+      throw new Error(`User update failed: ${JSON.stringify(responseData)}`);
     }
 
-    //console.log("User profile updated successfully");
-    return await response.json();
+    return responseData;
   } catch (error) {
     console.error("Error updating user:", error);
+    throw error;
   }
 };
