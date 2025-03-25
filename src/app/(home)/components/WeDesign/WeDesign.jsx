@@ -57,19 +57,19 @@ const WeDesign = () => {
   const data = [
     {
       title: "Expert Nutrition Blog",
-      img: "/images/ux/project1.png",
+      img: "/images/ux/Project1.png",
     },
     {
       title: "project for online horoscopes",
-      img: "/images/ux/project2.png",
+      img: "/images/ux/Project2.png",
     },
     {
       title: "store-like platform for ordering",
-      img: "/images/ux/project3.png",
+      img: "/images/ux/Project3.png",
     },
     {
       title: "website for business orders",
-      img: "/images/ux/project4.png",
+      img: "/images/ux/Project4.png",
     },
   ];
 
