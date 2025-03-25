@@ -113,6 +113,7 @@ const BillingForm = ({ formMethods }) => {
     register,
     control,
     reset,
+    setValue,
     formState: { errors },
   } = formMethods;
 
@@ -251,7 +252,7 @@ const BillingForm = ({ formMethods }) => {
       </div>
 
       <div className={styles.inputWrap}>
-        <label>ZIP:</label>
+        <label>Email:</label>
         <div>
           <input
             type="email"
