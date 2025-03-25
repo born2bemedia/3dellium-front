@@ -28,9 +28,25 @@ const WeDesign = () => {
 
   useEffect(() => {
     const img = imgRef.current;
-    const height = img.clientHeight;
-    setHeight(height);
-  }, []);
+    if (!img) return;
+
+    const updateHeight = () => {
+      const newHeight = img.clientHeight;
+      if (newHeight > 0) {
+        setHeight(`${newHeight}px`);
+      }
+    };
+
+    img.addEventListener("load", updateHeight);
+
+    updateHeight();
+
+    return () => {
+      if (img) {
+        img.removeEventListener("load", updateHeight);
+      }
+    };
+  }, [activeIndex]);
 
   const handleMouseMove = (e, index) => {
     if (!isMobile) {
@@ -108,7 +124,7 @@ const WeDesign = () => {
                     activeIndex === index && styles.active
                   }`}
                   onClick={() =>
-                    setActiveIndex(activeIndex === index ? null : index)
+                    handleTabClick(activeIndex === index ? null : index)
                   }
                   ref={(el) => (divRefs.current[index] = el)}
                   onMouseEnter={() => handleMouseEnter(index)}
@@ -136,9 +152,15 @@ const WeDesign = () => {
                     className={styles.tabImg}
                     style={{
                       height: activeIndex === index ? height : "0",
+                      transition: "height 0.3s ease",
                     }}
                   >
-                    <img src={item.img} alt={item.title} ref={imgRef} />
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      ref={imgRef}
+                      style={{ maxWidth: "100%", display: "block" }}
+                    />
                   </div>
                 </div>
               ))}
