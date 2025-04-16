@@ -1,7 +1,8 @@
 @use "@/styles/mixin.scss" as *;
 
 .main {
-  margin: rem(80) 0;
+  padding: rem(80) 0;
+  background: #111;
   @media (max-width: rem(992)) {
     margin: rem(80) 0;
   }

@@ -55,18 +55,33 @@
     .col2 {
       display: flex;
       gap: rem(18);
+
+      .col2Inner {
+        display: flex;
+        gap: rem(18);
+      }
+
+      .mobileLang {
+        display: none;
+      }
+
       @media (max-width: rem(992)) {
+        .mobileLang {
+          display: flex;
+        }
+
         width: 100%;
         justify-content: space-between;
-        flex-direction: row-reverse;
+        flex-direction: row;
       }
       .cart {
         display: flex;
         align-items: center;
-        height: rem(40);
         background: #f1f1f11a;
-        border-radius: rem(12);
-        padding: 0 rem(18);
+        border-radius: 100px;
+        width: 32px;
+        height: 30px;
+        justify-content: center;
         &:hover {
           color: #000000;
           background: #fff;

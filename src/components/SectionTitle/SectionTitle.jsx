@@ -3,22 +3,25 @@ import React from "react";
 import { fadeInUp } from "@/helpers/animations";
 import { motion } from "framer-motion";
 import styles from "./SectionTitle.module.scss";
-import MoreButton from "../MoreButton/MoreButton";
-import LearnMoreButton from "../LearnMoreButton/LearnMoreButton";
 import GreyButton from "../GreyButton/GreyButton";
+import GreenButton from "@/components/GreenButton/GreenButton";
 
 const SectionTitle = ({
   label,
+  labelVariant,
   title,
+  titleStyles,
   text,
+  textStyles,
   classValue,
   buttonText,
   buttonType,
   buttonLink,
+  buttonVariant,
 }) => {
   return (
     <div
-      className={`${styles.sectionTitle} ${classValue == "white" && styles.white}`}
+      className={`${styles.sectionTitle} ${classValue === "white" && styles.white}`}
     >
       <div className={styles.col}>
         <motion.span
@@ -26,7 +29,7 @@ const SectionTitle = ({
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className={styles.label}
+          className={labelVariant === 'green'? styles.labelGreen : styles.label}
         >
           {label}
         </motion.span>
@@ -36,6 +39,7 @@ const SectionTitle = ({
           viewport={{ once: true }}
           variants={fadeInUp}
           className={styles.title}
+          style={titleStyles}
           dangerouslySetInnerHTML={{ __html: title }}
         />
         <motion.p
@@ -44,10 +48,11 @@ const SectionTitle = ({
           viewport={{ once: true }}
           variants={fadeInUp}
           className={styles.text}
+          style={textStyles}
           dangerouslySetInnerHTML={{ __html: text }}
         />
       </div>
-      {buttonText && <GreyButton text={buttonText} link={buttonLink} />}
+      {buttonText && (buttonVariant === 'green' ? <GreenButton text={buttonText} link={buttonLink} /> : <GreyButton text={buttonText} link={buttonLink} />)}
     </div>
   );
 };
