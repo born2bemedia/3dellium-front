@@ -11,15 +11,19 @@ const WeCapture = () => {
         <div className={styles.body}>
           <SectionTitle
             label={"We Capture"}
+            labelVariant='green'
             title={
               "Tell your story—personalized videos for every moment that matters."
             }
+            titleStyles={{color: '#7BB589'}}
             text={
               "Our ready-to-use video templates help you celebrate, motivate, and showcase your experiences. Whether it’s a heartfelt greeting, a standout portfolio, or a personal highlight reel, we make your vision come to life."
             }
+            textStyles={{color: '#7BB589'}}
             buttonText="Learn More"
             buttonType="learn"
             buttonLink="/video-production"
+            buttonVariant="green"
           />
           <VideoRow />
         </div>

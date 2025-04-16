@@ -4,6 +4,7 @@ import React from "react";
 import styles from "./HeadAccount.module.scss";
 import Link from "next/link";
 import usePopupStore from "@/stores/popupStore";
+import ChevronRight from "@/icons/ChevronRight";
 
 const HeadAccount = () => {
   const { user, logout } = useAuthStore();
@@ -27,8 +28,8 @@ const HeadAccount = () => {
         </div>
       ) : (
         <div className={styles.headAccount}>
-          <button onClick={() => handleSignPopup("signup")}>Sign up</button>|
-          <button onClick={() => handleSignPopup("login")}>Log in</button>
+          <button onClick={() => handleSignPopup("signup")}>Sign up</button>
+          <button onClick={() => handleSignPopup("login")}><ChevronRight /></button>
         </div>
       )}
     </>

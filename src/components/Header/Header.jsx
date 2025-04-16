@@ -91,10 +91,15 @@ const Header = () => {
               <LangSwitcher />
             </div>
             <div className={styles.col2}>
-              <Link className={styles.cart} href={"/checkout"}>
-                <CartIcon />
-              </Link>
-              <HeadAccount />
+              <div className={styles.mobileLang}>
+                <LangSwitcher />
+              </div>
+              <div className={styles.col2Inner}>
+                <Link className={styles.cart} href={"/checkout"}>
+                  <CartIcon width={16} height={16} />
+                </Link>
+                <HeadAccount />
+              </div>
             </div>
           </div>
         </div>
