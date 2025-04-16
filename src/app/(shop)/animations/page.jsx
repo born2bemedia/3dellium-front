@@ -38,8 +38,8 @@ const page = () => {
       <AnimationWhy />
       <NeedAssistanceNew
         type={"default"}
-        background={"/images/home/assist.webp"}
-        backgroundMob={"/images/home/assistMob.webp"}
+        background="/images/animations/assist-bg.jpeg"
+        backgroundMob="/images/animations/assist-bg-mob.jpeg"
         color={"#fff"}
       />
     </>
