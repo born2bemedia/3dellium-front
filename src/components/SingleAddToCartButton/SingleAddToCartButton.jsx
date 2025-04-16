@@ -60,7 +60,7 @@ const SingleAddToCartButton = ({ product }) => {
         <div>
           <AddToCartArrow2 />
           <span>
-            <CartIcon /> {isInCart ? "in cart" : "add to cart"}
+            {isInCart ? "In cart" : "Add to cart"}
           </span>
           <AddToCartArrow1 />
         </div>

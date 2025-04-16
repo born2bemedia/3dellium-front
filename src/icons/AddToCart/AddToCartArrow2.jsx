@@ -10,7 +10,7 @@ const AddToCartArrow2 = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_30_2489)">
-        <rect width="55" height="54" rx="10" fill="#1D4C29" />
+        <rect width="55" height="54" rx="10" fill="#7BB589" />
         <path
           d="M28.2286 35L36 27M36 27L28.2286 19M36 27L19 27"
           stroke="white"

@@ -1,0 +1,40 @@
+.layout {
+  padding: 40px 100px 80px 100px;
+
+  @media (max-width: 768px) {
+    padding: 40px 16px;
+  }
+}
+
+.productRow {
+  display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    div {
+      width: 100%;
+    }
+  }
+}
+
+.imgLayout {
+  @media (max-width: 768px) {
+    height: 350px !important;
+  }
+}
+
+.buyStyles {
+  @media (max-width: 768px) {
+    width: max-content !important;
+  }
+}
+
+.heading {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  margin-bottom: 20px;
+}
