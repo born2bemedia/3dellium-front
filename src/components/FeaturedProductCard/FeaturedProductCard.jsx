@@ -1,18 +1,25 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { fadeInUp } from "@/helpers/animations";
-import { motion } from "framer-motion";
-import styles from "./FeaturedProductCard.module.scss";
-import Link from "next/link";
-import AddToCartButton from "../AddToCartButton";
-import Image from "next/image";
-import AddToCartButtonLoop from "../AddToCartButtonLoop/AddToCartButtonLoop";
-import { API_URL } from "@/helpers/constants";
-import dynamic from "next/dynamic";
+'use client';
+import React, { useEffect, useState } from 'react';
+import { fadeInUp } from '@/helpers/animations';
+import { motion } from 'framer-motion';
+import styles from './FeaturedProductCard.module.scss';
+import Link from 'next/link';
+import AddToCartButton from '../AddToCartButton';
+import Image from 'next/image';
+import AddToCartButtonLoop from '../AddToCartButtonLoop/AddToCartButtonLoop';
+import { API_URL } from '@/helpers/constants';
+import dynamic from 'next/dynamic';
+import { cn } from '@/styles/utils';
 
-const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 
-const FeaturedProductCard = ({ product, classValue, playing = false }) => {
+const FeaturedProductCard = ({
+  product,
+  classValue,
+  playing = false,
+  imgStyles,
+  buyStyles,
+}) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
@@ -28,14 +35,14 @@ const FeaturedProductCard = ({ product, classValue, playing = false }) => {
       viewport={{ once: true }}
       variants={fadeInUp}
       className={`${styles.card} ${
-        classValue.includes("wide") && styles.wide
-      } ${classValue.includes("animation") && styles.full}`}
+        classValue.includes('wide') && styles.wide
+      } ${classValue.includes('animation') && styles.full}`}
     >
       <Link href={`/product/${product.slug}`}>
-        {!classValue.includes("wide") && <h3>{product.title}</h3>}
+        {!classValue.includes('wide') && <h3>{product.title}</h3>}
 
-        <div className={styles.cardImage}>
-          {classValue.includes("wide") ? (
+        <div className={cn(styles.cardImage, imgStyles)}>
+          {classValue.includes('wide') ? (
             <>
               {product.category?.id === 6 ? (
                 <div
@@ -59,7 +66,7 @@ const FeaturedProductCard = ({ product, classValue, playing = false }) => {
                     src={
                       product.big_image?.url
                         ? `${API_URL}${product.big_image.url}`
-                        : "/placeholder.jpg"
+                        : '/placeholder.jpg'
                     }
                     alt={product.title}
                     style={{
@@ -74,7 +81,7 @@ const FeaturedProductCard = ({ product, classValue, playing = false }) => {
                   src={
                     product.big_image?.url
                       ? `${API_URL}${product.big_image.url}`
-                      : "/placeholder.jpg"
+                      : '/placeholder.jpg'
                   }
                   alt={product.title}
                 />
@@ -104,7 +111,7 @@ const FeaturedProductCard = ({ product, classValue, playing = false }) => {
                     src={
                       product.image?.url
                         ? `${API_URL}${product.image.url}`
-                        : "/placeholder.jpg"
+                        : '/placeholder.jpg'
                     }
                     alt={product.title}
                     style={{
@@ -119,7 +126,7 @@ const FeaturedProductCard = ({ product, classValue, playing = false }) => {
                   src={
                     product.image?.url
                       ? `${API_URL}${product.image.url}`
-                      : "/placeholder.jpg"
+                      : '/placeholder.jpg'
                   }
                   alt={product.title}
                 />
@@ -128,8 +135,8 @@ const FeaturedProductCard = ({ product, classValue, playing = false }) => {
           )}
         </div>
       </Link>
-      <div className={styles.cardBottom}>
-        {classValue.includes("wide") && <h3>{product.title}</h3>}
+      <div className={cn(styles.cardBottom, buyStyles)}>
+        {classValue.includes('wide') && <h3>{product.title}</h3>}
         <span className={styles.price}>
           {product.price}
           <span>€</span>

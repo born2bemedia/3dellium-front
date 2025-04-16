@@ -16,6 +16,23 @@ import LinkedinIcon from "@/icons/socials/LinkedinIcon";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
 import Logo from "@/icons/Logo";
 
+const headerDetails = {
+  "/": { class: styles.home },
+  "/animations": { class: styles.animations },
+  "/video-production": { class: styles.videoProduction },
+  "/ux-ui": { class: styles.uxUi },
+  "/3d-modelling": { class: styles.threeD },
+  "/product/": { class: styles.videoProduction }
+};
+
+const resolveHeaderClass = (pathname) => {
+  if (pathname.startsWith("/product/")) {
+    return headerDetails["/product/"].class;
+  }
+
+  return headerDetails[pathname]?.class ?? "";
+};
+
 const Header = () => {
   const { user, logout } = useAuthStore();
   const [scrolling, setScrolling] = useState(false);
@@ -23,25 +40,7 @@ const Header = () => {
   const [isMenuPopupOpen, setIsMenuPopupOpen] = useState(false);
   const pathname = usePathname();
 
-  const headerDetails = {
-    "/": {
-      class: styles.home,
-    },
-    "/animations": {
-      class: styles.animations,
-    },
-    "/video-production": {
-      class: styles.videoProduction,
-    },
-    "/ux-ui": {
-      class: styles.uxUi,
-    },
-    "/3d-modelling": {
-      class: styles.threeD,
-    },
-  };
-
-  const headerClass = headerDetails[pathname]?.class || "";
+  const headerClass = resolveHeaderClass(pathname);
 
   const handleScroll = () => {
     if (window.scrollY > 80) {
