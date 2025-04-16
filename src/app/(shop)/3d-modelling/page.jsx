@@ -37,8 +37,8 @@ const page = () => {
       <Shop categorySlugs={categories} />
       <NeedAssistanceNew
         type={"default"}
-        background={"/images/home/assist.webp"}
-        backgroundMob={"/images/home/assistMob.webp"}
+        background="/images/modelling/assist-bg.jpeg"
+        backgroundMob="/images/modelling/assist-bg.jpeg"
         color={"#fff"}
       />
     </>
