@@ -1,0 +1,37 @@
+.soc {
+  width: max-content;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.10);
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 19.6px */
+}
+
+.link {
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
