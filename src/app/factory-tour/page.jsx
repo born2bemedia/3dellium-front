@@ -1,28 +1,20 @@
-import NeedAssistance from "@/components/NeedAssistance/NeedAssistance";
-import React from "react";
-import FactoryHero from "./components/FactoryHero/FactoryHero";
-import TourDetails from "./components/TourDetails/TourDetails";
+import { Hero, Slider, Title } from './components';
 
-export const metadata = {
-  title: "How We Create 3D Plans, Animations & Designs | 3Dellium",
-  description:
-    "Take a behind-the-scenes look at how we craft high-quality 3D models, animations, videos, and UI/UX designs—built for function, creativity, and impact.",
-  openGraph: {
-    title: "How We Create 3D Plans, Animations & Designs | 3Dellium",
-    description:
-      "Take a behind-the-scenes look at how we craft high-quality 3D models, animations, videos, and UI/UX designs—built for function, creativity, and impact.",
-    images: "https://3dellium.com/images/meta.png",
-  },
-};
+import st from './page.module.scss';
+import NeedAssistanceNew from '@/components/NeedAssistanceNew/NeedAssistanceNew';
 
-const FactoryTourPage = () => {
+export default function FactoryTour() {
   return (
-    <>
-      <FactoryHero />
-      <TourDetails />
-      <NeedAssistance />
-    </>
+    <main className={st.layout}>
+      <Title />
+      <Hero />
+      <Slider />
+      <NeedAssistanceNew
+        type={'default'}
+        background="/images/factory/assist-bg.jpeg"
+        backgroundMob="/images/factory/assist-bg.jpeg"
+        color={'#fff'}
+      />
+    </main>
   );
-};
-
-export default FactoryTourPage;
+}
