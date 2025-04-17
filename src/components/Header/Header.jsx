@@ -24,6 +24,7 @@ const headerDetails = {
   '/3d-modelling': { class: styles.threeD },
   '/product/': { class: styles.home },
   '/contact': { class: styles.home },
+  '/factory-tour': { class: styles.home },
 };
 
 const resolveHeaderClass = pathname => {

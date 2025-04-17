@@ -1,0 +1,33 @@
+.layout {
+  padding: 30px 0 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+}
+
+.title {
+  color: #FFF;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  text-transform: capitalize;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+}
+
+.desc {
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+}
