@@ -96,51 +96,27 @@ function SlideNextButton() {
 
 function Process() {
   return (
-    <div style={{ position: 'relative', width: '127px' }}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="127"
-        height="8"
-        viewBox="0 0 127 8"
-        fill="none"
-      >
-        <path
-          d="M4 4H123"
-          stroke="white"
-          strokeOpacity="0.3"
-          strokeWidth="8"
-          strokeLinecap="round"
-        />
-      </svg>
-      <svg
-        style={{
-          position: 'absolute',
-          bottom: '3px',
-          left: 0,
-          zIndex: 2,
-        }}
-        xmlns="http://www.w3.org/2000/svg"
-        width="80"
-        height="8"
-        viewBox="0 0 80 8"
-        fill="none"
-      >
-        <path
-          d="M4 4H76"
-          stroke="white"
-          strokeOpacity="0.5"
-          strokeWidth="8"
-          strokeLinecap="round"
-        />
-      </svg>
-    </div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="80"
+      height="8"
+      viewBox="0 0 80 8"
+      fill="none"
+    >
+      <path
+        d="M4 4H76"
+        stroke="white"
+        strokeOpacity="0.5"
+        strokeWidth="8"
+        strokeLinecap="round"
+      />
+    </svg>
   );
 }
 
 function DefaultProcess() {
   return (
     <svg
-      style={{ marginTop: '2px' }}
       xmlns="http://www.w3.org/2000/svg"
       width="38"
       height="8"
@@ -149,7 +125,7 @@ function DefaultProcess() {
     >
       <path
         d="M4 4H34"
-        stroke="white"
+        stroke="#b9b8ba"
         strokeOpacity="0.5"
         strokeWidth="8"
         strokeLinecap="round"
