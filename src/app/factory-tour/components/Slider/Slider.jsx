@@ -1,11 +1,13 @@
 'use client';
 
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './Slider.scss';
 import Image from 'next/image';
+import AnimatedBlock from '@/components/AnimatedBlock';
 
 const slides = [
   {
@@ -136,8 +138,15 @@ function DefaultProcess() {
 
 export function Slider() {
   return (
-    <div className="_container">
-      <Swiper loop className="custom-swiper">
+    <AnimatedBlock className="_container">
+      <Swiper
+        modules={[Autoplay]}
+        autoplay={{
+          delay: 4000,
+        }}
+        loop
+        className="custom-swiper"
+      >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="slide-container">
@@ -154,6 +163,6 @@ export function Slider() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </AnimatedBlock>
   );
 }

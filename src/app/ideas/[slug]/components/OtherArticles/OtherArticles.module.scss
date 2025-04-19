@@ -1,0 +1,62 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  gap: 20px;
+  max-width: 235px;
+  flex: 0 0 100%; /* Гарантирует, что элемент не сжимается и занимает всю ширину */
+  width: 100%; /* Альтернативный способ для установки ширины */
+
+  @media (max-width: 1024px) {
+    max-width: 100%;
+    margin-top: 0;
+  }
+}
+
+.cardLayout {
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+  position: relative;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.readArrow {
+  top: 96px;
+  right: 6px;
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  border-radius: 100px;
+
+  @media (max-width: 1024px) {
+    left: 50%;
+    transform: translateX(-10%);
+  }
+}
+
+.cardImage {
+  border-radius: 16px;
+  object-fit: cover;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+}
+
+.cardTitle {
+  color: #0C0C0C;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}

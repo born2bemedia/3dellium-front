@@ -1,7 +1,6 @@
 'use client';
 
 import st from './Title.module.scss';
-import { cn } from '@/styles/utils';
 
 export function Title() {
   return (
