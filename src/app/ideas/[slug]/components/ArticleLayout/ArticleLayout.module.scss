@@ -1,0 +1,13 @@
+.layout {
+  display: flex;
+  gap: 80px;
+  margin: 0 65px;
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    flex-direction: column-reverse;
+    margin: 0;
+    gap: 36px;
+  }
+}
