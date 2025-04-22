@@ -7,6 +7,7 @@ import {
   ArticleBreadcrumbs,
   ArticleContent,
   ArticleLayout,
+  ArticleTag,
   Heading,
   OtherArticles,
 } from './components';
@@ -78,6 +79,7 @@ export default async function ArticlePage({ params }) {
     <>
       <main className="_container">
         <ArticleBreadcrumbs currentPage={idea.title} />
+        {idea.label && <ArticleTag>{idea.label}</ArticleTag>}
         <Heading imgUrl={imageUrl}>{idea.title}</Heading>
         <ArticleLayout>
           <OtherArticles articles={ideasPreview} />

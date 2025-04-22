@@ -16,7 +16,7 @@ function SlideNextButton({ link }) {
     <Link
       href={link}
       className="ideas-read"
-      style={{ display: 'flex', zIndex: '1' }}
+      style={{ display: 'flex', zIndex: '10' }}
       onClick={() => swiper.slideNext()}
     >
       Read
@@ -39,18 +39,15 @@ export function HeroSlider({ slides }) {
           <SwiperSlide key={index}>
             <div className="slide-ideas-container ">
               <div className="slide-ideas-text">
+                {slide.label && (
+                  <span className="ideas-tag">{slide.label}</span>
+                )}
                 <h2>{slide.title}</h2>
                 <p>{slide.desc}</p>
               </div>
               <SlideNextButton link={slide.link} />
               <div className="slide-img">
-                <Image
-                  style={{ objectFit: 'cover' }}
-                  src={slide.imgUrl}
-                  alt={slide.imgUrl}
-                  unoptimized
-                  fill
-                />
+                <Image src={slide.imgUrl} alt={slide.imgUrl} unoptimized fill />
               </div>
             </div>
           </SwiperSlide>

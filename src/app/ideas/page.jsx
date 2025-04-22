@@ -30,6 +30,7 @@ export default async function Ideas() {
     title: idea.title,
     desc: idea.excerpt,
     link: `/ideas/${idea.slug}`,
+    label: idea.label,
   }));
 
   return (
