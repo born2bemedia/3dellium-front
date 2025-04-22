@@ -19,7 +19,7 @@ import Logo from '@/icons/Logo';
 const headerDetails = {
   '/': { class: styles.home },
   '/animations': { class: styles.animations },
-  '/video-production': { class: styles.videoProduction },
+  '/video-production': { class: styles.home },
   '/ux-ui': { class: styles.uxUi },
   '/3d-modelling': { class: styles.threeD },
   '/product/': { class: styles.home },

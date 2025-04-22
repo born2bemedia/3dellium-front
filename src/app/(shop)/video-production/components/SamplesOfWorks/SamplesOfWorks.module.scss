@@ -1,10 +1,35 @@
 @use "@/styles/mixin.scss" as *;
 
+.tag {
+  border-radius: 99px;
+  background: #FFF;
+  padding: 8px 10px;
+  color: #111;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+}
+
+.heading {
+  color: #FFF;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 33.6px */
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
 .samplesWrap {
-  margin: rem(50) 0 rem(150) 0;
-  @media (max-width: rem(992)) {
-    margin-bottom: rem(100);
+  padding: 80px 0;
+  background: #111;
+  overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
   }
+
   h2 {
     color: #1d4c29;
     font-size: rem(40);
