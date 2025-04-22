@@ -1,16 +1,17 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { fadeInUp } from "@/helpers/animations";
-import { motion } from "framer-motion";
-import styles from "./NeedAssistanceNew.module.scss";
-import ContactForm from "../ContactForm/ContactForm";
-import AssistanceForm from "../AssistanceForm/AssistanceForm";
+'use client';
+import React, { useEffect, useState } from 'react';
+import { fadeInUp } from '@/helpers/animations';
+import { motion } from 'framer-motion';
+import styles from './NeedAssistanceNew.module.scss';
+import ContactForm from '../ContactForm/ContactForm';
+import AssistanceForm from '../AssistanceForm/AssistanceForm';
 
 const NeedAssistanceNew = ({
-  type = "default",
-  background = "/images/home/assist.webp",
-  backgroundMob = "/images/home/assistMob.webp",
-  color = "#fff",
+  type = 'default',
+  background = '/images/home/assist.webp',
+  backgroundMob = '/images/home/assistMob.webp',
+  backgroundColor,
+  color = '#fff',
 }) => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -18,11 +19,10 @@ const NeedAssistanceNew = ({
       setIsMobile(window.innerWidth <= 768);
     };
     handleResize();
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
-        
   }, []);
 
   return (
@@ -30,6 +30,7 @@ const NeedAssistanceNew = ({
       className={styles.needAssistance}
       style={{
         backgroundImage: `url(${isMobile ? backgroundMob : background})`,
+        backgroundColor: backgroundColor ?? '#1d4c29',
       }}
     >
       <div className="_container">
