@@ -8,6 +8,7 @@ import { ToastContainer } from "react-toastify";
 import Preloader from "@/components/Preloader";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import SignPopup from "@/components/SignPopup/SignPopup";
+import CookiePopup from "@/components/CookiePopup/CookiePopup";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -129,6 +130,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <ToastContainer />
         <SignPopup />
+        <CookiePopup />
         {/**<SmoothScroll />  */}
       </body>
     </html>
