@@ -119,7 +119,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${poppins.className} ${helvetica.variable} ${helveticaNeue.variable}`}
     >
       <body>

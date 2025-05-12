@@ -4,7 +4,7 @@ import styles from "./LangSwitcher.module.scss";
 import Lang from "@/icons/Lang";
 
 const LangSwitcher = () => {
-  const [currentLang, setCurrentLang] = useState("");
+  const [currentLang, setCurrentLang] = useState("ES");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
@@ -48,6 +48,10 @@ const LangSwitcher = () => {
 
     retryDispatchEvent();
   };
+
+  useEffect(() => {
+    document.cookie = `googtrans=/es/es;path=/;domain=${window.location.hostname}`;
+  }, []);
 
   return (
     <div translate="no" className={styles.langSwitcher}>
