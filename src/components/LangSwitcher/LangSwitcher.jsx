@@ -1,34 +1,28 @@
-import Script from "next/script";
-import { useEffect, useState } from "react";
-import styles from "./LangSwitcher.module.scss";
-import Lang from "@/icons/Lang";
+import Script from 'next/script';
+import { useEffect, useState } from 'react';
+import styles from './LangSwitcher.module.scss';
+import Lang from '@/icons/Lang';
 
 const LangSwitcher = () => {
-  const [currentLang, setCurrentLang] = useState("ES");
+  const [currentLang, setCurrentLang] = useState('EN');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       const lang = document.documentElement.lang;
-      console.log("lang", lang);
+      console.log('lang', lang);
       const langName =
-        lang === "en"
-          ? "English"
-          : lang === "de"
-          ? "German"
-          : lang === "it"
-          ? "Italian"
-          : "Spanish";
+        lang === 'de' ? 'German' : lang === 'it' ? 'Italian' : 'English';
       setCurrentLang(langName);
     }, 1000);
   }, []);
 
   const handleLanguageChange = (language, languageCode) => {
     const retryDispatchEvent = (attempts = 10) => {
-      const select = document.querySelector(".goog-te-combo");
+      const select = document.querySelector('.goog-te-combo');
       if (select) {
         select.value = language;
-        const changeEvent = new Event("change", {
+        const changeEvent = new Event('change', {
           bubbles: true,
           cancelable: true,
         });
@@ -50,7 +44,7 @@ const LangSwitcher = () => {
   };
 
   useEffect(() => {
-    document.cookie = `googtrans=/es/es;path=/;domain=${window.location.hostname}`;
+    //document.cookie = `googtrans=/es/es;path=/;domain=${window.location.hostname}`;
   }, []);
 
   return (
@@ -61,10 +55,10 @@ const LangSwitcher = () => {
 
       {isDropdownOpen && (
         <ul translate="no" className={styles.langList}>
-          <li onClick={() => handleLanguageChange("en", "English")}>English</li>
-          <li onClick={() => handleLanguageChange("de", "German")}>German</li>
-          <li onClick={() => handleLanguageChange("it", "Italian")}>Italian</li>
-          <li onClick={() => handleLanguageChange("es", "Spanish")}>Spanish</li>
+          <li onClick={() => handleLanguageChange('en', 'English')}>English</li>
+          <li onClick={() => handleLanguageChange('de', 'German')}>German</li>
+          <li onClick={() => handleLanguageChange('it', 'Italian')}>Italian</li>
+          {/*<li onClick={() => handleLanguageChange("es", "Spanish")}>Spanish</li> */}
         </ul>
       )}
 
@@ -73,14 +67,14 @@ const LangSwitcher = () => {
         onLoad={() => {
           const googleTranslateElementInit = () => {
             new window.google.translate.TranslateElement(
-              { pageLanguage: "en" },
-              "google_translate_element"
+              { pageLanguage: 'en' },
+              'google_translate_element',
             );
           };
           window.googleTranslateElementInit = googleTranslateElementInit;
         }}
       />
-      <div id="google_translate_element" style={{ display: "none" }}></div>
+      <div id="google_translate_element" style={{ display: 'none' }}></div>
     </div>
   );
 };

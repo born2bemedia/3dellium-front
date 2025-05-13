@@ -21,8 +21,6 @@ export function InfoFirstColumn() {
         <div className={st.container} style={{ height: '100%' }}>
           <p className={st.label}>Office address:</p>
           <p className={st.link}>
-            Office 32, 3rd floor, Av. del Litoral, 12, <br /> Ciutat Vella,
-            08005 Barcelona, Spain
           </p>
           <iframe
             style={{ marginTop: 'auto' }}

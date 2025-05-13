@@ -1,15 +1,15 @@
-"use client";
-import React from "react";
-import styles from "./Footer.module.scss";
-import Link from "next/link";
-import InstagramFooter from "@/icons/socials/InstagramFooter";
-import FacebookFooter from "@/icons/socials/FacebookFooter";
-import { LinkedinFooter } from "@/icons/socials/LinkedinFooter";
-import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from "@/helpers/constants";
-import FacebookIcon from "@/icons/socials/FacebookIcon";
-import LinkedinIcon from "@/icons/socials/LinkedinIcon";
-import InstagramIcon from "@/icons/socials/InstagramIcon";
-import { usePathname } from "next/navigation";
+'use client';
+import React from 'react';
+import styles from './Footer.module.scss';
+import Link from 'next/link';
+import InstagramFooter from '@/icons/socials/InstagramFooter';
+import FacebookFooter from '@/icons/socials/FacebookFooter';
+import { LinkedinFooter } from '@/icons/socials/LinkedinFooter';
+import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from '@/helpers/constants';
+import FacebookIcon from '@/icons/socials/FacebookIcon';
+import LinkedinIcon from '@/icons/socials/LinkedinIcon';
+import InstagramIcon from '@/icons/socials/InstagramIcon';
+import { usePathname } from 'next/navigation';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const pathname = usePathname();
@@ -23,7 +23,7 @@ const Footer = () => {
               <img src="/images/logo.svg" alt="Logo" />
             </Link>
             <h2>
-              <b>Wanwick SL</b> <span>Designs for life.</span>
+              <b>3Dellium Ltd</b> <span>Designs for life.</span>
             </h2>
             <div className={styles.soc}>
               <Link href={FACEBOOK_URL} target="_blank">
@@ -39,34 +39,34 @@ const Footer = () => {
           </div>
           <nav>
             <ul>
-              <li className={pathname === "/3d-modelling" ? styles.active : ""}>
+              <li className={pathname === '/3d-modelling' ? styles.active : ''}>
                 <Link href="/3d-modelling">3d Modelling</Link>
               </li>
-              <li className={pathname === "/animations" ? styles.active : ""}>
+              <li className={pathname === '/animations' ? styles.active : ''}>
                 <Link href="/animations">Animations</Link>
               </li>
               <li
                 className={
-                  pathname === "/video-production" ? styles.active : ""
+                  pathname === '/video-production' ? styles.active : ''
                 }
               >
                 <Link href="/video-production">Video Production</Link>
               </li>
-              <li className={pathname === "/ux-ui" ? styles.active : ""}>
+              <li className={pathname === '/ux-ui' ? styles.active : ''}>
                 <Link href="/ux-ui">UX & UI</Link>
               </li>
             </ul>
             <ul>
-              <li className={pathname === "/factory-tour" ? styles.active : ""}>
+              <li className={pathname === '/factory-tour' ? styles.active : ''}>
                 <Link href="/factory-tour">Factory Tour</Link>
               </li>
-              <li className={pathname === "/ideas" ? styles.active : ""}>
+              <li className={pathname === '/ideas' ? styles.active : ''}>
                 <Link href="/ideas">Ideas</Link>
               </li>
-              <li className={pathname === "/contact" ? styles.active : ""}>
+              <li className={pathname === '/contact' ? styles.active : ''}>
                 <Link href="/contact">Contact Us</Link>
               </li>
-              <li className={pathname === "/account" ? styles.active : ""}>
+              <li className={pathname === '/account' ? styles.active : ''}>
                 <Link href="/account">Your Account</Link>
               </li>
             </ul>
@@ -77,25 +77,21 @@ const Footer = () => {
             <div>
               <h3>Registration Address:</h3>
               <p>
-                Urb. Cancela De La Quinta, Edificio 1, <br />
-                Street Agua Marina, Marbella 29000, <br />
-                Málaga, Spain
+                2nd Floor College House, <br />
+                17 King Edwards Road, Ruislip, <br />
+                London, United Kingdom, HA4 7AE
               </p>
             </div>
-            <div>
+            {/*<div>
               <h3>Office Address:</h3>
-              <p>
-                Office 32, 3rd floor, Av. del <br />
-                Litoral, 12, Ciutat Vella, <br />
-                08005 Barcelona, Spain
-              </p>
-            </div>
+              <p></p>
+            </div>*/}
           </div>
           <div className={styles.col2}>
-            <div>
+            {/*<div>
               <h3>Phone:</h3>
-              <Link href="tel:+34951748379">+34951748379</Link>
-            </div>
+              <Link href="tel:"></Link>
+            </div>*/}
             <div>
               <h3>Email:</h3>
               <Link href="mailto:info@3dellium.com">info@3dellium.com</Link>
