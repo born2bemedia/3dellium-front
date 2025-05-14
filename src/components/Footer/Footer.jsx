@@ -88,10 +88,10 @@ const Footer = () => {
             </div>*/}
           </div>
           <div className={styles.col2}>
-            {/*<div>
+            <div>
               <h3>Phone:</h3>
-              <Link href="tel:"></Link>
-            </div>*/}
+              <Link href="tel:+447401478457">+447401478457</Link>
+            </div>
             <div>
               <h3>Email:</h3>
               <Link href="mailto:info@3dellium.com">info@3dellium.com</Link>
