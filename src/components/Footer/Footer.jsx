@@ -96,6 +96,10 @@ const Footer = () => {
               <h3>Email:</h3>
               <Link href="mailto:info@3dellium.com">info@3dellium.com</Link>
             </div>
+            <div>
+              <h3>Registered number:</h3>
+              <Link href="#">16445375</Link>
+            </div>
           </div>
         </div>
         <div className={styles.legalRow}>

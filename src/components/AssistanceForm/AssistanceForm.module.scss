@@ -3,6 +3,9 @@
 .assistanceForm {
   max-width: rem(655);
   margin: 0 auto;
+  @media (max-width: 992px) {
+    max-width: 100%;
+  }
   .success {
     text-align: left;
     color: #fff;
