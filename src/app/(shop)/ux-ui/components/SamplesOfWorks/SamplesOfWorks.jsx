@@ -59,7 +59,7 @@ const SamplesOfWorks = () => {
               </motion.h2>
             </div>
             <div className={styles.buttons}>
-              <Link href="/3Dellium_Wanwick_SL_Price_List.pdf" target="_blank">
+              <Link href="/3Dellium_Price_List.pdf" target="_blank">
                 Get Pricing
               </Link>
               <GreyButton text={"Order UI/UX Design"} link={"#assistance"} />
