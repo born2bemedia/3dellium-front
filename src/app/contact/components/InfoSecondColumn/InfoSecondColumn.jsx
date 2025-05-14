@@ -8,9 +8,7 @@ import { SocialNetworks } from '../SocialNetworks/SocialNetworks';
 export function InfoSecondColumn() {
   return (
     <section className={st.columnLayout}>
-      <span className={st.soc}>
-        <SocialNetworks />
-      </span>
+      
       <section>
         <div className={st.container}>
           <p className={st.label}>Registration address:</p>
