@@ -11,6 +11,7 @@ import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import usePopupStore from "@/stores/popupStore";
+import CustomPhoneInput from "@/components/CustomPhoneInput/CustomPhoneInput";
 
 // Validation schema with repeat password
 const schema = yup.object().shape({
@@ -108,7 +109,7 @@ export default function Register() {
                 name="phone"
                 control={control}
                 render={({ field }) => (
-                  <PhoneInput
+                  <CustomPhoneInput
                     {...field}
                     country={"us"}
                     onChange={(value) => setValue("phone", value)}

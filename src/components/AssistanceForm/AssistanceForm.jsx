@@ -10,6 +10,7 @@ import styles from "./AssistanceForm.module.scss";
 import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
 import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
 import ArrowRight from "@/icons/Arrows/ArrowRight";
+import CustomPhoneInput from "../CustomPhoneInput/CustomPhoneInput";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -95,7 +96,7 @@ const AssistanceForm = ({ type = "default" }) => {
         </div>
 
         <div>
-          <PhoneInput
+          <CustomPhoneInput
             country={countryCode}
             className={`${styles.phoneWrap} ${errors.email && styles.invalid}`}
             value={phoneValue}
