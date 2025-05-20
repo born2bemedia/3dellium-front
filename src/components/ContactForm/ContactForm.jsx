@@ -9,6 +9,7 @@ import { useState } from "react";
 import styles from "./ContactForm.module.scss";
 import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
 import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
+import CustomPhoneInput from "../CustomPhoneInput/CustomPhoneInput";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -94,7 +95,7 @@ const ContactForm = ({ type = "default" }) => {
         </div>
 
         <div>
-          <PhoneInput
+          <CustomPhoneInput
             country={countryCode}
             className={`${styles.phoneWrap} ${errors.email && styles.invalid}`}
             value={phoneValue}

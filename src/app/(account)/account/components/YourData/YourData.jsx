@@ -13,6 +13,7 @@ import EditIcon from "@/icons/EditIcon";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { filteredCountries } from "@/helpers/excludedCountries";
+import CustomPhoneInput from "@/components/CustomPhoneInput/CustomPhoneInput";
 
 const schema = yup.object().shape({
   firstName: yup.string().required("First name is required"),
@@ -221,7 +222,7 @@ export default function YourData() {
                 name="phone"
                 control={control}
                 render={({ field }) => (
-                  <PhoneInput
+                  <CustomPhoneInput
                     {...field}
                     country={"us"}
                     onChange={(value) => setValue("phone", value)}

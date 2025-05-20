@@ -8,6 +8,7 @@ import useAuthStore from "@/stores/authStore";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { filteredCountries } from "@/helpers/excludedCountries";
+import CustomPhoneInput from "@/components/CustomPhoneInput/CustomPhoneInput";
 
 const getCountryOptionByCode = (code) => {
   const countries = countryList().getData();
@@ -240,7 +241,7 @@ const BillingForm = ({ formMethods }) => {
             name="phone"
             control={control}
             render={({ field }) => (
-              <PhoneInput
+              <CustomPhoneInput
                 {...field}
                 country={"us"}
                 onChange={(value) => setValue("phone", value)}

@@ -149,8 +149,9 @@ export async function POST(request) {
                                 font-size: 10px;
                                 font-style: normal;
                                 font-weight: 300;
-                                line-height: 120%;margin: 0s;">Calle Aguamarina, S/N - Local 1-2, Marbella, 29670,
-                                Malaga</p>
+                                line-height: 120%;margin: 0s;">2nd Floor College House,
+17 King Edwards Road, Ruislip,
+London, United Kingdom, HA4 7AE</p>
 
                         </td>
 
@@ -253,8 +254,9 @@ export async function POST(request) {
                                 font-size: 10px;
                                 font-style: normal;
                                 font-weight: 300;
-                                line-height: 120%;margin: 0s;">Calle Aguamarina, S/N - Local 1-2, Marbella, 29670,
-                                Malaga</p>
+                                line-height: 120%;margin: 0s;">2nd Floor College House,
+17 King Edwards Road, Ruislip,
+London, United Kingdom, HA4 7AE</p>
 
                         </td>
 
@@ -355,8 +357,9 @@ export async function POST(request) {
                                 font-size: 10px;
                                 font-style: normal;
                                 font-weight: 300;
-                                line-height: 120%;margin: 0s;">Calle Aguamarina, S/N - Local 1-2, Marbella, 29670,
-                                Malaga</p>
+                                line-height: 120%;margin: 0s;">2nd Floor College House,
+17 King Edwards Road, Ruislip,
+London, United Kingdom, HA4 7AE</p>
 
                         </td>
 
@@ -460,8 +463,9 @@ export async function POST(request) {
                                 font-size: 10px;
                                 font-style: normal;
                                 font-weight: 300;
-                                line-height: 120%;margin: 0s;">Calle Aguamarina, S/N - Local 1-2, Marbella, 29670,
-                                Malaga</p>
+                                line-height: 120%;margin: 0s;">2nd Floor College House,
+17 King Edwards Road, Ruislip,
+London, United Kingdom, HA4 7AE</p>
 
                         </td>
 
@@ -568,8 +572,9 @@ export async function POST(request) {
                                 font-size: 10px;
                                 font-style: normal;
                                 font-weight: 300;
-                                line-height: 120%;margin: 0s;">Calle Aguamarina, S/N - Local 1-2, Marbella, 29670,
-                                Malaga</p>
+                                line-height: 120%;margin: 0s;">2nd Floor College House,
+17 King Edwards Road, Ruislip,
+London, United Kingdom, HA4 7AE</p>
 
                         </td>
 
