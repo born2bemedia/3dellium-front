@@ -6,14 +6,14 @@ const ReactPlayer = dynamic(() => import('react-player').then(m => m.default), {
   ssr: false,
 });
 
+import { EffectCards } from 'swiper/modules';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
-import { Autoplay, EffectCards } from 'swiper/modules';
 
 import st from './VideoSamples.module.scss';
 
+import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
-import Image from 'next/image';
 
 const videos = [
   {
@@ -76,12 +76,9 @@ export function VideoSamples() {
   return (
     <Swiper
       loop
-      autoplay={{
-        delay: 5000,
-      }}
       effect="cards"
       className={st.slider}
-      modules={[EffectCards, Autoplay]}
+      modules={[EffectCards]}
       cardsEffect={{
         perSlideOffset: 8,
         slideShadows: false,
