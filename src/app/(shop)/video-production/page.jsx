@@ -8,14 +8,14 @@ import NeedAssistanceNew from '@/components/NeedAssistanceNew/NeedAssistanceNew'
 import ShopHero from '../components/ShopHero/ShopHero';
 
 export const metadata = {
-  title: 'Custom Video Production | 3Dellium',
+  title: 'Custom Video Production | 3Dellora',
   description:
     'Get professionally crafted videos for greetings, portfolios, marketing, and social media. Elevate your story with expert video editing.',
   openGraph: {
-    title: 'Custom Video Production | 3Dellium',
+    title: 'Custom Video Production | 3Dellora',
     description:
       'Get professionally crafted videos for greetings, portfolios, marketing, and social media. Elevate your story with expert video editing.',
-    images: 'https://3dellium.com/images/meta.png',
+    images: 'https://3dellora.com/images/meta.png',
   },
 };
 
