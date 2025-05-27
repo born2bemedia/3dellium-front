@@ -33,7 +33,6 @@ const page = () => {
         backgroundColor={'#211C32'}
       />
       <AnimationProcess />
-
       <ShopAnimation categorySlugs={categories} />
       <AnimationWhy />
       <NeedAssistanceNew

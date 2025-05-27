@@ -1,15 +1,15 @@
-import React from "react";
-import Checkout from "./_components/Checkout/Checkout";
-import ThanksPopup from "@/components/ThanksPopup/ThanksPopup";
-import ThanksPopupOrder from "@/components/ThanksPopupOrder/ThanksPopupOrder";
+import React from 'react';
+import Checkout from './_components/Checkout/Checkout';
+import ThanksPopup from '@/components/ThanksPopup/ThanksPopup';
+import ThanksPopupOrder from '@/components/ThanksPopupOrder/ThanksPopupOrder';
 
 export const metadata = {
-  title: "Checkout | 3Dellium",
-  description: "",
+  title: 'Checkout | 3Dellora',
+  description: '',
   openGraph: {
-    title: "Checkout | 3Dellium",
-    description: "",
-    images: "https://3dellium.com/images/meta.png",
+    title: 'Checkout | 3Dellora',
+    description: '',
+    images: 'https://3dellora.com/images/meta.png',
   },
 };
 
@@ -19,9 +19,9 @@ const CheckoutPage = () => {
       <Checkout />
       <ThanksPopupOrder
         type="order"
-        title={"<span>Success!</span> Your order has been submitted."}
+        title={'<span>Success!</span> Your order has been submitted.'}
         subtitle={
-          "You will receive an email with your order details and payment instructions shortly. If you have any questions, feel free to contact us."
+          'You will receive an email with your order details and payment instructions shortly. If you have any questions, feel free to contact us.'
         }
         link="/"
       />

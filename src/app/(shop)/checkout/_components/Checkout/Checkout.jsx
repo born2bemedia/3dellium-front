@@ -45,7 +45,7 @@ const Checkout = () => {
                     </h2>
                     <p>
                       It looks like you haven't added any digital creations yet.
-                      At 3Dellium, every design is crafted to transform your
+                      At 3Dellora, every design is crafted to transform your
                       ideas into reality. Explore our collections and uncover
                       your next inspiration.
                     </p>

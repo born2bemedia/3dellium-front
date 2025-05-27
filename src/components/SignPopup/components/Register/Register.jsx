@@ -1,44 +1,44 @@
-"use client";
-import { Controller, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import useAuthStore from "@/stores/authStore";
-import { useState } from "react";
-import Link from "next/link";
-import styles from "./Register.module.scss";
-import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
-import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import usePopupStore from "@/stores/popupStore";
-import CustomPhoneInput from "@/components/CustomPhoneInput/CustomPhoneInput";
+'use client';
+import { Controller, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import useAuthStore from '@/stores/authStore';
+import { useState } from 'react';
+import Link from 'next/link';
+import styles from './Register.module.scss';
+import AddToCartArrow2 from '@/icons/AddToCart/AddToCartArrow2';
+import AddToCartArrow1 from '@/icons/AddToCart/AddToCartArrow1';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import usePopupStore from '@/stores/popupStore';
+import CustomPhoneInput from '@/components/CustomPhoneInput/CustomPhoneInput';
 
 // Validation schema with repeat password
 const schema = yup.object().shape({
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
-  email: yup.string().email("Invalid email").required("Email is required"),
+  firstName: yup.string().required('First name is required'),
+  lastName: yup.string().required('Last name is required'),
+  email: yup.string().email('Invalid email').required('Email is required'),
   password: yup
     .string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password is required"),
+    .min(6, 'Password must be at least 6 characters')
+    .required('Password is required'),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password"), null], "Passwords must match")
-    .required("Confirm password is required"),
+    .oneOf([yup.ref('password'), null], 'Passwords must match')
+    .required('Confirm password is required'),
   terms: yup
     .boolean()
-    .required("You must accept the terms and conditions")
-    .oneOf([true], "You must accept the terms and conditions"),
+    .required('You must accept the terms and conditions')
+    .oneOf([true], 'You must accept the terms and conditions'),
   refundPolicy: yup
     .boolean()
-    .required("You must accept the refund policy")
-    .oneOf([true], "You must accept the refund policy"),
+    .required('You must accept the refund policy')
+    .oneOf([true], 'You must accept the refund policy'),
 });
 
 export default function Register() {
   const { registerUser } = useAuthStore();
-  const [successMessage, setSuccessMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState('');
   const { thanksPopupDisplay, setThanksPopupDisplay, setSignPopupDisplay } =
     usePopupStore();
 
@@ -59,7 +59,7 @@ export default function Register() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     try {
       await registerUser({
         firstName: data.firstName,
@@ -67,18 +67,18 @@ export default function Register() {
         email: data.email,
         password: data.password,
       });
-      setSuccessMessage("Registration successful! You can now log in.");
+      setSuccessMessage('Registration successful! You can now log in.');
       setSignPopupDisplay(false);
       setThanksPopupDisplay(true);
       reset();
     } catch (error) {
-      setSuccessMessage("Registration failed. Please try again.");
+      setSuccessMessage('Registration failed. Please try again.');
     }
   };
 
   return (
     <div className={styles.register}>
-      <h3>Join 3Dellium</h3>
+      <h3>Join 3Dellora</h3>
       <p>One step left! Fill out the form:</p>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.formInner}>
@@ -86,8 +86,8 @@ export default function Register() {
             <label>First name:</label>
             <div>
               <input
-                className={errors.firstName ? styles.error : ""}
-                {...register("firstName")}
+                className={errors.firstName ? styles.error : ''}
+                {...register('firstName')}
               />
             </div>
           </div>
@@ -96,8 +96,8 @@ export default function Register() {
             <label>Last name:</label>
             <div>
               <input
-                className={errors.lastName ? styles.error : ""}
-                {...register("lastName")}
+                className={errors.lastName ? styles.error : ''}
+                {...register('lastName')}
               />
             </div>
           </div>
@@ -111,8 +111,8 @@ export default function Register() {
                 render={({ field }) => (
                   <CustomPhoneInput
                     {...field}
-                    country={"us"}
-                    onChange={(value) => setValue("phone", value)}
+                    country={'us'}
+                    onChange={value => setValue('phone', value)}
                   />
                 )}
               />
@@ -123,9 +123,9 @@ export default function Register() {
             <label>Email:</label>
             <div>
               <input
-                className={errors.email ? styles.error : ""}
+                className={errors.email ? styles.error : ''}
                 type="email"
-                {...register("email")}
+                {...register('email')}
               />
             </div>
           </div>
@@ -134,21 +134,21 @@ export default function Register() {
             <label>Password:</label>
             <div>
               <input
-                className={errors.password ? styles.error : ""}
-                type={showPasswords.password ? "text" : "password"}
-                {...register("password")}
+                className={errors.password ? styles.error : ''}
+                type={showPasswords.password ? 'text' : 'password'}
+                {...register('password')}
               />
               <button
                 type="button"
                 onClick={() =>
-                  setShowPasswords((prev) => ({
+                  setShowPasswords(prev => ({
                     ...prev,
                     password: !prev.password,
                   }))
                 }
                 className={styles.eyeIcon}
               >
-                {showPasswords.password ? "👁️" : "👁️‍🗨️"}
+                {showPasswords.password ? '👁️' : '👁️‍🗨️'}
               </button>
             </div>
           </div>
@@ -157,21 +157,21 @@ export default function Register() {
             <label>Confirm Password:</label>
             <div>
               <input
-                className={errors.confirmPassword ? styles.error : ""}
-                type={showPasswords.confirmPassword ? "text" : "password"}
-                {...register("confirmPassword")}
+                className={errors.confirmPassword ? styles.error : ''}
+                type={showPasswords.confirmPassword ? 'text' : 'password'}
+                {...register('confirmPassword')}
               />
               <button
                 type="button"
                 onClick={() =>
-                  setShowPasswords((prev) => ({
+                  setShowPasswords(prev => ({
                     ...prev,
                     confirmPassword: !prev.confirmPassword,
                   }))
                 }
                 className={styles.eyeIcon}
               >
-                {showPasswords.confirmPassword ? "👁️" : "👁️‍🗨️"}
+                {showPasswords.confirmPassword ? '👁️' : '👁️‍🗨️'}
               </button>
             </div>
           </div>
@@ -179,10 +179,10 @@ export default function Register() {
         {successMessage && (
           <p
             style={{
-              marginTop: "0",
-              color: "red",
-              fontSize: "14px",
-              textAlign: "left",
+              marginTop: '0',
+              color: 'red',
+              fontSize: '14px',
+              textAlign: 'left',
             }}
           >
             {successMessage}
@@ -201,12 +201,12 @@ export default function Register() {
             <div>
               <label>
                 <input
-                  className={errors.terms ? styles.error : ""}
+                  className={errors.terms ? styles.error : ''}
                   type="checkbox"
-                  {...register("terms")}
+                  {...register('terms')}
                 />
                 <span>
-                  I have read and agree to 3Dellium’s Terms and Conditions and
+                  I have read and agree to 3Dellora’s Terms and Conditions and
                   Privacy Policy.
                 </span>
               </label>
@@ -215,10 +215,10 @@ export default function Register() {
             <div>
               <label>
                 <input
-                  className={errors.refundPolicy ? styles.error : ""}
+                  className={errors.refundPolicy ? styles.error : ''}
                   type="checkbox"
-                  {...register("refundPolicy")}
-                />{" "}
+                  {...register('refundPolicy')}
+                />{' '}
                 <span>
                   I confirm that I am over 18 years old and accept the above
                   terms.
