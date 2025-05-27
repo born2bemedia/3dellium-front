@@ -10,14 +10,14 @@ import ShopHero from '../components/ShopHero/ShopHero';
 import WeDesign from './components/WeDesign/WeDesign';
 
 export const metadata = {
-  title: 'Professional UI/UX Design | 3Dellium',
+  title: 'Professional UI/UX Design | 3Dellora',
   description:
     'Get expert-crafted UI/UX design for personal websites, portfolios, blogs, and apps. Make your digital presence seamless and engaging.',
   openGraph: {
-    title: 'Professional UI/UX Design | 3Dellium',
+    title: 'Professional UI/UX Design | 3Dellora',
     description:
       'Get expert-crafted UI/UX design for personal websites, portfolios, blogs, and apps. Make your digital presence seamless and engaging.',
-    images: 'https://3dellium.com/images/meta.png',
+    images: 'https://3dellora.com/images/meta.png',
   },
 };
 

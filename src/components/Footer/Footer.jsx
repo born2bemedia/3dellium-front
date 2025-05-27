@@ -27,13 +27,13 @@ const Footer = () => {
             </h2>
             <div className={styles.soc}>
               <Link href={FACEBOOK_URL} target="_blank">
-                <FacebookIcon />
+                <FacebookIcon width={10} height={10} />
               </Link>
               <Link href={LINKEDIN_URL} target="_blank">
-                <LinkedinIcon />
+                <LinkedinIcon width={10} height={10} />
               </Link>
               <Link href={INSTAGRAM_URL} target="_blank">
-                <InstagramIcon />
+                <InstagramIcon width={10} height={10} />
               </Link>
             </div>
           </div>
@@ -94,7 +94,7 @@ const Footer = () => {
             </div>
             <div>
               <h3>Email:</h3>
-              <Link href="mailto:info@3dellium.com">info@3dellium.com</Link>
+              <Link href="mailto:info@3dellora.com">info@3dellora.com</Link>
             </div>
             <div>
               <h3>Registered number:</h3>

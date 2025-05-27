@@ -1,33 +1,33 @@
-"use client";
-import React from "react";
-import { fadeInUp } from "@/helpers/animations";
-import { motion } from "framer-motion";
-import styles from "./AnimationWhy.module.scss";
-import Image from "next/image";
-import Link from "next/link";
-import GreyButton from "@/components/GreyButton/GreyButton";
+'use client';
+import React from 'react';
+import { fadeInUp } from '@/helpers/animations';
+import { motion } from 'framer-motion';
+import styles from './AnimationWhy.module.scss';
+import Image from 'next/image';
+import Link from 'next/link';
+import GreyButton from '@/components/GreyButton/GreyButton';
 
 const AnimationWhy = () => {
   const advantages = [
     {
-      title: "Ready-to-Use & <br/>Custom Options",
-      text: "Choose pre-made animations or order a custom creation.",
-      icon: "/images/animations/adv1.svg",
+      title: 'Ready-to-Use & <br/>Custom Options',
+      text: 'Choose pre-made animations or order a custom creation.',
+      icon: '/images/animations/adv1.svg',
     },
     {
-      title: "Personalized <br/>Storytelling",
-      text: "Designed to match your unique style and message.",
-      icon: "/images/animations/adv2.svg",
+      title: 'Personalized <br/>Storytelling',
+      text: 'Designed to match your unique style and message.',
+      icon: '/images/animations/adv2.svg',
     },
     {
-      title: "High-Quality <br/>Graphics",
-      text: "Smooth motion, sharp visuals, and all-screen optimized.",
-      icon: "/images/animations/adv3.svg",
+      title: 'High-Quality <br/>Graphics',
+      text: 'Smooth motion, sharp visuals, and all-screen optimized.',
+      icon: '/images/animations/adv3.svg',
     },
     {
-      title: "Affordable <br/>Pricing",
-      text: "Flexible packages that fit your needs and budget.",
-      icon: "/images/animations/adv4.svg",
+      title: 'Affordable <br/>Pricing',
+      text: 'Flexible packages that fit your needs and budget.',
+      icon: '/images/animations/adv4.svg',
     },
   ];
 
@@ -52,7 +52,7 @@ const AnimationWhy = () => {
               variants={fadeInUp}
               className={styles.title}
             >
-              Why Order Animations from 3Dellium?
+              Why Order Animations from 3Dellora?
             </motion.h2>
             <motion.p
               initial="hidden"
@@ -61,16 +61,16 @@ const AnimationWhy = () => {
               variants={fadeInUp}
               className={styles.text}
             >
-              Crafted by experts, designed for impact—our animations are built{" "}
+              Crafted by experts, designed for impact—our animations are built{' '}
               <br />
               to inspire.
             </motion.p>
           </div>
           <div className={styles.buttons}>
-            <Link href="/3Dellium_Price_List.pdf" target="_blank">
+            <Link href="/3Dellium_Ltd_Price_List.pdf" target="_blank">
               Get Pricing
             </Link>
-            <GreyButton text={"Order Custom Animation"} link={"#assistance"} />
+            <GreyButton text={'Order Custom Animation'} link={'#assistance'} />
           </div>
         </div>
         <div className={styles.body}>
@@ -95,7 +95,7 @@ const AnimationWhy = () => {
           <Link href="/3Dellium_Price_List.pdf" target="_blank">
             Get Pricing
           </Link>
-          <GreyButton text={"Order Custom Animation"} link={"#assistance"} />
+          <GreyButton text={'Order Custom Animation'} link={'#assistance'} />
         </div>
       </div>
     </section>

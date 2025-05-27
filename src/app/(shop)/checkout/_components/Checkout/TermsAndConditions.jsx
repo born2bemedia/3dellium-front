@@ -1,7 +1,7 @@
-"use client";
-import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
-import styles from "./Checkout.module.scss";
-import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
+'use client';
+import AddToCartArrow2 from '@/icons/AddToCart/AddToCartArrow2';
+import styles from './Checkout.module.scss';
+import AddToCartArrow1 from '@/icons/AddToCart/AddToCartArrow1';
 
 const TermsAndConditions = ({ formMethods, isSubmitting, submitError }) => {
   const {
@@ -16,12 +16,12 @@ const TermsAndConditions = ({ formMethods, isSubmitting, submitError }) => {
           <div>
             <label>
               <input
-                className={errors.terms ? styles.error : ""}
+                className={errors.terms ? styles.error : ''}
                 type="checkbox"
-                {...register("terms")}
+                {...register('terms')}
               />
               <span>
-                I have read and agree to 3Dellium’s Terms and Conditions.
+                I have read and agree to 3Dellora’s Terms and Conditions.
               </span>
             </label>
           </div>
@@ -29,10 +29,10 @@ const TermsAndConditions = ({ formMethods, isSubmitting, submitError }) => {
           <div>
             <label>
               <input
-                className={errors.refundPolicy ? styles.error : ""}
+                className={errors.refundPolicy ? styles.error : ''}
                 type="checkbox"
-                {...register("refundPolicy")}
-              />{" "}
+                {...register('refundPolicy')}
+              />{' '}
               <span>I have read and agree to the Refund Policy.</span>
             </label>
           </div>
@@ -40,7 +40,7 @@ const TermsAndConditions = ({ formMethods, isSubmitting, submitError }) => {
         <button type="submit" disabled={isSubmitting}>
           <div>
             <AddToCartArrow2 />
-            <span>{isSubmitting ? "Loading..." : "Order"}</span>
+            <span>{isSubmitting ? 'Loading...' : 'Order'}</span>
             <AddToCartArrow1 />
           </div>
         </button>
@@ -48,9 +48,9 @@ const TermsAndConditions = ({ formMethods, isSubmitting, submitError }) => {
       {submitError && (
         <div
           style={{
-            color: "red",
-            marginBottom: "15px",
-            textAlign: "center",
+            color: 'red',
+            marginBottom: '15px',
+            textAlign: 'center',
           }}
         >
           {submitError}

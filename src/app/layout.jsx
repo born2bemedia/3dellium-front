@@ -1,118 +1,118 @@
-import localFont from "next/font/local";
-import { Poppins } from "next/font/google";
-import "@/styles/base.scss";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
-import SmoothScroll from "@/components/SmoothScroll";
-import { ToastContainer } from "react-toastify";
-import Preloader from "@/components/Preloader";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import SignPopup from "@/components/SignPopup/SignPopup";
-import CookiePopup from "@/components/CookiePopup/CookiePopup";
+import localFont from 'next/font/local';
+import { Poppins } from 'next/font/google';
+import '@/styles/base.scss';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+import SmoothScroll from '@/components/SmoothScroll';
+import { ToastContainer } from 'react-toastify';
+import Preloader from '@/components/Preloader';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import SignPopup from '@/components/SignPopup/SignPopup';
+import CookiePopup from '@/components/CookiePopup/CookiePopup';
 
 const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
 const helvetica = localFont({
   src: [
     {
-      path: "./fonts/Helvetica-light.woff",
-      weight: "300",
-      style: "normal",
+      path: './fonts/Helvetica-light.woff',
+      weight: '300',
+      style: 'normal',
     },
     {
-      path: "./fonts/Helvetica-Light.woff2",
-      weight: "300",
-      style: "normal",
+      path: './fonts/Helvetica-Light.woff2',
+      weight: '300',
+      style: 'normal',
     },
     {
-      path: "./fonts/Helvetica-Light.ttf",
-      weight: "300",
-      style: "normal",
+      path: './fonts/Helvetica-Light.ttf',
+      weight: '300',
+      style: 'normal',
     },
     {
-      path: "./fonts/Helvetica.woff",
-      weight: "500",
-      style: "normal",
+      path: './fonts/Helvetica.woff',
+      weight: '500',
+      style: 'normal',
     },
     {
-      path: "./fonts/Helvetica.woff2",
-      weight: "500",
-      style: "normal",
+      path: './fonts/Helvetica.woff2',
+      weight: '500',
+      style: 'normal',
     },
     {
-      path: "./fonts/Helvetica.ttf",
-      weight: "500",
-      style: "normal",
+      path: './fonts/Helvetica.ttf',
+      weight: '500',
+      style: 'normal',
     },
     {
-      path: "./fonts/Helvetica-Bold.woff",
-      weight: "700",
-      style: "normal",
+      path: './fonts/Helvetica-Bold.woff',
+      weight: '700',
+      style: 'normal',
     },
     {
-      path: "./fonts/Helvetica-Bold.woff2",
-      weight: "700",
-      style: "normal",
+      path: './fonts/Helvetica-Bold.woff2',
+      weight: '700',
+      style: 'normal',
     },
     {
-      path: "./fonts/Helvetica-Bold.ttf",
-      weight: "700",
-      style: "normal",
+      path: './fonts/Helvetica-Bold.ttf',
+      weight: '700',
+      style: 'normal',
     },
   ],
-  display: "swap",
-  variable: "--font-helvetica",
+  display: 'swap',
+  variable: '--font-helvetica',
 });
 
 const helveticaNeue = localFont({
   src: [
     {
-      path: "./fonts/HelveticaNeue-Medium.woff",
-      weight: "500",
-      style: "normal",
+      path: './fonts/HelveticaNeue-Medium.woff',
+      weight: '500',
+      style: 'normal',
     },
     {
-      path: "./fonts/HelveticaNeue-Medium.woff2",
-      weight: "500",
-      style: "normal",
+      path: './fonts/HelveticaNeue-Medium.woff2',
+      weight: '500',
+      style: 'normal',
     },
     {
-      path: "./fonts/HelveticaNeue-Medium.ttf",
-      weight: "500",
-      style: "normal",
+      path: './fonts/HelveticaNeue-Medium.ttf',
+      weight: '500',
+      style: 'normal',
     },
     {
-      path: "./fonts/HelveticaNeue-Thin.woff",
-      weight: "300",
-      style: "normal",
+      path: './fonts/HelveticaNeue-Thin.woff',
+      weight: '300',
+      style: 'normal',
     },
     {
-      path: "./fonts/HelveticaNeue-Thin.woff2",
-      weight: "300",
-      style: "normal",
+      path: './fonts/HelveticaNeue-Thin.woff2',
+      weight: '300',
+      style: 'normal',
     },
     {
-      path: "./fonts/HelveticaNeue-Thin.ttf",
-      weight: "300",
-      style: "normal",
+      path: './fonts/HelveticaNeue-Thin.ttf',
+      weight: '300',
+      style: 'normal',
     },
   ],
-  display: "swap",
-  variable: "--font-helvetica-neue",
+  display: 'swap',
+  variable: '--font-helvetica-neue',
 });
 
 export const metadata = {
-  title: "3D Plans, Animations, UI/UX & Video Production | 3Dellium",
+  title: '3D Plans, Animations, UI/UX & Video Production | 3Dellora',
   description:
-    "Find ready-to-use 3D printing plans, animations, UI/UX designs, and video production services—crafted with precision and creativity.",
+    'Find ready-to-use 3D printing plans, animations, UI/UX designs, and video production services—crafted with precision and creativity.',
   openGraph: {
-    title: "3D Plans, Animations, UI/UX & Video Production | 3Dellium",
+    title: '3D Plans, Animations, UI/UX & Video Production | 3Dellora',
     description:
-      "Find ready-to-use 3D printing plans, animations, UI/UX designs, and video production services—crafted with precision and creativity.",
-    images: "https://3dellium.com/images/meta.png",
+      'Find ready-to-use 3D printing plans, animations, UI/UX designs, and video production services—crafted with precision and creativity.',
+    images: 'https://3dellora.com/images/meta.png',
   },
 };
 
