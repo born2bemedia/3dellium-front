@@ -1,4 +1,4 @@
-@use "@/styles/mixin.scss" as *;
+@use '@/styles/mixin.scss' as *;
 
 .footer {
   background: #111;
@@ -45,13 +45,16 @@
       h2 {
         color: #fff;
         margin-top: rem(16);
-        font-size: rem(18);
+        font-size: rem(24);
         font-weight: 300;
         line-height: 1.2;
         text-align: left;
         display: flex;
         gap: rem(24);
         margin: rem(24) 0;
+      }
+      b {
+        font-weight: 700;
       }
     }
     nav {
@@ -81,7 +84,7 @@
               left: 0;
               top: 50%;
               transform: translateY(-50%);
-              content: "";
+              content: '';
               width: rem(8);
               height: rem(8);
               background: #fff;

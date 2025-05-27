@@ -1,12 +1,12 @@
-"use client";
-import React from "react";
-import { fadeInUp } from "@/helpers/animations";
-import { motion } from "framer-motion";
-import styles from "./CtaBlock.module.scss";
-import Link from "next/link";
-import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
-import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
-import GreyButton from "@/components/GreyButton/GreyButton";
+'use client';
+import React from 'react';
+import { fadeInUp } from '@/helpers/animations';
+import { motion } from 'framer-motion';
+import styles from './CtaBlock.module.scss';
+import Link from 'next/link';
+import AddToCartArrow2 from '@/icons/AddToCart/AddToCartArrow2';
+import AddToCartArrow1 from '@/icons/AddToCart/AddToCartArrow1';
+import GreyButton from '@/components/GreyButton/GreyButton';
 
 const CtaBlock = () => {
   return (
@@ -20,7 +20,7 @@ const CtaBlock = () => {
             variants={fadeInUp}
             className={styles.top}
           >
-            <h2>It's 3Dellium!</h2>
+            <h2>It's 3Dellora!</h2>
             <GreyButton link="/factory-tour" text="Explore Our World" />
           </motion.div>
           <div className={styles.bottom}>
