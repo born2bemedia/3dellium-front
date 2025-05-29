@@ -1,14 +1,14 @@
-"use client";
-import React from "react";
-import { fadeInLeft, fadeInRight, fadeInUp } from "@/helpers/animations";
-import { motion } from "framer-motion";
-import styles from "./HomeHero.module.scss";
-import Image from "next/image";
+'use client';
+import React from 'react';
+import { fadeInLeft, fadeInRight, fadeInUp } from '@/helpers/animations';
+import { motion } from 'framer-motion';
+import styles from './HomeHero.module.scss';
+import Image from 'next/image';
 
 const HomeHero = () => {
   return (
     <section className={styles.homeHero}>
-      <div className={"_container"}>
+      <div className={'_container'}>
         <div className={styles.body}>
           <div className={styles.col1}>
             <motion.h1
@@ -43,7 +43,7 @@ const HomeHero = () => {
               variants={fadeInLeft}
               custom={0.5}
             >
-              Happiness lives in everyday moments—3Dellium brings your ideas to
+              Happiness lives in everyday moments—3Dellora brings your ideas to
               life with ready-to-use designs, animations, and more.
             </motion.p>
           </motion.div>
@@ -56,8 +56,16 @@ const HomeHero = () => {
         variants={fadeInUp}
         className={styles.bottom}
       >
-        <img className={styles.heroNew} src={"/images/home/heroNew.webp"} alt="hero" />
-        <img className={styles.heroNewMob} src={"/images/home/heroNewMob.webp"} alt="hero" />
+        <img
+          className={styles.heroNew}
+          src={'/images/home/heroNew.webp'}
+          alt="hero"
+        />
+        <img
+          className={styles.heroNewMob}
+          src={'/images/home/heroNewMob.webp'}
+          alt="hero"
+        />
       </motion.div>
     </section>
   );
