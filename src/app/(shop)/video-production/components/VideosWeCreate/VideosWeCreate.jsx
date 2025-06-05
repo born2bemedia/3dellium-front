@@ -1,52 +1,52 @@
-"use client";
-import React from "react";
-import { fadeInUp } from "@/helpers/animations";
-import { motion } from "framer-motion";
-import styles from "./VideosWeCreate.module.scss";
-import Link from "next/link";
-import GreyButton from "@/components/GreyButton/GreyButton";
+'use client';
+import React from 'react';
+import { fadeInUp } from '@/helpers/animations';
+import { motion } from 'framer-motion';
+import styles from './VideosWeCreate.module.scss';
+import Link from 'next/link';
+import GreyButton from '@/components/GreyButton/GreyButton';
 
 const VideosWeCreate = () => {
   const details = [
     {
-      title: "Personal Greetings",
-      text: "From heartfelt birthday wishes to special milestone celebrations, these videos let you connect with loved ones uniquely and memorably.",
+      title: 'Personal Greetings',
+      text: 'From heartfelt birthday wishes to special milestone celebrations, these videos let you connect with loved ones uniquely and memorably.',
     },
     {
-      title: "Portfolio & Skill Showcases",
-      text: "Perfect for job applications or freelance work, these videos highlight your talents, skills, and projects in a polished format.",
+      title: 'Portfolio & Skill Showcases',
+      text: 'Perfect for job applications or freelance work, these videos highlight your talents, skills, and projects in a polished format.',
     },
     {
-      title: "Social Media Engagement",
-      text: "Designed to grab attention, these videos are optimized for platforms like Instagram, TikTok, and Facebook to inspire shares, likes, and comments.",
+      title: 'Social Media Engagement',
+      text: 'Designed to grab attention, these videos are optimized for platforms like Instagram, TikTok, and Facebook to inspire shares, likes, and comments.',
     },
     {
-      title: "Product or Service Marketing",
-      text: "Promote your brand with videos that showcase your offerings, explain their benefits, and drive conversions.",
+      title: 'Product or Service Marketing',
+      text: 'Promote your brand with videos that showcase your offerings, explain their benefits, and drive conversions.',
     },
     {
-      title: "Event Highlights",
-      text: "In a beautifully edited recap video, capture the magic of weddings, parties, or conferences.",
+      title: 'Event Highlights',
+      text: 'In a beautifully edited recap video, capture the magic of weddings, parties, or conferences.',
     },
     {
-      title: "Educational & How-To Videos",
-      text: "Simplify complex concepts or share step-by-step instructions with clear, engaging visuals.",
+      title: 'Educational & How-To Videos',
+      text: 'Simplify complex concepts or share step-by-step instructions with clear, engaging visuals.',
     },
     {
-      title: "Corporate Presentations",
-      text: "Elevate your business pitches or internal communications with professional videos that deliver your message effectively.",
+      title: 'Corporate Presentations',
+      text: 'Elevate your business pitches or internal communications with professional videos that deliver your message effectively.',
     },
     {
-      title: "Animation-Infused Stories",
-      text: "Add animated elements to explain ideas or enhance your story with playful or professional graphics.",
+      title: 'Animation-Infused Stories',
+      text: 'Add animated elements to explain ideas or enhance your story with playful or professional graphics.',
     },
     {
-      title: "Inspirational or Motivational Clips",
-      text: "Encourage your audience with uplifting quotes, messages, or creative visuals that energize and inspire.",
+      title: 'Inspirational or Motivational Clips',
+      text: 'Encourage your audience with uplifting quotes, messages, or creative visuals that energize and inspire.',
     },
     {
-      title: "Custom Videos for Any Purpose",
-      text: "Got a unique idea? We’ll bring it to life with a completely tailored solution.",
+      title: 'Custom Videos for Any Purpose',
+      text: 'Got a unique idea? We’ll bring it to life with a completely tailored solution.',
     },
   ];
 
@@ -77,10 +77,10 @@ const VideosWeCreate = () => {
               </motion.p>
             </div>
             <div className={styles.buttons}>
-              <Link href="/3Dellium_Price_List.pdf" target="_blank">
+              <Link href="/3Dellium_Ltd_Price_List.pdf" target="_blank">
                 Get Pricing
               </Link>
-              <GreyButton text={"Order Video"} link={"#assistance"} />
+              <GreyButton text={'Order Video'} link={'#assistance'} />
             </div>
           </div>
 
@@ -100,10 +100,10 @@ const VideosWeCreate = () => {
             ))}
           </div>
           <div className={styles.buttonsMobile}>
-          <Link href="/3Dellium_Price_List.pdf" target="_blank">
-            Get Pricing
-          </Link>
-            <GreyButton text={"Order Video"} link={"#assistance"} />
+            <Link href="/3Dellium_Price_List.pdf" target="_blank">
+              Get Pricing
+            </Link>
+            <GreyButton text={'Order Video'} link={'#assistance'} />
           </div>
         </div>
       </div>
