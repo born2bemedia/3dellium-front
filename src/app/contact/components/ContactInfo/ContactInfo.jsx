@@ -15,7 +15,7 @@ export function ContactInfo() {
         <div className={st.row}>
           <div>
             <h3>Email:</h3>
-            <Link href="mailto:info@3dellium.com">info@3dellium.com</Link>
+            <Link href="mailto:info@3dellora.com">info@3dellora.com</Link>
           </div>
           <div>
             <h3>Phone:</h3>

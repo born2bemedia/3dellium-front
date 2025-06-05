@@ -1,30 +1,26 @@
-"use client";
-import React, { useState } from "react";
-import styles from "./WeDesign.module.scss";
+'use client';
+import React, { useState } from 'react';
+import styles from './WeDesign.module.scss';
 
 const DesignTabs = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleTabClick = (index) => {
+  const handleTabClick = index => {
     setActiveIndex(index);
   };
 
   const data = [
     {
-      title: "Expert Nutrition Blog",
-      img: "/images/ux/Project1.png",
+      title: 'Expert Nutrition Blog',
+      img: '/images/ux/Project1.png',
     },
     {
-      title: "project for online horoscopes",
-      img: "/images/ux/Project2.png",
+      title: 'store-like platform for ordering',
+      img: '/images/ux/Project3.png',
     },
     {
-      title: "store-like platform for ordering",
-      img: "/images/ux/Project3.png",
-    },
-    {
-      title: "website for business orders",
-      img: "/images/ux/Project4.png",
+      title: 'website for business orders',
+      img: '/images/ux/Project4.png',
     },
   ];
   return (
@@ -41,7 +37,7 @@ const DesignTabs = () => {
               className={styles.tabImg}
               style={{
                 backgroundImage: `url(${item.img})`,
-                height: activeIndex === index ? "700px" : "0",
+                height: activeIndex === index ? '700px' : '0',
               }}
             ></div>
           </div>
