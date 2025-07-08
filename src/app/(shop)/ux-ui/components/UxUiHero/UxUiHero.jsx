@@ -28,7 +28,7 @@ const UxUiHero = () => {
         >
           <div className={styles.videoWrap}>
             <Image
-              src={"/images/ux/hero.jpg"}
+              src={"/images/ux/hero.png"}
               width={1447}
               height={545}
               alt="hero"
