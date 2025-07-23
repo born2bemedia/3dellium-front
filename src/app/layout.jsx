@@ -123,7 +123,7 @@ export default function RootLayout({ children }) {
       className={`${poppins.className} ${helvetica.variable} ${helveticaNeue.variable}`}
     >
       <body>
-        <GoogleAnalytics gaId="G-TR7Y6XQPN1" />
+        <GoogleAnalytics gaId="G-SMLT88DRDE" />
         <Preloader />
         <Header />
         <main>{children}</main>
