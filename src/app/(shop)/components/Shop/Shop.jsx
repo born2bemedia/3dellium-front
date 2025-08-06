@@ -180,7 +180,7 @@ export default function Shop({ categorySlugs }) {
                       <div>
                         {cat.slug == "smart-devices" && <SmartDevices />}
                         {cat.slug == "interior-and-design" && <Interior />}
-                        {cat.slug == "games-and-collectibles" && <BoardGames />}
+                        {cat.slug == "gaming" && <BoardGames />}
                         {cat.slug == "garden-and-open-air" && <Garden />}
                         {cat.slug == "fashion-and-wearables" && <Fashion />}
                         <span>{cat.title}</span>
