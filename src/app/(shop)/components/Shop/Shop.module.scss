@@ -1,4 +1,4 @@
-@use "@/styles/mixin.scss" as *;
+@use '@/styles/mixin.scss' as *;
 
 .shopWrap {
   margin: rem(50) 0 rem(80) 0;
@@ -9,6 +9,7 @@
       justify-content: space-between;
       margin-bottom: rem(50);
       gap: rem(8);
+      padding: 0 rem(12);
       @media (max-width: rem(992)) {
         > div {
           flex-grow: 1;
@@ -228,11 +229,14 @@
         display: flex;
         gap: rem(14);
         justify-content: center;
+        flex-wrap: wrap;
+
         @media (max-width: rem(992)) {
           display: none;
         }
         label {
-          width: rem(64);
+          //width: rem(64);
+          width: fit-content;
           transition: all 0.5s;
           position: relative;
           input {
@@ -276,13 +280,14 @@
             top: 50%;
             transform: translate(-50%, -50%);
             transition: all 0.3s;
+            display: none;
           }
 
           span {
             transition: all 0.5s;
             overflow: hidden;
             white-space: nowrap;
-            opacity: 0;
+            opacity: 1;
           }
         }
       }
@@ -318,7 +323,7 @@
           input {
             display: none;
             &:checked + span {
-              background: rgba(54, 43, 26, 0.30);
+              background: rgba(54, 43, 26, 0.3);
               > span {
                 display: block;
               }
@@ -364,7 +369,7 @@
           align-items: center;
           justify-content: center;
           border-radius: rem(16);
-          background: rgba(54, 43, 26, 0.30);
+          background: rgba(54, 43, 26, 0.3);
           &:hover {
             background: #1d4c29;
             svg {
