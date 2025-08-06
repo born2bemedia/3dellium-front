@@ -19,10 +19,11 @@ export const metadata = {
 const page = () => {
   const categories = [
     'gaming',
-    'interior-and-design',
-    'fashion-and-wearables',
-    'garden-and-open-air',
-    'smart-devices',
+    'iconic-characters',
+    'labubu',
+    'letters-and-decor',
+    'memes-and-cuties',
+    'photo-frames',
   ];
 
   return (
