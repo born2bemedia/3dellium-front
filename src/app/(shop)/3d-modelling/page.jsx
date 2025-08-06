@@ -18,7 +18,7 @@ export const metadata = {
 
 const page = () => {
   const categories = [
-    'games-and-collectibles',
+    'gaming',
     'interior-and-design',
     'fashion-and-wearables',
     'garden-and-open-air',

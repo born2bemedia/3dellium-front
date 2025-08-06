@@ -8,7 +8,7 @@ import SmallCard from "@/components/ProductCards/SmallCard/SmallCard";
 
 const WeSimplify = () => {
   const featuredCategories = [
-    "games-and-collectibles",
+    "gaming",
     "interior-and-design",
     "fashion-and-wearables",
     "garden-and-open-air",
