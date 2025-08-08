@@ -22,6 +22,8 @@ const FeaturedProductCard = ({
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
+  console.log(product);
+
   useEffect(() => {
     if (playing) {
       setIsPlaying(true);
@@ -41,7 +43,12 @@ const FeaturedProductCard = ({
       <Link href={`/product/${product.slug}`}>
         {!classValue.includes('wide') && <h3>{product.title}</h3>}
 
-        <div className={cn(styles.cardImage, imgStyles)}>
+        <div
+          className={cn(styles.cardImage, imgStyles)}
+          style={{
+            backgroundColor: product.color ? product.color : 'rgba(0, 0, 0, 0.05)',
+          }}
+        >
           {classValue.includes('wide') ? (
             <>
               {product.category?.id === 6 ? (

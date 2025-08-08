@@ -73,7 +73,14 @@ const ProductHero = ({ product }) => {
                     ))}
                   </div>
                 )}
-                <div className={styles.mainImage}>
+                <div
+                  className={styles.mainImage}
+                  style={{
+                    backgroundColor: product.color
+                      ? product.color
+                      : 'rgba(0, 0, 0, 0.05)',
+                  }}
+                >
                   {product.gallery.length > 0 ? (
                     <Image
                       alt={product.title}
