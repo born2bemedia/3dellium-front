@@ -42,6 +42,11 @@ const SmallCard = ({ id }) => {
             <Link
               href={`/product/${product.slug}`}
               className={styles.cardImage}
+              style={{
+                backgroundColor: product.color
+                  ? product.color
+                  : 'rgba(0, 0, 0, 0.05)',
+              }}
             >
               <img src={`${API_URL}${product.image.url}`} alt={product.title} />
             </Link>

@@ -38,7 +38,13 @@ const BigCard = ({ id }) => {
           variants={fadeInUp}
           className={`${styles.card}`}
         >
-          <Link href={`/product/${product?.slug}`} className={styles.cardImage}>
+          <Link
+            href={`/product/${product?.slug}`}
+            className={styles.cardImage}
+            style={{
+              backgroundColor: product.color ? product.color : 'rgba(0, 0, 0, 0.05)',
+            }}
+          >
             <Image
               fill
               quality={100}
