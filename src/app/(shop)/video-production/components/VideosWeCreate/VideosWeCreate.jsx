@@ -100,7 +100,7 @@ const VideosWeCreate = () => {
             ))}
           </div>
           <div className={styles.buttonsMobile}>
-            <Link href="/3Dellium_Price_List.pdf" target="_blank">
+            <Link href="/3Dellium_Ltd_Price_List.pdf" target="_blank">
               Get Pricing
             </Link>
             <GreyButton text={'Order Video'} link={'#assistance'} />
