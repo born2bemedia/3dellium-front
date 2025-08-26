@@ -46,7 +46,7 @@ const Cart = () => {
                   <div className={styles.cartItemInfoFooter}>
                     <div className={styles.cartItemInfoPriceItem}>
                       {item.quantity * item.attributes.price}
-                      <span>€</span>
+                      <span>£</span>
                     </div>
                     <div className={styles.cartItemInfoQuantity}>
                       <img
@@ -75,7 +75,7 @@ const Cart = () => {
                 (within 3 business days)
               </p>
             </span>
-            <span>€{totalAmount}</span>
+            <span>£{totalAmount}</span>
           </div>
         </>
       ) : (

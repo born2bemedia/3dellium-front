@@ -146,7 +146,7 @@ const FeaturedProductCard = ({
         {classValue.includes('wide') && <h3>{product.title}</h3>}
         <span className={styles.price}>
           {product.price}
-          <span>€</span>
+          <span>£</span>
         </span>
         <AddToCartButtonLoop product={product} />
       </div>

@@ -55,7 +55,7 @@ const SmallCard = ({ id }) => {
           <div className={styles.cardBottom}>
             <span className={styles.price}>
               {product.price}
-              <span>€</span>
+              <span>£</span>
             </span>
             <AddToCartButtonLoop product={product} />
           </div>

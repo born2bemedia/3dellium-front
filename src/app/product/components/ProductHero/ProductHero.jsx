@@ -132,7 +132,7 @@ const ProductHero = ({ product }) => {
             <div className={styles.productBottom}>
               <div className={styles.addToCart}>
                 <div className={styles.price}>
-                  <span>€</span>
+                  <span>£</span>
                   {product.price}
                 </div>
                 <SingleAddToCartButton product={product} />
