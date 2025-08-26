@@ -84,7 +84,7 @@ export async function POST(request) {
                                             line-height: 1.4;
                                             letter-spacing: -0.1px;
                                             margin-left: 0;
-                                            ">${itemName} — Quantity: ${item.quantity}, Price: €${item.price}</li>`;
+                                            ">${itemName} — Quantity: ${item.quantity}, Price: £${item.price}</li>`;
       });
       itemsHtml += `</ul>`;
     }
@@ -109,7 +109,7 @@ export async function POST(request) {
         </p>
         <h3>Order Items</h3>
         ${itemsHtml}
-        <p><strong>Total Amount:</strong> €${total}</p>
+        <p><strong>Total Amount:</strong> £${total}</p>
         <p><strong>Notes:</strong> ${notes || "None"}</p>
       `
     );
@@ -206,7 +206,7 @@ export async function POST(request) {
                                                 font-weight: 700;
                                                 line-height: 1.4;
                                                 letter-spacing: -0.1px;
-                                                ">€${total}</td>
+                                                ">£${total}</td>
                                             </tr>
                                         </table>
 

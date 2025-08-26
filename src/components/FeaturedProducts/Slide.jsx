@@ -108,7 +108,7 @@ const Slide = ({ product, index, activeIndex, isPlaying, setIsPlaying }) => {
         {index == activeIndex && <h3>{product.title}</h3>}
         <span className={styles.price}>
           {product.price}
-          <span>€</span>
+          <span>£</span>
         </span>
         <AddToCartButtonLoop product={product} />
       </div>
