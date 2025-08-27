@@ -1,30 +1,32 @@
-"use client";
-import useCountryCode from "@/helpers/useCountryCode";
-import "react-phone-input-2/lib/style.css";
-import PhoneInput from "react-phone-input-2";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
-import styles from "./AssistanceForm.module.scss";
-import AddToCartArrow2 from "@/icons/AddToCart/AddToCartArrow2";
-import AddToCartArrow1 from "@/icons/AddToCart/AddToCartArrow1";
-import ArrowRight from "@/icons/Arrows/ArrowRight";
-import CustomPhoneInput from "../CustomPhoneInput/CustomPhoneInput";
+'use client';
+import useCountryCode from '@/helpers/useCountryCode';
+import 'react-phone-input-2/lib/style.css';
+import PhoneInput from 'react-phone-input-2';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useState } from 'react';
+import styles from './AssistanceForm.module.scss';
+import AddToCartArrow2 from '@/icons/AddToCart/AddToCartArrow2';
+import AddToCartArrow1 from '@/icons/AddToCart/AddToCartArrow1';
+import ArrowRight from '@/icons/Arrows/ArrowRight';
+import CustomPhoneInput from '../CustomPhoneInput/CustomPhoneInput';
+import ReCaptcha from 'react-google-recaptcha';
 
 // Validation Schema
 const schema = yup.object().shape({
-  name: yup.string().required("Your Name is required"),
-  email: yup.string().email("Invalid email").required("Email is required"),
+  name: yup.string().required('Your Name is required'),
+  email: yup.string().email('Invalid email').required('Email is required'),
   phone: yup
     .string()
-    .matches(/^[0-9]{10,15}$/, "Invalid phone number")
-    .required("Phone Number is required"),
+    .matches(/^[0-9]{10,15}$/, 'Invalid phone number')
+    .required('Phone Number is required'),
 });
 
-const AssistanceForm = ({ type = "default" }) => {
-  const [successMessage, setSuccessMessage] = useState("");
+const AssistanceForm = ({ type = 'default' }) => {
+  const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
   const countryCode = useCountryCode();
   const {
     register,
@@ -37,32 +39,34 @@ const AssistanceForm = ({ type = "default" }) => {
     defaultValues: { type: type },
   });
 
-  const phoneValue = watch("phone");
+  const phoneValue = watch('phone');
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     setLoading(true);
-    setSuccessMessage("");
+    setSuccessMessage('');
     try {
       //console.log("Form submitted", data);
-      const response = await fetch("/api/emails/contact", {
-        method: "POST",
+      const response = await fetch('/api/emails/contact', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
 
       if (response.ok) {
-        setSuccessMessage("Your message has been sent successfully!");
+        setSuccessMessage('Your message has been sent successfully!');
       } else {
-        setSuccessMessage("Failed to send message. Please try again.");
+        setSuccessMessage('Failed to send message. Please try again.');
       }
     } catch (error) {
-      setSuccessMessage("Failed to send message. Please try again.");
+      setSuccessMessage('Failed to send message. Please try again.');
     } finally {
       setLoading(false);
     }
   };
+
+  const onCaptchaHandle = token => setIsCaptchaVerified(!!token);
 
   return (
     <div className={styles.assistanceForm}>
@@ -70,28 +74,28 @@ const AssistanceForm = ({ type = "default" }) => {
         <div className={styles.full}>
           <input
             type="text"
-            {...register("name")}
+            {...register('name')}
             placeholder="Your Name"
             className={errors.name && styles.invalid}
           />
           {touchedFields.name || errors.name ? (
             <span className={styles.error}>{errors.name?.message}</span>
           ) : (
-            ""
+            ''
           )}
         </div>
 
         <div>
           <input
             type="email"
-            {...register("email")}
+            {...register('email')}
             placeholder="Email"
             className={errors.email && styles.invalid}
           />
           {touchedFields.email || errors.email ? (
             <span className={styles.error}>{errors.email?.message}</span>
           ) : (
-            ""
+            ''
           )}
         </div>
 
@@ -100,40 +104,47 @@ const AssistanceForm = ({ type = "default" }) => {
             country={countryCode}
             className={`${styles.phoneWrap} ${errors.email && styles.invalid}`}
             value={phoneValue}
-            onChange={(phone) =>
-              setValue("phone", phone, {
+            onChange={phone =>
+              setValue('phone', phone, {
                 shouldTouch: true,
                 shouldValidate: true,
               })
             }
             inputProps={{
-              name: "phone",
-              placeholder: "Phone Number",
+              name: 'phone',
+              placeholder: 'Phone Number',
             }}
           />
           {touchedFields.phone || errors.phone ? (
             <span className={styles.error}>{errors.phone?.message}</span>
           ) : (
-            ""
+            ''
           )}
         </div>
 
         <div className={styles.full}>
           <textarea
-            {...register("message")}
+            {...register('message')}
             placeholder="Message"
             className={errors.message && styles.invalid}
           />
           {touchedFields.message || errors.message ? (
             <span className={styles.error}>{errors.message?.message}</span>
           ) : (
-            ""
+            ''
           )}
         </div>
 
-        <input type="hidden" {...register("type")} value={type} />
-
-        <button className={styles.submit} type="submit">
+        <input type="hidden" {...register('type')} value={type} />
+        <ReCaptcha
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+          onChange={onCaptchaHandle}
+        />
+        <button
+          className={styles.submit}
+          type="submit"
+          disabled={!isCaptchaVerified}
+        >
           <span>Send</span>
           <span>
             <ArrowRight />
