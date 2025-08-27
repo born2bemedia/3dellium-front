@@ -1,4 +1,4 @@
-@use "@/styles/mixin.scss" as *;
+@use '@/styles/mixin.scss' as *;
 
 .assistanceForm {
   max-width: rem(655);
@@ -21,6 +21,10 @@
     .submit {
       display: flex;
       margin-left: auto;
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
       span {
         white-space: nowrap;
         &:first-child {
