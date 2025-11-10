@@ -18,8 +18,8 @@ export function ContactInfo() {
             <Link href="mailto:info@3dellora.com">info@3dellora.com</Link>
           </div>
           <div>
-            <h3>Phone:</h3>
-            <Link href="tel:+447401478457">+447401478457</Link>
+          <h3>Phone:</h3>
+            <Link href="tel:+447476957113">+447476957113</Link>
           </div>
           <span className={st.soc}>
             <SocialNetworks />
