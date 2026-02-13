@@ -9,7 +9,8 @@ import Link from "next/link";
 
 const AddToCartButtonLoop = ({ product }) => {
   const { cart, addToCart } = useCartStore();
-  const inCart = cart.some((item) => item.id === product.id);
+  const cartArray = Array.isArray(cart) ? cart : [];
+  const inCart = cartArray.some((item) => item.id === product.id);
   const [isInCart, setIsInCart] = useState(false);
 
   useEffect(() => {

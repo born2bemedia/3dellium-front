@@ -1,10 +1,17 @@
 import { create } from "zustand";
 
+const getInitialCart = () => {
+  if (typeof window === "undefined") return [];
+  try {
+    const stored = JSON.parse(localStorage.getItem("cart"));
+    return Array.isArray(stored) ? stored : [];
+  } catch {
+    return [];
+  }
+};
+
 const useCartStore = create((set, get) => ({
-  cart:
-    typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("cart")) || []
-      : [],
+  cart: getInitialCart(),
   totalAmount:
     typeof window !== "undefined"
       ? JSON.parse(localStorage.getItem("totalAmount")) || 0
